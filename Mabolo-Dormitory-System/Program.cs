@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mabolo_Dormitory_System.Classes;
+using Mabolo_Dormitory_System.Unit_Test_Classes;
 
 namespace Mabolo_Dormitory_System
 {
@@ -14,6 +16,8 @@ namespace Mabolo_Dormitory_System
         [STAThread]
         static void Main()
         {
+            DatabaseManager db = new DatabaseManager();
+            db.RecordAttendance("20-05-00022", 1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
