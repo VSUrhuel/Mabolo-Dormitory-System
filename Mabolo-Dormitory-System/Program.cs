@@ -16,11 +16,11 @@ namespace Mabolo_Dormitory_System
         [STAThread]
         static void Main()
         {
-            DatabaseManager db = new DatabaseManager();
-            db.RecordAttendance("20-05-00022", 1);
+            //DatabaseManager db = new DatabaseManager();
+            //db.RecordAttendance("20-05-00022", 1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Main());
         }
     }
 }

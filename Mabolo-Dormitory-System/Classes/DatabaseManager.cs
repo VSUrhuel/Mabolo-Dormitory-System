@@ -13,7 +13,7 @@ using Mysqlx.Crud;
 namespace Mabolo_Dormitory_System.Classes
 {
     public class DatabaseManager
-    {
+    {   
         MySqlConnection Connection;
         public List<User> Users { get; private set; }
         public List<Department> Departments { get; private set; }
@@ -41,7 +41,6 @@ namespace Mabolo_Dormitory_System.Classes
             try 
             {
                 Connection.Open();
-                MessageBox.Show("Connection Established");
                 return true;
             }
             catch (Exception e) 
