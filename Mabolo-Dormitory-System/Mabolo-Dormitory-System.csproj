@@ -170,6 +170,12 @@
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomAllocation.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="dormersTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dormersTab.Designer.cs">
+      <DependentUpon>dormersTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,15 @@
     <Compile Include="Unit Test Classes\TestRoom.cs" />
     <Compile Include="Unit Test Classes\TestRoomAllocation.cs" />
     <Compile Include="Unit Test Classes\TestUser.cs" />
+    <Compile Include="viewUserCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="viewUserCon.Designer.cs">
+      <DependentUpon>viewUserCon.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="dormersTab.resx">
+      <DependentUpon>dormersTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +219,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="viewUserCon.resx">
+      <DependentUpon>viewUserCon.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -91,6 +91,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+
         public bool AddUser(User user)
         {
             if (EstablishConnection())

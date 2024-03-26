@@ -22,20 +22,29 @@ namespace Mabolo_Dormitory_System
 
         }
 
-        private void gunaButton6_Click(object sender, EventArgs e)
+        private void minimizeButton_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void gunaButton7_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
         private void dormerButton_Click(object sender, EventArgs e)
         {
+            mainPanel.Controls.Clear();
+            var dormers = new dormersTab();
+            mainPanel.Controls.Add(dormers);
+        }
 
-
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(dashboardPanel1);
+            mainPanel.Controls.Add(dashboardPanel2);
+           
         }
     }
 }
