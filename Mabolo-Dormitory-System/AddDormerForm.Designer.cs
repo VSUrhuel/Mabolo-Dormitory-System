@@ -442,6 +442,7 @@
             this.closeViewButton.TabIndex = 72;
             this.closeViewButton.Text = "Close";
             this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
             // 
             // gunaPictureBox1
             // 

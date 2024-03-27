@@ -140,5 +140,10 @@ namespace Mabolo_Dormitory_System
                 }
             }
         }
+
+        private void closeViewButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
