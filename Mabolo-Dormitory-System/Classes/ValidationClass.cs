@@ -39,7 +39,7 @@ namespace Mabolo_Dormitory_System.Classes
         {
             try
             {
-                int.Parse(phoneNumber.Substring(1, 12));
+                long.Parse(phoneNumber.Substring(1, 12));
             }
             catch (Exception)
             {

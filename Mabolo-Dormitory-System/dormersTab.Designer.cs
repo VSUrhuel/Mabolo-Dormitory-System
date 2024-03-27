@@ -35,6 +35,13 @@
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
+            this.itemCB = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.userTypeCB = new Guna.UI.WinForms.GunaComboBox();
+            this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
+            this.searchBut = new Guna.UI.WinForms.GunaButton();
+            this.addDormerButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +78,7 @@
             this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dormerTableView.Location = new System.Drawing.Point(44, 72);
+            this.dormerTableView.Location = new System.Drawing.Point(44, 83);
             this.dormerTableView.Name = "dormerTableView";
             this.dormerTableView.RowHeadersVisible = false;
             this.dormerTableView.RowHeadersWidth = 51;
@@ -123,7 +130,7 @@
             this.refreshBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.refreshBut.Image = ((System.Drawing.Image)(resources.GetObject("refreshBut.Image")));
             this.refreshBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.refreshBut.Location = new System.Drawing.Point(1267, 40);
+            this.refreshBut.Location = new System.Drawing.Point(1268, 42);
             this.refreshBut.Name = "refreshBut";
             this.refreshBut.OnHoverBaseColor = System.Drawing.Color.Black;
             this.refreshBut.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -131,21 +138,166 @@
             this.refreshBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("refreshBut.OnHoverImage")));
             this.refreshBut.OnPressedColor = System.Drawing.Color.Black;
             this.refreshBut.Radius = 9;
-            this.refreshBut.Size = new System.Drawing.Size(40, 26);
+            this.refreshBut.Size = new System.Drawing.Size(39, 36);
             this.refreshBut.TabIndex = 2;
             this.refreshBut.Text = "Refresh";
             this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
+            // 
+            // itemCB
+            // 
+            this.itemCB.BackColor = System.Drawing.Color.Transparent;
+            this.itemCB.BaseColor = System.Drawing.Color.White;
+            this.itemCB.BorderColor = System.Drawing.Color.Silver;
+            this.itemCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.itemCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemCB.ForeColor = System.Drawing.Color.Black;
+            this.itemCB.FormattingEnabled = true;
+            this.itemCB.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60"});
+            this.itemCB.Location = new System.Drawing.Point(1210, 46);
+            this.itemCB.Name = "itemCB";
+            this.itemCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
+            this.itemCB.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.itemCB.Radius = 9;
+            this.itemCB.Size = new System.Drawing.Size(52, 33);
+            this.itemCB.TabIndex = 3;
+            this.itemCB.SelectedIndexChanged += new System.EventHandler(this.itemCB_SelectedIndexChanged);
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(1156, 52);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(64, 23);
+            this.gunaLabel1.TabIndex = 4;
+            this.gunaLabel1.Text = "View:";
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(797, 52);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(107, 23);
+            this.gunaLabel2.TabIndex = 6;
+            this.gunaLabel2.Text = "User Type:";
+            // 
+            // userTypeCB
+            // 
+            this.userTypeCB.BackColor = System.Drawing.Color.Transparent;
+            this.userTypeCB.BaseColor = System.Drawing.Color.White;
+            this.userTypeCB.BorderColor = System.Drawing.Color.Silver;
+            this.userTypeCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.userTypeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.userTypeCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeCB.ForeColor = System.Drawing.Color.Black;
+            this.userTypeCB.FormattingEnabled = true;
+            this.userTypeCB.Items.AddRange(new object[] {
+            "Regular Dormer",
+            "Big Brod",
+            "Student Assistant",
+            "Assistant Dorm Adviser",
+            "Dorm Adviser",
+            "All"});
+            this.userTypeCB.Location = new System.Drawing.Point(889, 46);
+            this.userTypeCB.Name = "userTypeCB";
+            this.userTypeCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
+            this.userTypeCB.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.userTypeCB.Radius = 9;
+            this.userTypeCB.Size = new System.Drawing.Size(239, 33);
+            this.userTypeCB.TabIndex = 5;
+            this.userTypeCB.SelectedIndexChanged += new System.EventHandler(this.userTypeCB_SelectedIndexChanged);
+            // 
+            // searchBar
+            // 
+            this.searchBar.BackColor = System.Drawing.Color.White;
+            this.searchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchBar.FocusedLineColor = System.Drawing.Color.ForestGreen;
+            this.searchBar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.searchBar.LineSize = 2;
+            this.searchBar.Location = new System.Drawing.Point(47, 41);
+            this.searchBar.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.PasswordChar = '\0';
+            this.searchBar.Size = new System.Drawing.Size(211, 35);
+            this.searchBar.TabIndex = 0;
+            this.searchBar.Text = "Search...";
+            this.searchBar.TextOffsetX = 10;
+            this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
+            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
+            this.searchBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBar_MouseClick);
+            // 
+            // searchBut
+            // 
+            this.searchBut.AnimationHoverSpeed = 0.07F;
+            this.searchBut.AnimationSpeed = 0.03F;
+            this.searchBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.searchBut.BorderColor = System.Drawing.Color.Black;
+            this.searchBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchBut.ForeColor = System.Drawing.Color.White;
+            this.searchBut.Image = ((System.Drawing.Image)(resources.GetObject("searchBut.Image")));
+            this.searchBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.searchBut.Location = new System.Drawing.Point(217, 42);
+            this.searchBut.Name = "searchBut";
+            this.searchBut.OnHoverBaseColor = System.Drawing.Color.SeaGreen;
+            this.searchBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.searchBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.searchBut.OnHoverImage = null;
+            this.searchBut.OnPressedColor = System.Drawing.Color.Black;
+            this.searchBut.Size = new System.Drawing.Size(41, 36);
+            this.searchBut.TabIndex = 7;
+            this.searchBut.Click += new System.EventHandler(this.searchBut_Click);
+            // 
+            // addDormerButton
+            // 
+            this.addDormerButton.AnimationHoverSpeed = 0.07F;
+            this.addDormerButton.AnimationSpeed = 0.03F;
+            this.addDormerButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.addDormerButton.BorderColor = System.Drawing.Color.White;
+            this.addDormerButton.BorderSize = 2;
+            this.addDormerButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addDormerButton.ForeColor = System.Drawing.Color.White;
+            this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
+            this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.addDormerButton.Location = new System.Drawing.Point(1084, 3);
+            this.addDormerButton.Name = "addDormerButton";
+            this.addDormerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.addDormerButton.OnHoverBorderColor = System.Drawing.Color.White;
+            this.addDormerButton.OnHoverForeColor = System.Drawing.Color.Black;
+            this.addDormerButton.OnHoverImage = null;
+            this.addDormerButton.OnPressedColor = System.Drawing.Color.Black;
+            this.addDormerButton.Radius = 9;
+            this.addDormerButton.Size = new System.Drawing.Size(219, 36);
+            this.addDormerButton.TabIndex = 8;
+            this.addDormerButton.Text = "Add New Dormer";
+            this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
             // 
             // dormersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.addDormerButton);
+            this.Controls.Add(this.searchBut);
+            this.Controls.Add(this.searchBar);
+            this.Controls.Add(this.gunaLabel2);
+            this.Controls.Add(this.userTypeCB);
+            this.Controls.Add(this.gunaLabel1);
+            this.Controls.Add(this.itemCB);
             this.Controls.Add(this.refreshBut);
             this.Controls.Add(this.dormerTableView);
             this.Name = "dormersTab";
-            this.Size = new System.Drawing.Size(1380, 800);
+            this.Size = new System.Drawing.Size(1380, 810);
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,5 +305,12 @@
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private Guna.UI.WinForms.GunaButton refreshBut;
+        private Guna.UI.WinForms.GunaComboBox itemCB;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI.WinForms.GunaComboBox userTypeCB;
+        private Guna.UI.WinForms.GunaLineTextBox searchBar;
+        private Guna.UI.WinForms.GunaButton searchBut;
+        private Guna.UI.WinForms.GunaButton addDormerButton;
     }
 }

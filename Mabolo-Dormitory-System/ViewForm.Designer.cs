@@ -495,7 +495,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewForm";
             this.Text = "ViewForm";
-            this.Load += new System.EventHandler(this.ViewForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

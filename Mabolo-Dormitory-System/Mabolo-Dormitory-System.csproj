@@ -162,6 +162,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDormerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDormerForm.Designer.cs">
+      <DependentUpon>AddDormerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Event.cs" />
@@ -211,6 +217,9 @@
     <Compile Include="ViewForm.Designer.cs">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDormerForm.resx">
+      <DependentUpon>AddDormerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </EmbeddedResource>

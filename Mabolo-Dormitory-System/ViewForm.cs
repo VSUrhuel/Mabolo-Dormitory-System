@@ -13,6 +13,8 @@ namespace Mabolo_Dormitory_System
 {
     public partial class ViewForm : Form
     {
+        private bool mouseDown;
+        private Point lastLocation;
         DatabaseManager db = new DatabaseManager();
         public ViewForm()
         {
@@ -49,9 +51,27 @@ namespace Mabolo_Dormitory_System
             data13.Text = (DateTime.Now.Year - user.Birthday.Year).ToString();
 
         }
-        private void ViewForm_Load(object sender, EventArgs e)
+     
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
 
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

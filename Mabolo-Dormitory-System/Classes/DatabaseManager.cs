@@ -154,6 +154,26 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+        public User GetUser(String userId)
+        {
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.user WHERE UserId = @UserId";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                User user = null;
+                while (reader.Read())
+                {
+                    user = new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]);
+                }
+                reader.Close();
+                return user;
+            }
+            return null;
+        }
         public bool DeleteUser(String userId)
         {
             Users = GetAllUsers();

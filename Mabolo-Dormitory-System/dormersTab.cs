@@ -26,7 +26,7 @@ namespace Mabolo_Dormitory_System
 
            
         }
-        public void RefreshTable()
+        public void RefreshTable(int n = 60)
         {
             if (dormerTableView.Columns.Contains("Action"))
             {
@@ -34,7 +34,14 @@ namespace Mabolo_Dormitory_System
                 dormerTableView.Columns.Remove("Action");
             }
             dormerTableView.DataSource = null;
-            dormerTableView.DataSource = db.GetAllUsers();
+            //users = db.GetAllUsers();
+            List<User> u2 = null;
+            if(n == 60)
+                u2 = users.GetRange(0, users.Count);
+            else
+                u2 = users.GetRange(0, n);
+           // u2.Sort((y, x) => x.UserId.CompareTo(y.UserId));
+            dormerTableView.DataSource = u2;
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
             dormerTableView.DefaultCellStyle.ForeColor = Color.Black;
             dormerTableView.AllowUserToResizeRows = false;
@@ -137,6 +144,108 @@ namespace Mabolo_Dormitory_System
             users = db.GetAllUsers();
             
             RefreshTable();
+        }
+
+        private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = Convert.ToInt32(itemCB.SelectedItem.ToString());
+            if(index > users.Count)
+            {
+                RefreshTable();
+            }
+            else
+                RefreshTable(index);
+        }
+
+        private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            itemCB.Text = "60";
+            String userType = userTypeCB.SelectedItem.ToString();
+            if(userType == "All")
+            {
+                users = db.GetAllUsers();
+                RefreshTable();
+            }
+            else
+            {
+                users = db.GetAllUsers();
+                List<User> u2 = users.Select(u => u).ToList();
+                
+                users.Clear();
+                foreach(User u in u2)
+                {
+                    if(u.UserType == userType)
+                    {
+                        users.Add(u);
+                    }
+                }
+                if(users.Count == 0)
+                {
+                    MessageBox.Show("No " + userType + " found");
+                    users = db.GetAllUsers();
+                    RefreshTable();
+                }
+                else
+                    RefreshTable();
+            }
+        }
+
+       
+       
+
+        private void searchBar_MouseClick(object sender, MouseEventArgs e)
+        {
+            searchBar.Text = "";
+            
+        }
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "Search")
+            {
+                searchBar.Text = "";
+                return;
+            }
+        }
+
+        private void searchBar_Click(object sender, EventArgs e)
+        {
+            searchBar.Text = "";
+        }
+
+        private void searchBut_Click(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "" || searchBar.Text == "Search...")
+            {
+                MessageBox.Show("Please enter a User ID to search");
+                searchBar.Text = "";
+                return;
+            }
+           
+            String userId = searchBar.Text;
+            users = db.GetAllUsers();
+            List<User> u2 = users.Select(u => u).ToList();
+            users.Clear();
+            foreach(User u in u2)
+            {
+                if(u.UserId.Contains(userId))
+                {
+                    users.Add(u);
+                }
+            }
+            if(users.Count == 0)
+            {
+                MessageBox.Show("No user with the ID " + userId + " found");
+                users = db.GetAllUsers();
+            }
+            RefreshTable();
+        }
+
+        private void addDormerButton_Click(object sender, EventArgs e)
+        {
+            AddDormerForm addDormerForm = new AddDormerForm();
+            SetFormLocation(addDormerForm);
+            addDormerForm.Show();
         }
     }
 }
