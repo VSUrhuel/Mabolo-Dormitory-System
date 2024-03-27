@@ -39,6 +39,7 @@ namespace Mabolo_Dormitory_System
             data9.Text = user.UserType;
             Department department = db.GetUserDepartment(user.UserId);
             data10.Text = department.DepartmentName;
+           
             data11.Text = department.CollegeName;
             Room r = db.GetUserRoom(user.UserId);
             if(r != null)

@@ -31,8 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dormersTab));
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.refreshBut = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,10 +111,36 @@
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // refreshBut
+            // 
+            this.refreshBut.AnimationHoverSpeed = 0.07F;
+            this.refreshBut.AnimationSpeed = 0.03F;
+            this.refreshBut.BackColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BaseColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BorderColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BorderSize = 1;
+            this.refreshBut.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.refreshBut.Image = ((System.Drawing.Image)(resources.GetObject("refreshBut.Image")));
+            this.refreshBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.refreshBut.Location = new System.Drawing.Point(1267, 40);
+            this.refreshBut.Name = "refreshBut";
+            this.refreshBut.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.refreshBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.refreshBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.refreshBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("refreshBut.OnHoverImage")));
+            this.refreshBut.OnPressedColor = System.Drawing.Color.Black;
+            this.refreshBut.Radius = 9;
+            this.refreshBut.Size = new System.Drawing.Size(40, 26);
+            this.refreshBut.TabIndex = 2;
+            this.refreshBut.Text = "Refresh";
+            this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
+            // 
             // dormersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.refreshBut);
             this.Controls.Add(this.dormerTableView);
             this.Name = "dormersTab";
             this.Size = new System.Drawing.Size(1380, 800);
@@ -124,5 +152,6 @@
         #endregion
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private Guna.UI.WinForms.GunaButton refreshBut;
     }
 }

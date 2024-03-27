@@ -32,14 +32,12 @@
             this.closeViewButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.data2 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.data3 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.data13 = new Guna.UI.WinForms.GunaLineTextBox();
             this.data4 = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.data6 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
@@ -51,16 +49,18 @@
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
             this.data1 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
-            this.data10 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
-            this.data11 = new Guna.UI.WinForms.GunaLineTextBox();
             this.data12 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.data8 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
             this.data9 = new Guna.UI.WinForms.GunaLineTextBox();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.data10 = new Guna.UI.WinForms.GunaLineTextBox();
+            this.data11 = new Guna.UI.WinForms.GunaLineTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,20 +109,11 @@
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(35, 83);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(116, 23);
-            this.gunaLabel2.TabIndex = 3;
-            this.gunaLabel2.Text = "First Name:";
-            // 
             // data2
             // 
             this.data2.BackColor = System.Drawing.Color.White;
             this.data2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.data2.Enabled = false;
             this.data2.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data2.LineColor = System.Drawing.Color.Gainsboro;
@@ -147,6 +138,7 @@
             // 
             this.data3.BackColor = System.Drawing.Color.White;
             this.data3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.data3.Enabled = false;
             this.data3.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data3.LineColor = System.Drawing.Color.Gainsboro;
@@ -194,16 +186,6 @@
             this.data4.ReadOnly = true;
             this.data4.Size = new System.Drawing.Size(226, 33);
             this.data4.TabIndex = 10;
-            // 
-            // gunaLabel5
-            // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel5.Location = new System.Drawing.Point(35, 135);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(93, 23);
-            this.gunaLabel5.TabIndex = 9;
-            this.gunaLabel5.Text = "Birthday:";
             // 
             // gunaLabel6
             // 
@@ -332,20 +314,6 @@
             this.gunaLabel12.TabIndex = 21;
             this.gunaLabel12.Text = "Represents either Student ID or Employee ID";
             // 
-            // data10
-            // 
-            this.data10.BackColor = System.Drawing.Color.White;
-            this.data10.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.data10.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.data10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.data10.LineColor = System.Drawing.Color.Gainsboro;
-            this.data10.Location = new System.Drawing.Point(183, 470);
-            this.data10.Name = "data10";
-            this.data10.PasswordChar = '\0';
-            this.data10.ReadOnly = true;
-            this.data10.Size = new System.Drawing.Size(640, 33);
-            this.data10.TabIndex = 23;
-            // 
             // gunaLabel13
             // 
             this.gunaLabel13.AutoSize = true;
@@ -365,20 +333,6 @@
             this.gunaLabel14.Size = new System.Drawing.Size(93, 23);
             this.gunaLabel14.TabIndex = 24;
             this.gunaLabel14.Text = "College:";
-            // 
-            // data11
-            // 
-            this.data11.BackColor = System.Drawing.Color.White;
-            this.data11.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.data11.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.data11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.data11.LineColor = System.Drawing.Color.Gainsboro;
-            this.data11.Location = new System.Drawing.Point(136, 511);
-            this.data11.Name = "data11";
-            this.data11.PasswordChar = '\0';
-            this.data11.ReadOnly = true;
-            this.data11.Size = new System.Drawing.Size(687, 33);
-            this.data11.TabIndex = 25;
             // 
             // data12
             // 
@@ -452,6 +406,54 @@
             this.data9.Size = new System.Drawing.Size(268, 33);
             this.data9.TabIndex = 31;
             // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(35, 83);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(116, 23);
+            this.gunaLabel2.TabIndex = 3;
+            this.gunaLabel2.Text = "First Name:";
+            // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel5.Location = new System.Drawing.Point(35, 135);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(93, 23);
+            this.gunaLabel5.TabIndex = 9;
+            this.gunaLabel5.Text = "Birthday:";
+            // 
+            // data10
+            // 
+            this.data10.BackColor = System.Drawing.Color.White;
+            this.data10.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.data10.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.data10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.data10.LineColor = System.Drawing.Color.Gainsboro;
+            this.data10.Location = new System.Drawing.Point(183, 470);
+            this.data10.Name = "data10";
+            this.data10.PasswordChar = '\0';
+            this.data10.ReadOnly = true;
+            this.data10.Size = new System.Drawing.Size(640, 33);
+            this.data10.TabIndex = 23;
+            // 
+            // data11
+            // 
+            this.data11.BackColor = System.Drawing.Color.White;
+            this.data11.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.data11.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.data11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.data11.LineColor = System.Drawing.Color.Gainsboro;
+            this.data11.Location = new System.Drawing.Point(136, 511);
+            this.data11.Name = "data11";
+            this.data11.PasswordChar = '\0';
+            this.data11.ReadOnly = true;
+            this.data11.Size = new System.Drawing.Size(687, 33);
+            this.data11.TabIndex = 25;
+            // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -505,14 +507,12 @@
         private Guna.UI.WinForms.GunaButton closeViewButton;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLineTextBox data2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLineTextBox data3;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaLineTextBox data13;
         private Guna.UI.WinForms.GunaLineTextBox data4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private Guna.UI.WinForms.GunaLineTextBox data6;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
@@ -524,15 +524,17 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
         private Guna.UI.WinForms.GunaLineTextBox data1;
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
-        private Guna.UI.WinForms.GunaLineTextBox data10;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
-        private Guna.UI.WinForms.GunaLineTextBox data11;
         private Guna.UI.WinForms.GunaLineTextBox data12;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaLineTextBox data8;
         private Guna.UI.WinForms.GunaLabel gunaLabel17;
         private Guna.UI.WinForms.GunaLineTextBox data9;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel5;
+        private Guna.UI.WinForms.GunaLineTextBox data10;
+        private Guna.UI.WinForms.GunaLineTextBox data11;
     }
 }

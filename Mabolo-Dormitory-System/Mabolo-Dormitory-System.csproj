@@ -170,6 +170,7 @@
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomAllocation.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\ValidationClass.cs" />
     <Compile Include="dormersTab.cs">
       <SubType>UserControl</SubType>
     </Compile>

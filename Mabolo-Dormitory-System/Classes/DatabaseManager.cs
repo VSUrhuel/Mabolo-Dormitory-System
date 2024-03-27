@@ -260,6 +260,10 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if(roomId < 0 || roomId > 9)
                 throw new ArgumentException("Invalid Room Id");
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if(UserAllocated(userId))
+                return false;
             Rooms = GetAllRooms();
             if (!Rooms[roomId - 1].CanIncreaseOccupancy(1) || UserAllocated(userId))
                 return false;
@@ -278,6 +282,25 @@ namespace Mabolo_Dormitory_System.Classes
                
                 command.ExecuteNonQuery();
                 return true;
+            }
+            return false;
+        }
+        public bool UserHasRoom(String userId)
+        {
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return true;
+                }
+                reader.Close();
+                return false;
             }
             return false;
         }
@@ -303,6 +326,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+        
         public bool RemoveUserInRoom(int roomId, String userId)
         {
             if (!UserAllocated(userId) || (roomId < 0 || roomId > 9))
@@ -318,6 +342,24 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+
+        public List<Department> GetAllDepartments()
+        {
+            Departments.Clear();
+            if (EstablishConnection())
+            {
+                string sql = "SELECT * FROM system.department;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Departments.Add(new Department((int)reader["DepartmentId"], (string)reader["DepartmentName"], (string)reader["CollegeName"]));
+                }
+                reader.Close();
+                return Departments;
+            }
+            return null;
+        }   
 
         public Room GetUserRoom(String userId)
         {
