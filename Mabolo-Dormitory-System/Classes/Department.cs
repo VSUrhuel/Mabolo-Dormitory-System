@@ -27,9 +27,9 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentOutOfRangeException();
             if (departmentName == null || collegeName == null)
                 throw new ArgumentNullException();
-            if (departmentName == "" || departmentName == "  " || departmentName.Length > 45)
+            if (departmentName == "" || departmentName == "  " || departmentName.Length > 100)
                 throw new ArgumentException();
-            if (collegeName == "" || collegeName == "  " || collegeName.Length > 45)
+            if (collegeName == "" || collegeName == "  " || collegeName.Length > 100)
                 throw new ArgumentException();
         }
 

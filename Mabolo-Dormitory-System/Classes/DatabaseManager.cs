@@ -319,6 +319,29 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
 
+        public Room GetUserRoom(String userId)
+        {
+            Room r = null;
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.room WHERE RoomId = (SELECT FK_RoomId_RoomAllocation FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation)";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    r = new Room((int)reader["RoomId"], (int)reader["LevelNumber"], (int)reader["MaximumCapacity"], (int)reader["CurrNumOfOccupants"]);
+                    
+                }
+                reader.Close();
+               
+                return r;
+            }
+            return null;
+        }
+
         // Events
         public List<Event> GetAllEvents()
         {
@@ -434,6 +457,27 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
 
+        // Department
+        public Department GetUserDepartment(String userId)
+        {
+            Department d = null;
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.department WHERE DepartmentId = (SELECT FK_DepartmentId FROM system.user WHERE UserId = @UserId)";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    d = new Department((int)reader["DepartmentId"], (string)reader["DepartmentName"], (string)reader["CollegeName"]);
+                }
+                reader.Close();
+                return d;
+            }
+            return null;
+        }
         // Event Attendance
         public List<EventAttendance> GetEventAttendances()
         {

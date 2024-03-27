@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Mabolo_Dormitory_System
 {
-    public partial class viewUserCon : UserControl
+    public partial class UpdateForm : Form
     {
-        public viewUserCon()
+        public UpdateForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }

@@ -198,11 +198,17 @@
     <Compile Include="Unit Test Classes\TestRoom.cs" />
     <Compile Include="Unit Test Classes\TestRoomAllocation.cs" />
     <Compile Include="Unit Test Classes\TestUser.cs" />
-    <Compile Include="viewUserCon.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UpdateForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="viewUserCon.Designer.cs">
-      <DependentUpon>viewUserCon.cs</DependentUpon>
+    <Compile Include="UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm.Designer.cs">
+      <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
@@ -219,8 +225,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="viewUserCon.resx">
-      <DependentUpon>viewUserCon.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateForm.resx">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm.resx">
+      <DependentUpon>ViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

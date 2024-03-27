@@ -15,10 +15,11 @@ namespace Mabolo_Dormitory_System
     public partial class dormersTab : UserControl
     {
         DatabaseManager db = new DatabaseManager();
+        List<User> users;
         public dormersTab()
         {
             InitializeComponent();
-            List<User> users = new List<User>();    
+            users = new List<User>();    
             users = db.GetAllUsers();
            
             dormerTableView.DataSource = users;
@@ -71,21 +72,30 @@ namespace Mabolo_Dormitory_System
             ComboBox cb = (ComboBox)sender;
             if (cb.SelectedItem != null)
             {
-                int i = dormerTableView.CurrentRow.Index;
-                //MessageBox.Show(cb.SelectedItem.ToString() + " " + i);
+                int i = dormerTableView.CurrentRow.Index; 
                 if(cb.SelectedItem.ToString() == "Update")
                 {
-                    
+                    MessageBox.Show("Updated");
                 }
                 else if(cb.SelectedItem.ToString() == "View")
                 {
-                    MessageBox.Show("View");
+                    ViewForm viewForm = new ViewForm();
+                    SetFormLocation(viewForm);
+                    viewForm.SetInformation(users, i);
+                    viewForm.Show();
                 }
                 else if(cb.SelectedItem.ToString() == "Delete")
                 {
                     MessageBox.Show("Delete");
                 }   
             }
+        }
+        private void SetFormLocation(Form form)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
+            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
+            form.Location = new Point(x, y);
         }
         
 
