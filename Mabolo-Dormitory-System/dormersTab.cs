@@ -247,5 +247,50 @@ namespace Mabolo_Dormitory_System
             SetFormLocation(addDormerForm);
             addDormerForm.Show();
         }
+
+        private void deleteBut_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxColumn checkBoxColumn = (DataGridViewCheckBoxColumn)dormerTableView.Columns["Column1"];
+            bool isChecked = false;
+            for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = dormerTableView.Rows[i];
+                if (Convert.ToBoolean(row.Cells["Column1"].Value))
+                {
+                    isChecked = true;
+                    db.DeleteUser((row.Cells["UserId"].Value.ToString()));
+                }
+            }
+            if(!isChecked)
+            {
+                MessageBox.Show("Please select a row(s) to delete");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Selected rows were deleted");
+                RefreshTable();
+            }
+        }
+
+        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectAllCB.Checked)
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Column1"].Value = true;
+                }
+            }
+            else
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Column1"].Value = false;
+                }
+            }
+        }
     }
 }

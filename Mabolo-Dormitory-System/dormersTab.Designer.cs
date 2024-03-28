@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dormersTab));
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -42,6 +42,9 @@
             this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
             this.searchBut = new Guna.UI.WinForms.GunaButton();
             this.addDormerButton = new Guna.UI.WinForms.GunaButton();
+            this.deleteBut = new Guna.UI.WinForms.GunaButton();
+            this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,32 +53,32 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle9;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(44, 83);
@@ -280,10 +283,62 @@
             this.addDormerButton.Text = "Add New Dormer";
             this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
             // 
+            // deleteBut
+            // 
+            this.deleteBut.AnimationHoverSpeed = 0.07F;
+            this.deleteBut.AnimationSpeed = 0.03F;
+            this.deleteBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.deleteBut.BorderColor = System.Drawing.Color.White;
+            this.deleteBut.BorderSize = 2;
+            this.deleteBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBut.ForeColor = System.Drawing.Color.White;
+            this.deleteBut.Image = ((System.Drawing.Image)(resources.GetObject("deleteBut.Image")));
+            this.deleteBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.deleteBut.Location = new System.Drawing.Point(1179, 626);
+            this.deleteBut.Name = "deleteBut";
+            this.deleteBut.OnHoverBaseColor = System.Drawing.Color.IndianRed;
+            this.deleteBut.OnHoverBorderColor = System.Drawing.Color.White;
+            this.deleteBut.OnHoverForeColor = System.Drawing.Color.Black;
+            this.deleteBut.OnHoverImage = null;
+            this.deleteBut.OnPressedColor = System.Drawing.Color.Black;
+            this.deleteBut.Radius = 9;
+            this.deleteBut.Size = new System.Drawing.Size(128, 32);
+            this.deleteBut.TabIndex = 9;
+            this.deleteBut.Text = "Delete";
+            this.deleteBut.Click += new System.EventHandler(this.deleteBut_Click);
+            // 
+            // selectAllCB
+            // 
+            this.selectAllCB.BaseColor = System.Drawing.Color.White;
+            this.selectAllCB.CheckedOffColor = System.Drawing.Color.Gray;
+            this.selectAllCB.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.selectAllCB.FillColor = System.Drawing.Color.White;
+            this.selectAllCB.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.selectAllCB.Location = new System.Drawing.Point(55, 630);
+            this.selectAllCB.Name = "selectAllCB";
+            this.selectAllCB.Size = new System.Drawing.Size(114, 26);
+            this.selectAllCB.TabIndex = 10;
+            this.selectAllCB.Text = "Select All";
+            this.selectAllCB.CheckedChanged += new System.EventHandler(this.selectAllCB_CheckedChanged);
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Location = new System.Drawing.Point(51, 3);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(318, 23);
+            this.gunaLabel3.TabIndex = 11;
+            this.gunaLabel3.Text = "A.Y. 2023 - 2024 | 2nd Semester";
+            // 
             // dormersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gunaLabel3);
+            this.Controls.Add(this.selectAllCB);
+            this.Controls.Add(this.deleteBut);
             this.Controls.Add(this.addDormerButton);
             this.Controls.Add(this.searchBut);
             this.Controls.Add(this.searchBar);
@@ -303,7 +358,6 @@
 
         #endregion
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private Guna.UI.WinForms.GunaButton refreshBut;
         private Guna.UI.WinForms.GunaComboBox itemCB;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
@@ -312,5 +366,9 @@
         private Guna.UI.WinForms.GunaLineTextBox searchBar;
         private Guna.UI.WinForms.GunaButton searchBut;
         private Guna.UI.WinForms.GunaButton addDormerButton;
+        private Guna.UI.WinForms.GunaButton deleteBut;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private Guna.UI.WinForms.GunaCheckBox selectAllCB;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
     }
 }
