@@ -145,22 +145,13 @@
             this.roomChooseCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomChooseCB.ForeColor = System.Drawing.Color.Black;
             this.roomChooseCB.FormattingEnabled = true;
-            this.roomChooseCB.Items.AddRange(new object[] {
-            "Room 1",
-            "Room 2",
-            "Room 3",
-            "Room 4",
-            "Room 5",
-            "Room 6",
-            "Room 7",
-            "Room 8",
-            "Room 9"});
             this.roomChooseCB.Location = new System.Drawing.Point(134, 127);
             this.roomChooseCB.Name = "roomChooseCB";
             this.roomChooseCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.roomChooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
             this.roomChooseCB.Size = new System.Drawing.Size(211, 33);
             this.roomChooseCB.TabIndex = 75;
+            this.roomChooseCB.SelectedIndexChanged += new System.EventHandler(this.roomChooseCB_SelectedIndexChanged);
             // 
             // EditForm
             // 

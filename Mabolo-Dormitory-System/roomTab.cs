@@ -18,12 +18,12 @@ namespace Mabolo_Dormitory_System
         private int roomNum = 0;
         private DatabaseManager db;
         private List<User> users;
-        
-        public roomTab()
+        private Form form;
+        public roomTab(Form form)
         {
             db = new DatabaseManager();
             InitializeComponent();
-
+            this.form = form;
             // Set up Room Choose ComboBox
             for (int i = 1; i < 10; i++)
                 roomChooseCB.Items.Add("Room " + i);
@@ -107,6 +107,7 @@ namespace Mabolo_Dormitory_System
                     UpdateForm update = new UpdateForm();
                     SetFormLocation(update);
                     update.SetInformation(users, i);
+                    update.Owner = form;
                     update.Show();
                 }
                 else if (cb.SelectedItem.ToString() == "View")
@@ -114,6 +115,7 @@ namespace Mabolo_Dormitory_System
                     ViewForm viewForm = new ViewForm();
                     SetFormLocation(viewForm);
                     viewForm.SetInformation(users, i);
+                    viewForm.Owner = form;
                     viewForm.Show();
                 }
             }
@@ -147,11 +149,18 @@ namespace Mabolo_Dormitory_System
         {
             if(roomNum == 0)
             {
-                MessageBox.Show("Please select a room first");
+                MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
                 return;
             }
-            AddRoomAllocation add = new AddRoomAllocation(roomNum, "Big Brod");
+            if(!db.GetRoom(roomNum).CanIncreaseOccupancy(1))
+            { 
+                MessageBox.Show("Maximum room capacity reached.\nPlease try another room.");
+                return;
+            }
+ 
+            AddRoomAllocation add = new AddRoomAllocation(roomNum);
             SetFormLocation(add);
+            add.Owner = form;
             add.Show();
             
         }
@@ -164,29 +173,30 @@ namespace Mabolo_Dormitory_System
         private void delBut_Click(object sender, EventArgs e)
         {
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
-            bool isChecked = false;    
+            bool isChecked = false, hasChecked = false;    
             foreach (DataGridViewRow row in roomUserView.Rows)
             {
                 if (row.Cells["Column1"].Value != null && Convert.ToBoolean(row.Cells["Column1"].Value))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the selected rows?\nThis action cannot be undone!", "Delete", messageBoxButtons);
+                    hasChecked = true;
+                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Remove user from room?", "Delete", messageBoxButtons);
                     if (dialogResult == DialogResult.Yes)
                     {
                         isChecked = true;
-
                         db.DeleteUser(row.Cells["UserId"].Value.ToString());
                         roomUserView.Rows.Remove(row);
                     }
                     else
-                    {
-                        MessageBox.Show("Selected row(s) not deleted");
-                        break;
-                    }
+                        return;
                 }
             }
+            if (!hasChecked)
+            {
+                MessageBox.Show("No rows selected for deletion.");
+                return;
+            }
             if (!isChecked)
-                MessageBox.Show("Please select a row(s) to delete");
-            
+                MessageBox.Show("Deletion cancelled.");
             else
                 MessageBox.Show("Selected row(s) deleted successfully");
             
@@ -209,11 +219,12 @@ namespace Mabolo_Dormitory_System
         {
             if(roomNum == 0)
             {
-                MessageBox.Show("Please select a room first");
+                MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
                 return;
             }
             var EditForm = new EditForm(roomNum);
             SetFormLocation(EditForm);
+            EditForm.Owner = form; 
             EditForm.Show();
         }
 

@@ -102,6 +102,7 @@
             this.passwordText.PasswordChar = '\0';
             this.passwordText.Size = new System.Drawing.Size(379, 35);
             this.passwordText.TabIndex = 80;
+            this.passwordText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordText_KeyPress);
             this.passwordText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordText_MouseClick);
             // 
             // gunaLabel2
@@ -195,6 +196,7 @@
             this.Controls.Add(this.passwordText);
             this.Controls.Add(this.gunaLabel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "ResetPassword";
             this.Text = "ResetPassword";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);

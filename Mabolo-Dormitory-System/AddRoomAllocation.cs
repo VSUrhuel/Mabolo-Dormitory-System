@@ -17,15 +17,10 @@ namespace Mabolo_Dormitory_System
         private bool mouseDown;
         private DatabaseManager db;
         private int roomNUm = 0;
-        public AddRoomAllocation(int n, String userType)
+        public AddRoomAllocation(int n)
         {
             InitializeComponent();
             db = new DatabaseManager();
-            List<User> users = db.GetTypeOfUser(userType);
-            foreach (User user in users)
-            {
-                chooseCB.Items.Add(user.UserId + ": " + user.FirstName + " " + user.LastName);
-            }
             roomNUm = n;
         }
 
@@ -44,7 +39,7 @@ namespace Mabolo_Dormitory_System
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
             if(db.GetUser(text).UserType == "Big Brod" && db.RoomHasBigBrod(roomNUm))
             {
-                MessageBox.Show("Room has already a Big Brod.");
+                MessageBox.Show("This room already has a Big Brod assigned.");
                 return;
             }
             if(db.AddUserInRoom(roomNUm, text))
@@ -54,7 +49,12 @@ namespace Mabolo_Dormitory_System
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             String text = userTypeCB.SelectedItem.ToString();
-            List<User> users = db.GetTypeOfUser(text);
+            List<User> users = db.GetUsersTypeWithoutRoom(text);
+            if(users == null)
+            {
+                MessageBox.Show("All users of this type are already assigned a room.");
+                return;
+            }
             chooseCB.Items.Clear();
             foreach (User user in users)
                 chooseCB.Items.Add(user.UserId + ": " + user.FirstName + " " + user.LastName);

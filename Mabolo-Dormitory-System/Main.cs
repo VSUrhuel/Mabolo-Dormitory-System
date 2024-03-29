@@ -8,16 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Mabolo_Dormitory_System
 {
     public partial class Main : Form
     {
         private DatabaseManager db = null;
-        public Main()
+        public Main(String email)
         {
             db = new DatabaseManager();
+            String text = db.GetUserNameOfAdmin(email);
             InitializeComponent();
+            username.Text = text;
             UpdateInformation();
         }
         private void UpdateInformation()
@@ -54,7 +57,7 @@ namespace Mabolo_Dormitory_System
         private void dormerButton_Click(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
-            var dormers = new dormersTab();
+            var dormers = new dormersTab(this);
             mainPanel.Controls.Add(dormers);
         }
 
@@ -70,11 +73,11 @@ namespace Mabolo_Dormitory_System
         private void roomButton_Click(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
-            roomTab room = new roomTab();
+            roomTab room = new roomTab(this);
             mainPanel.Controls.Add(room);
         }
 
-        private void gunaButton11_Click(object sender, EventArgs e)
+        private void logoutBut_Click(object sender, EventArgs e)
         {            
             SignIn signIn = new SignIn();
             signIn.Show();

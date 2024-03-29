@@ -100,5 +100,17 @@ namespace Mabolo_Dormitory_System
             mouseDown = false;
         }
 
+        private void passwordText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                verifyViewButton_Click(sender, e);
+            }
+            if(ValidationClass.ValidatePassword(passwordText.Text))
+            {
+                passReview.Text = "Password is strong.";
+                passReview2.Text = "";
+            }
+        }
     }
 }

@@ -21,6 +21,11 @@ namespace Mabolo_Dormitory_System
         public EditForm(int roomNum)
         {
             InitializeComponent();
+            for(int i=1; i<10; i++)
+            {
+                if(i!= roomNum)
+                    roomChooseCB.Items.Add("Room " + i);
+            }
             db = new DatabaseManager();
             this.roomNum = roomNum;
             users = db.GetUsersInRoom(roomNum);
@@ -69,6 +74,11 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void roomChooseCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

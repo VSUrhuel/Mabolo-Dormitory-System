@@ -23,8 +23,6 @@ namespace Mabolo_Dormitory_System
         public SignIn()
         {
             db = new DatabaseManager();
-            main = new Main();
-            main.Hide();
             InitializeComponent();
             hideViewBut.Visible = true;
             viewBut.Visible = false;
@@ -86,7 +84,7 @@ namespace Mabolo_Dormitory_System
             }
             if(db.AccountExist(email, pass))
             {
-                MessageBox.Show("Login Successful");
+                main = new Main(email);
                 main.Show();
                 this.Hide();
             }
@@ -124,7 +122,6 @@ namespace Mabolo_Dormitory_System
             if (!ValidationClass.ValidateEmail(emailTextBox.Text))
             {
                 emailReview.Text = "Invalid Email";
-                
                 emailTextBox.LineColor = Color.Red;
                 return;
             }
@@ -132,13 +129,11 @@ namespace Mabolo_Dormitory_System
             {
                 SendOTPCode(emailTextBox.Text);
                 emailReview.ForeColor = Color.Green;
-                emailTextBox.LineColor = Color.FromArgb(46, 204, 113);
-                
+                emailTextBox.LineColor = Color.FromArgb(46, 204, 113);   
             }
             else
             {
                 emailReview.Text = "Email not found";
-              
                 emailTextBox.LineColor = Color.Red;
             }
         }
@@ -169,7 +164,7 @@ namespace Mabolo_Dormitory_System
               <p>Your OTP code for verification is: <b>{OTPCode}</b></p>
               <p>Please enter this code to reset your password.</p>
               <p>This code is valid as long as this is the most recent code. Please do not share it with anyone.</p>
-              <p>Thank you,</p>
+              <p>Thank you, and God bless!</p>
             </body>
             </html>";
             mail.Body = htmlBody;
@@ -186,8 +181,9 @@ namespace Mabolo_Dormitory_System
             try
             {
                 smtp.Send(mail);
-                OTPForm oTPForm = new OTPForm(OTPCode, email);
+                OTPForm oTPForm = new OTPForm(OTPCode, email, this);
                 SetFormLocation(oTPForm);
+                oTPForm.Owner = this;
                 oTPForm.Show();
                 MessageBox.Show("OTP code sent successfully to " + email);  
             }
@@ -196,7 +192,6 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Error sending email: " + ex.Message);
                
             }
-            MessageBox.Show("done");
         }
         private string GenerateOTP(int length)
         {
@@ -212,19 +207,10 @@ namespace Mabolo_Dormitory_System
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
-            int x = Screen.PrimaryScreen.Bounds.Left + 100;
+            int x = Screen.PrimaryScreen.Bounds.Left + 400;
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void emailTextBox_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -80,7 +80,61 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+        public Room GetRoom(int roomId)
+        {
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.room WHERE RoomId = @RoomId";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+                MySqlDataReader reader = command.ExecuteReader();
+                Room room = null;
+                while (reader.Read())
+                {
+                    room = new Room((int)reader["RoomId"], (int)reader["LevelNumber"], (int)reader["MaximumCapacity"], (int)reader["CurrNumOfOccupants"]);
+                }
+                reader.Close();
+                return room;
+            }
+            return null;
+        }
 
+        public List<User> GetUsersTypeWithoutRoom(String userType)
+        {
+            if(EstablishConnection())
+            {
+                Users.Clear();
+                String sql = "SELECT * FROM system.user WHERE UserType = @UserType AND UserId NOT IN (SELECT FK_UserId_RoomAllocation FROM system.room_allocation)";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@UserType", userType);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                }
+                return Users;
+            }
+            return null;
+        }
+        public String GetUserNameOfAdmin(String email)
+        {
+            if(EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.account WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                MySqlDataReader reader = command.ExecuteReader();
+                String name = "";
+                while (reader.Read())
+                {
+                    name = (string)reader["UserName"];
+                    
+                }
+                reader.Close();
+                return name;
+            }
+            return "";
+        }
         public bool AccountExist(String email, String password)
         {
             if (EstablishConnection())

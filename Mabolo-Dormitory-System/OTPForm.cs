@@ -16,8 +16,10 @@ namespace Mabolo_Dormitory_System
         private String email;
         private Point lastLocation;
         private bool mouseDown;
-        public OTPForm(String otp, String email)
+        private Form form;
+        public OTPForm(String otp, String email, Form form)
         {
+            this.form = form;
             otpCode = otp;
             this.email = email;
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Verification is Succesfull.");
                 ResetPassword resetPassword = new ResetPassword(email);
                 SetFormLocation(resetPassword);
+                resetPassword.Owner = form;
                 resetPassword.Show();
                 this.Dispose();
             }
@@ -46,7 +49,7 @@ namespace Mabolo_Dormitory_System
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
-            int x = Screen.PrimaryScreen.Bounds.Left + 100;
+            int x = Screen.PrimaryScreen.Bounds.Left + 400;
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
         }

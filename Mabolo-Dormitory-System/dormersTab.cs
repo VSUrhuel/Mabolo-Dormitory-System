@@ -16,9 +16,11 @@ namespace Mabolo_Dormitory_System
     {
         private DatabaseManager db;
         private List<User> users;
-        public dormersTab()
+        private Form form;
+        public dormersTab(Form form)
         {
             db = new DatabaseManager();
+            this.form = form;
             InitializeComponent();
             users = new List<User>();    
             users = db.GetAllUsers();
@@ -97,6 +99,7 @@ namespace Mabolo_Dormitory_System
                     UpdateForm update = new UpdateForm();
                     SetFormLocation(update);
                     update.SetInformation(users, i);
+                    update.Owner = form;
                     update.Show();
                 }
                 else if(cb.SelectedItem.ToString() == "View")
@@ -104,12 +107,13 @@ namespace Mabolo_Dormitory_System
                     ViewForm viewForm = new ViewForm();
                     SetFormLocation(viewForm);
                     viewForm.SetInformation(users, i);
+                    viewForm.Owner = form;
                     viewForm.Show();
                 }
                 else if(cb.SelectedItem.ToString() == "Delete")
                 {
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show("Are you sure you want to delete " + users[i].FirstName + " " + users[i].LastName + "'s information?\nThis action cannot be undone.", "Confirmation", buttons);
+                    DialogResult result = MessageBox.Show("Confirmation Required: Deleting " + users[i].FirstName + " " + users[i].LastName + "'s information is irreversible? Proceed?", "Confirmation", buttons);
                     if(result == DialogResult.Yes)
                     {
                         db.DeleteUser(users[i].UserId);
@@ -118,7 +122,7 @@ namespace Mabolo_Dormitory_System
                     }
                     else
                     {
-                        MessageBox.Show("Delete Cancelled");
+                        MessageBox.Show("Deletion was cancelled");
                     }
                 }   
             }
@@ -192,7 +196,7 @@ namespace Mabolo_Dormitory_System
                 }
                 if(users.Count == 0)
                 {
-                    MessageBox.Show("No " + userType + " found");
+                    MessageBox.Show("No " + userType + " was found");
                     users = db.GetAllUsers();
                     RefreshTable();
                 }
@@ -216,7 +220,7 @@ namespace Mabolo_Dormitory_System
         {
             if(searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a User ID to search");
+                MessageBox.Show("Please enter a valid User ID to search");
                 searchBar.Text = "";
                 return;
             }
@@ -233,7 +237,7 @@ namespace Mabolo_Dormitory_System
             }
             if(users.Count == 0)
             {
-                MessageBox.Show("No user with the ID " + userId + " found");
+                MessageBox.Show("No user with the ID '" + userId + "'  was found");
                 users = db.GetAllUsers();
             }
             RefreshTable();
@@ -243,6 +247,7 @@ namespace Mabolo_Dormitory_System
         {
             AddDormerForm addDormerForm = new AddDormerForm();
             SetFormLocation(addDormerForm);
+            addDormerForm.Owner = form;
             addDormerForm.Show();
         }
        
@@ -269,29 +274,33 @@ namespace Mabolo_Dormitory_System
         private void delBut_Click(object sender, EventArgs e)
         {
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
-            bool isChecked = false;
+            bool isChecked = false, hasChecked = false;
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
                 if (row.Cells["Column1"].Value != null && Convert.ToBoolean(row.Cells["Column1"].Value))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the selected rows?\nThis action cannot be undone!", "Delete", messageBoxButtons);
+                    hasChecked = true;
+                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Deleting selected rows is irreversible. Proceed?", "Delete", messageBoxButtons);
                     if (dialogResult == DialogResult.Yes)
                     {
                         isChecked = true;
-
                         db.DeleteUser(row.Cells["UserId"].Value.ToString());
                     }
                     else
                     {
-                        MessageBox.Show("Selected row(s) not deleted");
-                        break;
+                        return;
                     }
                 }
             }
+            if(!hasChecked)
+            {
+                MessageBox.Show("No rows selected for deletion.");
+                return;
+            }
             if (!isChecked)
-                MessageBox.Show("Please select a row(s) to delete");
+                MessageBox.Show("No rows selected for deletion.");
             else
-                MessageBox.Show("Selected row(s) deleted successfully");
+                MessageBox.Show("Selected rows deleted successfully");
         }
     }
 }

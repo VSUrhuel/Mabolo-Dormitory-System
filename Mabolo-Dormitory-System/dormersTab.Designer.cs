@@ -206,8 +206,8 @@
             "Regular Dormer",
             "Big Brod",
             "Student Assistant",
-            "Assistant Dorm Adviser",
-            "Dorm Adviser",
+            "Assistant Dormitory Adviser",
+            "Dormitory Adviser",
             "All"});
             this.userTypeCB.Location = new System.Drawing.Point(840, 46);
             this.userTypeCB.Name = "userTypeCB";

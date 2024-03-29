@@ -38,10 +38,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gunaButton12 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton11 = new Guna.UI.WinForms.GunaButton();
+            this.logoutBut = new Guna.UI.WinForms.GunaButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.gunaButton5 = new Guna.UI.WinForms.GunaButton();
@@ -68,7 +68,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.label15 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dormerDescription = new System.Windows.Forms.Label();
             this.dormerCountLabel = new System.Windows.Forms.Label();
@@ -236,7 +235,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.gunaButton12);
-            this.panel2.Controls.Add(this.gunaButton11);
+            this.panel2.Controls.Add(this.logoutBut);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.gunaButton5);
             this.panel2.Controls.Add(this.gunaButton4);
@@ -255,7 +254,7 @@
             this.gunaButton12.AnimationHoverSpeed = 0.07F;
             this.gunaButton12.AnimationSpeed = 0.03F;
             this.gunaButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton12.BaseColor = System.Drawing.Color.Green;
+            this.gunaButton12.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.gunaButton12.BorderColor = System.Drawing.Color.White;
             this.gunaButton12.BorderSize = 2;
             this.gunaButton12.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,48 +264,49 @@
             this.gunaButton12.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton12.Location = new System.Drawing.Point(12, 713);
             this.gunaButton12.Name = "gunaButton12";
-            this.gunaButton12.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gunaButton12.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.gunaButton12.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.gunaButton12.OnHoverBorderColor = System.Drawing.Color.ForestGreen;
             this.gunaButton12.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaButton12.OnHoverImage = null;
             this.gunaButton12.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton12.Radius = 5;
             this.gunaButton12.Size = new System.Drawing.Size(52, 50);
             this.gunaButton12.TabIndex = 10;
+            this.gunaButton12.Click += new System.EventHandler(this.logoutBut_Click);
             // 
-            // gunaButton11
+            // logoutBut
             // 
-            this.gunaButton11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.logoutBut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaButton11.AnimationHoverSpeed = 0.07F;
-            this.gunaButton11.AnimationSpeed = 0.03F;
-            this.gunaButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton11.BaseColor = System.Drawing.Color.Green;
-            this.gunaButton11.BorderColor = System.Drawing.Color.White;
-            this.gunaButton11.BorderSize = 3;
-            this.gunaButton11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton11.ForeColor = System.Drawing.Color.White;
-            this.gunaButton11.Image = null;
-            this.gunaButton11.ImageOffsetX = 5;
-            this.gunaButton11.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton11.Location = new System.Drawing.Point(49, 713);
-            this.gunaButton11.Name = "gunaButton11";
-            this.gunaButton11.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gunaButton11.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gunaButton11.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton11.OnHoverImage = null;
-            this.gunaButton11.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton11.Radius = 5;
-            this.gunaButton11.Size = new System.Drawing.Size(110, 50);
-            this.gunaButton11.TabIndex = 9;
-            this.gunaButton11.Text = "LOGOUT";
-            this.gunaButton11.TextOffsetX = 15;
-            this.gunaButton11.Click += new System.EventHandler(this.gunaButton11_Click);
+            this.logoutBut.AnimationHoverSpeed = 0.07F;
+            this.logoutBut.AnimationSpeed = 0.03F;
+            this.logoutBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.logoutBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.logoutBut.BorderColor = System.Drawing.Color.White;
+            this.logoutBut.BorderSize = 3;
+            this.logoutBut.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutBut.ForeColor = System.Drawing.Color.White;
+            this.logoutBut.Image = null;
+            this.logoutBut.ImageOffsetX = 5;
+            this.logoutBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.logoutBut.Location = new System.Drawing.Point(49, 713);
+            this.logoutBut.Name = "logoutBut";
+            this.logoutBut.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.logoutBut.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.logoutBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.logoutBut.OnHoverImage = null;
+            this.logoutBut.OnPressedColor = System.Drawing.Color.Black;
+            this.logoutBut.Radius = 5;
+            this.logoutBut.Size = new System.Drawing.Size(110, 50);
+            this.logoutBut.TabIndex = 9;
+            this.logoutBut.Text = "LOGOUT";
+            this.logoutBut.TextOffsetX = 15;
+            this.logoutBut.Click += new System.EventHandler(this.logoutBut_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label21);
-            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.username);
             this.panel4.Controls.Add(this.gunaCirclePictureBox1);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -328,19 +328,19 @@
             this.label21.TabIndex = 14;
             this.label21.Text = "Dorm Adviser";
             // 
-            // label19
+            // username
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.username.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(40, 96);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 19);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "Admin123";
+            this.username.AutoSize = true;
+            this.username.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.Color.Black;
+            this.username.Location = new System.Drawing.Point(40, 96);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(93, 19);
+            this.username.TabIndex = 12;
+            this.username.Text = "Admin123";
             // 
             // gunaCirclePictureBox1
             // 
@@ -349,7 +349,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.Image")));
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(39, 15);
+            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(35, 15);
             this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
             this.gunaCirclePictureBox1.Size = new System.Drawing.Size(94, 78);
             this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -584,11 +584,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(48)))), ((int)(((byte)(62)))));
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(12, 56);
+            this.label13.Location = new System.Drawing.Point(4, 35);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 47);
+            this.label13.Size = new System.Drawing.Size(180, 93);
             this.label13.TabIndex = 7;
             this.label13.Text = "40K";
             // 
@@ -639,19 +639,19 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(17, 117);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(172, 18);
+            this.label9.Size = new System.Drawing.Size(178, 18);
             this.label9.TabIndex = 8;
-            this.label9.Text = "No Events for thi Month";
+            this.label9.Text = "No Events for this Month";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(12, 56);
+            this.label10.Location = new System.Drawing.Point(-6, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 47);
+            this.label10.Size = new System.Drawing.Size(130, 93);
             this.label10.TabIndex = 7;
             this.label10.Text = "10";
             // 
@@ -712,11 +712,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 56);
+            this.label7.Location = new System.Drawing.Point(21, 37);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 47);
+            this.label7.Size = new System.Drawing.Size(85, 93);
             this.label7.TabIndex = 7;
             this.label7.Text = "9";
             // 
@@ -739,7 +739,6 @@
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.gunaElipsePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaElipsePanel1.Controls.Add(this.label15);
             this.gunaElipsePanel1.Controls.Add(this.pictureBox2);
             this.gunaElipsePanel1.Controls.Add(this.dormerDescription);
             this.gunaElipsePanel1.Controls.Add(this.dormerCountLabel);
@@ -750,23 +749,11 @@
             this.gunaElipsePanel1.Size = new System.Drawing.Size(295, 158);
             this.gunaElipsePanel1.TabIndex = 5;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(75, 68);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 22);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "Dormers";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(192, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(180, 19);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(89, 71);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -779,7 +766,7 @@
             this.dormerDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
             this.dormerDescription.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dormerDescription.ForeColor = System.Drawing.Color.White;
-            this.dormerDescription.Location = new System.Drawing.Point(17, 117);
+            this.dormerDescription.Location = new System.Drawing.Point(17, 122);
             this.dormerDescription.Name = "dormerDescription";
             this.dormerDescription.Size = new System.Drawing.Size(153, 18);
             this.dormerDescription.TabIndex = 8;
@@ -789,11 +776,11 @@
             // 
             this.dormerCountLabel.AutoSize = true;
             this.dormerCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.dormerCountLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dormerCountLabel.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dormerCountLabel.ForeColor = System.Drawing.Color.White;
-            this.dormerCountLabel.Location = new System.Drawing.Point(12, 56);
+            this.dormerCountLabel.Location = new System.Drawing.Point(6, 37);
             this.dormerCountLabel.Name = "dormerCountLabel";
-            this.dormerCountLabel.Size = new System.Drawing.Size(64, 47);
+            this.dormerCountLabel.Size = new System.Drawing.Size(130, 93);
             this.dormerCountLabel.TabIndex = 7;
             this.dormerCountLabel.Text = "60";
             // 
@@ -1243,13 +1230,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private Guna.UI.WinForms.GunaButton minimizeButton;
         private Guna.UI.WinForms.GunaButton closeButton;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label username;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label22;
@@ -1264,7 +1250,7 @@
         private System.Windows.Forms.Label label25;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
         private System.Windows.Forms.Label label26;
-        private Guna.UI.WinForms.GunaButton gunaButton11;
+        private Guna.UI.WinForms.GunaButton logoutBut;
         private System.Windows.Forms.Label label27;
         private Guna.UI.WinForms.GunaButton gunaButton12;
         private System.Windows.Forms.Label label30;

@@ -61,7 +61,7 @@
             this.chooseCB.FormattingEnabled = true;
             this.chooseCB.Location = new System.Drawing.Point(146, 123);
             this.chooseCB.Name = "chooseCB";
-            this.chooseCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.chooseCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
             this.chooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
             this.chooseCB.Size = new System.Drawing.Size(498, 33);
             this.chooseCB.TabIndex = 1;
@@ -151,7 +151,7 @@
             "Student Assisstant"});
             this.userTypeCB.Location = new System.Drawing.Point(148, 32);
             this.userTypeCB.Name = "userTypeCB";
-            this.userTypeCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.userTypeCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
             this.userTypeCB.OnHoverItemForeColor = System.Drawing.Color.White;
             this.userTypeCB.Size = new System.Drawing.Size(208, 33);
             this.userTypeCB.TabIndex = 70;
