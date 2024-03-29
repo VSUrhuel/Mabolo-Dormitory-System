@@ -233,6 +233,7 @@
             this.emailTextBox.TabIndex = 1;
             this.emailTextBox.Text = "Email";
             this.emailTextBox.TextOffsetX = 40;
+            this.emailTextBox.Click += new System.EventHandler(this.emailTextBox_Click);
             this.emailTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.emailTextBox_MouseClick);
             // 
             // gunaLabel1
@@ -278,6 +279,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(623, 332);
             this.panel2.TabIndex = 8;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // logInButton
             // 
@@ -381,6 +383,7 @@
             this.forgotPass.TabIndex = 69;
             this.forgotPass.Text = "Forgot Password";
             this.forgotPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.forgotPass.Click += new System.EventHandler(this.forgotPass_Click);
             // 
             // gunaCircleButton1
             // 

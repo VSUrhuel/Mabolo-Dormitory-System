@@ -50,6 +50,36 @@ namespace Mabolo_Dormitory_System.Classes
             }
 
         }
+        public bool CheckAdminEmailExists(String email)
+        {
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.account WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return true;
+                }
+                reader.Close();
+                return false;
+            }
+            return false;
+        }
+        public bool AdminPassReset(String email, String password)
+        {
+            if (EstablishConnection())
+            {
+                String query = "UPDATE system.account SET Password = @Password WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
 
         public bool AccountExist(String email, String password)
         {
