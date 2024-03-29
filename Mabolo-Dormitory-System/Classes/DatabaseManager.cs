@@ -265,6 +265,24 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        public List<User> GetUserTypeInRoom(String userType, int room)
+        {
+            if(EstablishConnection())
+            {
+                Users.Clear();
+                String sql = "SELECT* FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = @UserType;";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@RoomId", room);
+                command.Parameters.AddWithValue("@UserType", userType);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                }
+                return Users;
+            }
+            return null;
+        }
         public void UpdateRoomSize(int roomId, int n)
         {
             if (EstablishConnection())
@@ -276,17 +294,39 @@ namespace Mabolo_Dormitory_System.Classes
                 command.ExecuteNonQuery();
             }
         }
+        public bool RoomHasBigBrod(int roomId)
+        {
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = 'Big Brod';";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
         public bool AddUserInRoom(int roomId, String userId)
         {
             if(roomId < 0 || roomId > 9)
                 throw new ArgumentException("Invalid Room Id");
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if(UserAllocated(userId))
+            if (UserAllocated(userId))
+            {
+                MessageBox.Show(userId + " already had a room.\nClick the edit button if you want to change its room.");
                 return false;
+            }
             Rooms = GetAllRooms();
             if (!Rooms[roomId - 1].CanIncreaseOccupancy(1) || UserAllocated(userId))
+            {
+                MessageBox.Show("Room is full.");
                 return false;
+            }
             if (EstablishConnection())
             {
                 string query = "INSERT INTO system.room_allocation(RoomAllocationId, StartDate, EndDate, FK_RoomId_RoomAllocation, FK_UserId_RoomAllocation) VALUES (@RoomAllocationId, @StartDate, @EndDate, @FK_RoomId_RoomAllocation, @FK_UserId_RoomAllocation)";
@@ -298,9 +338,10 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@EndDate", DateTime.Now.AddMonths(1));
                 command.Parameters.AddWithValue("@FK_RoomId_RoomAllocation", roomId);
                 command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
-                UpdateRoomSize(roomId, Rooms[roomId - 1].CurrNumOfOccupants);
-               
+                
                 command.ExecuteNonQuery();
+                UpdateRoomSize(roomId, Rooms[roomId - 1].CurrNumOfOccupants);
+
                 return true;
             }
             return false;
@@ -341,7 +382,6 @@ namespace Mabolo_Dormitory_System.Classes
                 Rooms[prevRoomId - 1].DecreaseOccupants(1);
                 UpdateRoomSize(prevRoomId, Rooms[prevRoomId - 1].CurrNumOfOccupants);
                 UpdateRoomSize(newRoomId, Rooms[newRoomId - 1].CurrNumOfOccupants);
-                MessageBox.Show(userId + " moved to Room " + newRoomId);
                 return true;
             }
             return false;

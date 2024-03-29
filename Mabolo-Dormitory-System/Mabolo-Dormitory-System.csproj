@@ -168,7 +168,14 @@
     <Compile Include="AddDormerForm.Designer.cs">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddRoomAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoomAllocation.Designer.cs">
+      <DependentUpon>AddRoomAllocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DatabaseManager.cs" />
+    <Compile Include="Classes\DataGridTableSetUp.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\EventAttendance.cs" />
@@ -182,6 +189,12 @@
     </Compile>
     <Compile Include="dormersTab.Designer.cs">
       <DependentUpon>dormersTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -197,6 +210,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="roomTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="roomTab.Designer.cs">
+      <DependentUpon>roomTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Unit Test Classes\TestDatabaseManager.cs" />
     <Compile Include="Unit Test Classes\TestPayment.cs" />
     <Compile Include="Unit Test Classes\TestDepartment.cs" />
@@ -220,8 +239,14 @@
     <EmbeddedResource Include="AddDormerForm.resx">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddRoomAllocation.resx">
+      <DependentUpon>AddRoomAllocation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -235,6 +260,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="roomTab.resx">
+      <DependentUpon>roomTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>

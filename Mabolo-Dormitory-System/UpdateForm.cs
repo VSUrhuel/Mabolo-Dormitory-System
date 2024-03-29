@@ -25,6 +25,11 @@ namespace Mabolo_Dormitory_System
         }
         public void SetInformation(List<User> users, int index)
         {
+            if(users.Count < index)
+            {
+                MessageBox.Show("No User Found!");
+                this.Dispose();
+            }
             // Set the information of the dormer
             User user = users[index];
             data1.Text = user.UserId;

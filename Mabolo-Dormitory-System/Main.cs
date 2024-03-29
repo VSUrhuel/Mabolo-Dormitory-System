@@ -46,5 +46,12 @@ namespace Mabolo_Dormitory_System
             mainPanel.Controls.Add(dashboardPanel2);
            
         }
+
+        private void roomButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            roomTab room = new roomTab();
+            mainPanel.Controls.Add(room);
+        }
     }
 }
