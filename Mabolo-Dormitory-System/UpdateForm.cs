@@ -15,11 +15,12 @@ namespace Mabolo_Dormitory_System
     {
         private bool mouseDown;
         private Point lastLocation;
-        DatabaseManager db = new DatabaseManager();
-        List<User> users = new List<User>();
-        List<Department> depts = new List<Department>();
+        private DatabaseManager db;
+        private List<Department> depts;
         public UpdateForm()
         {
+            db = new DatabaseManager();
+            depts = new List<Department>();
             InitializeComponent();
             
         }
@@ -40,6 +41,7 @@ namespace Mabolo_Dormitory_System
             data6.Text = user.PhoneNumber;
             data7.Text = user.Address;
 
+            // Set the status and type of the dormer
             dormerStatusCB.Items.Add("active");
             dormerStatusCB.Items.Add("inactive");
             
@@ -50,8 +52,9 @@ namespace Mabolo_Dormitory_System
             dormerTypeCB.Items.Add("Assistant Dormitory Adviser");
             dormerTypeCB.Text = user.UserType;
             dormerStatusCB.Text = user.UserStatus.ToString();
+
+            // Set the department and college of the dormer
             Department department = db.GetUserDepartment(user.UserId);
-            
             depts = db.GetAllDepartments();
             foreach(Department d in depts)
             {
@@ -59,9 +62,6 @@ namespace Mabolo_Dormitory_System
             }
             departmentCB.Text = department.DepartmentName;
             collegeText.Text = department.CollegeName;
-            Room r = db.GetUserRoom(user.UserId);
-            
-
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)
@@ -71,7 +71,9 @@ namespace Mabolo_Dormitory_System
 
         private void updateViewButton_Click(object sender, EventArgs e)
         {
-            
+            // Update the information of the dormer
+
+            // Get the college in accordance to department
             depts = db.GetAllDepartments();
             int x = 0;
             foreach (Department d in depts)
@@ -83,6 +85,7 @@ namespace Mabolo_Dormitory_System
                 }
             }
            
+            // Validate the fields
             if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, data4.Text, data5.Text, data6.Text, data7.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!");
@@ -113,18 +116,13 @@ namespace Mabolo_Dormitory_System
                 return;
             }
 
-
-            User newDormer = new User(data1.Text, data2.Text, data3.Text, DateTime.Parse(data4.Text), data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x);
-            
+            // Update the information
+            User newDormer = new User(data1.Text, data2.Text, data3.Text, DateTime.Parse(data4.Text), data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x); 
             string message = "Update " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-           
-            
-            
             if(MessageBox.Show(message, title, buttons) == DialogResult.Yes)
             {
-                
                 db.UpdateUser(newDormer);
                 MessageBox.Show("Update Successful!");
                 this.Dispose();
@@ -134,8 +132,6 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Update Cancelled!");
                 this.Dispose();
             }
-
-
         }
 
         private void departmentCB_SelectedIndexChanged(object sender, EventArgs e)

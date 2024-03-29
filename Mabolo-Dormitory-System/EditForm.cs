@@ -16,6 +16,8 @@ namespace Mabolo_Dormitory_System
         private DatabaseManager db;
         private List<User> users;
         private int roomNum = 0;
+        private Point lastLocation;
+        private bool mouseDown;
         public EditForm(int roomNum)
         {
             InitializeComponent();
@@ -45,6 +47,28 @@ namespace Mabolo_Dormitory_System
         private void closeViewButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

@@ -47,9 +47,7 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             if(db.AddUserInRoom(roomNUm, text))
-            {
                 MessageBox.Show(text + " was added in room " + roomNUm + ".");   
-            }
         }
 
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,15 +56,8 @@ namespace Mabolo_Dormitory_System
             List<User> users = db.GetTypeOfUser(text);
             chooseCB.Items.Clear();
             foreach (User user in users)
-            {
                 chooseCB.Items.Add(user.UserId + ": " + user.FirstName + " " + user.LastName);
-            }
-
         }
 
-        private void AddRoomAllocation_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

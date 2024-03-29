@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomTab));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomTab));
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.editButton = new Guna.UI.WinForms.GunaButton();
             this.add1 = new Guna.UI.WinForms.GunaButton();
             this.delBut = new Guna.UI.WinForms.GunaButton();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
-            this.bigBrodView = new Guna.UI.WinForms.GunaDataGridView();
+            this.roomUserView = new Guna.UI.WinForms.GunaDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.roomChooseCB = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.editButton = new Guna.UI.WinForms.GunaButton();
             this.gunaElipsePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bigBrodView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomUserView)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipsePanel1
@@ -52,13 +52,38 @@
             this.gunaElipsePanel1.Controls.Add(this.add1);
             this.gunaElipsePanel1.Controls.Add(this.delBut);
             this.gunaElipsePanel1.Controls.Add(this.refreshBut);
-            this.gunaElipsePanel1.Controls.Add(this.bigBrodView);
+            this.gunaElipsePanel1.Controls.Add(this.roomUserView);
             this.gunaElipsePanel1.Controls.Add(this.roomChooseCB);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel1);
             this.gunaElipsePanel1.Location = new System.Drawing.Point(39, 4);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1268, 647);
             this.gunaElipsePanel1.TabIndex = 0;
+            // 
+            // editButton
+            // 
+            this.editButton.AnimationHoverSpeed = 0.07F;
+            this.editButton.AnimationSpeed = 0.03F;
+            this.editButton.BackColor = System.Drawing.Color.Transparent;
+            this.editButton.BaseColor = System.Drawing.Color.Transparent;
+            this.editButton.BorderColor = System.Drawing.Color.Transparent;
+            this.editButton.BorderSize = 1;
+            this.editButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.editButton.Location = new System.Drawing.Point(1094, 44);
+            this.editButton.Name = "editButton";
+            this.editButton.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.editButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.editButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.editButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("editButton.OnHoverImage")));
+            this.editButton.OnPressedColor = System.Drawing.Color.Black;
+            this.editButton.Radius = 9;
+            this.editButton.Size = new System.Drawing.Size(39, 36);
+            this.editButton.TabIndex = 17;
+            this.editButton.Text = "Refresh";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // add1
             // 
@@ -135,18 +160,18 @@
             this.refreshBut.Text = "Refresh";
             this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
             // 
-            // bigBrodView
+            // roomUserView
             // 
-            this.bigBrodView.AllowUserToAddRows = false;
-            this.bigBrodView.AllowUserToDeleteRows = false;
-            this.bigBrodView.AllowUserToOrderColumns = true;
+            this.roomUserView.AllowUserToAddRows = false;
+            this.roomUserView.AllowUserToDeleteRows = false;
+            this.roomUserView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.bigBrodView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.bigBrodView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bigBrodView.BackgroundColor = System.Drawing.Color.White;
-            this.bigBrodView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bigBrodView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.bigBrodView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.roomUserView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.roomUserView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.roomUserView.BackgroundColor = System.Drawing.Color.White;
+            this.roomUserView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.roomUserView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.roomUserView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -154,9 +179,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bigBrodView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.bigBrodView.ColumnHeadersHeight = 52;
-            this.bigBrodView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.roomUserView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.roomUserView.ColumnHeadersHeight = 52;
+            this.roomUserView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
@@ -165,40 +190,40 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bigBrodView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.bigBrodView.EnableHeadersVisualStyles = false;
-            this.bigBrodView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.bigBrodView.Location = new System.Drawing.Point(3, 85);
-            this.bigBrodView.Name = "bigBrodView";
-            this.bigBrodView.RowHeadersVisible = false;
-            this.bigBrodView.RowHeadersWidth = 51;
-            this.bigBrodView.RowTemplate.Height = 24;
-            this.bigBrodView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bigBrodView.Size = new System.Drawing.Size(1263, 437);
-            this.bigBrodView.TabIndex = 2;
-            this.bigBrodView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Emerald;
-            this.bigBrodView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.bigBrodView.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.bigBrodView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.bigBrodView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.bigBrodView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.bigBrodView.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.bigBrodView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.bigBrodView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.bigBrodView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bigBrodView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.bigBrodView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.bigBrodView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.bigBrodView.ThemeStyle.HeaderStyle.Height = 52;
-            this.bigBrodView.ThemeStyle.ReadOnly = false;
-            this.bigBrodView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            this.bigBrodView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.bigBrodView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.bigBrodView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.bigBrodView.ThemeStyle.RowsStyle.Height = 24;
-            this.bigBrodView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            this.bigBrodView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.bigBrodView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bigBrodView_CellContentClick);
+            this.roomUserView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.roomUserView.EnableHeadersVisualStyles = false;
+            this.roomUserView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.roomUserView.Location = new System.Drawing.Point(3, 85);
+            this.roomUserView.Name = "roomUserView";
+            this.roomUserView.RowHeadersVisible = false;
+            this.roomUserView.RowHeadersWidth = 51;
+            this.roomUserView.RowTemplate.Height = 24;
+            this.roomUserView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.roomUserView.Size = new System.Drawing.Size(1263, 437);
+            this.roomUserView.TabIndex = 2;
+            this.roomUserView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Emerald;
+            this.roomUserView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.roomUserView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.roomUserView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.roomUserView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.roomUserView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.roomUserView.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.roomUserView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
+            this.roomUserView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.roomUserView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.roomUserView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.roomUserView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.roomUserView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.roomUserView.ThemeStyle.HeaderStyle.Height = 52;
+            this.roomUserView.ThemeStyle.ReadOnly = false;
+            this.roomUserView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            this.roomUserView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.roomUserView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.roomUserView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.roomUserView.ThemeStyle.RowsStyle.Height = 24;
+            this.roomUserView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            this.roomUserView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.roomUserView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomUserView_CellContentClick);
             // 
             // Column1
             // 
@@ -236,31 +261,6 @@
             this.gunaLabel1.TabIndex = 0;
             this.gunaLabel1.Text = "Choose a Room:";
             // 
-            // editButton
-            // 
-            this.editButton.AnimationHoverSpeed = 0.07F;
-            this.editButton.AnimationSpeed = 0.03F;
-            this.editButton.BackColor = System.Drawing.Color.Transparent;
-            this.editButton.BaseColor = System.Drawing.Color.Transparent;
-            this.editButton.BorderColor = System.Drawing.Color.Transparent;
-            this.editButton.BorderSize = 1;
-            this.editButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
-            this.editButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.editButton.Location = new System.Drawing.Point(1094, 44);
-            this.editButton.Name = "editButton";
-            this.editButton.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.editButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.editButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.editButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("editButton.OnHoverImage")));
-            this.editButton.OnPressedColor = System.Drawing.Color.Black;
-            this.editButton.Radius = 9;
-            this.editButton.Size = new System.Drawing.Size(39, 36);
-            this.editButton.TabIndex = 17;
-            this.editButton.Text = "Refresh";
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
-            // 
             // roomTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -270,7 +270,7 @@
             this.Size = new System.Drawing.Size(1380, 810);
             this.gunaElipsePanel1.ResumeLayout(false);
             this.gunaElipsePanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bigBrodView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomUserView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,7 +280,7 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private Guna.UI.WinForms.GunaComboBox roomChooseCB;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaDataGridView bigBrodView;
+        private Guna.UI.WinForms.GunaDataGridView roomUserView;
         private Guna.UI.WinForms.GunaButton refreshBut;
         private Guna.UI.WinForms.GunaButton add1;
         private Guna.UI.WinForms.GunaButton delBut;

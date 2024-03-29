@@ -172,7 +172,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddRoomAllocation";
             this.Text = "AddRoomAllocation";
-            this.Load += new System.EventHandler(this.AddRoomAllocation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

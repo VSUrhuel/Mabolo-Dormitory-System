@@ -15,9 +15,10 @@ namespace Mabolo_Dormitory_System
     {
         private bool mouseDown;
         private Point lastLocation;
-        DatabaseManager db = new DatabaseManager();
+        private DatabaseManager db;
         public ViewForm()
         {
+            db = new DatabaseManager();
             InitializeComponent();
         }
 
@@ -28,7 +29,6 @@ namespace Mabolo_Dormitory_System
 
         public void SetInformation(List<User> users, int index)
         {
-            MessageBox.Show(users.Count + " " + index);
             // Set the information of the dormer
             User user = users[index];
             data1.Text = user.UserId;
@@ -42,7 +42,6 @@ namespace Mabolo_Dormitory_System
             data9.Text = user.UserType;
             Department department = db.GetUserDepartment(user.UserId);
             data10.Text = department.DepartmentName;
-           
             data11.Text = department.CollegeName;
             Room r = db.GetUserRoom(user.UserId);
             if(r != null)
@@ -50,7 +49,6 @@ namespace Mabolo_Dormitory_System
             else
                 data12.Text = "N/A";
             data13.Text = (DateTime.Now.Year - user.Birthday.Year).ToString();
-
         }
      
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
