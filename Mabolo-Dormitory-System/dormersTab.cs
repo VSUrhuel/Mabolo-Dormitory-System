@@ -150,8 +150,10 @@ namespace Mabolo_Dormitory_System
 
         private void refreshBut_Click(object sender, EventArgs e)
         {
+            itemCB.Text = "60";
+            userTypeCB.Text = "All";
+            searchBar.Text = "Search...";
             users = db.GetAllUsers();
-            
             RefreshTable();
         }
 

@@ -64,14 +64,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.roomDescription = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dormerDescription = new System.Windows.Forms.Label();
+            this.dormerCountLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dashboardPanel2 = new System.Windows.Forms.Panel();
@@ -301,6 +301,7 @@
             this.gunaButton11.TabIndex = 9;
             this.gunaButton11.Text = "LOGOUT";
             this.gunaButton11.TextOffsetX = 15;
+            this.gunaButton11.Click += new System.EventHandler(this.gunaButton11_Click);
             // 
             // panel4
             // 
@@ -675,7 +676,7 @@
             this.gunaElipsePanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
             this.gunaElipsePanel2.Controls.Add(this.pictureBox3);
-            this.gunaElipsePanel2.Controls.Add(this.label6);
+            this.gunaElipsePanel2.Controls.Add(this.roomDescription);
             this.gunaElipsePanel2.Controls.Add(this.label7);
             this.gunaElipsePanel2.Controls.Add(this.label8);
             this.gunaElipsePanel2.Location = new System.Drawing.Point(365, 83);
@@ -695,17 +696,17 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
-            // label6
+            // roomDescription
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(17, 117);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(189, 18);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Rooms are All Occupied";
+            this.roomDescription.AutoSize = true;
+            this.roomDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.roomDescription.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomDescription.ForeColor = System.Drawing.Color.White;
+            this.roomDescription.Location = new System.Drawing.Point(17, 117);
+            this.roomDescription.Name = "roomDescription";
+            this.roomDescription.Size = new System.Drawing.Size(189, 18);
+            this.roomDescription.TabIndex = 8;
+            this.roomDescription.Text = "Rooms are All Occupied";
             // 
             // label7
             // 
@@ -740,8 +741,8 @@
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
             this.gunaElipsePanel1.Controls.Add(this.label15);
             this.gunaElipsePanel1.Controls.Add(this.pictureBox2);
-            this.gunaElipsePanel1.Controls.Add(this.label5);
-            this.gunaElipsePanel1.Controls.Add(this.label4);
+            this.gunaElipsePanel1.Controls.Add(this.dormerDescription);
+            this.gunaElipsePanel1.Controls.Add(this.dormerCountLabel);
             this.gunaElipsePanel1.Controls.Add(this.label3);
             this.gunaElipsePanel1.Location = new System.Drawing.Point(32, 83);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
@@ -772,29 +773,29 @@
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // label5
+            // dormerDescription
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(17, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 18);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Dorm is Already Full";
+            this.dormerDescription.AutoSize = true;
+            this.dormerDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.dormerDescription.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dormerDescription.ForeColor = System.Drawing.Color.White;
+            this.dormerDescription.Location = new System.Drawing.Point(17, 117);
+            this.dormerDescription.Name = "dormerDescription";
+            this.dormerDescription.Size = new System.Drawing.Size(153, 18);
+            this.dormerDescription.TabIndex = 8;
+            this.dormerDescription.Text = "Dorm is Already Full";
             // 
-            // label4
+            // dormerCountLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 47);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "60";
+            this.dormerCountLabel.AutoSize = true;
+            this.dormerCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.dormerCountLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dormerCountLabel.ForeColor = System.Drawing.Color.White;
+            this.dormerCountLabel.Location = new System.Drawing.Point(12, 56);
+            this.dormerCountLabel.Name = "dormerCountLabel";
+            this.dormerCountLabel.Size = new System.Drawing.Size(64, 47);
+            this.dormerCountLabel.TabIndex = 7;
+            this.dormerCountLabel.Text = "60";
             // 
             // label3
             // 
@@ -1221,10 +1222,10 @@
         private Guna.UI.WinForms.GunaButton dormerButton;
         private System.Windows.Forms.Panel dashboardPanel1;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label dormerCountLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label dormerDescription;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label12;
@@ -1237,7 +1238,7 @@
         private System.Windows.Forms.Label label11;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label roomDescription;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label17;

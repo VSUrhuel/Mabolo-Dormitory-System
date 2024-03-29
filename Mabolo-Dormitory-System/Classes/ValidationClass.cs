@@ -17,6 +17,24 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return true;
         }
+        public static bool ValidatePassword(String pass)
+        {
+            bool hasUpperCase = false;
+            bool hasNumber = false;
+            bool hasSpecial = false;
+            foreach (char c in pass)
+            {
+                if (char.IsUpper(c))
+                    hasUpperCase = true;
+                if (char.IsNumber(c))
+                    hasNumber = true;
+                if (!char.IsLetterOrDigit(c))
+                    hasSpecial = true;
+            }
+            if (hasUpperCase && hasNumber && hasSpecial && pass.Length > 7)
+                return true;
+            return false;
+        }
         public static bool ValidateDate(DateTime date)
         {
             try

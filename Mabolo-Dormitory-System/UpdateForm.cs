@@ -50,7 +50,6 @@ namespace Mabolo_Dormitory_System
             dormerTypeCB.Items.Add("Student Assistant");
             dormerTypeCB.Items.Add("Dormitory Adviser");
             dormerTypeCB.Items.Add("Assistant Dormitory Adviser");
-            dormerTypeCB.Text = user.UserType;
             dormerStatusCB.Text = user.UserStatus.ToString();
 
             // Set the department and college of the dormer
@@ -62,6 +61,7 @@ namespace Mabolo_Dormitory_System
             }
             departmentCB.Text = department.DepartmentName;
             collegeText.Text = department.CollegeName;
+            dormerTypeCB.Text = user.UserType;
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)

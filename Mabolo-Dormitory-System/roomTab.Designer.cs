@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.editButton = new Guna.UI.WinForms.GunaButton();
             this.add1 = new Guna.UI.WinForms.GunaButton();
@@ -41,13 +41,16 @@
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.roomChooseCB = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
             this.gunaElipsePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomUserView)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipsePanel1
             // 
+            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.White;
+            this.gunaElipsePanel1.Controls.Add(this.selectAllCB);
             this.gunaElipsePanel1.Controls.Add(this.editButton);
             this.gunaElipsePanel1.Controls.Add(this.add1);
             this.gunaElipsePanel1.Controls.Add(this.delBut);
@@ -72,7 +75,7 @@
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.editButton.Location = new System.Drawing.Point(1094, 44);
+            this.editButton.Location = new System.Drawing.Point(1094, 43);
             this.editButton.Name = "editButton";
             this.editButton.OnHoverBaseColor = System.Drawing.Color.Black;
             this.editButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -165,32 +168,32 @@
             this.roomUserView.AllowUserToAddRows = false;
             this.roomUserView.AllowUserToDeleteRows = false;
             this.roomUserView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.roomUserView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.roomUserView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.roomUserView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.roomUserView.BackgroundColor = System.Drawing.Color.White;
             this.roomUserView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.roomUserView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.roomUserView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomUserView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roomUserView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.roomUserView.ColumnHeadersHeight = 52;
             this.roomUserView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roomUserView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.roomUserView.DefaultCellStyle = dataGridViewCellStyle6;
             this.roomUserView.EnableHeadersVisualStyles = false;
             this.roomUserView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.roomUserView.Location = new System.Drawing.Point(3, 85);
@@ -199,7 +202,7 @@
             this.roomUserView.RowHeadersWidth = 51;
             this.roomUserView.RowTemplate.Height = 24;
             this.roomUserView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.roomUserView.Size = new System.Drawing.Size(1263, 437);
+            this.roomUserView.Size = new System.Drawing.Size(1263, 512);
             this.roomUserView.TabIndex = 2;
             this.roomUserView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Emerald;
             this.roomUserView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
@@ -243,10 +246,11 @@
             this.roomChooseCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomChooseCB.ForeColor = System.Drawing.Color.Black;
             this.roomChooseCB.FormattingEnabled = true;
-            this.roomChooseCB.Location = new System.Drawing.Point(184, 11);
+            this.roomChooseCB.Location = new System.Drawing.Point(172, 11);
             this.roomChooseCB.Name = "roomChooseCB";
             this.roomChooseCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.roomChooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.roomChooseCB.Radius = 9;
             this.roomChooseCB.Size = new System.Drawing.Size(160, 33);
             this.roomChooseCB.TabIndex = 1;
             this.roomChooseCB.SelectedIndexChanged += new System.EventHandler(this.roomChooseCB_SelectedIndexChanged);
@@ -260,6 +264,21 @@
             this.gunaLabel1.Size = new System.Drawing.Size(173, 23);
             this.gunaLabel1.TabIndex = 0;
             this.gunaLabel1.Text = "Choose a Room:";
+            // 
+            // selectAllCB
+            // 
+            this.selectAllCB.BaseColor = System.Drawing.Color.White;
+            this.selectAllCB.CheckedOffColor = System.Drawing.Color.Gray;
+            this.selectAllCB.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.selectAllCB.FillColor = System.Drawing.Color.White;
+            this.selectAllCB.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.selectAllCB.Location = new System.Drawing.Point(17, 53);
+            this.selectAllCB.Name = "selectAllCB";
+            this.selectAllCB.Size = new System.Drawing.Size(114, 26);
+            this.selectAllCB.TabIndex = 18;
+            this.selectAllCB.Text = "Select All";
+            this.selectAllCB.CheckedChanged += new System.EventHandler(this.selectAllCB_CheckedChanged);
             // 
             // roomTab
             // 
@@ -286,5 +305,6 @@
         private Guna.UI.WinForms.GunaButton delBut;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private Guna.UI.WinForms.GunaButton editButton;
+        private Guna.UI.WinForms.GunaCheckBox selectAllCB;
     }
 }

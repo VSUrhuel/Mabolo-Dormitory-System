@@ -145,6 +145,11 @@ namespace Mabolo_Dormitory_System
 
         private void add1_Click(object sender, EventArgs e)
         {
+            if(roomNum == 0)
+            {
+                MessageBox.Show("Please select a room first");
+                return;
+            }
             AddRoomAllocation add = new AddRoomAllocation(roomNum, "Big Brod");
             SetFormLocation(add);
             add.Show();
@@ -202,9 +207,34 @@ namespace Mabolo_Dormitory_System
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            if(roomNum == 0)
+            {
+                MessageBox.Show("Please select a room first");
+                return;
+            }
             var EditForm = new EditForm(roomNum);
             SetFormLocation(EditForm);
             EditForm.Show();
+        }
+
+        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectAllCB.Checked)
+            {
+                for (int i = roomUserView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = roomUserView.Rows[i];
+                    row.Cells["Column1"].Value = true;
+                }
+            }
+            else
+            {
+                for (int i = roomUserView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = roomUserView.Rows[i];
+                    row.Cells["Column1"].Value = false;
+                }
+            }
         }
     }
 }

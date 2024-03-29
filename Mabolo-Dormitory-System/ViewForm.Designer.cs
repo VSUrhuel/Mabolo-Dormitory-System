@@ -113,7 +113,6 @@
             // 
             this.data2.BackColor = System.Drawing.Color.White;
             this.data2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.data2.Enabled = false;
             this.data2.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data2.LineColor = System.Drawing.Color.Gainsboro;
@@ -138,7 +137,6 @@
             // 
             this.data3.BackColor = System.Drawing.Color.White;
             this.data3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.data3.Enabled = false;
             this.data3.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data3.LineColor = System.Drawing.Color.Gainsboro;

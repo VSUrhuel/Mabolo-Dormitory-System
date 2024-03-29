@@ -13,6 +13,8 @@ namespace Mabolo_Dormitory_System
 {
     public partial class AddRoomAllocation : Form
     {
+        private Point lastLocation;
+        private bool mouseDown;
         private DatabaseManager db;
         private int roomNUm = 0;
         public AddRoomAllocation(int n, String userType)
@@ -40,7 +42,6 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
-            MessageBox.Show(text + " Room " + roomNUm);
             if(db.GetUser(text).UserType == "Big Brod" && db.RoomHasBigBrod(roomNUm))
             {
                 MessageBox.Show("Room has already a Big Brod.");
@@ -59,5 +60,25 @@ namespace Mabolo_Dormitory_System
                 chooseCB.Items.Add(user.UserId + ": " + user.FirstName + " " + user.LastName);
         }
 
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
     }
 }

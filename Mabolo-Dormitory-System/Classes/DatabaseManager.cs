@@ -51,6 +51,24 @@ namespace Mabolo_Dormitory_System.Classes
 
         }
 
+        public bool AccountExist(String email, String password)
+        {
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.account WHERE Email = @Email AND Password = @Password";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return true;
+                }
+                reader.Close();
+                return false;
+            }
+            return false;
+        }
         // Users
         public List<User> GetAllUsers()
         {
