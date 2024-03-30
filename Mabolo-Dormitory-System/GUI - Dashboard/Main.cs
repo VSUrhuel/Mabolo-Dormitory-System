@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Mabolo_Dormitory_System.GUI___Event;
 
 namespace Mabolo_Dormitory_System
 {
@@ -83,6 +84,13 @@ namespace Mabolo_Dormitory_System
             signIn.Show();
             this.Hide();
             this.Dispose();
+        }
+
+        private void eventButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            EventTab eventTab = new EventTab(this);
+            mainPanel.Controls.Add(eventTab);
         }
     }
 }

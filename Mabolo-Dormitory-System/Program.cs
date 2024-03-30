@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using Mabolo_Dormitory_System.Classes;
 using Mabolo_Dormitory_System.Unit_Test_Classes;
 using Org.BouncyCastle.Asn1.Crmf;
-
 namespace Mabolo_Dormitory_System
 {
     internal static class Program
@@ -21,7 +20,7 @@ namespace Mabolo_Dormitory_System
             //db.RecordAttendance("20-05-00022", 1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());
+            Application.Run(new Main("johnrhuell@gmail.com"));
         }
     }
 }

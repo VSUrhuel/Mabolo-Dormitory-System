@@ -560,7 +560,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                     while (reader.Read())
                     {
-                        Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"]));
+                        Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true));
                     }
                     reader.Close();
                     return Events;
@@ -647,6 +647,44 @@ namespace Mabolo_Dormitory_System.Classes
                 MessageBox.Show("Deleted");
             }
             return false;
+        }
+        public List<Event> GetEventsThisMonth()
+        {
+            if(EstablishConnection())
+            {
+                Events.Clear();
+                DateTime currentDate = DateTime.Now;
+                string sql = $"SELECT * FROM system.event WHERE MONTH(EventDate) = {currentDate.Month} AND YEAR(EventDate) = {currentDate.Year}";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true));
+                }
+                reader.Close();
+                return Events;
+            }
+            return null;
+        }
+        public Event GetEvent(int eventId)
+        {
+            if(!EventExists(eventId))
+                throw new ArgumentException("Event does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.event WHERE EventId = @EventId";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@EventId", eventId);
+                MySqlDataReader reader = command.ExecuteReader();
+                Event e = null;
+                while (reader.Read())
+                {
+                    e = new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true);
+                }
+                reader.Close();
+                return e;
+            }
+            return null;
         }
         public bool EventExists(int eventId)
         {

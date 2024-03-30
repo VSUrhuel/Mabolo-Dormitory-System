@@ -51,7 +51,7 @@ namespace Mabolo_Dormitory_System
                 }
             }
 
-            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, data4.Text, data5.Text, data6.Text, data7.Text }) == false)
+            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, data6.Text, data7.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!");
                 return;
@@ -66,23 +66,15 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Invalid Phone Number!");
                 return;
             }
-            try
-            {
-                DateTime.Parse(data4.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Date!");
-                return;
-            }
-            if (ValidationClass.ValidateDateValid(DateTime.Parse(data4.Text)) == false)
+           
+            if (ValidationClass.ValidateDateValid(dateTimePicker1.Value) == false)
             {
                 MessageBox.Show("Birthdate Should be in the Past.!");
                 return;
             }
 
 
-            User newDormer = new User(data1.Text, data2.Text, data3.Text, DateTime.Parse(data4.Text), data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x);
+            User newDormer = new User(data1.Text, data2.Text, data3.Text, dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x);
 
             string message = "Add " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";

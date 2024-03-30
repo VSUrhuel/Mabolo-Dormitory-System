@@ -45,7 +45,7 @@
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.gunaButton5 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton4 = new Guna.UI.WinForms.GunaButton();
+            this.eventButton = new Guna.UI.WinForms.GunaButton();
             this.roomButton = new Guna.UI.WinForms.GunaButton();
             this.dormerButton = new Guna.UI.WinForms.GunaButton();
             this.dashboardButton = new Guna.UI.WinForms.GunaButton();
@@ -238,7 +238,7 @@
             this.panel2.Controls.Add(this.logoutBut);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.gunaButton5);
-            this.panel2.Controls.Add(this.gunaButton4);
+            this.panel2.Controls.Add(this.eventButton);
             this.panel2.Controls.Add(this.roomButton);
             this.panel2.Controls.Add(this.dormerButton);
             this.panel2.Controls.Add(this.dashboardButton);
@@ -291,8 +291,8 @@
             this.logoutBut.ImageSize = new System.Drawing.Size(20, 20);
             this.logoutBut.Location = new System.Drawing.Point(49, 713);
             this.logoutBut.Name = "logoutBut";
-            this.logoutBut.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.logoutBut.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.logoutBut.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.logoutBut.OnHoverBorderColor = System.Drawing.Color.ForestGreen;
             this.logoutBut.OnHoverForeColor = System.Drawing.Color.White;
             this.logoutBut.OnHoverImage = null;
             this.logoutBut.OnPressedColor = System.Drawing.Color.Black;
@@ -395,32 +395,33 @@
             this.gunaButton5.Text = "Payment";
             this.gunaButton5.TextOffsetX = 10;
             // 
-            // gunaButton4
+            // eventButton
             // 
-            this.gunaButton4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.eventButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaButton4.AnimationSpeed = 0.03F;
-            this.gunaButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton4.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton4.Image")));
-            this.gunaButton4.ImageOffsetX = 5;
-            this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton4.Location = new System.Drawing.Point(0, 305);
-            this.gunaButton4.Name = "gunaButton4";
-            this.gunaButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaButton4.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton4.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton4.OnHoverImage")));
-            this.gunaButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton4.Radius = 9;
-            this.gunaButton4.Size = new System.Drawing.Size(177, 45);
-            this.gunaButton4.TabIndex = 6;
-            this.gunaButton4.Text = "Events";
-            this.gunaButton4.TextOffsetX = 10;
+            this.eventButton.AnimationHoverSpeed = 0.07F;
+            this.eventButton.AnimationSpeed = 0.03F;
+            this.eventButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.eventButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.eventButton.BorderColor = System.Drawing.Color.Black;
+            this.eventButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventButton.ForeColor = System.Drawing.Color.Black;
+            this.eventButton.Image = ((System.Drawing.Image)(resources.GetObject("eventButton.Image")));
+            this.eventButton.ImageOffsetX = 5;
+            this.eventButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.eventButton.Location = new System.Drawing.Point(0, 305);
+            this.eventButton.Name = "eventButton";
+            this.eventButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.eventButton.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.eventButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.eventButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("eventButton.OnHoverImage")));
+            this.eventButton.OnPressedColor = System.Drawing.Color.Black;
+            this.eventButton.Radius = 9;
+            this.eventButton.Size = new System.Drawing.Size(177, 45);
+            this.eventButton.TabIndex = 6;
+            this.eventButton.Text = "Events";
+            this.eventButton.TextOffsetX = 10;
+            this.eventButton.Click += new System.EventHandler(this.eventButton_Click);
             // 
             // roomButton
             // 
@@ -689,7 +690,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(218, 7);
+            this.pictureBox3.Location = new System.Drawing.Point(218, 8);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(63, 71);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1204,7 +1205,7 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaButton dashboardButton;
         private Guna.UI.WinForms.GunaButton gunaButton5;
-        private Guna.UI.WinForms.GunaButton gunaButton4;
+        private Guna.UI.WinForms.GunaButton eventButton;
         private Guna.UI.WinForms.GunaButton roomButton;
         private Guna.UI.WinForms.GunaButton dormerButton;
         private System.Windows.Forms.Panel dashboardPanel1;

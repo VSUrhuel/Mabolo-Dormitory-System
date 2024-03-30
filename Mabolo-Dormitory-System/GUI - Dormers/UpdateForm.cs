@@ -36,7 +36,7 @@ namespace Mabolo_Dormitory_System
             data1.Text = user.UserId;
             data2.Text = user.FirstName;
             data3.Text = user.LastName;
-            data4.Text = user.Birthday.ToString("yyyy/MM/dd");
+            dateTimePicker1.Value = user.Birthday;
             data5.Text = user.Email;
             data6.Text = user.PhoneNumber;
             data7.Text = user.Address;
@@ -86,7 +86,7 @@ namespace Mabolo_Dormitory_System
             }
            
             // Validate the fields
-            if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, data4.Text, data5.Text, data6.Text, data7.Text }) == false)
+            if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, dateTimePicker1.Value.ToString(), data5.Text, data6.Text, data7.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!");
                 return;
@@ -101,23 +101,15 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Invalid Phone Number!");
                 return;
             }
-            try
-            {
-                DateTime.Parse(data4.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Date!");
-                return;
-            }
-            if(ValidationClass.ValidateDateValid(DateTime.Parse(data4.Text)) == false)
+            
+            if(ValidationClass.ValidateDateValid(dateTimePicker1.Value) == false)
             {
                 MessageBox.Show("Birthdate Should be in the Past.!");
                 return;
             }
 
             // Update the information
-            User newDormer = new User(data1.Text, data2.Text, data3.Text, DateTime.Parse(data4.Text), data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x); 
+            User newDormer = new User(data1.Text, data2.Text, data3.Text,dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x); 
             string message = "Update " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;

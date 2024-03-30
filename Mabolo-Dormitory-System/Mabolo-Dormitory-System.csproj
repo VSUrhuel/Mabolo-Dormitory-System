@@ -162,16 +162,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDormerForm.cs">
+    <Compile Include="GUI - Dormers\AddDormerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDormerForm.Designer.cs">
+    <Compile Include="GUI - Dormers\AddDormerForm.Designer.cs">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddRoomAllocation.cs">
+    <Compile Include="GUI - Event\AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRoomAllocation.Designer.cs">
+    <Compile Include="GUI - Event\AddEvent.Designer.cs">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Event\DeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Event\DeleteForm.Designer.cs">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Event\EventTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI - Event\EventTab.Designer.cs">
+      <DependentUpon>EventTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Event\ViewEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Event\ViewEvent.Designer.cs">
+      <DependentUpon>ViewEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Rooms\AddRoomAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Rooms\AddRoomAllocation.Designer.cs">
       <DependentUpon>AddRoomAllocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DatabaseManager.cs" />
@@ -184,48 +208,48 @@
     <Compile Include="Classes\RoomAllocation.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\ValidationClass.cs" />
-    <Compile Include="dormersTab.cs">
+    <Compile Include="GUI - Dormers\dormersTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="dormersTab.Designer.cs">
+    <Compile Include="GUI - Dormers\dormersTab.Designer.cs">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditForm.cs">
+    <Compile Include="GUI - Dormers\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditForm.Designer.cs">
+    <Compile Include="GUI - Dormers\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OTPForm.cs">
+    <Compile Include="GUI - SignIn\OTPForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OTPForm.Designer.cs">
+    <Compile Include="GUI - SignIn\OTPForm.Designer.cs">
       <DependentUpon>OTPForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResetPassword.cs">
+    <Compile Include="GUI - SignIn\ResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResetPassword.Designer.cs">
+    <Compile Include="GUI - SignIn\ResetPassword.Designer.cs">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignIn.cs">
+    <Compile Include="GUI - SignIn\SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignIn.Designer.cs">
+    <Compile Include="GUI - SignIn\SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="GUI - Dashboard\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="GUI - Dashboard\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="roomTab.cs">
+    <Compile Include="GUI - Rooms\roomTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="roomTab.Designer.cs">
+    <Compile Include="GUI - Rooms\roomTab.Designer.cs">
       <DependentUpon>roomTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Unit Test Classes\TestDatabaseManager.cs" />
@@ -236,34 +260,46 @@
     <Compile Include="Unit Test Classes\TestRoom.cs" />
     <Compile Include="Unit Test Classes\TestRoomAllocation.cs" />
     <Compile Include="Unit Test Classes\TestUser.cs" />
-    <Compile Include="UpdateForm.cs">
+    <Compile Include="GUI - Dormers\UpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateForm.Designer.cs">
+    <Compile Include="GUI - Dormers\UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewForm.cs">
+    <Compile Include="GUI - Dormers\ViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewForm.Designer.cs">
+    <Compile Include="GUI - Dormers\ViewForm.Designer.cs">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddDormerForm.resx">
+    <EmbeddedResource Include="GUI - Dormers\AddDormerForm.resx">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddRoomAllocation.resx">
+    <EmbeddedResource Include="GUI - Event\AddEvent.resx">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Event\DeleteForm.resx">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Event\EventTab.resx">
+      <DependentUpon>EventTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Event\ViewEvent.resx">
+      <DependentUpon>ViewEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Rooms\AddRoomAllocation.resx">
       <DependentUpon>AddRoomAllocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dormersTab.resx">
+    <EmbeddedResource Include="GUI - Dormers\dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditForm.resx">
+    <EmbeddedResource Include="GUI - Dormers\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="GUI - Dashboard\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OTPForm.resx">
+    <EmbeddedResource Include="GUI - SignIn\OTPForm.resx">
       <DependentUpon>OTPForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -275,19 +311,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ResetPassword.resx">
+    <EmbeddedResource Include="GUI - SignIn\ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="roomTab.resx">
+    <EmbeddedResource Include="GUI - Rooms\roomTab.resx">
       <DependentUpon>roomTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignIn.resx">
+    <EmbeddedResource Include="GUI - SignIn\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.resx">
+    <EmbeddedResource Include="GUI - Dormers\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewForm.resx">
+    <EmbeddedResource Include="GUI - Dormers\ViewForm.resx">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

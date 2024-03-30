@@ -34,6 +34,18 @@ namespace Mabolo_Dormitory_System.Classes
             AttendanceFineAmount = attendanceFineAmount;
             EventFeeContribution = eventFeeContribution;
         }
+        public Event(int eventId, string eventName, DateTime eventDate, DateTime eventTime, string location, string description, bool hasPayables, float attendanceFineAmount, float eventFeeContribution, bool fromDatabase)
+        {
+            EventId = eventId;
+            EventName = eventName;
+            EventDate = eventDate;
+            EventTime = eventTime;
+            Location = location;
+            Description = description;
+            HasPayables = hasPayables;
+            AttendanceFineAmount = attendanceFineAmount;
+            EventFeeContribution = eventFeeContribution;
+        }
 
         private void ValidateArg(int eventId, string eventName, DateTime eventDate, DateTime eventTime, String location, String description, bool hasPayables, float attendanceFineAmount, float eventFeeContribution)
         {
