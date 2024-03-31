@@ -595,7 +595,10 @@ namespace Mabolo_Dormitory_System.Classes
                 foreach (PropertyInfo property in properties)
                 {
                     object value = property.GetValue(e);
-                    command.Parameters.AddWithValue("@" + property.Name, value);
+                    if (property.Name.Equals("EventTime"))
+                        command.Parameters.AddWithValue("@" + property.Name, DateTime.Parse(e.EventTime));
+                    else
+                       command.Parameters.AddWithValue("@" + property.Name, value);
                 }
                 command.ExecuteNonQuery();
                 MessageBox.Show("Added Sucessfully");
@@ -610,6 +613,7 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentException("Event does not exist");
             if (EstablishConnection())
             {
+                
                 String query = "UPDATE system.event SET ";
                 PropertyInfo[] properties = e.GetType().GetProperties();
                 for (int i = 0; i < properties.Length; i++)
@@ -624,11 +628,12 @@ namespace Mabolo_Dormitory_System.Classes
                 foreach (PropertyInfo property in properties)
                 {
                     object value = property.GetValue(e);
-                    if (!property.Name.Equals("EventId"))
+                    if(property.Name.Equals("EventTime"))
+                        command.Parameters.AddWithValue("@" + property.Name, DateTime.Parse(e.EventTime));
+                    else if (!property.Name.Equals("EventId"))
                         command.Parameters.AddWithValue("@" + property.Name, value);
                 }
                 command.ExecuteNonQuery();
-                MessageBox.Show("Updated");
                 return true;
             }
             return false;

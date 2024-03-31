@@ -14,10 +14,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
     public partial class DeleteForm : Form
     {
         private DatabaseManager db;
+        private Point lastLocation;
+        private bool mouseDown;
         public DeleteForm()
         {
+            this.db = new DatabaseManager();
             InitializeComponent();
-            db = new DatabaseManager();
             foreach (Event e in db.GetAllEvents())
             {
                 comboBox1.Items.Add("Event " + e.EventId + ": " + e.EventName);
@@ -46,6 +48,33 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 MessageBox.Show("Event deletion cancelled.");
                 return;
             }
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

@@ -20,8 +20,11 @@ namespace Mabolo_Dormitory_System.GUI___Event
         public EventTab(Form form)
         {
             this.form = form;
+            this.db = new DatabaseManager();
+            this.events = new List<Event>();
             InitializeComponent();
 
+            // Add event handlers to the buttons
             foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
                 foreach (GunaAdvenceButton button in panel.Controls.OfType<GunaAdvenceButton>())
@@ -29,11 +32,14 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     button.Click += new EventHandler(eventBut_Click);
                 }
             }
-                
+            
+            // Load information from the database
             SetUpEvents();  
         }
+
         private void SetUpEvents()
         {
+            // Hide all panels
             foreach (GunaElipsePanel panel in flowLayoutPanel2.Controls.OfType<GunaElipsePanel>())
             {
                 panel.Visible = false;
@@ -42,6 +48,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
             {
                 panel.Visible = false;
             }
+
+            // Load the events for this month
             db = new DatabaseManager();
             List<Event> eventsThisMonth = db.GetEventsThisMonth();
             List<Panel> panels = flowLayoutPanel2.Controls.OfType<Panel>().ToList();
@@ -52,6 +60,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 panels[i].Controls.OfType<Label>().ToList()[0].Text = e.EventName;
                 panels[i].Controls.OfType<Label>().ToList()[1].Text = e.EventDate.ToString("MMMM dd, yyyy");
             }
+
+            // Load all events
             events = db.GetAllEvents();
             i = 0;
             foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
@@ -67,42 +77,40 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     i++;
                 }
                 else if (i >= events.Count)
-                {
                     break;
-                }
-
             }
         }
 
         private void eventBut_Click(object sender, EventArgs e)
         {
+            // Get the event id
             GunaAdvenceButton button = (GunaAdvenceButton)sender;
             GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
-            int id = 0;
+            char id = 'a';
             foreach(GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
                 if(panel1 == panel)
                     id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
             }
-            id -= 48;
-            ViewEvent viewEvent = new ViewEvent(id);
+            int x = int.Parse(id.ToString());
+
+            // Open the view event form
+            ViewEvent viewEvent = new ViewEvent(x);
             viewEvent.Owner = form;
             SetFormLocation(viewEvent);
             viewEvent.Show();
         }
+        
         private void SetFormLocation(Form form)
         {
+            // Set the form location to the right side of the screen
             form.StartPosition = FormStartPosition.Manual;
             int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
         }
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void add1_Click(object sender, EventArgs e)
+        private void addEvent_Click(object sender, EventArgs e)
         {
             AddEvent addEvent = new AddEvent();
             addEvent.Owner = form;

@@ -10,15 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Mabolo_Dormitory_System.GUI___Event;
+using Mabolo_Dormitory_System.GUI___Payment;
 
 namespace Mabolo_Dormitory_System
 {
     public partial class Main : Form
     {
         private DatabaseManager db = null;
+       
         public Main(String email)
         {
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             String text = db.GetUserNameOfAdmin(email);
             InitializeComponent();
             username.Text = text;
@@ -27,6 +29,14 @@ namespace Mabolo_Dormitory_System
         private void UpdateInformation()
         {
             List<User> users = db.GetAllUsers();
+            int count = db.GetEventsThisMonth().Count;
+            if(count == 0)
+                eventDescription.Text = "No events this month";
+            else if(count == 1)
+                eventDescription.Text = "There is one event this month";
+            else
+                eventDescription.Text = "There are " + count + " events this month";
+
             dormerCountLabel.Text = (Convert.ToInt16(users.Count - 2)).ToString();
             if (dormerCountLabel.Text == "60")
             {
@@ -91,6 +101,13 @@ namespace Mabolo_Dormitory_System
             mainPanel.Controls.Clear();
             EventTab eventTab = new EventTab(this);
             mainPanel.Controls.Add(eventTab);
+        }
+
+        private void paymentButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            PaymentsTab paymentsTab = new PaymentsTab(this);
+            mainPanel.Controls.Add(paymentsTab);
         }
     }
 }

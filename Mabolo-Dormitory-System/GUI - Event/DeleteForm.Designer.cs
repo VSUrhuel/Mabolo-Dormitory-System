@@ -33,7 +33,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.deleteButton = new Guna.UI.WinForms.GunaButton();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.cancelButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,28 +91,29 @@
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // closeViewButton
+            // cancelButton
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(318, 125);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 66;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cancelButton.AnimationHoverSpeed = 0.07F;
+            this.cancelButton.AnimationSpeed = 0.03F;
+            this.cancelButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.cancelButton.BorderColor = System.Drawing.Color.Black;
+            this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Image = null;
+            this.cancelButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.cancelButton.Location = new System.Drawing.Point(318, 125);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.cancelButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.cancelButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.cancelButton.OnHoverImage = null;
+            this.cancelButton.OnPressedColor = System.Drawing.Color.Black;
+            this.cancelButton.Radius = 10;
+            this.cancelButton.Size = new System.Drawing.Size(160, 42);
+            this.cancelButton.TabIndex = 66;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // DeleteForm
             // 
@@ -120,13 +121,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 189);
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeleteForm";
             this.Text = "DeleteForm";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,6 +143,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaButton deleteButton;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton cancelButton;
     }
 }

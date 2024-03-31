@@ -93,7 +93,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
         {
             // Arrange
             int validDepartmentId = 106;
-            string longDepartmentName = new string('a', 46); // Exceeds max length (45)
+            string longDepartmentName = new string('a', 101); // Exceeds max length (100)
             string validCollegeName = "College of Education";
 
             // Assert (using Assert.Throws for expected exceptions)
@@ -130,7 +130,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             // Arrange
             int validDepartmentId = 109;
             string validDepartmentName = "Statistics";
-            string longCollegeName = new string('a', 46); // Exceeds max length (45)
+            string longCollegeName = new string('a', 101); // Exceeds max length (45)
 
             // Assert (using Assert.Throws for expected exceptions)
             Assert.Throws<ArgumentException>(() => new Department(validDepartmentId, validDepartmentName, longCollegeName));

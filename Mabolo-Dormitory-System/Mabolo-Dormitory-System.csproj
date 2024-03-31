@@ -192,6 +192,12 @@
     <Compile Include="GUI - Event\ViewEvent.Designer.cs">
       <DependentUpon>ViewEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Payment\PaymentsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI - Payment\PaymentsTab.Designer.cs">
+      <DependentUpon>PaymentsTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Rooms\AddRoomAllocation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\ViewEvent.resx">
       <DependentUpon>ViewEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Payment\PaymentsTab.resx">
+      <DependentUpon>PaymentsTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Rooms\AddRoomAllocation.resx">
       <DependentUpon>AddRoomAllocation.cs</DependentUpon>

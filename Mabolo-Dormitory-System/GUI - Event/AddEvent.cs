@@ -14,10 +14,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
     public partial class AddEvent : Form
     {
         private DatabaseManager db;
+        private Point lastLocation;
+        private bool mouseDown;
         public AddEvent()
         {
+            this.db = new DatabaseManager();
             InitializeComponent();
-            db = new DatabaseManager();
             dateTimePicker2.Format = DateTimePickerFormat.Time;
             dateTimePicker2.ShowUpDown = true;
         }
@@ -27,13 +29,15 @@ namespace Mabolo_Dormitory_System.GUI___Event
             this.Dispose();
         }
 
-        private void updateViewButton_Click(object sender, EventArgs e)
+        private void addViewButton_Click(object sender, EventArgs e)
         {
+            // Validate the fields
             if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!");
                 return;
             }
+
             try
             {
                 float.Parse(data9.Text);
@@ -44,11 +48,14 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 MessageBox.Show("Please enter a valid number for the amount fields.");
                 return;
             }
+
             if(dateTimePicker1.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Please enter a valid date.");
                 return;
             }
+
+            // Add the event
             int index = db.GetAllEvents().Count + 1;
             DateTime date = dateTimePicker1.Value.Date;
             DateTime time = dateTimePicker1.Value;
@@ -60,9 +67,29 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 this.Dispose();
             }
             else
-            {
                 MessageBox.Show("An error occured while adding the event. Please try again.");
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
             }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

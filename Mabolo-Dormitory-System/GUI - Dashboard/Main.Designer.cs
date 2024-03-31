@@ -44,7 +44,7 @@
             this.username = new System.Windows.Forms.Label();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.gunaButton5 = new Guna.UI.WinForms.GunaButton();
+            this.paymentButton = new Guna.UI.WinForms.GunaButton();
             this.eventButton = new Guna.UI.WinForms.GunaButton();
             this.roomButton = new Guna.UI.WinForms.GunaButton();
             this.dormerButton = new Guna.UI.WinForms.GunaButton();
@@ -59,7 +59,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.eventDescription = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -237,7 +237,7 @@
             this.panel2.Controls.Add(this.gunaButton12);
             this.panel2.Controls.Add(this.logoutBut);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.gunaButton5);
+            this.panel2.Controls.Add(this.paymentButton);
             this.panel2.Controls.Add(this.eventButton);
             this.panel2.Controls.Add(this.roomButton);
             this.panel2.Controls.Add(this.dormerButton);
@@ -368,32 +368,33 @@
             this.label16.TabIndex = 5;
             this.label16.Text = "Welcome! ";
             // 
-            // gunaButton5
+            // paymentButton
             // 
-            this.gunaButton5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.paymentButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaButton5.AnimationHoverSpeed = 0.07F;
-            this.gunaButton5.AnimationSpeed = 0.03F;
-            this.gunaButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.gunaButton5.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton5.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton5.Image")));
-            this.gunaButton5.ImageOffsetX = 5;
-            this.gunaButton5.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton5.Location = new System.Drawing.Point(0, 356);
-            this.gunaButton5.Name = "gunaButton5";
-            this.gunaButton5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaButton5.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaButton5.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton5.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton5.OnHoverImage")));
-            this.gunaButton5.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton5.Radius = 9;
-            this.gunaButton5.Size = new System.Drawing.Size(177, 45);
-            this.gunaButton5.TabIndex = 7;
-            this.gunaButton5.Text = "Payment";
-            this.gunaButton5.TextOffsetX = 10;
+            this.paymentButton.AnimationHoverSpeed = 0.07F;
+            this.paymentButton.AnimationSpeed = 0.03F;
+            this.paymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.paymentButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.paymentButton.BorderColor = System.Drawing.Color.Black;
+            this.paymentButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentButton.ForeColor = System.Drawing.Color.Black;
+            this.paymentButton.Image = ((System.Drawing.Image)(resources.GetObject("paymentButton.Image")));
+            this.paymentButton.ImageOffsetX = 5;
+            this.paymentButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.paymentButton.Location = new System.Drawing.Point(0, 356);
+            this.paymentButton.Name = "paymentButton";
+            this.paymentButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.paymentButton.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.paymentButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.paymentButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("paymentButton.OnHoverImage")));
+            this.paymentButton.OnPressedColor = System.Drawing.Color.Black;
+            this.paymentButton.Radius = 9;
+            this.paymentButton.Size = new System.Drawing.Size(177, 45);
+            this.paymentButton.TabIndex = 7;
+            this.paymentButton.Text = "Payment";
+            this.paymentButton.TextOffsetX = 10;
+            this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
             // 
             // eventButton
             // 
@@ -612,7 +613,7 @@
             this.gunaElipsePanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.gunaElipsePanel3.Controls.Add(this.pictureBox4);
-            this.gunaElipsePanel3.Controls.Add(this.label9);
+            this.gunaElipsePanel3.Controls.Add(this.eventDescription);
             this.gunaElipsePanel3.Controls.Add(this.label10);
             this.gunaElipsePanel3.Controls.Add(this.label11);
             this.gunaElipsePanel3.Location = new System.Drawing.Point(700, 83);
@@ -632,17 +633,17 @@
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
             // 
-            // label9
+            // eventDescription
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(17, 117);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 18);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "No Events for this Month";
+            this.eventDescription.AutoSize = true;
+            this.eventDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.eventDescription.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventDescription.ForeColor = System.Drawing.Color.White;
+            this.eventDescription.Location = new System.Drawing.Point(17, 117);
+            this.eventDescription.Name = "eventDescription";
+            this.eventDescription.Size = new System.Drawing.Size(178, 18);
+            this.eventDescription.TabIndex = 8;
+            this.eventDescription.Text = "No Events for this Month";
             // 
             // label10
             // 
@@ -1204,7 +1205,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaButton dashboardButton;
-        private Guna.UI.WinForms.GunaButton gunaButton5;
+        private Guna.UI.WinForms.GunaButton paymentButton;
         private Guna.UI.WinForms.GunaButton eventButton;
         private Guna.UI.WinForms.GunaButton roomButton;
         private Guna.UI.WinForms.GunaButton dormerButton;
@@ -1221,7 +1222,7 @@
         private System.Windows.Forms.Label label14;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label eventDescription;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;

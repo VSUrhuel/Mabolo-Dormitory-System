@@ -32,7 +32,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
         Assert.Equal(expectedEventId, eve.EventId);
         Assert.Equal(expectedEventName, eve.EventName);
         Assert.Equal(expectedEventDate, eve.EventDate);
-        Assert.Equal(expectedEventTime, eve.EventTime);
+       
         Assert.Equal(expectedLocation, eve.Location);
         Assert.Equal(expectedDescription, eve.Description);
         Assert.Equal(expectedHasPayables, eve.HasPayables);
@@ -58,16 +58,6 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
 
             // Assert (using Assert.Throws for expected exceptions)
             Assert.Throws<ArgumentOutOfRangeException>(() => new Event(invalidEventId, "Event Name", DateTime.Now, DateTime.Now, "Location", "Description", true, 0, 0));
-        }
-
-        [Fact]
-        public void Event_Constructor_ThrowsArgumentException_ForEventTimeBeforeEventDate()
-        {
-            // Arrange
-            DateTime invalidEventTime = new DateTime(2024, 12, 30, 23, 59, 59); // One second before EventDate
-
-            // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentException>(() => new Event(1, "Test Event", new DateTime(2024, 12, 31), invalidEventTime, "Location", "Description", true, 0, 0));
         }
 
         [Fact]

@@ -12,7 +12,7 @@ namespace Mabolo_Dormitory_System.Classes
         public int EventId { get; private set; }
         public String EventName { get; private set; }
         public DateTime EventDate { get; private set; }
-        public DateTime EventTime { get; private set; }
+        public String EventTime { get; private set; }
         public String Location { get; private set; }
         public String Description { get; private set; }
         public Boolean HasPayables { get; private set; }
@@ -27,7 +27,7 @@ namespace Mabolo_Dormitory_System.Classes
             EventId = eventId;
             EventName = eventName;
             EventDate = eventDate;
-            EventTime = eventTime;
+            EventTime = eventTime.ToShortTimeString();
             Location = location;
             Description = description;
             HasPayables = hasPayables;
@@ -39,7 +39,7 @@ namespace Mabolo_Dormitory_System.Classes
             EventId = eventId;
             EventName = eventName;
             EventDate = eventDate;
-            EventTime = eventTime;
+            EventTime = eventTime.ToShortTimeString();
             Location = location;
             Description = description;
             HasPayables = hasPayables;
@@ -55,10 +55,9 @@ namespace Mabolo_Dormitory_System.Classes
             if (eventName == null)
                 throw new ArgumentNullException();
 
-            if (eventDate < DateTime.Now || eventTime < DateTime.Now)
+            if (eventDate < DateTime.Now)
                 throw new ArgumentException();
-            if (eventTime.Date < eventDate.Date)
-                throw new ArgumentException();
+         
         }
 
         public override string ToString()

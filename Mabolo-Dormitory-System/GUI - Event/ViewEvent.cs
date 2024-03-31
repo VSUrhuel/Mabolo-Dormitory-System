@@ -17,11 +17,15 @@ namespace Mabolo_Dormitory_System.GUI___Event
     {
         private DatabaseManager db;
         private int EventId;
+        private Point lastLocation;
+        private bool mouseDown;
         
         public ViewEvent(int eventId)
         {
             this.EventId = eventId;
             InitializeComponent();
+
+            // Hide the date time picker, combo box, and update button
             dateTimePicker1.Visible = false;
             dateTimePicker2.Visible = false;
             comboBox1.Visible = false;
@@ -32,43 +36,35 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void SetUpInformation()
         {
+            // Load the event information from the database
             Event e = db.GetEvent(EventId);
             data2.Text = e.EventName;
             data4.Text = e.Description;
             data3.Text = e.Location;
             data6.Text = e.EventDate.ToString("MMMM dd, yyyy");
-            if(e.EventTime.ToString("HH:mm:ss") == "00:00:00")
-            {
-                data7.Text = "N/A";
-            }
-            else if(e.EventTime.Hour > 12)
-            {
-                data7.Text = e.EventTime.ToString("hh:mm") + " PM";
-            }
-            else
-            {
-                data7.Text = e.EventTime.ToString("hh:mm") + " AM";
-            }
+            data7.Text = e.EventTime;
             data8.Text = e.HasPayables ? "Yes" : "No";
-            data9.Text =   e.AttendanceFineAmount.ToString() + ".00";
-            data10.Text =  e.EventFeeContribution.ToString() + ".00";
+            data9.Text =  e.AttendanceFineAmount.ToString() + ".00";
+            data10.Text = e.EventFeeContribution.ToString() + ".00";
             data11.Text = ((int)(e.AttendanceFineAmount + e.EventFeeContribution)).ToString() + ".00";
-        }
-
-        private void closeViewButton_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            // View the information in edit mode
+            data11.ReadOnly = true;
             dateTimePicker1.Visible = true;
             dateTimePicker2.Visible = true;
             updateViewButton.Visible = true;
+            data11.Visible = false;
             dateTimePicker2.Format = DateTimePickerFormat.Time;
             dateTimePicker2.ShowUpDown = true;
+           
             comboBox1.Visible = true;
-            gunaLabel1.Text = " EDIT INFORMATION";
+            comboBox1.Text = data8.Text;
+            gunaLabel1.Text = "    EDIT INFORMATION";
+
+            // Enable the textboxes for editing
             foreach (Control c in this.Controls)
             {
                 if (c is GunaLineTextBox)
@@ -76,13 +72,22 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     ((GunaLineTextBox)c).ReadOnly = false;
                 }
             }
+            try
+            {
+                DateTime.Parse(data7.Text);
+                dateTimePicker2.Value = DateTime.Parse(data7.Text);
+            }
+            catch
+            {
+                dateTimePicker2.Value = DateTime.Now;
+            }
             dateTimePicker1.Value = DateTime.Parse(data6.Text);
-            dateTimePicker2.Value = DateTime.Parse(data7.Text);
         }
 
         private void updateViewButton_Click(object sender, EventArgs e)
         {
-            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text }) == false)
+            // Validate the fields
+            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text, comboBox1.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!");
                 return;
@@ -97,30 +102,61 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 MessageBox.Show("Please enter a valid number for the amount fields.");
                 return;
             }
-            if (dateTimePicker1.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Please enter a valid date.");
-                return;
-            }
-            int index = db.GetAllEvents().Count + 1;
+           
+            // Update the event information
             DateTime date = dateTimePicker1.Value.Date;
-            DateTime time = dateTimePicker1.Value;
+            DateTime time = dateTimePicker2.Value;
+            MessageBox.Show(time.ToShortTimeString());
             bool hasPayables = comboBox1.Text == "Yes" ? true : false;
-            Event x = new Event(index, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text));
+            Event x = new Event(EventId, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text), true);
             if (db.UpdateEvent(x))
             {
                 MessageBox.Show("Event updated successfully!");
                 this.Dispose();
             }
             else
-            {
                 MessageBox.Show("An error occured while updating the event. Please try again.");
-            }
         }
 
         private void closeViewButton_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedItem.Equals("Yes"))
+            {
+                data9.ReadOnly = false;
+                data10.ReadOnly = false;
+            }
+            else
+            {
+                data9.ReadOnly = true;
+                data10.ReadOnly = true;
+            }
         }
     }
 }

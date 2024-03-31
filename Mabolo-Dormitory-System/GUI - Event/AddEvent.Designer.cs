@@ -46,7 +46,7 @@
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.updateViewButton = new Guna.UI.WinForms.GunaButton();
+            this.addViewButton = new Guna.UI.WinForms.GunaButton();
             this.closeViewButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -239,29 +239,29 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 29);
             this.comboBox1.TabIndex = 116;
             // 
-            // updateViewButton
+            // addViewButton
             // 
-            this.updateViewButton.AnimationHoverSpeed = 0.07F;
-            this.updateViewButton.AnimationSpeed = 0.03F;
-            this.updateViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.updateViewButton.BorderColor = System.Drawing.Color.Black;
-            this.updateViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateViewButton.ForeColor = System.Drawing.Color.White;
-            this.updateViewButton.Image = null;
-            this.updateViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.updateViewButton.Location = new System.Drawing.Point(309, 487);
-            this.updateViewButton.Name = "updateViewButton";
-            this.updateViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.updateViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.updateViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.updateViewButton.OnHoverImage = null;
-            this.updateViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.updateViewButton.Radius = 10;
-            this.updateViewButton.Size = new System.Drawing.Size(160, 42);
-            this.updateViewButton.TabIndex = 118;
-            this.updateViewButton.Text = "Add";
-            this.updateViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.updateViewButton.Click += new System.EventHandler(this.updateViewButton_Click);
+            this.addViewButton.AnimationHoverSpeed = 0.07F;
+            this.addViewButton.AnimationSpeed = 0.03F;
+            this.addViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.addViewButton.BorderColor = System.Drawing.Color.Black;
+            this.addViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addViewButton.ForeColor = System.Drawing.Color.White;
+            this.addViewButton.Image = null;
+            this.addViewButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.addViewButton.Location = new System.Drawing.Point(309, 487);
+            this.addViewButton.Name = "addViewButton";
+            this.addViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.addViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.addViewButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.addViewButton.OnHoverImage = null;
+            this.addViewButton.OnPressedColor = System.Drawing.Color.Black;
+            this.addViewButton.Radius = 10;
+            this.addViewButton.Size = new System.Drawing.Size(160, 42);
+            this.addViewButton.TabIndex = 118;
+            this.addViewButton.Text = "Add";
+            this.addViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.addViewButton.Click += new System.EventHandler(this.addViewButton_Click);
             // 
             // closeViewButton
             // 
@@ -312,7 +312,7 @@
             this.ClientSize = new System.Drawing.Size(684, 541);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.gunaLabel6);
-            this.Controls.Add(this.updateViewButton);
+            this.Controls.Add(this.addViewButton);
             this.Controls.Add(this.closeViewButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
@@ -334,6 +334,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddEvent";
             this.Text = "AddEvent";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -358,7 +361,7 @@
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private Guna.UI.WinForms.GunaButton updateViewButton;
+        private Guna.UI.WinForms.GunaButton addViewButton;
         private Guna.UI.WinForms.GunaButton closeViewButton;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

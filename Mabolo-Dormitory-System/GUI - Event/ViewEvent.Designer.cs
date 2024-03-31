@@ -306,13 +306,13 @@
             this.editButton.ImageSize = new System.Drawing.Size(20, 20);
             this.editButton.Location = new System.Drawing.Point(503, 17);
             this.editButton.Name = "editButton";
-            this.editButton.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.editButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.editButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.editButton.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.editButton.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.editButton.OnHoverForeColor = System.Drawing.Color.Transparent;
             this.editButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("editButton.OnHoverImage")));
-            this.editButton.OnPressedColor = System.Drawing.Color.Black;
+            this.editButton.OnPressedColor = System.Drawing.Color.Transparent;
             this.editButton.Radius = 9;
-            this.editButton.Size = new System.Drawing.Size(44, 36);
+            this.editButton.Size = new System.Drawing.Size(44, 38);
             this.editButton.TabIndex = 95;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -341,7 +341,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(467, 239);
+            this.dateTimePicker2.Location = new System.Drawing.Point(466, 239);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(178, 30);
             this.dateTimePicker2.TabIndex = 121;
@@ -353,10 +353,11 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.comboBox1.Location = new System.Drawing.Point(181, 335);
+            this.comboBox1.Location = new System.Drawing.Point(182, 335);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(88, 29);
             this.comboBox1.TabIndex = 122;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // updateViewButton
             // 
@@ -441,6 +442,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewEvent";
             this.Text = "ViewEvent";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

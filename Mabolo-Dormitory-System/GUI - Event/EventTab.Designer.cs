@@ -31,29 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventTab));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunaElipsePanel9 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label25 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton7 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.gunaElipsePanel10 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label26 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton8 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gunaElipsePanel11 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label27 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton9 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.gunaElipsePanel12 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label28 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton10 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.add1 = new Guna.UI.WinForms.GunaButton();
-            this.delBut = new Guna.UI.WinForms.GunaButton();
-            this.refreshBut = new Guna.UI.WinForms.GunaButton();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -94,6 +90,10 @@
             this.gunaAdvenceButton12 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.addEvent = new Guna.UI.WinForms.GunaButton();
+            this.delBut = new Guna.UI.WinForms.GunaButton();
+            this.refreshBut = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunaElipsePanel13 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -155,7 +155,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 600);
             this.flowLayoutPanel1.TabIndex = 22;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // gunaElipsePanel9
             // 
@@ -173,6 +172,18 @@
             this.gunaElipsePanel9.Radius = 30;
             this.gunaElipsePanel9.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel9.TabIndex = 24;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label25.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(17, 81);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(100, 22);
+            this.label25.TabIndex = 21;
+            this.label25.Text = "Event ID: 1";
             // 
             // gunaAdvenceButton7
             // 
@@ -203,6 +214,7 @@
             this.gunaAdvenceButton7.TabIndex = 20;
             this.gunaAdvenceButton7.Text = "Click for More";
             this.gunaAdvenceButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            
             // 
             // label16
             // 
@@ -244,6 +256,18 @@
             this.gunaElipsePanel10.Radius = 30;
             this.gunaElipsePanel10.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel10.TabIndex = 27;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(17, 81);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(100, 22);
+            this.label26.TabIndex = 22;
+            this.label26.Text = "Event ID: 2";
             // 
             // gunaAdvenceButton8
             // 
@@ -316,6 +340,18 @@
             this.gunaElipsePanel11.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel11.TabIndex = 28;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.label27.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(17, 81);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(100, 22);
+            this.label27.TabIndex = 23;
+            this.label27.Text = "Event ID: 3";
+            // 
             // gunaAdvenceButton9
             // 
             this.gunaAdvenceButton9.AnimationHoverSpeed = 0.07F;
@@ -387,6 +423,18 @@
             this.gunaElipsePanel12.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel12.TabIndex = 25;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.label28.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(17, 81);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(100, 22);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Event ID: 4";
+            // 
             // gunaAdvenceButton10
             // 
             this.gunaAdvenceButton10.AnimationHoverSpeed = 0.07F;
@@ -440,139 +488,6 @@
             this.label23.Size = new System.Drawing.Size(156, 22);
             this.label23.TabIndex = 6;
             this.label23.Text = "January 24, 2024";
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(125, 174);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(171, 23);
-            this.gunaLabel1.TabIndex = 23;
-            this.gunaLabel1.Text = "Dormitory Events";
-            // 
-            // add1
-            // 
-            this.add1.AnimationHoverSpeed = 0.07F;
-            this.add1.AnimationSpeed = 0.03F;
-            this.add1.BackColor = System.Drawing.Color.Transparent;
-            this.add1.BaseColor = System.Drawing.Color.Transparent;
-            this.add1.BorderColor = System.Drawing.Color.Transparent;
-            this.add1.BorderSize = 1;
-            this.add1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.add1.Image = ((System.Drawing.Image)(resources.GetObject("add1.Image")));
-            this.add1.ImageSize = new System.Drawing.Size(20, 20);
-            this.add1.Location = new System.Drawing.Point(1174, 161);
-            this.add1.Name = "add1";
-            this.add1.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.add1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.add1.OnHoverForeColor = System.Drawing.Color.White;
-            this.add1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("add1.OnHoverImage")));
-            this.add1.OnPressedColor = System.Drawing.Color.Black;
-            this.add1.Radius = 9;
-            this.add1.Size = new System.Drawing.Size(39, 36);
-            this.add1.TabIndex = 26;
-            this.add1.Text = "Refresh";
-            this.add1.Click += new System.EventHandler(this.add1_Click);
-            // 
-            // delBut
-            // 
-            this.delBut.AnimationHoverSpeed = 0.07F;
-            this.delBut.AnimationSpeed = 0.03F;
-            this.delBut.BackColor = System.Drawing.Color.Transparent;
-            this.delBut.BaseColor = System.Drawing.Color.Transparent;
-            this.delBut.BorderColor = System.Drawing.Color.Transparent;
-            this.delBut.BorderSize = 1;
-            this.delBut.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.delBut.Image = ((System.Drawing.Image)(resources.GetObject("delBut.Image")));
-            this.delBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.delBut.Location = new System.Drawing.Point(1215, 161);
-            this.delBut.Name = "delBut";
-            this.delBut.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.delBut.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.delBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.delBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("delBut.OnHoverImage")));
-            this.delBut.OnPressedColor = System.Drawing.Color.Black;
-            this.delBut.Radius = 9;
-            this.delBut.Size = new System.Drawing.Size(39, 36);
-            this.delBut.TabIndex = 25;
-            this.delBut.Text = "Refresh";
-            this.delBut.Click += new System.EventHandler(this.delBut_Click);
-            // 
-            // refreshBut
-            // 
-            this.refreshBut.AnimationHoverSpeed = 0.07F;
-            this.refreshBut.AnimationSpeed = 0.03F;
-            this.refreshBut.BackColor = System.Drawing.Color.Transparent;
-            this.refreshBut.BaseColor = System.Drawing.Color.Transparent;
-            this.refreshBut.BorderColor = System.Drawing.Color.Transparent;
-            this.refreshBut.BorderSize = 1;
-            this.refreshBut.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.refreshBut.Image = ((System.Drawing.Image)(resources.GetObject("refreshBut.Image")));
-            this.refreshBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.refreshBut.Location = new System.Drawing.Point(1255, 161);
-            this.refreshBut.Name = "refreshBut";
-            this.refreshBut.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.refreshBut.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.refreshBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.refreshBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("refreshBut.OnHoverImage")));
-            this.refreshBut.OnPressedColor = System.Drawing.Color.Black;
-            this.refreshBut.Radius = 9;
-            this.refreshBut.Size = new System.Drawing.Size(39, 36);
-            this.refreshBut.TabIndex = 24;
-            this.refreshBut.Text = "Refresh";
-            this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label25.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(17, 81);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(100, 22);
-            this.label25.TabIndex = 21;
-            this.label25.Text = "Event ID: 1";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.label26.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(17, 81);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(100, 22);
-            this.label26.TabIndex = 22;
-            this.label26.Text = "Event ID: 2";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label27.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(17, 81);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(100, 22);
-            this.label27.TabIndex = 23;
-            this.label27.Text = "Event ID: 3";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.label28.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(17, 81);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(100, 22);
-            this.label28.TabIndex = 24;
-            this.label28.Text = "Event ID: 4";
             // 
             // gunaElipsePanel1
             // 
@@ -1238,6 +1153,91 @@
             this.label36.TabIndex = 6;
             this.label36.Text = "January 24, 2024";
             // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(125, 174);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(171, 23);
+            this.gunaLabel1.TabIndex = 23;
+            this.gunaLabel1.Text = "Dormitory Events";
+            // 
+            // addEvent
+            // 
+            this.addEvent.AnimationHoverSpeed = 0.07F;
+            this.addEvent.AnimationSpeed = 0.03F;
+            this.addEvent.BackColor = System.Drawing.Color.Transparent;
+            this.addEvent.BaseColor = System.Drawing.Color.Transparent;
+            this.addEvent.BorderColor = System.Drawing.Color.Transparent;
+            this.addEvent.BorderSize = 1;
+            this.addEvent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addEvent.Image = ((System.Drawing.Image)(resources.GetObject("addEvent.Image")));
+            this.addEvent.ImageSize = new System.Drawing.Size(20, 20);
+            this.addEvent.Location = new System.Drawing.Point(1174, 161);
+            this.addEvent.Name = "addEvent";
+            this.addEvent.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.addEvent.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.addEvent.OnHoverForeColor = System.Drawing.Color.White;
+            this.addEvent.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addEvent.OnHoverImage")));
+            this.addEvent.OnPressedColor = System.Drawing.Color.Black;
+            this.addEvent.Radius = 9;
+            this.addEvent.Size = new System.Drawing.Size(39, 36);
+            this.addEvent.TabIndex = 26;
+            this.addEvent.Text = "Refresh";
+            this.addEvent.Click += new System.EventHandler(this.addEvent_Click);
+            // 
+            // delBut
+            // 
+            this.delBut.AnimationHoverSpeed = 0.07F;
+            this.delBut.AnimationSpeed = 0.03F;
+            this.delBut.BackColor = System.Drawing.Color.Transparent;
+            this.delBut.BaseColor = System.Drawing.Color.Transparent;
+            this.delBut.BorderColor = System.Drawing.Color.Transparent;
+            this.delBut.BorderSize = 1;
+            this.delBut.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.delBut.Image = ((System.Drawing.Image)(resources.GetObject("delBut.Image")));
+            this.delBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.delBut.Location = new System.Drawing.Point(1215, 161);
+            this.delBut.Name = "delBut";
+            this.delBut.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.delBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.delBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.delBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("delBut.OnHoverImage")));
+            this.delBut.OnPressedColor = System.Drawing.Color.Black;
+            this.delBut.Radius = 9;
+            this.delBut.Size = new System.Drawing.Size(39, 36);
+            this.delBut.TabIndex = 25;
+            this.delBut.Text = "Refresh";
+            this.delBut.Click += new System.EventHandler(this.delBut_Click);
+            // 
+            // refreshBut
+            // 
+            this.refreshBut.AnimationHoverSpeed = 0.07F;
+            this.refreshBut.AnimationSpeed = 0.03F;
+            this.refreshBut.BackColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BaseColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BorderColor = System.Drawing.Color.Transparent;
+            this.refreshBut.BorderSize = 1;
+            this.refreshBut.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.refreshBut.Image = ((System.Drawing.Image)(resources.GetObject("refreshBut.Image")));
+            this.refreshBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.refreshBut.Location = new System.Drawing.Point(1255, 161);
+            this.refreshBut.Name = "refreshBut";
+            this.refreshBut.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.refreshBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.refreshBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.refreshBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("refreshBut.OnHoverImage")));
+            this.refreshBut.OnPressedColor = System.Drawing.Color.Black;
+            this.refreshBut.Radius = 9;
+            this.refreshBut.Size = new System.Drawing.Size(39, 36);
+            this.refreshBut.TabIndex = 24;
+            this.refreshBut.Text = "Refresh";
+            this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
+            // 
             // gunaLabel2
             // 
             this.gunaLabel2.AutoSize = true;
@@ -1502,7 +1502,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.gunaLabel2);
-            this.Controls.Add(this.add1);
+            this.Controls.Add(this.addEvent);
             this.Controls.Add(this.delBut);
             this.Controls.Add(this.refreshBut);
             this.Controls.Add(this.gunaLabel1);
@@ -1571,7 +1571,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaButton add1;
+        private Guna.UI.WinForms.GunaButton addEvent;
         private Guna.UI.WinForms.GunaButton delBut;
         private Guna.UI.WinForms.GunaButton refreshBut;
         private System.Windows.Forms.Label label25;
