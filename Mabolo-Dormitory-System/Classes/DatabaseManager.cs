@@ -13,7 +13,7 @@ using Mysqlx.Crud;
 namespace Mabolo_Dormitory_System.Classes
 {
     public class DatabaseManager
-    {   
+    {
         MySqlConnection Connection;
         public List<User> Users { get; private set; }
         public List<Department> Departments { get; private set; }
@@ -22,7 +22,7 @@ namespace Mabolo_Dormitory_System.Classes
         public List<Event> Events { get; private set; }
         public List<Payment> Payments { get; private set; }
         public List<RoomAllocation> RoomAllocations { get; private set; }
-        
+
         public DatabaseManager()
         {
             EstablishConnection();
@@ -38,13 +38,13 @@ namespace Mabolo_Dormitory_System.Classes
         {
             string con = "server=127.0.0.1;port=3306;uid=root;pwd=Laurente1234.";
             Connection = new MySqlConnection(con);
-            try 
+            try
             {
                 Connection.Open();
                 return true;
             }
-            catch (Exception e) 
-            { 
+            catch (Exception e)
+            {
                 MessageBox.Show(e.Message);
                 return false;
             }
@@ -101,7 +101,7 @@ namespace Mabolo_Dormitory_System.Classes
 
         public List<User> GetUsersTypeWithoutRoom(String userType)
         {
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 Users.Clear();
                 String sql = "SELECT * FROM system.user WHERE UserType = @UserType AND UserId NOT IN (SELECT FK_UserId_RoomAllocation FROM system.room_allocation)";
@@ -118,7 +118,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public String GetUserNameOfAdmin(String email)
         {
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 String sql = "SELECT * FROM system.account WHERE Email = @Email";
                 MySqlCommand command = new MySqlCommand(sql, Connection);
@@ -128,12 +128,28 @@ namespace Mabolo_Dormitory_System.Classes
                 while (reader.Read())
                 {
                     name = (string)reader["UserName"];
-                    
+
                 }
                 reader.Close();
                 return name;
             }
             return "";
+        }
+        public List<User> GetAllUsersExcpetAdmin()
+        {
+            if (EstablishConnection())
+            {
+                Users.Clear();
+                String sql = "SELECT * FROM system.user WHERE UserType != 'Dormitory Adviser' OR UserType != 'Assistant Dormitory Adviser'";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                }
+                return Users;
+            }
+            return null;
         }
         public bool AccountExist(String email, String password)
         {
@@ -157,16 +173,16 @@ namespace Mabolo_Dormitory_System.Classes
         public List<User> GetAllUsers()
         {
             Users.Clear();
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 string sql = "SELECT * FROM system.user;";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
-               
+
                 while (reader.Read())
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
-                    
+
                 }
                 reader.Close();
                 return Users;
@@ -183,11 +199,11 @@ namespace Mabolo_Dormitory_System.Classes
                 string sql = "SELECT * FROM system.user WHERE UserType = @UserType;";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 cmd.Parameters.AddWithValue("@UserType", type);
-                MySqlDataReader reader = cmd.ExecuteReader();            
+                MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
-                    
+
                 }
                 return Users;
             }
@@ -216,8 +232,8 @@ namespace Mabolo_Dormitory_System.Classes
                         query += "@" + properties[i].Name + ")";
                 }
                 MySqlCommand command = new MySqlCommand(query, Connection);
-                
-                foreach (PropertyInfo property in properties )
+
+                foreach (PropertyInfo property in properties)
                 {
                     object value = property.GetValue(user);
                     command.Parameters.AddWithValue("@" + property.Name, value);
@@ -281,7 +297,7 @@ namespace Mabolo_Dormitory_System.Classes
             Users = GetAllUsers();
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 String query = "DELETE FROM system.user WHERE UserId = @UserId";
                 MySqlCommand command = new MySqlCommand(query, Connection);
@@ -325,7 +341,7 @@ namespace Mabolo_Dormitory_System.Classes
         public bool UserAllocated(String userId)
         {
             RoomAllocations = GetAllRoomAllocations();
-            foreach(RoomAllocation ra in RoomAllocations)
+            foreach (RoomAllocation ra in RoomAllocations)
             {
                 if (ra.FK_UserId_RoomAllocation == userId)
                     return true;
@@ -352,7 +368,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public List<User> GetUsersInRoom(int roomId)
         {
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 Users.Clear();
                 String sql = "SELECT* FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId;";
@@ -362,14 +378,14 @@ namespace Mabolo_Dormitory_System.Classes
                 while (reader.Read())
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
-                }   
+                }
                 return Users;
             }
             return null;
         }
         public List<User> GetUserTypeInRoom(String userType, int room)
         {
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 Users.Clear();
                 String sql = "SELECT* FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = @UserType;";
@@ -414,7 +430,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public bool AddUserInRoom(int roomId, String userId)
         {
-            if(roomId < 0 || roomId > 9)
+            if (roomId < 0 || roomId > 9)
                 throw new ArgumentException("Invalid Room Id");
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
@@ -440,7 +456,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@EndDate", DateTime.Now.AddMonths(1));
                 command.Parameters.AddWithValue("@FK_RoomId_RoomAllocation", roomId);
                 command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
-                
+
                 command.ExecuteNonQuery();
                 UpdateRoomSize(roomId, Rooms[roomId - 1].CurrNumOfOccupants);
 
@@ -488,7 +504,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
-        
+
         public bool RemoveUserInRoom(int roomId, String userId)
         {
             if (!UserAllocated(userId) || (roomId < 0 || roomId > 9))
@@ -521,7 +537,7 @@ namespace Mabolo_Dormitory_System.Classes
                 return Departments;
             }
             return null;
-        }   
+        }
 
         public Room GetUserRoom(String userId)
         {
@@ -537,10 +553,10 @@ namespace Mabolo_Dormitory_System.Classes
                 while (reader.Read())
                 {
                     r = new Room((int)reader["RoomId"], (int)reader["LevelNumber"], (int)reader["MaximumCapacity"], (int)reader["CurrNumOfOccupants"]);
-                    
+
                 }
                 reader.Close();
-               
+
                 return r;
             }
             return null;
@@ -598,7 +614,7 @@ namespace Mabolo_Dormitory_System.Classes
                     if (property.Name.Equals("EventTime"))
                         command.Parameters.AddWithValue("@" + property.Name, DateTime.Parse(e.EventTime));
                     else
-                       command.Parameters.AddWithValue("@" + property.Name, value);
+                        command.Parameters.AddWithValue("@" + property.Name, value);
                 }
                 command.ExecuteNonQuery();
                 MessageBox.Show("Added Sucessfully");
@@ -613,7 +629,7 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentException("Event does not exist");
             if (EstablishConnection())
             {
-                
+
                 String query = "UPDATE system.event SET ";
                 PropertyInfo[] properties = e.GetType().GetProperties();
                 for (int i = 0; i < properties.Length; i++)
@@ -628,7 +644,7 @@ namespace Mabolo_Dormitory_System.Classes
                 foreach (PropertyInfo property in properties)
                 {
                     object value = property.GetValue(e);
-                    if(property.Name.Equals("EventTime"))
+                    if (property.Name.Equals("EventTime"))
                         command.Parameters.AddWithValue("@" + property.Name, DateTime.Parse(e.EventTime));
                     else if (!property.Name.Equals("EventId"))
                         command.Parameters.AddWithValue("@" + property.Name, value);
@@ -655,7 +671,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public List<Event> GetEventsThisMonth()
         {
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 Events.Clear();
                 DateTime currentDate = DateTime.Now;
@@ -673,7 +689,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public Event GetEvent(int eventId)
         {
-            if(!EventExists(eventId))
+            if (!EventExists(eventId))
                 throw new ArgumentException("Event does not exist");
             if (EstablishConnection())
             {
@@ -693,7 +709,7 @@ namespace Mabolo_Dormitory_System.Classes
         }
         public bool EventExists(int eventId)
         {
-            Events = GetAllEvents();   
+            Events = GetAllEvents();
             foreach (Event e in Events)
             {
                 if (e.EventId == eventId)
@@ -743,10 +759,32 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        public EventAttendance GetEventAttendance(int eventId)
+        {
+            if(!EventExists(eventId))
+                throw new ArgumentException("Event does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
+                MySqlDataReader reader = command.ExecuteReader();
+                EventAttendance ea = null;
+                while (reader.Read())
+                {
+                    ea = new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]);
+                }
+                reader.Close();
+                return ea;
+            }
+            return null;
+        }
         public bool RecordAttendance(String userId, int eventId)
         {
-            if (!EventExists(eventId) || !UserExists(userId) || EventAttendanceExists(eventId, userId))
+            if (!EventExists(eventId) || !UserExists(userId))
                 return false;
+            if(EventAttendanceExists(eventId, userId))
+                UpdateAttendance(userId, eventId, GetEventAttendance(eventId).AttendanceStatus);
             if (EstablishConnection())
             {
                 string query = "INSERT INTO system.event_attendance(EventAttendanceId, AttendanceStatus, FK_UserId_EventAttendance, FK_EventId_EventAttendance) VALUES (@EventAttendanceId, @AttendanceStatus, @FK_UserId_EventAttendance, @FK_EventId_EventAttendance)";
@@ -761,6 +799,42 @@ namespace Mabolo_Dormitory_System.Classes
                 return true;
             }
             return false;
+        }
+        public bool UpdateAttendance(String userId, int eventId, String status)
+        {
+            if (!EventExists(eventId) || !UserExists(userId) || !EventAttendanceExists(eventId, userId))
+                return false;
+            if (EstablishConnection())
+            {
+                String query = "UPDATE system.event_attendance SET AttendanceStatus = @AttendanceStatus WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance AND FK_EventId_EventAttendance = @FK_EventId_EventAttendance";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@AttendanceStatus", status);
+                command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
+                command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+        public List<EventAttendance> GetEventAttendances(int eventId)
+        {
+            if(!EventExists(eventId))
+                throw new ArgumentException("Event does not exist");
+            if (EstablishConnection())
+            {
+                EventAttendances.Clear();
+                String sql = "SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    EventAttendances.Add(new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]));
+                }
+                reader.Close();
+                return EventAttendances;
+            }
+            return null;
         }
         public List<EventAttendance> GetEventAttendancesOfUser(String userId)
         {

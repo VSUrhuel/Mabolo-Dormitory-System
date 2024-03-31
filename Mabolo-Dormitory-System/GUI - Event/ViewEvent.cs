@@ -158,5 +158,11 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 data10.ReadOnly = true;
             }
         }
+
+        private void recordAttendance_Click(object sender, EventArgs e)
+        {
+            RecordAttendance recordAttendance = new RecordAttendance(EventId);
+            recordAttendance.Show();
+        }
     }
 }

@@ -11,7 +11,7 @@
     <ProjectGuid>{25A54940-126B-4EEE-A4F8-31E93602F131}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Mabolo_Dormitory_System</RootNamespace>
-    <AssemblyName>Mabolo-Dormitory-System</AssemblyName>
+    <AssemblyName>Mabolo Dormitory System</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,6 +37,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Green_Modern_Download_App_Document_Poster__2_x_2_in_-removebg-preview.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -186,6 +189,12 @@
     <Compile Include="GUI - Event\EventTab.Designer.cs">
       <DependentUpon>EventTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Event\RecordAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Event\RecordAttendance.Designer.cs">
+      <DependentUpon>RecordAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Event\ViewEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +299,9 @@
     <EmbeddedResource Include="GUI - Event\EventTab.resx">
       <DependentUpon>EventTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Event\RecordAttendance.resx">
+      <DependentUpon>RecordAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\ViewEvent.resx">
       <DependentUpon>ViewEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +331,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="GUI - SignIn\ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
@@ -351,6 +364,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404720286_381428064288197_8684864246851447303_n__1_-removebg-preview %281%29.ico" />
+    <Content Include="Green Modern Download App Document Poster %282 x 2 in%29.ico" />
+    <Content Include="Green_Modern_Download_App_Document_Poster__2_x_2_in_-removebg-preview.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

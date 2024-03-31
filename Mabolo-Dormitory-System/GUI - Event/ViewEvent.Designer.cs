@@ -56,6 +56,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.updateViewButton = new Guna.UI.WinForms.GunaButton();
             this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.recordAttendance = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -407,11 +408,36 @@
             this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click_1);
             // 
+            // recordAttendance
+            // 
+            this.recordAttendance.AnimationHoverSpeed = 0.07F;
+            this.recordAttendance.AnimationSpeed = 0.03F;
+            this.recordAttendance.BackColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.BaseColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.BorderColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.BorderSize = 1;
+            this.recordAttendance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recordAttendance.Image = ((System.Drawing.Image)(resources.GetObject("recordAttendance.Image")));
+            this.recordAttendance.ImageSize = new System.Drawing.Size(25, 25);
+            this.recordAttendance.Location = new System.Drawing.Point(556, 18);
+            this.recordAttendance.Name = "recordAttendance";
+            this.recordAttendance.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("recordAttendance.OnHoverImage")));
+            this.recordAttendance.OnPressedColor = System.Drawing.Color.Transparent;
+            this.recordAttendance.Radius = 9;
+            this.recordAttendance.Size = new System.Drawing.Size(44, 38);
+            this.recordAttendance.TabIndex = 125;
+            this.recordAttendance.Click += new System.EventHandler(this.recordAttendance_Click);
+            // 
             // ViewEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 541);
+            this.Controls.Add(this.recordAttendance);
             this.Controls.Add(this.updateViewButton);
             this.Controls.Add(this.closeViewButton);
             this.Controls.Add(this.comboBox1);
@@ -480,5 +506,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private Guna.UI.WinForms.GunaButton updateViewButton;
         private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton recordAttendance;
     }
 }
