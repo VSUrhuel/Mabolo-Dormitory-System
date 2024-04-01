@@ -19,9 +19,11 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private int EventId;
         private Point lastLocation;
         private bool mouseDown;
-        
-        public ViewEvent(int eventId)
+        private Form form;
+        private RecordAttendance recordData;
+        public ViewEvent(Form form, int eventId)
         {
+            this.form = form;
             this.EventId = eventId;
             InitializeComponent();
 
@@ -120,6 +122,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void closeViewButton_Click_1(object sender, EventArgs e)
         {
+            if (recordData != null)
+                recordData.Dispose();
             this.Dispose();
         }
 
@@ -161,8 +165,18 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void recordAttendance_Click(object sender, EventArgs e)
         {
-            RecordAttendance recordAttendance = new RecordAttendance(EventId);
-            recordAttendance.Show();
+            recordData = new RecordAttendance(EventId);
+            SetFormLocation(recordData);
+            recordData.Owner = form;
+            recordData.Show();
+        }
+
+        private void SetFormLocation(Form form)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            int x = (Screen.PrimaryScreen.Bounds.Width - form.Width) * 1/9;
+            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
+            form.Location = new Point(x, y);
         }
     }
 }

@@ -30,6 +30,7 @@ namespace Mabolo_Dormitory_System
         {
             List<User> users = db.GetAllUsers();
             int count = db.GetEventsThisMonth().Count;
+            eventCount.Text = db.GetAllEvents().Count.ToString();
             if(count == 0)
                 eventDescription.Text = "No events this month";
             else if(count == 1)

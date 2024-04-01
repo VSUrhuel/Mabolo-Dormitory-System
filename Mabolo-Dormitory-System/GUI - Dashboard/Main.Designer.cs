@@ -60,7 +60,7 @@
             this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.eventDescription = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.eventCount = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -614,7 +614,7 @@
             this.gunaElipsePanel3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.gunaElipsePanel3.Controls.Add(this.pictureBox4);
             this.gunaElipsePanel3.Controls.Add(this.eventDescription);
-            this.gunaElipsePanel3.Controls.Add(this.label10);
+            this.gunaElipsePanel3.Controls.Add(this.eventCount);
             this.gunaElipsePanel3.Controls.Add(this.label11);
             this.gunaElipsePanel3.Location = new System.Drawing.Point(700, 83);
             this.gunaElipsePanel3.Name = "gunaElipsePanel3";
@@ -645,17 +645,17 @@
             this.eventDescription.TabIndex = 8;
             this.eventDescription.Text = "No Events for this Month";
             // 
-            // label10
+            // eventCount
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(-6, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 93);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "10";
+            this.eventCount.AutoSize = true;
+            this.eventCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.eventCount.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventCount.ForeColor = System.Drawing.Color.White;
+            this.eventCount.Location = new System.Drawing.Point(2, 34);
+            this.eventCount.Name = "eventCount";
+            this.eventCount.Size = new System.Drawing.Size(130, 93);
+            this.eventCount.TabIndex = 7;
+            this.eventCount.Text = "10";
             // 
             // label11
             // 
@@ -1223,7 +1223,7 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label eventDescription;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label eventCount;
         private System.Windows.Forms.Label label11;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private System.Windows.Forms.PictureBox pictureBox3;

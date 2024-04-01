@@ -622,6 +622,8 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+
+        
         public bool UpdateEvent(Event e)
         {
             Events = GetAllEvents();
@@ -779,12 +781,16 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-        public bool RecordAttendance(String userId, int eventId)
+        public bool RecordAttendance(String userId, int eventId, String status)
         {
             if (!EventExists(eventId) || !UserExists(userId))
                 return false;
-            if(EventAttendanceExists(eventId, userId))
-                UpdateAttendance(userId, eventId, GetEventAttendance(eventId).AttendanceStatus);
+            if (EventAttendanceExists(eventId, userId))
+            {
+                if(UpdateAttendance(userId, eventId, status))
+                    return true;
+                return false;
+            }
             if (EstablishConnection())
             {
                 string query = "INSERT INTO system.event_attendance(EventAttendanceId, AttendanceStatus, FK_UserId_EventAttendance, FK_EventId_EventAttendance) VALUES (@EventAttendanceId, @AttendanceStatus, @FK_UserId_EventAttendance, @FK_EventId_EventAttendance)";
@@ -792,7 +798,7 @@ namespace Mabolo_Dormitory_System.Classes
                 List<EventAttendance> ea = GetEventAttendances();
                 int index = ea.Count + 1;
                 command.Parameters.AddWithValue("@EventAttendanceId", index);
-                command.Parameters.AddWithValue("@AttendanceStatus", "Present");
+                command.Parameters.AddWithValue("@AttendanceStatus", status);
                 command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
                 command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                 command.ExecuteNonQuery();
@@ -812,6 +818,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
                 command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                 command.ExecuteNonQuery();
+                //MessageBox.Show(userId + " attendance updated");
                 return true;
             }
             return false;

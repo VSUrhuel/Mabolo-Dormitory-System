@@ -59,6 +59,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 panels[i].Visible = true;
                 panels[i].Controls.OfType<Label>().ToList()[0].Text = e.EventName;
                 panels[i].Controls.OfType<Label>().ToList()[1].Text = e.EventDate.ToString("MMMM dd, yyyy");
+                i++;
             }
 
             // Load all events
@@ -95,7 +96,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             int x = int.Parse(id.ToString());
 
             // Open the view event form
-            ViewEvent viewEvent = new ViewEvent(x);
+            ViewEvent viewEvent = new ViewEvent(form, x);
             viewEvent.Owner = form;
             SetFormLocation(viewEvent);
             viewEvent.Show();

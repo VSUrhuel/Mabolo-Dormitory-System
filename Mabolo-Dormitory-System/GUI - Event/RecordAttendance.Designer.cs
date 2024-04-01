@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordAttendance));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.updateViewButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
@@ -42,6 +42,8 @@
             this.Attendance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.eventTitle = new Guna.UI.WinForms.GunaLineTextBox();
+            this.closeButton = new Guna.UI.WinForms.GunaButton();
+            this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.updateViewButton.ForeColor = System.Drawing.Color.White;
             this.updateViewButton.Image = null;
             this.updateViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.updateViewButton.Location = new System.Drawing.Point(611, 747);
+            this.updateViewButton.Location = new System.Drawing.Point(429, 747);
             this.updateViewButton.Name = "updateViewButton";
             this.updateViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
             this.updateViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -96,35 +98,35 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
             this.FirstName,
             this.LastName,
             this.Attendance});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle18;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(17, 99);
@@ -197,20 +199,63 @@
             // 
             this.eventTitle.BackColor = System.Drawing.Color.White;
             this.eventTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.eventTitle.Enabled = false;
             this.eventTitle.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.eventTitle.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventTitle.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventTitle.LineColor = System.Drawing.Color.Gainsboro;
-            this.eventTitle.Location = new System.Drawing.Point(157, 60);
+            this.eventTitle.Location = new System.Drawing.Point(172, 56);
             this.eventTitle.Name = "eventTitle";
             this.eventTitle.PasswordChar = '\0';
-            this.eventTitle.Size = new System.Drawing.Size(252, 33);
+            this.eventTitle.ReadOnly = true;
+            this.eventTitle.Size = new System.Drawing.Size(577, 39);
             this.eventTitle.TabIndex = 124;
+            // 
+            // closeButton
+            // 
+            this.closeButton.AnimationHoverSpeed = 0.07F;
+            this.closeButton.AnimationSpeed = 0.03F;
+            this.closeButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeButton.BorderColor = System.Drawing.Color.Black;
+            this.closeButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Image = null;
+            this.closeButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeButton.Location = new System.Drawing.Point(611, 747);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeButton.OnHoverImage = null;
+            this.closeButton.OnPressedColor = System.Drawing.Color.Black;
+            this.closeButton.Radius = 10;
+            this.closeButton.Size = new System.Drawing.Size(160, 42);
+            this.closeButton.TabIndex = 125;
+            this.closeButton.Text = "Close";
+            this.closeButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // selectAllCB
+            // 
+            this.selectAllCB.BaseColor = System.Drawing.Color.White;
+            this.selectAllCB.CheckedOffColor = System.Drawing.Color.Gray;
+            this.selectAllCB.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.selectAllCB.FillColor = System.Drawing.Color.White;
+            this.selectAllCB.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.selectAllCB.Location = new System.Drawing.Point(17, 733);
+            this.selectAllCB.Name = "selectAllCB";
+            this.selectAllCB.Size = new System.Drawing.Size(114, 26);
+            this.selectAllCB.TabIndex = 126;
+            this.selectAllCB.Text = "Select All";
+            this.selectAllCB.CheckedChanged += new System.EventHandler(this.selectAllCB_CheckedChanged);
             // 
             // RecordAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 801);
+            this.Controls.Add(this.selectAllCB);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.eventTitle);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.dormerTableView);
@@ -220,6 +265,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecordAttendance";
             this.Text = "RecordAttendance";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).EndInit();
             this.ResumeLayout(false);
@@ -239,5 +287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Attendance;
         private Guna.UI.WinForms.GunaLineTextBox eventTitle;
+        private Guna.UI.WinForms.GunaButton closeButton;
+        private Guna.UI.WinForms.GunaCheckBox selectAllCB;
     }
 }

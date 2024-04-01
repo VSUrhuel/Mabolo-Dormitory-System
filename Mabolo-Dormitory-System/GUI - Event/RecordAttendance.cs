@@ -16,6 +16,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private int EventId;
         private List<User> users;
         private DatabaseManager db;
+        private Point lastLocation;
+        private bool mouseDown;
         public RecordAttendance(int eventId)
         {
             this.db = new DatabaseManager();
@@ -25,18 +27,22 @@ namespace Mabolo_Dormitory_System.GUI___Event
             users = db.GetAllUsersExcpetAdmin();
             eventTitle.Text = db.GetEvent(eventId).EventName;
             List<EventAttendance> eventAttendances = db.GetEventAttendances(eventId);
-            foreach(EventAttendance ea in eventAttendances)
+            SetupTable();
+            foreach (EventAttendance ea in eventAttendances)
             {
                 foreach(User u in users)
                 {
                     if (ea.FK_UserId_EventAttendance == u.UserId)
                     {
                         int index = GetRowIndex(u.UserId);
-                        dormerTableView.Rows[index].Cells["Attendance"].Value = true;
+                        if (ea.AttendanceStatus == "Present")
+                            dormerTableView.Rows[index].Cells["Attendance"].Value = true;
+                        else
+                            dormerTableView.Rows[index].Cells["Attendance"].Value = false;
                     }
                 }
             }
-            SetupTable();
+            
         }
         private int GetRowIndex(string userId)
         {
@@ -83,10 +89,58 @@ namespace Mabolo_Dormitory_System.GUI___Event
             foreach(DataGridViewRow row in dormerTableView.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["Attendance"].Value))
+                    db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Present");
+                else
+                    db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Absent");
+            }
+            MessageBox.Show("Attendance Updated!");
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if(selectAllCB.Checked)
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
                 {
-                    db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId);
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Attendance"].Value = true;
                 }
             }
+            else
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Attendance"].Value = false;
+                }
+            }
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }
