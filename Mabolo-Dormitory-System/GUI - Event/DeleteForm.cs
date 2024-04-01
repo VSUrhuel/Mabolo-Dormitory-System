@@ -36,7 +36,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this event?", "Delete Event", messageBoxButtons);
             String eventId = comboBox1.Text.Split(':')[0];
-            int id = Int32.Parse(eventId.Split()[1])-1;
+            int id = Int32.Parse(eventId.Split()[1]);
             if(dialogResult == DialogResult.Yes)
             {
                 db.DeleteEvent(id);

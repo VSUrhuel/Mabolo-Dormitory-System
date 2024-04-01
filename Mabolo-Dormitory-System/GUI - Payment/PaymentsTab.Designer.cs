@@ -29,22 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentsTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.delBut = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.searchBut = new Guna.UI.WinForms.GunaButton();
             this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.userTypeCB = new Guna.UI.WinForms.GunaComboBox();
+            this.regularPayablesCB = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.itemCB = new Guna.UI.WinForms.GunaComboBox();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.eventPayabalesCB = new Guna.UI.WinForms.GunaComboBox();
+            this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
+            this.receivedPayment = new Guna.UI.WinForms.GunaLabel();
+            this.pendingCollectibles = new Guna.UI.WinForms.GunaLabel();
+            this.updateViewButton = new Guna.UI.WinForms.GunaButton();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemainingBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,26 +140,24 @@
             this.gunaLabel2.TabIndex = 19;
             this.gunaLabel2.Text = "Regular Payables:";
             // 
-            // userTypeCB
+            // regularPayablesCB
             // 
-            this.userTypeCB.BackColor = System.Drawing.Color.Transparent;
-            this.userTypeCB.BaseColor = System.Drawing.Color.White;
-            this.userTypeCB.BorderColor = System.Drawing.Color.Silver;
-            this.userTypeCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.userTypeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.userTypeCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTypeCB.ForeColor = System.Drawing.Color.Black;
-            this.userTypeCB.FormattingEnabled = true;
-            this.userTypeCB.Items.AddRange(new object[] {
-            "Dormitory Maintenance",
-            "WiFi Payment"});
-            this.userTypeCB.Location = new System.Drawing.Point(459, 48);
-            this.userTypeCB.Name = "userTypeCB";
-            this.userTypeCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
-            this.userTypeCB.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.userTypeCB.Radius = 9;
-            this.userTypeCB.Size = new System.Drawing.Size(239, 33);
-            this.userTypeCB.TabIndex = 18;
+            this.regularPayablesCB.BackColor = System.Drawing.Color.Transparent;
+            this.regularPayablesCB.BaseColor = System.Drawing.Color.White;
+            this.regularPayablesCB.BorderColor = System.Drawing.Color.Silver;
+            this.regularPayablesCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.regularPayablesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.regularPayablesCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regularPayablesCB.ForeColor = System.Drawing.Color.Black;
+            this.regularPayablesCB.FormattingEnabled = true;
+            this.regularPayablesCB.Location = new System.Drawing.Point(473, 48);
+            this.regularPayablesCB.Name = "regularPayablesCB";
+            this.regularPayablesCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
+            this.regularPayablesCB.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.regularPayablesCB.Radius = 9;
+            this.regularPayablesCB.Size = new System.Drawing.Size(239, 33);
+            this.regularPayablesCB.TabIndex = 18;
+            this.regularPayablesCB.SelectedIndexChanged += new System.EventHandler(this.regularPayablesCB_SelectedIndexChanged);
             // 
             // gunaLabel1
             // 
@@ -214,32 +223,37 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.UserId,
+            this.FirstName,
+            this.LastName,
+            this.RemainingBalance,
+            this.Status,
+            this.Amount});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(53, 87);
@@ -248,7 +262,7 @@
             this.dormerTableView.RowHeadersWidth = 51;
             this.dormerTableView.RowTemplate.Height = 24;
             this.dormerTableView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dormerTableView.Size = new System.Drawing.Size(1263, 543);
+            this.dormerTableView.Size = new System.Drawing.Size(1263, 518);
             this.dormerTableView.TabIndex = 14;
             this.dormerTableView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Emerald;
             this.dormerTableView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
@@ -272,14 +286,7 @@
             this.dormerTableView.ThemeStyle.RowsStyle.Height = 24;
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "#";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dormerTableView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dormerTableView_CellContentClick);
             // 
             // gunaLabel4
             // 
@@ -292,40 +299,162 @@
             this.gunaLabel4.Text = "Event Payables:";
             this.gunaLabel4.Click += new System.EventHandler(this.gunaLabel4_Click);
             // 
-            // gunaComboBox1
+            // eventPayabalesCB
             // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Items.AddRange(new object[] {
-            "Dormitory Maintenance",
-            "WiFi Payment"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(854, 49);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Radius = 9;
-            this.gunaComboBox1.Size = new System.Drawing.Size(239, 33);
-            this.gunaComboBox1.TabIndex = 24;
-            this.gunaComboBox1.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
+            this.eventPayabalesCB.BackColor = System.Drawing.Color.Transparent;
+            this.eventPayabalesCB.BaseColor = System.Drawing.Color.White;
+            this.eventPayabalesCB.BorderColor = System.Drawing.Color.Silver;
+            this.eventPayabalesCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.eventPayabalesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.eventPayabalesCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventPayabalesCB.ForeColor = System.Drawing.Color.Black;
+            this.eventPayabalesCB.FormattingEnabled = true;
+            this.eventPayabalesCB.Location = new System.Drawing.Point(854, 49);
+            this.eventPayabalesCB.Name = "eventPayabalesCB";
+            this.eventPayabalesCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
+            this.eventPayabalesCB.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.eventPayabalesCB.Radius = 9;
+            this.eventPayabalesCB.Size = new System.Drawing.Size(239, 33);
+            this.eventPayabalesCB.TabIndex = 24;
+            this.eventPayabalesCB.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
+            // 
+            // selectAllCB
+            // 
+            this.selectAllCB.BaseColor = System.Drawing.Color.White;
+            this.selectAllCB.CheckedOffColor = System.Drawing.Color.Gray;
+            this.selectAllCB.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.selectAllCB.FillColor = System.Drawing.Color.White;
+            this.selectAllCB.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.selectAllCB.Location = new System.Drawing.Point(53, 611);
+            this.selectAllCB.Name = "selectAllCB";
+            this.selectAllCB.Size = new System.Drawing.Size(114, 26);
+            this.selectAllCB.TabIndex = 26;
+            this.selectAllCB.Text = "Select All";
+            // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel5.Location = new System.Drawing.Point(814, 11);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(192, 23);
+            this.gunaLabel5.TabIndex = 27;
+            this.gunaLabel5.Text = "Received Amount:";
+            // 
+            // gunaLabel6
+            // 
+            this.gunaLabel6.AutoSize = true;
+            this.gunaLabel6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel6.Location = new System.Drawing.Point(1060, 13);
+            this.gunaLabel6.Name = "gunaLabel6";
+            this.gunaLabel6.Size = new System.Drawing.Size(217, 23);
+            this.gunaLabel6.TabIndex = 126;
+            this.gunaLabel6.Text = "Pending Collectibles:";
+            // 
+            // receivedPayment
+            // 
+            this.receivedPayment.AutoSize = true;
+            this.receivedPayment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receivedPayment.Location = new System.Drawing.Point(1012, 11);
+            this.receivedPayment.Name = "receivedPayment";
+            this.receivedPayment.Size = new System.Drawing.Size(21, 23);
+            this.receivedPayment.TabIndex = 127;
+            this.receivedPayment.Text = "1";
+            // 
+            // pendingCollectibles
+            // 
+            this.pendingCollectibles.AutoSize = true;
+            this.pendingCollectibles.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingCollectibles.Location = new System.Drawing.Point(1283, 13);
+            this.pendingCollectibles.Name = "pendingCollectibles";
+            this.pendingCollectibles.Size = new System.Drawing.Size(21, 23);
+            this.pendingCollectibles.TabIndex = 128;
+            this.pendingCollectibles.Text = "1";
+            // 
+            // updateViewButton
+            // 
+            this.updateViewButton.AnimationHoverSpeed = 0.07F;
+            this.updateViewButton.AnimationSpeed = 0.03F;
+            this.updateViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.updateViewButton.BorderColor = System.Drawing.Color.Black;
+            this.updateViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateViewButton.ForeColor = System.Drawing.Color.White;
+            this.updateViewButton.Image = null;
+            this.updateViewButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.updateViewButton.Location = new System.Drawing.Point(1156, 611);
+            this.updateViewButton.Name = "updateViewButton";
+            this.updateViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.updateViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.updateViewButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.updateViewButton.OnHoverImage = null;
+            this.updateViewButton.OnPressedColor = System.Drawing.Color.Black;
+            this.updateViewButton.Radius = 10;
+            this.updateViewButton.Size = new System.Drawing.Size(160, 42);
+            this.updateViewButton.TabIndex = 129;
+            this.updateViewButton.Text = "Update";
+            this.updateViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.updateViewButton.Click += new System.EventHandler(this.updateViewButton_Click);
+            // 
+            // UserId
+            // 
+            this.UserId.HeaderText = "User ID";
+            this.UserId.MinimumWidth = 6;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // RemainingBalance
+            // 
+            this.RemainingBalance.HeaderText = "Remaining Balance";
+            this.RemainingBalance.MinimumWidth = 6;
+            this.RemainingBalance.Name = "RemainingBalance";
+            this.RemainingBalance.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount (₱)";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
             // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updateViewButton);
+            this.Controls.Add(this.pendingCollectibles);
+            this.Controls.Add(this.receivedPayment);
+            this.Controls.Add(this.gunaLabel6);
+            this.Controls.Add(this.gunaLabel5);
+            this.Controls.Add(this.selectAllCB);
             this.Controls.Add(this.gunaLabel4);
-            this.Controls.Add(this.gunaComboBox1);
+            this.Controls.Add(this.eventPayabalesCB);
             this.Controls.Add(this.delBut);
             this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.searchBut);
             this.Controls.Add(this.searchBar);
             this.Controls.Add(this.gunaLabel2);
-            this.Controls.Add(this.userTypeCB);
+            this.Controls.Add(this.regularPayablesCB);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.itemCB);
             this.Controls.Add(this.refreshBut);
@@ -345,13 +474,24 @@
         private Guna.UI.WinForms.GunaButton searchBut;
         private Guna.UI.WinForms.GunaLineTextBox searchBar;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaComboBox userTypeCB;
+        private Guna.UI.WinForms.GunaComboBox regularPayablesCB;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaComboBox itemCB;
         private Guna.UI.WinForms.GunaButton refreshBut;
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI.WinForms.GunaComboBox eventPayabalesCB;
+        private Guna.UI.WinForms.GunaCheckBox selectAllCB;
+        private Guna.UI.WinForms.GunaLabel gunaLabel5;
+        private Guna.UI.WinForms.GunaLabel gunaLabel6;
+        private Guna.UI.WinForms.GunaLabel receivedPayment;
+        private Guna.UI.WinForms.GunaLabel pendingCollectibles;
+        private Guna.UI.WinForms.GunaButton updateViewButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }

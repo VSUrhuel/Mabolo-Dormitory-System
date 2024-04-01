@@ -143,6 +143,7 @@ namespace Mabolo_Dormitory_System
             int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
+          
         }
 
         private void add1_Click(object sender, EventArgs e)

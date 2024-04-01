@@ -165,6 +165,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\RegularPayable.cs" />
     <Compile Include="GUI - Dormers\AddDormerForm.cs">
       <SubType>Form</SubType>
     </Compile>

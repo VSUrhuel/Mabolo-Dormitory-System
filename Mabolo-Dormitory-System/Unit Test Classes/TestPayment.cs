@@ -19,10 +19,12 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             float expectedAmount = 150.50f;
             string expectedPaymentStatus = "Paid";
             string expectedFKUserId = "User789";
+            string expectedPaymentType = "Regular Payables";
             int expectedFKEventId = 12;
+            int expectedFKRegularPayables = 1;
 
             // Act
-            Payment payment = new Payment(expectedPaymentId, expectedPaymentDate, expectedAmount, expectedPaymentStatus, expectedFKUserId, expectedFKEventId);
+            Payment payment = new Payment(expectedPaymentId, expectedPaymentDate, expectedPaymentType,  expectedAmount, expectedPaymentStatus, expectedFKUserId, expectedFKEventId, expectedFKRegularPayables);
             
            
             // Assert
@@ -30,7 +32,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             Assert.Equal(expectedPaymentDate, payment.PaymentDate);
             Assert.Equal(expectedAmount, payment.Amount);
             Assert.Equal(expectedPaymentStatus, payment.PaymentStatus);
-            Assert.Equal(expectedFKUserId, payment.FK_UserId_EventAttendance);
+            Assert.Equal(expectedFKUserId, payment.FK_UserId_Payment);
             Assert.Equal(expectedFKEventId, payment.FK_EventId_Payment);
         }
 
@@ -42,7 +44,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             int invalidPaymentId = -2;
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(invalidPaymentId, DateTime.Now, 100f, "Paid", "User123", 5));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(invalidPaymentId, DateTime.Now, "Regular Payables", 100f, "Paid", "User123", 5, 1));
         }
 
         [Fact]
@@ -52,7 +54,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             float negativeAmount = -50.0f;
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(1, DateTime.Now, negativeAmount, "Paid", "User123", 5));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(1, DateTime.Now, "Regular Payables", negativeAmount, "Paid", "User123", 5, 1));
         }
 
         [Fact]
@@ -62,7 +64,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string nullPaymentStatus = null;
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentNullException>(() => new Payment(1, DateTime.Now, 100f, nullPaymentStatus, "User123", 5));
+            Assert.Throws<ArgumentNullException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, nullPaymentStatus, "User123", 5, 1));
         }
 
         [Fact]
@@ -72,7 +74,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string nullFKUserId = null;
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentNullException>(() => new Payment(1, DateTime.Now, 100f, "Paid", nullFKUserId, 5));
+            Assert.Throws<ArgumentNullException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, "Paid", nullFKUserId, 5, 1));
         }
 
         [Fact]
@@ -82,7 +84,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             int invalidFKEventId = -1;
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(1, DateTime.Now, 100f, "Paid", "User123", invalidFKEventId));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, "Paid", "User123", invalidFKEventId, 1));
         }
 
         // String Handling Tests
@@ -93,7 +95,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string emptyPaymentStatus = "";
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, 100f, emptyPaymentStatus, "User123", 5));
+            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, emptyPaymentStatus, "User123", 5, 1));
         }
 
         [Fact]
@@ -103,7 +105,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string whitespacePaymentStatus = "  ";
 
             // Assert (using Assert.Throws for expected exceptions)
-            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, 100f, whitespacePaymentStatus, "User123", 5));
+            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, whitespacePaymentStatus, "User123", 5, 1));
         }
 
         [Fact]
@@ -113,7 +115,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string longPaymentStatus = new string('a', 46); // Assuming a max length of 45 for PaymentStatus
 
             // Assert for excessively long PaymentStatus
-            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, 100f, longPaymentStatus, "User123", 5));
+            Assert.Throws<ArgumentException>(() => new Payment(1, DateTime.Now, "Regular Payables", 100f, longPaymentStatus, "User123", 5, 1));
         }
 
         // ToString Tests
@@ -128,7 +130,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             int expectedFKEventId = 20;
 
             // Act
-            Payment payment = new Payment(expectedPaymentId, expectedPaymentDate, expectedAmount, "Pending", expectedFKUserId, expectedFKEventId);
+            Payment payment = new Payment(expectedPaymentId, expectedPaymentDate, "Regular Payables", expectedAmount, "Pending", expectedFKUserId, expectedFKEventId,1);
             string actualToStringOutput = payment.ToString();
 
             // Assert
@@ -144,7 +146,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             DateTime minimumDateTime = DateTime.MinValue;
 
             // Act
-            Payment payment = new Payment(1, minimumDateTime, 100f, "Paid", "User456", 5);
+            Payment payment = new Payment(1, minimumDateTime, "Regular Payables", 100f, "Paid", "User456", 5, 1);
 
             // Assert
             Assert.Equal(minimumDateTime, payment.PaymentDate);
@@ -157,7 +159,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             DateTime maximumDateTime = DateTime.MaxValue;
 
             // Act
-            Payment payment = new Payment(1, maximumDateTime, 100f, "Paid", "User789", 10);
+            Payment payment = new Payment(1, maximumDateTime, "Regular Payables", 100f, "Paid", "User789", 10, 1);
 
             // Assert
             Assert.Equal(maximumDateTime, payment.PaymentDate);
@@ -170,7 +172,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             float maximumAmount = float.MaxValue;
 
             // Act
-            Payment payment = new Payment(1, DateTime.Now, maximumAmount, "Paid", "User123", 5);
+            Payment payment = new Payment(1, DateTime.Now, "Regular Payables", maximumAmount, "Paid", "User123", 5, 1);
 
             // Assert
             Assert.Equal(maximumAmount, payment.Amount);

@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 
@@ -22,6 +23,7 @@ namespace Mabolo_Dormitory_System.Classes
         public List<Event> Events { get; private set; }
         public List<Payment> Payments { get; private set; }
         public List<RoomAllocation> RoomAllocations { get; private set; }
+        public List<RegularPayable> RegularPayable { get; private set; }
 
         public DatabaseManager()
         {
@@ -29,6 +31,7 @@ namespace Mabolo_Dormitory_System.Classes
             Users = new List<User>();
             Departments = new List<Department>();
             Rooms = new List<Room>();
+            RegularPayable = new List<RegularPayable>();
             EventAttendances = new List<EventAttendance>();
             Events = new List<Event>();
             Payments = new List<Payment>();
@@ -843,6 +846,24 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        public Event GetEvent(String eventName)
+        {
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.event WHERE EventName = @EventName";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@EventName", eventName);
+                MySqlDataReader reader = command.ExecuteReader();
+                Event e = null;
+                while (reader.Read())
+                {
+                    e = new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true);
+                }
+                reader.Close();
+                return e;
+            }
+            return null;
+        }
         public List<EventAttendance> GetEventAttendancesOfUser(String userId)
         {
             if (!UserExists(userId))
@@ -922,7 +943,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"]));
+                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]));
                 }
                 reader.Close();
                 return Payments;
@@ -959,6 +980,31 @@ namespace Mabolo_Dormitory_System.Classes
                 
             }
             return false;
+        }
+        public Payment GetPayment(int id, string userId, String paymentType)
+        {
+            if (EstablishConnection())
+            {
+
+                string query = "SELECT* FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment AND FK_RegularPayableId_Payment = @FK_RegularPayableId AND PaymentType = 'Regular Payable'";  
+
+                MySqlCommand command = new MySqlCommand(query, Connection);
+               
+                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+                command.Parameters.AddWithValue($"@FK_RegularPayableId", id);
+                MessageBox.Show(query);
+                MySqlDataReader reader = command.ExecuteReader();
+                Payment p = null;
+                
+                while (reader.Read())
+                {
+
+                    MessageBox.Show("j");
+                    p = new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]);
+                }
+                return p;
+            }
+            return null;
         }
         public bool UpdatePayment(int EventId, string userId, float amount)
         {
@@ -1005,6 +1051,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+
         public List<Payment> GetUserPayments(String userId)
         {
             if(!UserExists(userId))
@@ -1018,18 +1065,89 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"]));
+                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]));
                 }
                 reader.Close();
                 return Payments;
             }
             return null;
         }
+
         public bool PaymentExists(int EventId, string userId)
         {
             foreach (Payment p in Payments)
             {
-                if (p.FK_EventId_Payment == EventId && p.FK_UserId_EventAttendance == userId)
+                if (p.FK_EventId_Payment == EventId && p.FK_UserId_Payment == userId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Regular Payables
+        public List<RegularPayable> GetRegularPayables()
+        {
+            RegularPayable.Clear();
+            if (EstablishConnection())
+            {
+                string sql = "SELECT * FROM system.regular_payable;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    RegularPayable.Add(new RegularPayable((int)reader["RegularPayableId"], (string)reader["Name"], (float)reader["Amount"]));
+                }
+                reader.Close();
+                return RegularPayable;
+            }
+            return null;
+        }
+        public int GetRegularPayableId(string name)
+        {
+            if(EstablishConnection())
+            {
+                string sql = "SELECT * FROM system.regular_payable WHERE Name = @Name;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                cmd.Parameters.AddWithValue("@Name", name);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                RegularPayable rp = null;
+                while (reader.Read())
+                {
+                    rp = new RegularPayable((int)reader["RegularPayableId"], (string)reader["Name"], (float)reader["Amount"]);
+                }
+                reader.Close();
+                return rp.RegularPayableId;
+            }
+            return -1;
+        }
+        public RegularPayable GetRegularPayable(int id)
+        {
+            if(!RegularPayableExists(id))
+                throw new ArgumentException("Regular Payable does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.regular_payables WHERE RegularPayableId = @RegularPayablesId";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@RegularPayablesId", id);
+                MySqlDataReader reader = command.ExecuteReader();
+                RegularPayable rp = null;
+                while (reader.Read())
+                {
+                    rp = new RegularPayable((int)reader["RegularPayableId"], (string)reader["Name"], (float)reader["Amount"]);
+                }
+                reader.Close();
+                return rp;
+            }
+            return null;
+        }
+        
+        public bool RegularPayableExists(int id)
+        {
+            RegularPayable = GetRegularPayables();
+            foreach (RegularPayable rp in RegularPayable)
+            {
+                if (rp.RegularPayableId == id)
                 {
                     return true;
                 }
