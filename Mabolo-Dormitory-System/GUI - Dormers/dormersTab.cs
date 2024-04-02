@@ -42,6 +42,8 @@ namespace Mabolo_Dormitory_System
             else
                 u2 = users.GetRange(0, n);
             
+            //users -> ToList of users
+            //u2 = copied users depending sa range
             // Set up Table Style
             dormerTableView.DataSource = u2;
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);

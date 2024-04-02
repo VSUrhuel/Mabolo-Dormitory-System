@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,7 @@ namespace Mabolo_Dormitory_System.Classes
         public List<Payment> Payments { get; private set; }
         public List<RoomAllocation> RoomAllocations { get; private set; }
         public List<RegularPayable> RegularPayable { get; private set; }
+        public List<UserPayable> UserPayables { get; private set; }
 
         public DatabaseManager()
         {
@@ -36,6 +38,7 @@ namespace Mabolo_Dormitory_System.Classes
             Events = new List<Event>();
             Payments = new List<Payment>();
             RoomAllocations = new List<RoomAllocation>();
+            UserPayables = new List<UserPayable>();
         }
         public bool EstablishConnection()
         {
@@ -898,193 +901,126 @@ namespace Mabolo_Dormitory_System.Classes
         }
 
         // Payments
-        public List<User> GetPaymentEventRecord(int id)
+        public List<Payment> GetAllPayment()
         {
             if(EstablishConnection())
             {
-                Users.Clear();
-                String sql = "SELECT* FROM system.user u INNER JOIN system.payment t ON u.UserId = t.FK_UserId_Payment WHERE t.FK_EventId_Payment = @FK_EventId_Payment;";
-                MySqlCommand command = new MySqlCommand(sql, Connection);
-                command.Parameters.AddWithValue("@FK_EventId_Payment", id);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
-                }
-                reader.Close();
-                return Users;
-            }
-            return null;
-        }
-        public List<User> GetAllPaymentRecord()
-        {
-            if (EstablishConnection())
-            {
-                Users.Clear();
-                String sql = "SELECT* FROM system.user u INNER JOIN system.payment t ON u.UserId = t.FK_UserId_Payment";
-                MySqlCommand command = new MySqlCommand(sql, Connection);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
-                }
-                reader.Close();
-                return Users;
-            }
-            return null;
-        }
-        public List<Payment> GetPayments()
-        {
-            Payments.Clear();
-            if (EstablishConnection())
-            {
+                Payments.Clear();
                 string sql = "SELECT * FROM system.payment;";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]));
+                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["Remarks"], (string)reader["FK_UserId_Payment"]));
                 }
                 reader.Close();
                 return Payments;
             }
             return null;
         }
-        public bool AddPayment(int EventId, string userId, float amount)
-        {
-            if (EstablishConnection())
-            {
-                Events.Clear();
-                Events = GetAllEvents();
-                if (!EventExists(EventId))
-                    throw new ArgumentException("Event does not exist");
-                Users.Clear();
-                Users = GetAllUsers();
-                if (!UserExists(userId))
-                    throw new ArgumentException("User does not exist");
-                string query = "INSERT INTO system.payment(PaymentId, PaymentDate, Amount, PaymentStatus, FK_EventId_Payment, FK_UserId_Payment) VALUES (@PaymentId, @PaymentDate, @Amount, @PaymentStatus, @FK_EventId_Payment, @FK_UserId_Payment)";
-                MySqlCommand command = new MySqlCommand(query, Connection);
-                List<User> u = GetAllPaymentRecord();
-                int index = u.Count + 1;
-                command.Parameters.AddWithValue("@PaymentId", index);
-                command.Parameters.AddWithValue("@FK_EventId_Payment", EventId+1);
-                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
-                command.Parameters.AddWithValue("@PaymentDate", DateTime.Now);
-                command.Parameters.AddWithValue("@Amount", amount);
-                if (amount >= (Convert.ToInt16(Events[EventId-1].EventFeeContribution) + Convert.ToInt16(Events[EventId-1].AttendanceFineAmount)))
-                    command.Parameters.AddWithValue("@PaymentStatus", "Paid");
-                else
-                    command.Parameters.AddWithValue("@PaymentStatus", "Pending");
-                command.ExecuteNonQuery();
-                return true;
-                
-            }
-            return false;
-        }
-        public Payment GetPayment(int id, string userId, String paymentType)
-        {
-            if (EstablishConnection())
-            {
-
-                string query = "SELECT* FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment AND FK_RegularPayableId_Payment = @FK_RegularPayableId AND PaymentType = 'Regular Payable'";  
-
-                MySqlCommand command = new MySqlCommand(query, Connection);
-               
-                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
-                command.Parameters.AddWithValue($"@FK_RegularPayableId", id);
-                MessageBox.Show(query);
-                MySqlDataReader reader = command.ExecuteReader();
-                Payment p = null;
-                
-                while (reader.Read())
-                {
-
-                    MessageBox.Show("j");
-                    p = new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]);
-                }
-                return p;
-            }
-            return null;
-        }
-        public bool UpdatePayment(int EventId, string userId, float amount)
-        {
-            Payments = GetPayments();
-            if (!PaymentExists(EventId, userId))
-                throw new ArgumentException("Payment does not exist");
-            if (EstablishConnection())
-            {
-                String query = "UPDATE system.payment SET ";
-                PropertyInfo[] properties = Payments[EventId - 1].GetType().GetProperties();
-                for (int i = 0; i < properties.Length; i++)
-                {
-                    if (properties[i].Name.Equals("FK_UserId_EventAttendance"))
-                        continue;
-                    query += properties[i].Name + " = @" + properties[i].Name;
-                    if (i < properties.Length - 1)
-                        query += ", ";
-                }
-                query += " WHERE FK_EventId_Payment = @FK_EventId_Payment AND FK_UserId_Payment = @FK_UserId_Payment";
-                MessageBox.Show(query);
-                MySqlCommand command = new MySqlCommand(query, Connection);
-                command.Parameters.AddWithValue("@FK_EventId_Payment", EventId);
-                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
-                Events = GetAllEvents();
-                amount += Payments[EventId-1].Amount;
-                foreach (PropertyInfo property in properties)
-                {
-                    object value = property.GetValue(Payments[EventId-1]);
-                    if (property.Name.Equals("Amount"))
-                        command.Parameters.AddWithValue("@" + property.Name, amount);
-                    else if(property.Name.Equals("PaymentStatus"))
-                    {
-                        if (amount >= (Convert.ToInt16(Events[EventId-1].EventFeeContribution) + Convert.ToInt16(Events[EventId-1].AttendanceFineAmount)))
-                            command.Parameters.AddWithValue("@" + property.Name, "Paid");
-                        else
-                            command.Parameters.AddWithValue("@" + property.Name, "Pending");
-                    }
-                    else if (!property.Name.Equals("FK_EventId_Payment") && !property.Name.Equals("FK_UserId_Payment"))
-                        command.Parameters.AddWithValue("@" + property.Name, value);    
-                }
-                MessageBox.Show(command.ToString());
-                command.ExecuteNonQuery();
-                return true;
-            }
-            return false;
-        }
-
+        
         public List<Payment> GetUserPayments(String userId)
         {
             if(!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if(EstablishConnection())
+            if (EstablishConnection())
             {
                 Payments.Clear();
                 String sql = "SELECT * FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
                 MySqlCommand command = new MySqlCommand(sql, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
                 MySqlDataReader reader = command.ExecuteReader();
+               
                 while (reader.Read())
                 {
-                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (string)reader["PaymentType"], (float)reader["Amount"], (string)reader["PaymentStatus"], (string)reader["FK_UserId_Payment"], (int)reader["FK_EventId_Payment"], (int)reader["FK_RegularPayableId_Payment"]));
+                    Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["Remarks"], (string)reader["FK_UserId_Payment"]));
                 }
                 reader.Close();
                 return Payments;
             }
             return null;
         }
-
-        public bool PaymentExists(int EventId, string userId)
+        public bool AddPayment(Payment p)
         {
+            if (EstablishConnection())
+            {
+                string query = "INSERT INTO system.payment(";
+                PropertyInfo[] properties = p.GetType().GetProperties();
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    if (i < properties.Length - 1)
+                        query += properties[i].Name + ", ";
+                    else
+                        query += properties[i].Name + ") ";
+                }
+                query += "VALUES (";
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    if (i < properties.Length - 1)
+                        query += "@" + properties[i].Name + ", ";
+                    else
+                        query += "@" + properties[i].Name + ")";
+                }
+                MySqlCommand command = new MySqlCommand(query, Connection);
+
+                foreach (PropertyInfo property in properties)
+                {
+                    object value = property.GetValue(p);
+                    if (property.Name.Equals("PaymentDate"))
+                        command.Parameters.AddWithValue("@" + property.Name, (DateTime)p.PaymentDate);
+                    else
+                        command.Parameters.AddWithValue("@" + property.Name, value);
+                }
+                command.ExecuteNonQuery();
+                UpdateUserPayable(p.FK_UserId_Payment, p.Amount);
+                return true;
+            }
+            return false;
+        }
+        public bool UpdatePayment(Payment p)
+        {
+            Payments = GetAllPayment();
+            if (!PaymentExists(p.PaymentId))
+                throw new ArgumentException("Payment does not exist");
+            if (EstablishConnection())
+            {
+                String query = "UPDATE system.payment SET ";
+                PropertyInfo[] properties = p.GetType().GetProperties();
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    query += properties[i].Name + " = @" + properties[i].Name;
+                    if (i < properties.Length - 1)
+                        query += ", ";
+                }
+                query += " WHERE PaymentId = @PaymentId";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@PaymentId", p.PaymentId);
+                foreach (PropertyInfo property in properties)
+                {
+                    object value = property.GetValue(p);
+                    if (property.Name.Equals("PaymentDate"))
+                        command.Parameters.AddWithValue("@" + property.Name, (DateTime)p.PaymentDate);
+                    else if (!property.Name.Equals("PaymentId"))
+                        command.Parameters.AddWithValue("@" + property.Name, value);
+                }
+                command.ExecuteNonQuery();
+                UpdateUserPayable(p.FK_UserId_Payment, p.Amount);
+                return true;
+            }
+            return false;
+        }
+        public bool PaymentExists(int paymentId)
+        {
+            Payments = GetAllPayment();
             foreach (Payment p in Payments)
             {
-                if (p.FK_EventId_Payment == EventId && p.FK_UserId_Payment == userId)
+                if (p.PaymentId == paymentId)
                 {
                     return true;
                 }
             }
             return false;
         }
-
         // Regular Payables
         public List<RegularPayable> GetRegularPayables()
         {
@@ -1154,5 +1090,168 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+        // User Payable
+        public List<UserPayable> GetAllUserPayable()
+        {
+            if(EstablishConnection())
+            {
+                UserPayables.Clear();
+                string sql = "SELECT * FROM system.user_payable;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
+                }
+                reader.Close();
+                return UserPayables;
+            }
+            return null;
+        }
+        public UserPayable GetUserPayable(String userId)
+        {
+            if(!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                UserPayable up = null;
+                while (reader.Read())
+                {
+                    up = new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]);
+                }
+                reader.Close();
+                return up;
+            }
+            return null;
+        }
+        public void UpdateUserPayable(String userId, float Amount)
+        {
+            if(EstablishConnection())
+            {
+                float updatedAmount = 0;
+                String query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                updatedAmount = GetUserPayable(userId).RemainingBalance - Amount;
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                command.ExecuteNonQuery();
+            }
+        }
+        public void LoadUserPayable()
+        {
+            Users.Clear();
+            Users = GetAllUsersExcpetAdmin();
+            foreach (User u in Users.ToList())
+            {
+                if (!UserPayableExists(u.UserId))
+                {
+                    if (EstablishConnection())
+                    {
+                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
+                        MySqlCommand command = new MySqlCommand(query, Connection);
+                        List<UserPayable> up = GetAllUserPayable();
+                        int index = up.Count + 1;
+                        float remainingBalance = 0;
+                        command.Parameters.AddWithValue("@UserPayableId", index);
+                        remainingBalance = GetSumEvents() + GetSumRegularPayable();
+                        command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                else
+                    UpdateUserLoadPayable(u.UserId, GetSumEvents() + GetSumRegularPayable());
+            }
+        }
+        public void UpdateUserLoadPayable(String userId, float updatedAmount)
+        {
+            if(EstablishConnection())
+            {
+                String query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                command.ExecuteNonQuery();
+            }
+        }
+        public bool UserPayableExists(String userId)
+        {
+            if(EstablishConnection())
+            {
+                UserPayables = GetAllUserPayable();
+                foreach (UserPayable up in UserPayables)
+                {
+                    if (up.FK_UserId_UserPayable == userId)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        public Event GetUserEvent(String userId)
+        {
+            if(!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.event WHERE EventId = (SELECT FK_EventId_EventAttendance FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance)";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                Event e = null;
+                while (reader.Read())
+                {
+                    e = new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true);
+                }
+                reader.Close();
+                return e;
+            }
+            return null;
+        }
+        public float GetSumEvents()
+        {
+            if (EstablishConnection())
+            {
+                float sum = 0;
+                string sql = "SELECT SUM(AttendanceFineAmount) AS TotalEventFees FROM system.event;";  // Use alias for clarity
+
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    sum = reader.GetFloat("TotalEventFees");  // Access by alias
+                }
+
+                reader.Close();
+                return sum;
+            }
+            return 0;
+        }
+        public float GetSumRegularPayable()
+        {
+            if(EstablishConnection())
+            {
+                float sum = 0;
+                string sql = "SELECT SUM(Amount) FROM system.regular_payable;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    sum = Convert.ToSingle(reader["SUM(Amount)"]);
+                }
+                reader.Close();
+                return sum;
+            }
+            return 0;
+
+        }
+        
     }
 }

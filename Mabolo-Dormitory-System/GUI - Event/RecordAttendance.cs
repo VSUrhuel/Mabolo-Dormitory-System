@@ -25,6 +25,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             this.EventId = eventId;
             InitializeComponent();
             users = db.GetAllUsersExcpetAdmin();
+            
             eventTitle.Text = db.GetEvent(eventId).EventName;
             List<EventAttendance> eventAttendances = db.GetEventAttendances(eventId);
             SetupTable();

@@ -55,7 +55,6 @@
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RemainingBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,8 +243,7 @@
             this.FirstName,
             this.LastName,
             this.RemainingBalance,
-            this.Status,
-            this.Amount});
+            this.Status});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -431,12 +429,6 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount (₱)";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -492,6 +484,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }

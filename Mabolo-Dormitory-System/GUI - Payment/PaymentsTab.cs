@@ -32,11 +32,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             regularPayables = new List<RegularPayable>();
             db = new DatabaseManager();
             InitializeComponent();
+            db.LoadUserPayable();
             //MessageBox.Show(regularPayablesCB.Text);
             events = db.GetAllEvents();
             users = db.GetAllUsersExcpetAdmin();
             regularPayables = db.GetRegularPayables();
-            payments = db.GetPayments();
+            payments =  db.GetAllPayment();
             SetupTable();
             foreach(RegularPayable regularPayables in regularPayables)
             {
@@ -47,82 +48,19 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 if(e.HasPayables)
                     eventPayabalesCB.Items.Add(e.EventName);
             }
-            
+            foreach(DataGridViewRow row in dormerTableView.Rows)
+            {
+                row.Cells["RemainingBalance"].Value = db.GetUserPayable(row.Cells["UserId"].Value.ToString()).RemainingBalance;
+                if (Convert.ToDouble(row.Cells["RemainingBalance"].Value.ToString()) > 0)
+                    row.Cells["Status"].Value = "PENDING";
+                else
+                    row.Cells["Status"].Value = "PAID";
+            }
 
         }
         private void UpdateColumns()
         {
-            int index = -1;
-            RegularPayableId -= 1;
-            EventId -= 1;
-            foreach (Payment p in payments)
-            {
-                foreach (User u in users)
-                {
-                    index = GetRowIndex(u.UserId);
-                    
-                    if ((p.FK_RegularPayablesId_Payment == RegularPayableId && p.FK_UserId_Payment == u.UserId && eventPayabalesCB.Text != "") || (p.FK_EventId_Payment == EventId && p.FK_UserId_Payment == u.UserId && regularPayablesCB.Text != "")) 
-                        {
-                            MessageBox.Show(p.FK_UserId_Payment + " " + u.UserId + " " + p.FK_EventId_Payment + " " + EventId + " " + p.FK_RegularPayablesId_Payment + " " + RegularPayableId + " the event payable text: " + eventPayabalesCB.Text);
-                            if (p.PaymentStatus == "Paid")
-                                dormerTableView.Rows[index].Cells["Status"].Value = "PAID";
-                            else
-                                dormerTableView.Rows[index].Cells["Status"].Value = "PENDING";
-                        }
-                        else
-                            dormerTableView.Rows[index].Cells["Status"].Value = "PENDING";
-                   
-                    
-                }
-            }
-            index = 0;
-            foreach(DataGridViewRow row in dormerTableView.Rows)
-            {
-                if (row.Cells["Status"].Value == null)
-                {
-                    dormerTableView.Rows[index].Cells["Status"].Value = "PENDING";
-                }
-            }
-            RegularPayableId += 1;
-            EventId += 1;
-            index = 0;
-            if(regularPayablesCB.Text != "")
-            {
-                foreach (DataGridViewRow row in dormerTableView.Rows)
-                {
-                    if (row.Cells["Status"].Value.ToString() == "PENDING")
-                    {
-                        dormerTableView.Rows[index++].Cells["RemainingBalance"].Value = "300";
-                    }
-                    else
-                    {
-                        
-                        float x = (db.GetPayment(RegularPayableId, row.Cells["UserId"].Value.ToString(), "Regular Payable").Amount);
-                        
-                        float amount = 300 - x;
-                        dormerTableView.Rows[index++].Cells["RemainingBalance"].Value = amount.ToString();
-                    }
-                }
-            }
-            else
-            {
-                index = 0;
-                foreach (DataGridViewRow row in dormerTableView.Rows)
-                {
-                    if (row.Cells["Status"].Value.ToString() == "PENDING")
-                    {
-                        dormerTableView.Rows[index++].Cells["RemainingBalance"].Value = db.GetEvent(EventId).EventFeeContribution + db.GetEvent(EventId).AttendanceFineAmount;
-                    }
-                    else
-                    {
-
-                        /*float x = (db.GetPayment(ID, row.Cells["UserId"].Value.ToString(), "Regular Payable").Amount);
-
-                        float amount = 300 - x;
-                        dormerTableView.Rows[index++].Cells["RemainingBalance"].Value = amount.ToString();*/
-                    }
-                }
-            }
+           
         }
         private int GetRowIndex(string userId)
         {
@@ -169,14 +107,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns["Attendance"] is DataGridViewCheckBoxColumn && e.RowIndex > -1)
-            {
-                if (!Convert.ToBoolean(senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value))
-                    senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value = true;
-                else
-                    senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value = false;
-            }
+            PaymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
+                dormerTableView.Rows[e.RowIndex].Cells["UserId"].Value.ToString()));
+            paymentTransaction.Show();
         }
 
         private void updateViewButton_Click(object sender, EventArgs e)
