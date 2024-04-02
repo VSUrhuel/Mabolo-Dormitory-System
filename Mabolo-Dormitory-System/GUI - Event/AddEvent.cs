@@ -56,7 +56,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
 
             // Add the event
-            int index = db.GetAllEvents().Count + 1;
+            int index = db.GetLastEventId() + 1;
             DateTime date = dateTimePicker1.Value.Date;
             DateTime time = dateTimePicker1.Value;
             bool hasPayables = comboBox1.Text == "Yes" ? true : false;

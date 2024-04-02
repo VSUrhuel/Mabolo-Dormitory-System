@@ -153,7 +153,7 @@
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel8);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(120, 205);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 600);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1195, 391);
             this.flowLayoutPanel1.TabIndex = 22;
             // 
             // gunaElipsePanel9
@@ -214,7 +214,6 @@
             this.gunaAdvenceButton7.TabIndex = 20;
             this.gunaAdvenceButton7.Text = "Click for More";
             this.gunaAdvenceButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            
             // 
             // label16
             // 

@@ -32,7 +32,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             regularPayables = new List<RegularPayable>();
             db = new DatabaseManager();
             InitializeComponent();
-            db.LoadUserPayable();
+            //db.LoadUserPayable();
             //MessageBox.Show(regularPayablesCB.Text);
             events = db.GetAllEvents();
             users = db.GetAllUsersExcpetAdmin();
@@ -85,12 +85,51 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             dormerTableView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.RowTemplate.Height = 40;
+
+            //Combo box
+            dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dormerTableView_EditingControlShowing);
             foreach (User u in users)
             {
                 dormerTableView.Rows.Add(u.UserId, u.FirstName, u.LastName);
             }
 
         }
+
+        private void dormerTableView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            ComboBox combo = e.Control as ComboBox;
+            if (combo != null)
+            {
+                combo.SelectedIndexChanged -= new EventHandler(ComboBox_SelectedIndexChanged);
+                combo.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
+            }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (cb.SelectedItem != null)
+            {
+                int i = dormerTableView.CurrentRow.Index;
+                if (cb.SelectedItem.ToString() == "Add Payment")
+                {
+                    PaymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
+                dormerTableView.Rows[i].Cells["UserId"].Value.ToString()));
+                    SetFormLocation(paymentTransaction);
+                    paymentTransaction.Owner = form;
+                    paymentTransaction.Show();
+                }
+                else
+                {
+                    ViewPayment viewPayment = new ViewPayment(db.GetUser(
+                dormerTableView.Rows[i].Cells["UserId"].Value.ToString()));
+                    SetFormLocation(viewPayment);
+                    viewPayment.Owner = form;
+                    viewPayment.Show();
+                }
+            }
+        }
+
 
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -107,9 +146,19 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PaymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
+            /*aymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
                 dormerTableView.Rows[e.RowIndex].Cells["UserId"].Value.ToString()));
-            paymentTransaction.Show();
+            SetFormLocation(paymentTransaction);
+            paymentTransaction.Show();*/
+            
+        }
+
+        private void SetFormLocation(Form form)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
+            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
+            form.Location = new Point(x, y);
         }
 
         private void updateViewButton_Click(object sender, EventArgs e)

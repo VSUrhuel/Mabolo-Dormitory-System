@@ -14,11 +14,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
     public partial class PaymentTransaction : Form
     {
         private DatabaseManager db;
+        private Point lastLocation;
+        private bool mouseDown;
         public PaymentTransaction(User u)
         {
             db = new DatabaseManager();
             InitializeComponent();
-            MessageBox.Show(u.ToString());
+            
             label1.Text = u.UserId;
             label2.Text = u.FirstName;
             label3.Text = u.LastName;
@@ -48,6 +50,31 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 MessageBox.Show("Please input all fields");
                 return;
             }
+            int index = db.GetAllPayment().Count + 1;  
+            db.AddPayment(new Payment(index, DateTime.Now, float.Parse(amountText.Text), remarksText.Text, label1.Text));
+            MessageBox.Show("Payment Addded");
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

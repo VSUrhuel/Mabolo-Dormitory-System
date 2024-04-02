@@ -215,6 +215,12 @@
     <Compile Include="GUI - Payment\PaymentTransaction.Designer.cs">
       <DependentUpon>PaymentTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Payment\ViewPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Payment\ViewPayment.Designer.cs">
+      <DependentUpon>ViewPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Rooms\AddRoomAllocation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\PaymentTransaction.resx">
       <DependentUpon>PaymentTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Payment\ViewPayment.resx">
+      <DependentUpon>ViewPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Rooms\AddRoomAllocation.resx">
       <DependentUpon>AddRoomAllocation.cs</DependentUpon>

@@ -55,6 +55,7 @@
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RemainingBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,7 +244,8 @@
             this.FirstName,
             this.LastName,
             this.RemainingBalance,
-            this.Status});
+            this.Status,
+            this.Action});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -429,6 +431,15 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
+            // Action
+            // 
+            this.Action.HeaderText = "Action";
+            this.Action.Items.AddRange(new object[] {
+            "Add Payment",
+            "View Payments"});
+            this.Action.MinimumWidth = 6;
+            this.Action.Name = "Action";
+            // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -484,5 +495,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Action;
     }
 }
