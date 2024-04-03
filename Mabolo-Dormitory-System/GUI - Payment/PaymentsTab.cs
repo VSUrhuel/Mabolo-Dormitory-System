@@ -32,50 +32,21 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             regularPayables = new List<RegularPayable>();
             db = new DatabaseManager();
             InitializeComponent();
-            //db.LoadUserPayable();
+            db.LoadUserPayable();
             //MessageBox.Show(regularPayablesCB.Text);
             events = db.GetAllEvents();
             users = db.GetAllUsersExcpetAdmin();
             regularPayables = db.GetRegularPayables();
             payments =  db.GetAllPayment();
             SetupTable();
-            foreach(RegularPayable regularPayables in regularPayables)
-            {
-                regularPayablesCB.Items.Add(regularPayables.Name);
-            }
-            foreach (Event e in events)
-            {
-                if(e.HasPayables)
-                    eventPayabalesCB.Items.Add(e.EventName);
-            }
-            foreach(DataGridViewRow row in dormerTableView.Rows)
-            {
-                row.Cells["RemainingBalance"].Value = db.GetUserPayable(row.Cells["UserId"].Value.ToString()).RemainingBalance;
-                if (Convert.ToDouble(row.Cells["RemainingBalance"].Value.ToString()) > 0)
-                    row.Cells["Status"].Value = "PENDING";
-                else
-                    row.Cells["Status"].Value = "PAID";
-            }
-
-        }
-        private void UpdateColumns()
-        {
            
-        }
-        private int GetRowIndex(string userId)
-        {
-            for (int i = 0; i < dormerTableView.Rows.Count; i++)
-            {
-                if (dormerTableView.Rows[i].Cells["UserId"].Value.ToString() == userId)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
+          
 
-        private void SetupTable()
+        }
+        private void SetupTable(int n = 60)
         {
+            dormerTableView.DataSource = null;
+            dormerTableView.Rows.Clear();
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
             dormerTableView.DefaultCellStyle.ForeColor = Color.Black;
             dormerTableView.AllowUserToResizeRows = false;
@@ -87,11 +58,30 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             dormerTableView.RowTemplate.Height = 40;
 
             //Combo box
+            //MessageBox.Show(users.Count.ToString());    
             dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dormerTableView_EditingControlShowing);
+            int i = 0;
             foreach (User u in users)
             {
+                if (i > (n-1))
+                    break;
                 dormerTableView.Rows.Add(u.UserId, u.FirstName, u.LastName);
+                i++;
             }
+
+
+            foreach (DataGridViewRow row in dormerTableView.Rows)
+            {
+                row.Cells["RemainingBalance"].Value = db.GetUserPayable(row.Cells["UserId"].Value.ToString()).RemainingBalance;
+                if (Convert.ToDouble(row.Cells["RemainingBalance"].Value.ToString()) > 0)
+                    row.Cells["Status"].Value = "PENDING";
+                else
+                    row.Cells["Status"].Value = "PAID";
+            }
+
+        }
+        private void RefreshTable()
+        {
 
         }
 
@@ -133,10 +123,40 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EventId = db.GetEvent(eventPayabalesCB.SelectedItem.ToString()).EventId;
-            regularPayablesCB.SelectedIndex = -1;
-            RegularPayableId = -1;
-            UpdateColumns();
+            dormerTableView.DataSource = null;
+            dormerTableView.Rows.Clear();
+            itemCB.Text = "60";
+            String status = statusCB.SelectedItem.ToString();
+            if (status == "All")
+            {
+                users = db.GetAllUsersExcpetAdmin();
+                SetupTable();
+            }
+            else
+            {
+                users.Clear();
+                //MessageBox.Show(users.Count.ToString());
+                if (status == "Pending")
+                {
+                    users = db.GetPendingUsers();
+                    
+                }
+                else
+                {
+                    users.Clear();
+                    users = db.GetPaidUsers();
+                    
+                }
+
+                
+                if (users.Count == 0)
+                {
+                    MessageBox.Show("No " + status + " status was found");
+                    users = db.GetAllUsersExcpetAdmin();
+                }
+                else
+                    SetupTable();
+            }
         }
 
         private void gunaLabel4_Click(object sender, EventArgs e)
@@ -163,16 +183,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void updateViewButton_Click(object sender, EventArgs e)
         {
-            if(eventPayabalesCB.SelectedItem == null || regularPayablesCB.SelectedItem == null)
-            {
-                MessageBox.Show("Please select an event type payment or a regular payable.");
-                return;
-            }
-            if(eventPayabalesCB.SelectedItem != null || regularPayablesCB.SelectedItem != null)
-            {
-                MessageBox.Show("Please select only one payment type.");
-                return;
-            }
+           
             foreach(DataGridViewRow row in dormerTableView.Rows)
             {
                 try
@@ -198,11 +209,18 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void regularPayablesCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RegularPayableId = db.GetRegularPayableId(regularPayablesCB.SelectedItem.ToString());
-            eventPayabalesCB.SelectedIndex = -1;
-            eventPayabalesCB.Text = String.Empty;
-            EventId = -1;
-            UpdateColumns();
+           
+        }
+
+        private void refreshBut_Click(object sender, EventArgs e)
+        {
+            SetupTable();
+        }
+
+        private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int n = Convert.ToInt32(itemCB.SelectedItem);
+            SetupTable(n);
         }
     }
 }

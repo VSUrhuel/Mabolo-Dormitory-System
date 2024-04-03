@@ -16,7 +16,10 @@ namespace Mabolo_Dormitory_System.Classes
         {
             ValidateArg(userPayableId, remainingBalance, fK_UserId_UserPayable);
             UserPayableId = userPayableId;
-            RemainingBalance = remainingBalance;
+            if(remainingBalance < 0)
+                RemainingBalance = 0;
+            else
+                RemainingBalance = remainingBalance;
             FK_UserId_UserPayable = fK_UserId_UserPayable;
         }
 

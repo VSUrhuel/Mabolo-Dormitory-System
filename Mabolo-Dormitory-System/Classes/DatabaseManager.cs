@@ -1205,7 +1205,7 @@ namespace Mabolo_Dormitory_System.Classes
                 int index = up.Count + 1;
                 float remainingBalance = 0;
                 command.Parameters.AddWithValue("@UserPayableId", index);
-                remainingBalance = GetSumEvents() + GetSumRegularPayable();
+                remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
                 command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
@@ -1275,20 +1275,22 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     if (EstablishConnection())
                     {
-                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
+                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser', 'RegularDormer');";
+
+                        //string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
                         MySqlCommand command = new MySqlCommand(query, Connection);
                         List<UserPayable> up = GetAllUserPayable();
                         int index = up.Count + 1;
                         float remainingBalance = 0;
                         command.Parameters.AddWithValue("@UserPayableId", index);
-                        remainingBalance = GetSumEvents() + GetSumRegularPayable();
+                        remainingBalance = GetSumEvents() + (GetSumRegularPayable()*5);
                         command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
                         command.ExecuteNonQuery();
                     }
                 }
                 else
-                    UpdateUserLoadPayable(u.UserId, GetSumEvents() + GetSumRegularPayable());
+                    UpdateUserLoadPayable(u.UserId, GetSumEvents() + (GetSumRegularPayable()*5));
             }
         }
         public void UpdateUserLoadPayable(String userId, float updatedAmount)
@@ -1387,7 +1389,43 @@ namespace Mabolo_Dormitory_System.Classes
             }
             
         }
-
-
+        public List<User> GetPaidUsers()
+        {
+            if(EstablishConnection())
+            {
+                Users.Clear();
+                List<User> u = new List<User>();
+                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance < 1;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                }
+                MessageBox.Show(Users.Count.ToString());
+                reader.Close();
+                return u;
+            }
+            return null;
+        }
+        public List<User> GetPendingUsers()
+        {
+            if(EstablishConnection())
+            {
+                Users.Clear();
+                List<User> u = new List<User>();
+                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0;";
+                MySqlCommand cmd = new MySqlCommand(sql, Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                }
+                reader.Close();
+                return u;
+            }
+            return null;
+        }
+        
     }
 }
