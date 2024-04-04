@@ -141,12 +141,13 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return "";
         }
+       
         public List<User> GetAllUsersExcpetAdmin()
         {
             if (EstablishConnection())
             {
                 Users.Clear();
-                String sql = "SELECT * FROM system.user WHERE UserType != 'Dormitory Adviser' OR UserType != 'Assistant Dormitory Adviser'";
+                String sql = "SELECT * FROM system.user WHERE UserType NOT IN ('Dormitory Adviser', 'Assistant Dormitory Adviser');";
                 MySqlCommand command = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -1277,7 +1278,6 @@ namespace Mabolo_Dormitory_System.Classes
                     {
                         string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser', 'RegularDormer');";
 
-                        //string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
                         MySqlCommand command = new MySqlCommand(query, Connection);
                         List<UserPayable> up = GetAllUserPayable();
                         int index = up.Count + 1;
@@ -1414,9 +1414,10 @@ namespace Mabolo_Dormitory_System.Classes
             {
                 Users.Clear();
                 List<User> u = new List<User>();
-                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0;";
+                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user  WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                //List<User> u2 =
                 while (reader.Read())
                 {
                     u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
@@ -1426,6 +1427,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+       
         
     }
 }

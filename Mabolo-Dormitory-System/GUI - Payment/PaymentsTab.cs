@@ -20,11 +20,10 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private List<User> users;
         private List<Payment> payments;
         private List<RegularPayable> regularPayables;
-        private int RegularPayableId;
-        private int EventId;
         private DatabaseManager db;
         public PaymentsTab(Form form)
         {
+            
             this.form = form;
             users = new List<User>();
             events = new List<Event>();
@@ -32,19 +31,22 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             regularPayables = new List<RegularPayable>();
             db = new DatabaseManager();
             InitializeComponent();
-            db.LoadUserPayable();
+            count.Text = "";
+            over.Text = "";
+            //db.LoadUserPayable();
             //MessageBox.Show(regularPayablesCB.Text);
             events = db.GetAllEvents();
             users = db.GetAllUsersExcpetAdmin();
             regularPayables = db.GetRegularPayables();
             payments =  db.GetAllPayment();
-            SetupTable();
+            SetupTable(users);
            
           
 
         }
-        private void SetupTable(int n = 60)
+        private void SetupTable(List<User> users, int n = 60)
         {
+            
             dormerTableView.DataSource = null;
             dormerTableView.Rows.Clear();
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
@@ -130,7 +132,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             if (status == "All")
             {
                 users = db.GetAllUsersExcpetAdmin();
-                SetupTable();
+                SetupTable(users);
             }
             else
             {
@@ -152,10 +154,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 if (users.Count == 0)
                 {
                     MessageBox.Show("No " + status + " status was found");
-                    users = db.GetAllUsersExcpetAdmin();
+                    users.Clear();
+                    SetupTable(users);
                 }
                 else
-                    SetupTable();
+                    SetupTable(users);
             }
         }
 
@@ -214,13 +217,86 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void refreshBut_Click(object sender, EventArgs e)
         {
-            SetupTable();
+            SetupTable(users);
         }
 
         private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            users = db.GetAllUsersExcpetAdmin();
+            
             int n = Convert.ToInt32(itemCB.SelectedItem);
-            SetupTable(n);
+            count.Text = 1.ToString();
+            over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
+            SetupTable(users, n);
+        }
+
+        private void searchBar_Click(object sender, EventArgs e)
+        {
+            searchBar.Text = "";
+        }
+
+        private void searchBut_Click(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "" || searchBar.Text == "Search...")
+            {
+                MessageBox.Show("Please enter a valid User ID to search");
+                searchBar.Text = "";
+                return;
+            }
+            String userId = searchBar.Text;
+            users = db.GetAllUsersExcpetAdmin();
+            List<User> u2 = users.Select(u => u).ToList();
+            users.Clear();
+            foreach (User u in u2)
+            {
+                if (u.UserId.Contains(userId))
+                {
+                    users.Add(u);
+                }
+            }
+            if (users.Count == 0)
+            {
+                MessageBox.Show("No user with the ID '" + userId + "'  was found");
+                users = db.GetAllUsers();
+            }
+            SetupTable(users);
+        }
+
+        private void gunaImageButton2_Click(object sender, EventArgs e)
+        {
+            if(Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
+            {
+                MessageBox.Show("You are already at the last page");
+                return;
+            }
+            else if(Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
+            {// Assuming db.GetAllUsersExcpetAdmin() returns a List<User>
+
+                int pageNumber = Convert.ToInt32(count.Text);  
+                int pageSize = Convert.ToInt32(itemCB.SelectedItem);  
+                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                count.Text = (pageNumber+1).ToString(); 
+                SetupTable(usersForPage);  
+            }
+
+        }
+
+        private void gunaImageButton1_Click(object sender, EventArgs e)
+        {
+            if(Convert.ToInt32(count.Text) == 1)
+            {
+                MessageBox.Show("You are already at the first page");
+                return;
+            }
+            else if(Convert.ToInt32(count.Text) > 1 )
+            {
+                int pageNumber = Convert.ToInt32(count.Text)-2;
+                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                
+                count.Text = (pageNumber+1).ToString();
+                SetupTable(usersForPage);
+            }
         }
     }
 }

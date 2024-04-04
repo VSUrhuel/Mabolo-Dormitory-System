@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentsTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.searchBut = new Guna.UI.WinForms.GunaButton();
             this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
@@ -47,11 +47,16 @@
             this.Action = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.statusCB = new Guna.UI.WinForms.GunaComboBox();
-            this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.receivedPayment = new Guna.UI.WinForms.GunaLabel();
             this.pendingCollectibles = new Guna.UI.WinForms.GunaLabel();
+            this.count = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.over = new Guna.UI.WinForms.GunaLabel();
+            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
+            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
+            this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +89,7 @@
             this.searchBut.OnPressedColor = System.Drawing.Color.Black;
             this.searchBut.Size = new System.Drawing.Size(41, 36);
             this.searchBut.TabIndex = 20;
+            this.searchBut.Click += new System.EventHandler(this.searchBut_Click);
             // 
             // searchBar
             // 
@@ -101,6 +107,7 @@
             this.searchBar.TabIndex = 13;
             this.searchBar.Text = "Search...";
             this.searchBar.TextOffsetX = 10;
+            this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
             // 
             // gunaLabel1
             // 
@@ -168,21 +175,21 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
@@ -191,14 +198,14 @@
             this.RemainingBalance,
             this.Status,
             this.Action});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle15;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(53, 87);
@@ -281,7 +288,7 @@
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(925, 55);
+            this.gunaLabel4.Location = new System.Drawing.Point(925, 56);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(73, 23);
             this.gunaLabel4.TabIndex = 25;
@@ -300,8 +307,9 @@
             this.statusCB.FormattingEnabled = true;
             this.statusCB.Items.AddRange(new object[] {
             "Paid",
-            "Pending"});
-            this.statusCB.Location = new System.Drawing.Point(993, 49);
+            "Pending",
+            "All"});
+            this.statusCB.Location = new System.Drawing.Point(993, 50);
             this.statusCB.Name = "statusCB";
             this.statusCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;
             this.statusCB.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -309,20 +317,6 @@
             this.statusCB.Size = new System.Drawing.Size(167, 33);
             this.statusCB.TabIndex = 24;
             this.statusCB.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
-            // 
-            // selectAllCB
-            // 
-            this.selectAllCB.BaseColor = System.Drawing.Color.White;
-            this.selectAllCB.CheckedOffColor = System.Drawing.Color.Gray;
-            this.selectAllCB.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.selectAllCB.FillColor = System.Drawing.Color.White;
-            this.selectAllCB.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAllCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.selectAllCB.Location = new System.Drawing.Point(53, 611);
-            this.selectAllCB.Name = "selectAllCB";
-            this.selectAllCB.Size = new System.Drawing.Size(114, 26);
-            this.selectAllCB.TabIndex = 26;
-            this.selectAllCB.Text = "Select All";
             // 
             // gunaLabel5
             // 
@@ -364,15 +358,84 @@
             this.pendingCollectibles.TabIndex = 128;
             this.pendingCollectibles.Text = "1";
             // 
+            // count
+            // 
+            this.count.AutoSize = true;
+            this.count.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.Location = new System.Drawing.Point(1202, 614);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(21, 23);
+            this.count.TabIndex = 129;
+            this.count.Text = "3";
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(1221, 613);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(29, 23);
+            this.gunaLabel2.TabIndex = 130;
+            this.gunaLabel2.Text = "of";
+            // 
+            // over
+            // 
+            this.over.AutoSize = true;
+            this.over.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.over.Location = new System.Drawing.Point(1250, 614);
+            this.over.Name = "over";
+            this.over.Size = new System.Drawing.Size(32, 23);
+            this.over.TabIndex = 131;
+            this.over.Text = "60";
+            // 
+            // gunaImageButton1
+            // 
+            this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
+            this.gunaImageButton1.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaImageButton1.Location = new System.Drawing.Point(1113, 610);
+            this.gunaImageButton1.Name = "gunaImageButton1";
+            this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
+            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton1.Size = new System.Drawing.Size(25, 25);
+            this.gunaImageButton1.TabIndex = 133;
+            this.gunaImageButton1.Click += new System.EventHandler(this.gunaImageButton1_Click);
+            // 
+            // gunaImageButton2
+            // 
+            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
+            this.gunaImageButton2.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaImageButton2.Location = new System.Drawing.Point(1274, 610);
+            this.gunaImageButton2.Name = "gunaImageButton2";
+            this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
+            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton2.Size = new System.Drawing.Size(25, 25);
+            this.gunaImageButton2.TabIndex = 134;
+            this.gunaImageButton2.Click += new System.EventHandler(this.gunaImageButton2_Click);
+            // 
+            // gunaLabel8
+            // 
+            this.gunaLabel8.AutoSize = true;
+            this.gunaLabel8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel8.Location = new System.Drawing.Point(1142, 613);
+            this.gunaLabel8.Name = "gunaLabel8";
+            this.gunaLabel8.Size = new System.Drawing.Size(62, 23);
+            this.gunaLabel8.TabIndex = 135;
+            this.gunaLabel8.Text = "Page";
+            // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gunaLabel8);
+            this.Controls.Add(this.gunaImageButton2);
+            this.Controls.Add(this.gunaImageButton1);
+            this.Controls.Add(this.over);
+            this.Controls.Add(this.gunaLabel2);
+            this.Controls.Add(this.count);
             this.Controls.Add(this.pendingCollectibles);
             this.Controls.Add(this.receivedPayment);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.gunaLabel5);
-            this.Controls.Add(this.selectAllCB);
             this.Controls.Add(this.gunaLabel4);
             this.Controls.Add(this.statusCB);
             this.Controls.Add(this.gunaLabel3);
@@ -400,7 +463,6 @@
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaComboBox statusCB;
-        private Guna.UI.WinForms.GunaCheckBox selectAllCB;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private Guna.UI.WinForms.GunaLabel receivedPayment;
@@ -411,5 +473,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewComboBoxColumn Action;
+        private Guna.UI.WinForms.GunaLabel count;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI.WinForms.GunaLabel over;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel8;
     }
 }

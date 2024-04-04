@@ -22,12 +22,14 @@ namespace Mabolo_Dormitory_System
             db = new DatabaseManager();
             this.form = form;
             InitializeComponent();
+            count.Text = "";
+            over.Text = "";
             users = new List<User>();    
             users = db.GetAllUsers();
-            RefreshTable();
+            RefreshTable(users);
         }
 
-        public void RefreshTable(int n = 60)
+        public void RefreshTable(List<User> users, int n = 60)
         {
             // Reset Table
             if (dormerTableView.Columns.Contains("Action"))
@@ -120,7 +122,7 @@ namespace Mabolo_Dormitory_System
                     {
                         db.DeleteUser(users[i].UserId);
                         MessageBox.Show(users[i].FirstName + " " + users[i].LastName + "'s information was Deleted");
-                        RefreshTable();
+                        RefreshTable(users);
                     }
                     else
                     {
@@ -160,18 +162,21 @@ namespace Mabolo_Dormitory_System
             userTypeCB.Text = "All";
             searchBar.Text = "Search...";
             users = db.GetAllUsers();
-            RefreshTable();
+            RefreshTable(users);
         }
 
         private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int n = Convert.ToInt32(itemCB.SelectedItem);
+            count.Text = 1.ToString();
+            over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
             int index = Convert.ToInt32(itemCB.SelectedItem.ToString());
             if(index > users.Count)
             {
-                RefreshTable();
+                RefreshTable(users);
             }
             else
-                RefreshTable(index);
+                RefreshTable(users, index);
         }
 
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,7 +186,7 @@ namespace Mabolo_Dormitory_System
             if(userType == "All")
             {
                 users = db.GetAllUsers();
-                RefreshTable();
+                RefreshTable(users);
             }
             else
             {
@@ -200,10 +205,10 @@ namespace Mabolo_Dormitory_System
                 {
                     MessageBox.Show("No " + userType + " was found");
                     users = db.GetAllUsers();
-                    RefreshTable();
+                    RefreshTable(users);
                 }
                 else
-                    RefreshTable();
+                    RefreshTable(users);
             }
         }   
 
@@ -242,7 +247,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("No user with the ID '" + userId + "'  was found");
                 users = db.GetAllUsers();
             }
-            RefreshTable();
+            RefreshTable(users);
         }
 
         private void addDormerButton_Click(object sender, EventArgs e)
@@ -303,6 +308,47 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("No rows selected for deletion.");
             else
                 MessageBox.Show("Selected rows deleted successfully");
+        }
+
+        private void gunaImageButton2_Click(object sender, EventArgs e)
+        {
+            if(itemCB.Text == "")
+            {
+                MessageBox.Show("Please select the number of items to display");
+                return;
+            }
+            if (Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
+            {
+                MessageBox.Show("You are already at the last page");
+                return;
+            }
+            else if (Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
+            {// Assuming db.GetAllUsersExcpetAdmin() returns a List<User>
+
+                int pageNumber = Convert.ToInt32(count.Text);
+                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                count.Text = (pageNumber + 1).ToString();
+                RefreshTable(usersForPage);
+            }
+        }
+
+        private void gunaImageButton1_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(count.Text) == 1)
+            {
+                MessageBox.Show("You are already at the first page");
+                return;
+            }
+            else if (Convert.ToInt32(count.Text) > 1)
+            {
+                int pageNumber = Convert.ToInt32(count.Text) - 2;
+                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+
+                count.Text = (pageNumber + 1).ToString();
+                RefreshTable(usersForPage);
+            }
         }
     }
 }
