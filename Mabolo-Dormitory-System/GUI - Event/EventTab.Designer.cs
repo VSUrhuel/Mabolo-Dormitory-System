@@ -85,7 +85,6 @@
             this.gunaAdvenceButton12 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.addEvent = new Guna.UI.WinForms.GunaButton();
             this.delBut = new Guna.UI.WinForms.GunaButton();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
@@ -126,6 +125,8 @@
             this.gunaImageButton10 = new Guna.UI.WinForms.GunaImageButton();
             this.gunaImageButton11 = new Guna.UI.WinForms.GunaImageButton();
             this.gunaImageButton12 = new Guna.UI.WinForms.GunaImageButton();
+            this.searchBut = new Guna.UI.WinForms.GunaButton();
+            this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.gunaElipsePanel9.SuspendLayout();
             this.gunaElipsePanel10.SuspendLayout();
@@ -163,7 +164,7 @@
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel7);
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel8);
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(120, 205);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(64, 205);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1195, 391);
             this.flowLayoutPanel1.TabIndex = 22;
@@ -1093,16 +1094,6 @@
             this.label36.TabIndex = 6;
             this.label36.Text = "January 24, 2024";
             // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(125, 174);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(171, 23);
-            this.gunaLabel1.TabIndex = 23;
-            this.gunaLabel1.Text = "Dormitory Events";
-            // 
             // addEvent
             // 
             this.addEvent.AnimationHoverSpeed = 0.07F;
@@ -1115,7 +1106,7 @@
             this.addEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.addEvent.Image = ((System.Drawing.Image)(resources.GetObject("addEvent.Image")));
             this.addEvent.ImageSize = new System.Drawing.Size(20, 20);
-            this.addEvent.Location = new System.Drawing.Point(1174, 161);
+            this.addEvent.Location = new System.Drawing.Point(1118, 161);
             this.addEvent.Name = "addEvent";
             this.addEvent.OnHoverBaseColor = System.Drawing.Color.Black;
             this.addEvent.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1140,7 +1131,7 @@
             this.delBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.delBut.Image = ((System.Drawing.Image)(resources.GetObject("delBut.Image")));
             this.delBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.delBut.Location = new System.Drawing.Point(1215, 161);
+            this.delBut.Location = new System.Drawing.Point(1159, 161);
             this.delBut.Name = "delBut";
             this.delBut.OnHoverBaseColor = System.Drawing.Color.Black;
             this.delBut.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1165,7 +1156,7 @@
             this.refreshBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.refreshBut.Image = ((System.Drawing.Image)(resources.GetObject("refreshBut.Image")));
             this.refreshBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.refreshBut.Location = new System.Drawing.Point(1255, 161);
+            this.refreshBut.Location = new System.Drawing.Point(1199, 161);
             this.refreshBut.Name = "refreshBut";
             this.refreshBut.OnHoverBaseColor = System.Drawing.Color.Black;
             this.refreshBut.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1182,11 +1173,11 @@
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(125, 13);
+            this.gunaLabel2.Location = new System.Drawing.Point(69, 13);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(389, 23);
+            this.gunaLabel2.Size = new System.Drawing.Size(383, 23);
             this.gunaLabel2.TabIndex = 27;
-            this.gunaLabel2.Text = "Upcoming Dormitory Events this Month:";
+            this.gunaLabel2.Text = "Upcoming Dormitory Events this Month";
             // 
             // flowLayoutPanel2
             // 
@@ -1197,7 +1188,7 @@
             this.flowLayoutPanel2.Controls.Add(this.gunaElipsePanel16);
             this.flowLayoutPanel2.Controls.Add(this.gunaElipsePanel17);
             this.flowLayoutPanel2.Controls.Add(this.gunaElipsePanel18);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(129, 39);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 39);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1160, 122);
             this.flowLayoutPanel2.TabIndex = 28;
@@ -1541,6 +1532,7 @@
             this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
             this.gunaImageButton1.Size = new System.Drawing.Size(73, 58);
             this.gunaImageButton1.TabIndex = 136;
+            this.gunaImageButton1.Click += new System.EventHandler(this.gunaImageButton1_Click_1);
             // 
             // gunaImageButton3
             // 
@@ -1652,16 +1644,56 @@
             this.gunaImageButton12.Size = new System.Drawing.Size(73, 58);
             this.gunaImageButton12.TabIndex = 139;
             // 
+            // searchBut
+            // 
+            this.searchBut.AnimationHoverSpeed = 0.07F;
+            this.searchBut.AnimationSpeed = 0.03F;
+            this.searchBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.searchBut.BorderColor = System.Drawing.Color.Black;
+            this.searchBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchBut.ForeColor = System.Drawing.Color.White;
+            this.searchBut.Image = ((System.Drawing.Image)(resources.GetObject("searchBut.Image")));
+            this.searchBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.searchBut.Location = new System.Drawing.Point(305, 161);
+            this.searchBut.Name = "searchBut";
+            this.searchBut.OnHoverBaseColor = System.Drawing.Color.SeaGreen;
+            this.searchBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.searchBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.searchBut.OnHoverImage = null;
+            this.searchBut.OnPressedColor = System.Drawing.Color.Black;
+            this.searchBut.Size = new System.Drawing.Size(47, 39);
+            this.searchBut.TabIndex = 30;
+            this.searchBut.Click += new System.EventHandler(this.searchBut_Click);
+            // 
+            // searchBar
+            // 
+            this.searchBar.BackColor = System.Drawing.Color.White;
+            this.searchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchBar.FocusedLineColor = System.Drawing.Color.ForestGreen;
+            this.searchBar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.searchBar.LineSize = 2;
+            this.searchBar.Location = new System.Drawing.Point(76, 162);
+            this.searchBar.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.PasswordChar = '\0';
+            this.searchBar.Size = new System.Drawing.Size(276, 35);
+            this.searchBar.TabIndex = 29;
+            this.searchBar.Text = "Search...";
+            this.searchBar.TextOffsetX = 10;
+            this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
+            // 
             // EventTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchBut);
+            this.Controls.Add(this.searchBar);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.addEvent);
             this.Controls.Add(this.delBut);
             this.Controls.Add(this.refreshBut);
-            this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "EventTab";
             this.Size = new System.Drawing.Size(1380, 810);
@@ -1726,7 +1758,6 @@
         private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton10;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaButton addEvent;
         private Guna.UI.WinForms.GunaButton delBut;
         private Guna.UI.WinForms.GunaButton refreshBut;
@@ -1806,5 +1837,7 @@
         private Guna.UI.WinForms.GunaImageButton gunaImageButton10;
         private Guna.UI.WinForms.GunaImageButton gunaImageButton11;
         private Guna.UI.WinForms.GunaImageButton gunaImageButton12;
+        private Guna.UI.WinForms.GunaButton searchBut;
+        private Guna.UI.WinForms.GunaLineTextBox searchBar;
     }
 }

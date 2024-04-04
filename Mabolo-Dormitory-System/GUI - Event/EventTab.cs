@@ -32,7 +32,15 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     button.Click += new EventHandler(eventBut_Click);
                 }
             }
-            
+            foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+            {
+                foreach (GunaImageButton button in panel.Controls.OfType<GunaImageButton>())
+                {
+                    button.Click += new EventHandler(gunaImageButton1_Click_1);
+                }
+            }
+
+
             // Load information from the database
             SetUpEvents();  
         }
@@ -140,6 +148,80 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private void gunaAdvenceButton7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchBar_Click(object sender, EventArgs e)
+        {
+            searchBar.Text = "";
+        }
+
+        private void searchBut_Click(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "" || searchBar.Text == "Search...")
+            {
+                MessageBox.Show("Please enter a valid User ID to search");
+                searchBar.Text = "";
+                return;
+            }
+            String eventName = searchBar.Text;
+            events = db.GetAllEvents();
+            List<Event> u2 = events.Select(u => u).ToList();
+            events.Clear();
+            foreach (Event ex in u2)
+            {
+                if (ex.EventName.Contains(eventName))
+                {
+                    events.Add(ex);
+                }
+            }
+            if (events.Count == 0)
+            {
+                MessageBox.Show("No event with the Name '" + eventName + "'  was found");
+                SetUpEvents();
+            }
+            else
+            {
+                foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+                {
+                    panel.Visible = false;
+                }
+                int i = 0;
+                foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+                {
+
+                    if (i < events.Count)
+                    {
+                        string formattedString = events[i].EventDate.ToString("MMMM dd, yyyy");
+                        panel.Visible = true;
+                        panel.Controls.OfType<Label>().ToList()[0].Text = ("Event ID: " + events[i].EventId.ToString());
+                        panel.Controls.OfType<Label>().ToList()[1].Text = events[i].EventName.ToString();
+                        panel.Controls.OfType<Label>().ToList()[2].Text = formattedString;
+                        i++;
+                        
+                    }
+                    else if (i >= events.Count)
+                        break;
+                }
+
+            }
+            
+        }
+
+        private void gunaImageButton1_Click_1(object sender, EventArgs e)
+        {
+            GunaImageButton button = (GunaImageButton)sender;
+            GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
+            char id = 'a';
+            foreach (GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+            {
+                if (panel1 == panel)
+                    id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
+            }
+            int x = int.Parse(id.ToString());
+            EditEvent editEvent = new EditEvent(form, x);
+            editEvent.Owner = form;
+            SetFormLocation(editEvent);
+            editEvent.Show();
         }
     }
 }

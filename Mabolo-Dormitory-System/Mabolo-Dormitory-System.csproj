@@ -185,6 +185,12 @@
     <Compile Include="GUI - Event\DeleteForm.Designer.cs">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Event\EditEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Event\EditEvent.Designer.cs">
+      <DependentUpon>EditEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Event\EventTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\DeleteForm.resx">
       <DependentUpon>DeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Event\EditEvent.resx">
+      <DependentUpon>EditEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\EventTab.resx">
       <DependentUpon>EventTab.cs</DependentUpon>
