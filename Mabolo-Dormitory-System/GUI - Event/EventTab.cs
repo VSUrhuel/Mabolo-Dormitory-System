@@ -131,5 +131,15 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             SetUpEvents();
         }
+
+        private void gunaImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaAdvenceButton7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

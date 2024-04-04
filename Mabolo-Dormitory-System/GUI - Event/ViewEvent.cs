@@ -17,6 +17,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
     {
         private DatabaseManager db;
         private int EventId;
+        private List<User> users;
         private Point lastLocation;
         private bool mouseDown;
         private Form form;
@@ -27,99 +28,66 @@ namespace Mabolo_Dormitory_System.GUI___Event
             this.EventId = eventId;
             InitializeComponent();
 
-            // Hide the date time picker, combo box, and update button
-            dateTimePicker1.Visible = false;
-            dateTimePicker2.Visible = false;
-            comboBox1.Visible = false;
-            updateViewButton.Visible = false;
             db = new DatabaseManager();
             SetUpInformation();
+
+            // Attendance Record
+            this.users = new List<User>();
+            this.EventId = eventId;
+            
+            users = db.GetAllUsersExcpetAdmin();
+            List<EventAttendance> eventAttendances = db.GetEventAttendances(eventId);
+            SetupTable();
+            foreach (EventAttendance ea in eventAttendances)
+            {
+                foreach (User u in users)
+                {
+                    if (ea.FK_UserId_EventAttendance == u.UserId)
+                    {
+                        int index = GetRowIndex(u.UserId);
+                        if (ea.AttendanceStatus == "Present")
+                            dormerTableView.Rows[index].Cells["Attendance"].Value = true;
+                        else
+                            dormerTableView.Rows[index].Cells["Attendance"].Value = false;
+                    }
+                }
+            }
+        }
+
+        private void SetupTable()
+        {
+            dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dormerTableView.DefaultCellStyle.ForeColor = Color.Black;
+            dormerTableView.AllowUserToResizeRows = false;
+            dormerTableView.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            dormerTableView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(40, 167, 69);
+            dormerTableView.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 14, FontStyle.Bold);
+            dormerTableView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dormerTableView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dormerTableView.RowTemplate.Height = 40;
+            foreach (User u in users)
+            {
+                dormerTableView.Rows.Add(u.UserId, u.FirstName, u.LastName);
+            }
         }
 
         private void SetUpInformation()
         {
+            
             // Load the event information from the database
             Event e = db.GetEvent(EventId);
             data2.Text = e.EventName;
             data4.Text = e.Description;
             data3.Text = e.Location;
-            data6.Text = e.EventDate.ToString("MMMM dd, yyyy");
+            data6.Text = e.EventDate.ToString("yyyy-MM-dd");
             data7.Text = e.EventTime;
-            data8.Text = e.HasPayables ? "Yes" : "No";
             data9.Text =  e.AttendanceFineAmount.ToString() + ".00";
             data10.Text = e.EventFeeContribution.ToString() + ".00";
-            data11.Text = ((int)(e.AttendanceFineAmount + e.EventFeeContribution)).ToString() + ".00";
         }
 
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            // View the information in edit mode
-            data11.ReadOnly = true;
-            dateTimePicker1.Visible = true;
-            dateTimePicker2.Visible = true;
-            updateViewButton.Visible = true;
-            data11.Visible = false;
-            dateTimePicker2.Format = DateTimePickerFormat.Time;
-            dateTimePicker2.ShowUpDown = true;
-           
-            comboBox1.Visible = true;
-            comboBox1.Text = data8.Text;
-            gunaLabel1.Text = "    EDIT INFORMATION";
+        
 
-            // Enable the textboxes for editing
-            foreach (Control c in this.Controls)
-            {
-                if (c is GunaLineTextBox)
-                {
-                    ((GunaLineTextBox)c).ReadOnly = false;
-                }
-            }
-            try
-            {
-                DateTime.Parse(data7.Text);
-                dateTimePicker2.Value = DateTime.Parse(data7.Text);
-            }
-            catch
-            {
-                dateTimePicker2.Value = DateTime.Now;
-            }
-            dateTimePicker1.Value = DateTime.Parse(data6.Text);
-        }
-
-        private void updateViewButton_Click(object sender, EventArgs e)
-        {
-            // Validate the fields
-            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text, comboBox1.Text }) == false)
-            {
-                MessageBox.Show("Please fill up all fields!");
-                return;
-            }
-            try
-            {
-                float.Parse(data9.Text);
-                float.Parse(data10.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please enter a valid number for the amount fields.");
-                return;
-            }
-           
-            // Update the event information
-            DateTime date = dateTimePicker1.Value.Date;
-            DateTime time = dateTimePicker2.Value;
-            MessageBox.Show(time.ToShortTimeString());
-            bool hasPayables = comboBox1.Text == "Yes" ? true : false;
-            Event x = new Event(EventId, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text), true);
-            if (db.UpdateEvent(x))
-            {
-                MessageBox.Show("Event updated successfully!");
-                this.Dispose();
-            }
-            else
-                MessageBox.Show("An error occured while updating the event. Please try again.");
-        }
-
+       
         private void closeViewButton_Click_1(object sender, EventArgs e)
         {
             if (recordData != null)
@@ -148,19 +116,9 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             mouseDown = false;
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem.Equals("Yes"))
-            {
-                data9.ReadOnly = false;
-                data10.ReadOnly = false;
-            }
-            else
-            {
-                data9.ReadOnly = true;
-                data10.ReadOnly = true;
-            }
+
         }
 
         private void recordAttendance_Click(object sender, EventArgs e)
@@ -177,6 +135,74 @@ namespace Mabolo_Dormitory_System.GUI___Event
             int x = (Screen.PrimaryScreen.Bounds.Width - form.Width) * 1/9;
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
+        }
+
+        private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns["Attendance"] is DataGridViewCheckBoxColumn && e.RowIndex > -1)
+            {
+                if (!Convert.ToBoolean(senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value))
+                    senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value = true;
+                else
+                    senderGrid.Rows[e.RowIndex].Cells["Attendance"].Value = false;
+            }
+        }
+
+        private int GetRowIndex(string userId)
+        {
+            for (int i = 0; i < dormerTableView.Rows.Count; i++)
+            {
+                if (dormerTableView.Rows[i].Cells["UserId"].Value.ToString() == userId)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        
+
+      
+        private void updateViewButton_Click_1(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dormerTableView.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Attendance"].Value))
+                    db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Present");
+                else
+                    db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Absent");
+            }
+            MessageBox.Show("Attendance Updated!");
+        }
+
+        private void selectAllCB_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (selectAllCB.Checked)
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Attendance"].Value = true;
+                }
+            }
+            else
+            {
+                for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dormerTableView.Rows[i];
+                    row.Cells["Attendance"].Value = false;
+                }
+            }
+        }
+
+        private void gunaLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void data7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
