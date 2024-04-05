@@ -232,7 +232,7 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             String userId = searchBar.Text;
-            users = db.GetAllUsers();
+            
             List<User> u2 = users.Select(u => u).ToList();
             users.Clear();
             foreach(User u in u2)
@@ -244,7 +244,7 @@ namespace Mabolo_Dormitory_System
             }
             if(users.Count == 0)
             {
-                MessageBox.Show("No user with the ID '" + userId + "'  was found");
+                MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found");
                 users = db.GetAllUsers();
             }
             RefreshTable(users);
@@ -327,7 +327,7 @@ namespace Mabolo_Dormitory_System
 
                 int pageNumber = Convert.ToInt32(count.Text);
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
-                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 count.Text = (pageNumber + 1).ToString();
                 RefreshTable(usersForPage);
             }
@@ -344,7 +344,7 @@ namespace Mabolo_Dormitory_System
             {
                 int pageNumber = Convert.ToInt32(count.Text) - 2;
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
-                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
                 count.Text = (pageNumber + 1).ToString();
                 RefreshTable(usersForPage);

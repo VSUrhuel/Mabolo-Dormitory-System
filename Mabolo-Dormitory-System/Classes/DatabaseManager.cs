@@ -812,6 +812,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        
         public bool RecordAttendance(String userId, int eventId, String status)
         {
             if (!EventExists(eventId) || !UserExists(userId))
@@ -827,7 +828,7 @@ namespace Mabolo_Dormitory_System.Classes
                 string query = "INSERT INTO system.event_attendance(EventAttendanceId, AttendanceStatus, FK_UserId_EventAttendance, FK_EventId_EventAttendance) VALUES (@EventAttendanceId, @AttendanceStatus, @FK_UserId_EventAttendance, @FK_EventId_EventAttendance)";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 List<EventAttendance> ea = GetEventAttendances();
-                int index = ea.Count + 1;
+                int index = ea.ElementAt(ea.Count() - 1).EventAttendanceId+1;
                 command.Parameters.AddWithValue("@EventAttendanceId", index);
                 command.Parameters.AddWithValue("@AttendanceStatus", status);
                 command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
@@ -1402,7 +1403,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
                 }
-                MessageBox.Show(Users.Count.ToString());
+                
                 reader.Close();
                 return u;
             }

@@ -217,13 +217,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void refreshBut_Click(object sender, EventArgs e)
         {
+            users.Clear();
+            users = db.GetAllUsersExcpetAdmin();
             SetupTable(users);
         }
 
         private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            users = db.GetAllUsersExcpetAdmin();
-            
             int n = Convert.ToInt32(itemCB.SelectedItem);
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
@@ -244,7 +244,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 return;
             }
             String userId = searchBar.Text;
-            users = db.GetAllUsersExcpetAdmin();
+            
             List<User> u2 = users.Select(u => u).ToList();
             users.Clear();
             foreach (User u in u2)
@@ -256,7 +256,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
             if (users.Count == 0)
             {
-                MessageBox.Show("No user with the ID '" + userId + "'  was found");
+                MessageBox.Show("No user with the ID: '" + userId + "' with status: '" + statusCB.Text + "' was found");
                 users = db.GetAllUsers();
             }
             SetupTable(users);
@@ -274,7 +274,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
                 int pageNumber = Convert.ToInt32(count.Text);  
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);  
-                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 count.Text = (pageNumber+1).ToString(); 
                 SetupTable(usersForPage);  
             }
@@ -292,7 +292,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 int pageNumber = Convert.ToInt32(count.Text)-2;
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
-                List<User> usersForPage = db.GetAllUsersExcpetAdmin().Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 
                 count.Text = (pageNumber+1).ToString();
                 SetupTable(usersForPage);

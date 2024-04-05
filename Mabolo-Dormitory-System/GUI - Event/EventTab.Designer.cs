@@ -1532,7 +1532,6 @@
             this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
             this.gunaImageButton1.Size = new System.Drawing.Size(73, 58);
             this.gunaImageButton1.TabIndex = 136;
-            this.gunaImageButton1.Click += new System.EventHandler(this.gunaImageButton1_Click_1);
             // 
             // gunaImageButton3
             // 
