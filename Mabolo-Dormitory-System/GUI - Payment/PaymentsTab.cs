@@ -55,7 +55,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             dormerTableView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.RowTemplate.Height = 40;
-
+            dormerTableView.Columns["RemainingBalance"].DefaultCellStyle.Format = "₱ #,##0.00";
             //Combo box
             //MessageBox.Show(users.Count.ToString());    
             dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dormerTableView_EditingControlShowing);
@@ -76,7 +76,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
                 String username = row.Cells["UserId"].Value.ToString();
-                float x = db.GetUserPayable(username).RemainingBalance;
+                float x = db.GetUserPayableBalance(username);
                 String status = x > 0 ? "PENDING" : "PAID";
                 row.Cells["RemainingBalance"].Value = x;
                 row.Cells["Status"].Value = status;
@@ -107,7 +107,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 if (cb.SelectedItem.ToString() == "Add Payment")
                 {
                     PaymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
-                dormerTableView.Rows[i].Cells["UserId"].Value.ToString()));
+                dormerTableView.Rows[i].Cells["UserId"].Value.ToString()), this);
                     SetFormLocation(paymentTransaction);
                     paymentTransaction.Owner = form;
                     paymentTransaction.Show();
@@ -126,6 +126,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchBar.Text = "Search...";   
             dormerTableView.DataSource = null;
             dormerTableView.Rows.Clear();
             itemCB.Text = "60";
@@ -216,7 +217,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
            
         }
 
-        private void refreshBut_Click(object sender, EventArgs e)
+        public void refreshBut_Click(object sender, EventArgs e)
         {
             users.Clear();
             users = db.GetAllUsersExcpetAdmin();
@@ -225,6 +226,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchBar.Text = "Search...";
             int n = Convert.ToInt32(itemCB.SelectedItem);
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
@@ -258,7 +260,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             if (users.Count == 0)
             {
                 MessageBox.Show("No user with the ID: '" + userId + "' with status: '" + statusCB.Text + "' was found");
-                users = db.GetAllUsers();
+                users = db.GetAllUsersExcpetAdmin();
             }
             SetupTable(users);
         }

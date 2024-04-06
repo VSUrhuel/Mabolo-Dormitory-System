@@ -156,7 +156,7 @@ namespace Mabolo_Dormitory_System
             }
         }
 
-        private void refreshBut_Click(object sender, EventArgs e)
+        public void refreshBut_Click(object sender, EventArgs e)
         {
             itemCB.Text = "60";
             userTypeCB.Text = "All";
@@ -252,7 +252,7 @@ namespace Mabolo_Dormitory_System
 
         private void addDormerButton_Click(object sender, EventArgs e)
         {
-            AddDormerForm addDormerForm = new AddDormerForm();
+            AddDormerForm addDormerForm = new AddDormerForm(this);
             SetFormLocation(addDormerForm);
             addDormerForm.Owner = form;
             addDormerForm.Show();

@@ -159,14 +159,14 @@ namespace Mabolo_Dormitory_System
                 return;
             }
  
-            AddRoomAllocation add = new AddRoomAllocation(roomNum);
+            AddRoomAllocation add = new AddRoomAllocation(roomNum, this);
             SetFormLocation(add);
             add.Owner = form;
             add.Show();
             
         }
 
-        private void refreshBut_Click(object sender, EventArgs e)
+        public void refreshBut_Click(object sender, EventArgs e)
         {
             CreateTable(roomUserView, db.GetUsersInRoom(roomNum));
         }

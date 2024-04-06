@@ -18,8 +18,10 @@ namespace Mabolo_Dormitory_System
         private int roomNum = 0;
         private Point lastLocation;
         private bool mouseDown;
-        public EditForm(int roomNum)
+        private roomTab roomTab;
+        public EditForm(int roomNum, roomTab tab)
         {
+            this.roomTab = tab;
             InitializeComponent();
             for(int i=1; i<10; i++)
             {
@@ -47,6 +49,7 @@ namespace Mabolo_Dormitory_System
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
             db.UpdateUserRoom(roomNum, newRoom, text);
             MessageBox.Show(text + " was moved to room " + newRoom + ".");
+            roomTab.refreshBut_Click(sender, e);
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)

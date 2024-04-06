@@ -18,8 +18,10 @@ namespace Mabolo_Dormitory_System
         private Point lastLocation;
         private DatabaseManager db = new DatabaseManager();
         private List<Department> depts;
-        public AddDormerForm()
+        private dormersTab dormersTab;
+        public AddDormerForm(dormersTab tab)
         {
+            this.dormersTab = tab;
             InitializeComponent();
 
             dormerStatusCB.Items.Add("active");
@@ -94,6 +96,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Cancelled!");
                 this.Dispose();
             }
+            dormersTab.refreshBut_Click(sender, e);
         }
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {

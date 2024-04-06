@@ -36,6 +36,9 @@
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.roomChooseCB = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +63,7 @@
             this.addViewButton.ForeColor = System.Drawing.Color.White;
             this.addViewButton.Image = null;
             this.addViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addViewButton.Location = new System.Drawing.Point(299, 170);
+            this.addViewButton.Location = new System.Drawing.Point(297, 249);
             this.addViewButton.Name = "addViewButton";
             this.addViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
             this.addViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -84,7 +87,7 @@
             this.closeViewButton.ForeColor = System.Drawing.Color.White;
             this.closeViewButton.Image = null;
             this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(472, 170);
+            this.closeViewButton.Location = new System.Drawing.Point(470, 249);
             this.closeViewButton.Name = "closeViewButton";
             this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
             this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -108,7 +111,7 @@
             this.chooseCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chooseCB.ForeColor = System.Drawing.Color.Black;
             this.chooseCB.FormattingEnabled = true;
-            this.chooseCB.Location = new System.Drawing.Point(134, 56);
+            this.chooseCB.Location = new System.Drawing.Point(134, 118);
             this.chooseCB.Name = "chooseCB";
             this.chooseCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -119,7 +122,7 @@
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(21, 22);
+            this.gunaLabel1.Location = new System.Drawing.Point(89, 82);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(187, 23);
             this.gunaLabel1.TabIndex = 72;
@@ -129,7 +132,7 @@
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(21, 96);
+            this.gunaLabel2.Location = new System.Drawing.Point(89, 163);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(216, 23);
             this.gunaLabel2.TabIndex = 74;
@@ -145,7 +148,7 @@
             this.roomChooseCB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomChooseCB.ForeColor = System.Drawing.Color.Black;
             this.roomChooseCB.FormattingEnabled = true;
-            this.roomChooseCB.Location = new System.Drawing.Point(134, 127);
+            this.roomChooseCB.Location = new System.Drawing.Point(134, 201);
             this.roomChooseCB.Name = "roomChooseCB";
             this.roomChooseCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.roomChooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -153,11 +156,68 @@
             this.roomChooseCB.TabIndex = 75;
             this.roomChooseCB.SelectedIndexChanged += new System.EventHandler(this.roomChooseCB_SelectedIndexChanged);
             // 
+            // gunaButton2
+            // 
+            this.gunaButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaButton2.AnimationSpeed = 0.03F;
+            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.BorderColor = System.Drawing.Color.White;
+            this.gunaButton2.BorderSize = 2;
+            this.gunaButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
+            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton2.Location = new System.Drawing.Point(25, 156);
+            this.gunaButton2.Name = "gunaButton2";
+            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton2.OnHoverImage")));
+            this.gunaButton2.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.Radius = 9;
+            this.gunaButton2.Size = new System.Drawing.Size(58, 37);
+            this.gunaButton2.TabIndex = 144;
+            // 
+            // gunaButton1
+            // 
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.White;
+            this.gunaButton1.BorderSize = 2;
+            this.gunaButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
+            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton1.Location = new System.Drawing.Point(25, 74);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton1.OnHoverImage")));
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.Radius = 9;
+            this.gunaButton1.Size = new System.Drawing.Size(58, 37);
+            this.gunaButton1.TabIndex = 143;
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Location = new System.Drawing.Point(194, 19);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(320, 34);
+            this.gunaLabel3.TabIndex = 142;
+            this.gunaLabel3.Text = "ROOM REALLOCATION";
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 224);
+            this.ClientSize = new System.Drawing.Size(673, 312);
+            this.Controls.Add(this.gunaButton2);
+            this.Controls.Add(this.gunaButton1);
+            this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.roomChooseCB);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.chooseCB);
@@ -186,5 +246,8 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaComboBox roomChooseCB;
+        private Guna.UI.WinForms.GunaButton gunaButton2;
+        private Guna.UI.WinForms.GunaButton gunaButton1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
     }
 }

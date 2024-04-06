@@ -208,12 +208,6 @@
     <Compile Include="GUI - Dormers\AddDormerForm.Designer.cs">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI - Dormers\PaymentsSummary.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI - Dormers\PaymentsSummary.Designer.cs">
-      <DependentUpon>PaymentsSummary.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI - Event\AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,10 +290,10 @@
     <Compile Include="GUI - Dormers\dormersTab.Designer.cs">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI - Dormers\EditForm.cs">
+    <Compile Include="GUI - Rooms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI - Dormers\EditForm.Designer.cs">
+    <Compile Include="GUI - Rooms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI - SignIn\OTPForm.cs">
@@ -356,9 +350,6 @@
     <EmbeddedResource Include="GUI - Dormers\AddDormerForm.resx">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI - Dormers\PaymentsSummary.resx">
-      <DependentUpon>PaymentsSummary.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\AddEvent.resx">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,7 +386,7 @@
     <EmbeddedResource Include="GUI - Dormers\dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI - Dormers\EditForm.resx">
+    <EmbeddedResource Include="GUI - Rooms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Dashboard\Main.resx">

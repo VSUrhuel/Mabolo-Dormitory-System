@@ -17,8 +17,10 @@ namespace Mabolo_Dormitory_System
         private bool mouseDown;
         private DatabaseManager db;
         private int roomNUm = 0;
-        public AddRoomAllocation(int n)
+        private roomTab roomTab;
+        public AddRoomAllocation(int n, roomTab tab)
         {
+            this.roomTab = tab;
             InitializeComponent();
             db = new DatabaseManager();
             roomNUm = n;
@@ -43,7 +45,8 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             if(db.AddUserInRoom(roomNUm, text))
-                MessageBox.Show(text + " was added in room " + roomNUm + ".");   
+                MessageBox.Show(text + " was added in room " + roomNUm + ".");
+            roomTab.refreshBut_Click(sender, e);
         }
 
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)

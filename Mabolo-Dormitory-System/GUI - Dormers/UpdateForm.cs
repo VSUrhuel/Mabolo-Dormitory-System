@@ -17,6 +17,7 @@ namespace Mabolo_Dormitory_System
         private Point lastLocation;
         private DatabaseManager db;
         private List<Department> depts;
+        private dormersTab dormersTab;
         public UpdateForm()
         {
             db = new DatabaseManager();
@@ -124,6 +125,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Update Cancelled!");
                 this.Dispose();
             }
+            
         }
 
         private void departmentCB_SelectedIndexChanged(object sender, EventArgs e)

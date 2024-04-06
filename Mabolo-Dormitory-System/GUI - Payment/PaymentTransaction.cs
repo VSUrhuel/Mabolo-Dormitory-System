@@ -15,9 +15,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
     {
         private DatabaseManager db;
         private Point lastLocation;
+        private PaymentsTab form;
         private bool mouseDown;
-        public PaymentTransaction(User u)
+        public PaymentTransaction(User u, PaymentsTab form)
         {
+            this.form = form;
+            
             db = new DatabaseManager();
             InitializeComponent();
             
@@ -53,6 +56,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             int index = db.GetAllPayment().Count + 1;  
             db.AddPayment(new Payment(index, DateTime.Now, float.Parse(amountText.Text), remarksText.Text, label1.Text));
             MessageBox.Show("Payment Addded");
+            form.refreshBut_Click(sender, e);
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)

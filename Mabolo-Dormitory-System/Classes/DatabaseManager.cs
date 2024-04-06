@@ -1254,6 +1254,28 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        public float GetUserPayableBalance(string userId)
+        {
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+
+            if (!EstablishConnection())
+                return 0;
+
+            string sql = "SELECT RemainingBalance FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
+            using (MySqlCommand command = new MySqlCommand(sql, Connection))
+            {
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return reader.GetFloat("RemainingBalance");
+                    }
+                }
+            }
+            return 0;
+        }
 
         public void UpdateUserPayable(String userId, float Amount)
         {
@@ -1423,7 +1445,7 @@ namespace Mabolo_Dormitory_System.Classes
             {
                 Users.Clear();
                 List<User> u = new List<User>();
-                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance < 1;";
+                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance = 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user  WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
