@@ -578,9 +578,9 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(17, 117);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(153, 18);
+            this.label12.Size = new System.Drawing.Size(179, 18);
             this.label12.TabIndex = 8;
-            this.label12.Text = "Remaining Balance";
+            this.label12.Text = "Remaining Collectibles";
             // 
             // label13
             // 
