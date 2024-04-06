@@ -49,8 +49,29 @@ namespace Mabolo_Dormitory_System
                 roomDescription.Text = "Rooms are still available";
                 dormerDescription.Text = "Dorm is not yet full";
             }
-        }
+            int regularPayable = Convert.ToInt32(db.GetSumRegularPayable() * 5);
+            int totalEvents = Convert.ToInt32(db.GetSumEvents());
+            int userCount = db.GetAllUsersExcpetAdmin().Count;
+   
 
+            int totalPayableAndEvents = (regularPayable + totalEvents) * userCount;
+            int remainingBalance = totalPayableAndEvents - Convert.ToInt32(db.GetSumRemainingBalance());
+            int number = Convert.ToInt32(totalPayableAndEvents - remainingBalance);
+
+            if (number < 1000)
+            {
+                label13.Text = number.ToString();
+            }
+            else if (number < 1000000)
+            {
+                label13.Text = (number / 1000) + "K";
+            }
+            else
+            {
+                label13.Text = (number / 1000000) + "M";
+            }
+        }
+       
         private void Main_Load(object sender, EventArgs e)
         {
 

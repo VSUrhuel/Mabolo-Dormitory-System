@@ -1232,26 +1232,29 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-        public UserPayable GetUserPayable(String userId)
+        public UserPayable GetUserPayable(string userId)
         {
-            if(!UserExists(userId))
+            if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if (EstablishConnection())
+
+            if (!EstablishConnection())
+                return null;
+
+            string sql = "SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
+            using (MySqlCommand command = new MySqlCommand(sql, Connection))
             {
-                String sql = "SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                MySqlCommand command = new MySqlCommand(sql, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
-                MySqlDataReader reader = command.ExecuteReader();
-                UserPayable up = null;
-                while (reader.Read())
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    up = new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]);
+                    if (reader.Read())
+                    {
+                        return new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]);
+                    }
                 }
-                reader.Close();
-                return up;
             }
             return null;
         }
+
         public void UpdateUserPayable(String userId, float Amount)
         {
             if(EstablishConnection())
@@ -1259,13 +1262,33 @@ namespace Mabolo_Dormitory_System.Classes
                 float updatedAmount = 0;
                 String query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
                 updatedAmount = GetUserPayable(userId).RemainingBalance - Amount;
-               // MessageBox.Show(updatedAmount.ToString());
+                if (updatedAmount < 0)
+                    updatedAmount = 0;
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
                // MessageBox.Show("updated");
             }
+        }
+        public float GetSumRemainingBalance()
+        {
+            if(EstablishConnection())
+            {
+                float sum = 0;
+                String query = "SELECT SUM(RemainingBalance) AS SumAmount FROM system.user_payable;";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    sum = reader.GetFloat("SumAmount");  // Access by alias
+                }
+
+                reader.Close();
+                return sum;
+            }
+            return 0;
         }
         public void LoadUserPayable()
         {
@@ -1277,11 +1300,15 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     if (EstablishConnection())
                     {
-                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser', 'RegularDormer');";
+                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
 
                         MySqlCommand command = new MySqlCommand(query, Connection);
                         List<UserPayable> up = GetAllUserPayable();
-                        int index = up.Count + 1;
+                        int index = 1;
+                        if (up.Count == 0)
+                            index = 1;
+                        else if(up.Count > 0)
+                            index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
                         float remainingBalance = 0;
                         command.Parameters.AddWithValue("@UserPayableId", index);
                         remainingBalance = GetSumEvents() + (GetSumRegularPayable()*5);

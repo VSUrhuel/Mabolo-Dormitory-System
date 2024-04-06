@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mabolo_Dormitory_System.Classes;
 using Microsoft.Extensions.Logging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Mabolo_Dormitory_System.GUI___Payment
 {
@@ -40,13 +41,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             regularPayables = db.GetRegularPayables();
             payments =  db.GetAllPayment();
             SetupTable(users);
-           
-          
-
         }
         private void SetupTable(List<User> users, int n = 60)
         {
-            
             dormerTableView.DataSource = null;
             dormerTableView.Rows.Clear();
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
@@ -65,20 +62,24 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             int i = 0;
             foreach (User u in users)
             {
-                if (i > (n-1))
-                    break;
-                dormerTableView.Rows.Add(u.UserId, u.FirstName, u.LastName);
-                i++;
+                if (u != null)
+                {
+                    if (i > (n - 1))
+                        break;
+                   
+                    dormerTableView.Rows.Add(u.UserId, u.FirstName, u.LastName);
+                    i++;
+                }
             }
 
 
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
-                row.Cells["RemainingBalance"].Value = db.GetUserPayable(row.Cells["UserId"].Value.ToString()).RemainingBalance;
-                if (Convert.ToDouble(row.Cells["RemainingBalance"].Value.ToString()) > 0)
-                    row.Cells["Status"].Value = "PENDING";
-                else
-                    row.Cells["Status"].Value = "PAID";
+                String username = row.Cells["UserId"].Value.ToString();
+                float x = db.GetUserPayable(username).RemainingBalance;
+                String status = x > 0 ? "PENDING" : "PAID";
+                row.Cells["RemainingBalance"].Value = x;
+                row.Cells["Status"].Value = status;
             }
 
         }
@@ -264,7 +265,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void gunaImageButton2_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
+            if (count.Text == "")
+            {
+                MessageBox.Show("Please select the number of items to display");
+                return;
+            }
+            if (Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
             {
                 MessageBox.Show("You are already at the last page");
                 return;
@@ -283,6 +289,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void gunaImageButton1_Click(object sender, EventArgs e)
         {
+            if(count.Text == "")
+            {
+                MessageBox.Show("Please select the number of items to display");
+                return;
+            }
+            else
             if(Convert.ToInt32(count.Text) == 1)
             {
                 MessageBox.Show("You are already at the first page");
@@ -297,6 +309,14 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 count.Text = (pageNumber+1).ToString();
                 SetupTable(usersForPage);
             }
+        }
+
+        private void addDormerButton_Click(object sender, EventArgs e)
+        {
+            PaymentsSummary paymentsSummary = new PaymentsSummary();
+            SetFormLocation(paymentsSummary);
+            paymentsSummary.Owner = form;
+            paymentsSummary.Show();
         }
     }
 }

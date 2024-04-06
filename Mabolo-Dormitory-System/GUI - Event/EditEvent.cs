@@ -34,7 +34,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
             data9.Text = ev.AttendanceFineAmount.ToString();
             data10.Text = ev.EventFeeContribution.ToString();
             dateTimePicker1.Value = ev.EventDate;
-            
+            dateTimePicker2.Format = DateTimePickerFormat.Time;
+            dateTimePicker2.ShowUpDown = true;
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             // Add the event
            
             DateTime date = dateTimePicker1.Value.Date;
-            DateTime time = dateTimePicker1.Value;
+            DateTime time = DateTime.Today.Date + dateTimePicker1.Value.TimeOfDay;
             bool hasPayables = comboBox1.Text == "Yes" ? true : false;
             Event x = new Event(eventId, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text));
             if (db.UpdateEvent(x))
