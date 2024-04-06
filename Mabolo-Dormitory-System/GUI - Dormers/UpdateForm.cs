@@ -17,7 +17,7 @@ namespace Mabolo_Dormitory_System
         private Point lastLocation;
         private DatabaseManager db;
         private List<Department> depts;
-        private dormersTab dormersTab;
+       
         public UpdateForm()
         {
             db = new DatabaseManager();

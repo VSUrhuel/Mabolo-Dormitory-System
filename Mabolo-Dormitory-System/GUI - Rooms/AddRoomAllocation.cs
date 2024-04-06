@@ -47,6 +47,7 @@ namespace Mabolo_Dormitory_System
             if(db.AddUserInRoom(roomNUm, text))
                 MessageBox.Show(text + " was added in room " + roomNUm + ".");
             roomTab.refreshBut_Click(sender, e);
+            this.Dispose();
         }
 
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)

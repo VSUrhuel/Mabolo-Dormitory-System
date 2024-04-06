@@ -73,6 +73,9 @@ namespace Mabolo_Dormitory_System
             mouseDown = false;
         }
 
-        
+        private void closeViewButton_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

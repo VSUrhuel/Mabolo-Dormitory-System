@@ -227,9 +227,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchBar.Text = "Search...";
+            if (statusCB.Text == "")
+                users = db.GetAllUsersExcpetAdmin();
             int n = Convert.ToInt32(itemCB.SelectedItem);
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
+            
             SetupTable(users, n);
         }
 
@@ -281,7 +284,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {// Assuming db.GetAllUsersExcpetAdmin() returns a List<User>
 
                 int pageNumber = Convert.ToInt32(count.Text);  
-                int pageSize = Convert.ToInt32(itemCB.SelectedItem);  
+                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                if (statusCB.Text == "")
+                    users = db.GetAllUsersExcpetAdmin();
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 count.Text = (pageNumber+1).ToString(); 
                 SetupTable(usersForPage);  
@@ -306,6 +311,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 int pageNumber = Convert.ToInt32(count.Text)-2;
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                if (statusCB.Text == "")
+                    users = db.GetAllUsersExcpetAdmin();
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 
                 count.Text = (pageNumber+1).ToString();

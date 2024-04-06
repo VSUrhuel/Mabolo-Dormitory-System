@@ -50,6 +50,7 @@ namespace Mabolo_Dormitory_System
             db.UpdateUserRoom(roomNum, newRoom, text);
             MessageBox.Show(text + " was moved to room " + newRoom + ".");
             roomTab.refreshBut_Click(sender, e);
+            this.Dispose();
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)

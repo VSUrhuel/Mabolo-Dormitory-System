@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewForm));
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.data2 = new Guna.UI.WinForms.GunaLineTextBox();
@@ -61,32 +60,9 @@
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.data10 = new Guna.UI.WinForms.GunaLineTextBox();
             this.data11 = new Guna.UI.WinForms.GunaLineTextBox();
+            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // closeViewButton
-            // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(727, 556);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 0;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
             // 
             // gunaLabel1
             // 
@@ -452,12 +428,37 @@
             this.data11.Size = new System.Drawing.Size(687, 33);
             this.data11.TabIndex = 25;
             // 
+            // closeViewButton
+            // 
+            this.closeViewButton.AnimationHoverSpeed = 0.07F;
+            this.closeViewButton.AnimationSpeed = 0.03F;
+            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
+            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeViewButton.ForeColor = System.Drawing.Color.White;
+            this.closeViewButton.Image = null;
+            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeViewButton.Location = new System.Drawing.Point(663, 563);
+            this.closeViewButton.Name = "closeViewButton";
+            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeViewButton.OnHoverImage = null;
+            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
+            this.closeViewButton.Radius = 10;
+            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
+            this.closeViewButton.TabIndex = 119;
+            this.closeViewButton.Text = "Close";
+            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click_1);
+            // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(899, 620);
+            this.Controls.Add(this.closeViewButton);
             this.Controls.Add(this.data9);
             this.Controls.Add(this.gunaLabel17);
             this.Controls.Add(this.data8);
@@ -489,11 +490,9 @@
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.gunaLabel1);
-            this.Controls.Add(this.closeViewButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewForm";
             this.Text = "ViewForm";
-           
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
@@ -504,8 +503,6 @@
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaButton closeViewButton;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaLineTextBox data2;
@@ -537,5 +534,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaLineTextBox data10;
         private Guna.UI.WinForms.GunaLineTextBox data11;
+        private Guna.UI.WinForms.GunaButton closeViewButton;
     }
 }

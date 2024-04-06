@@ -89,14 +89,16 @@ namespace Mabolo_Dormitory_System
 
                 db.AddUser(newDormer);
                 MessageBox.Show("Sucesfully Added");
+                dormersTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
             else
             {
                 MessageBox.Show("Cancelled!");
+                dormersTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
-            dormersTab.refreshBut_Click(sender, e);
+            
         }
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {
