@@ -39,6 +39,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     button.Click += new EventHandler(gunaImageButton1_Click_1);
                 }
             }
+            
 
 
             // Load information from the database
@@ -59,7 +60,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
             // Load the events for this month
             db = new DatabaseManager();
-            List<Event> eventsThisMonth = db.GetEventsThisMonth();
+            List<Event> eventsThisMonth = db.GetMonthlyEvent();
             List<Panel> panels = flowLayoutPanel2.Controls.OfType<Panel>().ToList();
             int i = 0;
             foreach (Event e in eventsThisMonth)
@@ -121,7 +122,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void addEvent_Click(object sender, EventArgs e)
         {
-            AddEvent addEvent = new AddEvent();
+            AddEvent addEvent = new AddEvent(this);
             addEvent.Owner = form;
             SetFormLocation(addEvent);
             addEvent.Show();
@@ -129,13 +130,13 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void delBut_Click(object sender, EventArgs e)
         {
-            DeleteForm deleteForm = new DeleteForm();
+            DeleteForm deleteForm = new DeleteForm(this);
             deleteForm.Owner = form;
             SetFormLocation(deleteForm);
             deleteForm.Show();
         }
 
-        private void refreshBut_Click(object sender, EventArgs e)
+        public void refreshBut_Click(object sender, EventArgs e)
         {
             SetUpEvents();
         }

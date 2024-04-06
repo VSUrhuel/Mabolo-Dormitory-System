@@ -29,7 +29,7 @@ namespace Mabolo_Dormitory_System
         private void UpdateInformation()
         {
             List<User> users = db.GetAllUsers();
-            int count = db.GetEventsThisMonth().Count;
+            int count = db.GetMonthlyEvent().Count;
             eventCount.Text = db.GetAllEvents().Count.ToString();
             if(count == 0)
                 eventDescription.Text = "No events this month";

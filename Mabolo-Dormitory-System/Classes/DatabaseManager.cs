@@ -720,6 +720,40 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        public List<Event> GetMonthlyEvent()
+        {
+            if (EstablishConnection())
+            {
+                Events.Clear();
+                DateTime currentDate = DateTime.Now;
+
+                string sql = $"SELECT * FROM system.event WHERE MONTH(EventDate) = {currentDate.Month} AND YEAR(EventDate) = {currentDate.Year}";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Events.Add(new Event(
+                            reader.GetInt32("EventId"),
+                            reader.GetString("EventName"),
+                            reader.GetDateTime("EventDate"),
+                            reader.GetDateTime("EventTime"),
+                            reader.GetString("Location"),
+                            reader.GetString("Description"),
+                            reader.GetBoolean("HasPayables"),
+                            reader.GetFloat("AttendanceFineAmount"),
+                            reader.GetFloat("EventFeeContribution"),
+                            true)); // Assuming a boolean value here
+                    }
+                }
+
+                return Events;
+            }
+
+            return null;
+        }
+
         public Event GetEvent(int eventId)
         {
             if (!EventExists(eventId))

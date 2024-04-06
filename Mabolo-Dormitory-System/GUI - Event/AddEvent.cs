@@ -16,8 +16,10 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private DatabaseManager db;
         private Point lastLocation;
         private bool mouseDown;
-        public AddEvent()
+        private EventTab EventTab;
+        public AddEvent(EventTab eventTab)
         {
+            this.EventTab = eventTab;
             this.db = new DatabaseManager();
             InitializeComponent();
             dateTimePicker2.Format = DateTimePickerFormat.Time;
@@ -49,9 +51,9 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 return;
             }
 
-            if(dateTimePicker1.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Please enter a valid date.");
+            if(dateTimePicker1.Value.Date < DateTime.Now.Date.AddMinutes(5))
+            { 
+                MessageBox.Show("You cannot enter a date from the past.");
                 return;
             }
 
@@ -59,12 +61,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
             int index = db.GetLastEventId() + 1;
             DateTime date = dateTimePicker1.Value.Date;
             DateTime time = dateTimePicker2.Value;
-            MessageBox.Show(time.ToString());
             bool hasPayables = comboBox1.Text == "Yes" ? true : false;
             Event x = new Event(index, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text));
             if(db.AddEvent(x))
             {
                 MessageBox.Show("Event added successfully!");
+                EventTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
             else

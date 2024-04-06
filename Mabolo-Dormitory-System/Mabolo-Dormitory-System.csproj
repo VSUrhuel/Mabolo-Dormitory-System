@@ -232,12 +232,6 @@
     <Compile Include="GUI - Event\EventTab.Designer.cs">
       <DependentUpon>EventTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI - Event\RecordAttendance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI - Event\RecordAttendance.Designer.cs">
-      <DependentUpon>RecordAttendance.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI - Event\ViewEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,9 +355,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\EventTab.resx">
       <DependentUpon>EventTab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI - Event\RecordAttendance.resx">
-      <DependentUpon>RecordAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\ViewEvent.resx">
       <DependentUpon>ViewEvent.cs</DependentUpon>

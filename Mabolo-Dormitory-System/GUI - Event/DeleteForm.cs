@@ -1,4 +1,5 @@
 ﻿using Mabolo_Dormitory_System.Classes;
+using Mabolo_Dormitory_System.GUI___Payment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,10 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private DatabaseManager db;
         private Point lastLocation;
         private bool mouseDown;
-        public DeleteForm()
+        private EventTab evenTab;
+        public DeleteForm(EventTab eventTab)
         {
+            this.evenTab = eventTab;
             this.db = new DatabaseManager();
             InitializeComponent();
             foreach (Event e in db.GetAllEvents())
@@ -41,6 +44,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             {
                 db.DeleteEvent(id);
                 MessageBox.Show("Event deleted successfully!");
+                evenTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
             else

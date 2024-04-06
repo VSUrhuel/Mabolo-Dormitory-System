@@ -80,6 +80,8 @@ namespace Mabolo_Dormitory_System
             dormerTableView.Columns["Email"].HeaderText = "Email";
             dormerTableView.Columns["PhoneNumber"].HeaderText = "Phone Number";
             dormerTableView.Columns["UserType"].HeaderText = "UserType";
+
+           
         }
 
         private void dataGridView1_EditingControlShowing(object sender,DataGridViewEditingControlShowingEventArgs e)
