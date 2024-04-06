@@ -18,6 +18,23 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\LENOVO\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/Mabolo Dormitory System/</UpdateUrl>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +57,24 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Green_Modern_Download_App_Document_Poster__2_x_2_in_-removebg-preview.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>798057343AC8682E30F19238DBFF912575E53C9E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Mabolo-Dormitory-System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -172,6 +207,12 @@
     </Compile>
     <Compile Include="GUI - Dormers\AddDormerForm.Designer.cs">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Dormers\PaymentsSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Dormers\PaymentsSummary.Designer.cs">
+      <DependentUpon>PaymentsSummary.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI - Event\AddEvent.cs">
       <SubType>Form</SubType>
@@ -309,6 +350,9 @@
     <EmbeddedResource Include="GUI - Dormers\AddDormerForm.resx">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Dormers\PaymentsSummary.resx">
+      <DependentUpon>PaymentsSummary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\AddEvent.resx">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,7 +420,9 @@
     <EmbeddedResource Include="GUI - Dormers\ViewForm.resx">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Mabolo-Dormitory-System_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -397,6 +443,30 @@
     <Content Include="404720286_381428064288197_8684864246851447303_n__1_-removebg-preview %281%29.ico" />
     <Content Include="Green Modern Download App Document Poster %282 x 2 in%29.ico" />
     <Content Include="Green_Modern_Download_App_Document_Poster__2_x_2_in_-removebg-preview.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Guna.UI">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
