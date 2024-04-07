@@ -229,6 +229,14 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             searchBar.Text = "Search...";
             if (statusCB.Text == "")
                 users = db.GetAllUsersExcpetAdmin();
+            else if(statusCB.Text == "Pending")
+            {
+                users = db.GetPendingUsers();
+            }
+            else
+            {
+                users = db.GetPaidUsers();
+            }
             int n = Convert.ToInt32(itemCB.SelectedItem);
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());

@@ -65,6 +65,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.deleteButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.gunaElipsePanel9.SuspendLayout();
@@ -571,7 +572,7 @@
             this.addDormerButton.ForeColor = System.Drawing.Color.White;
             this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
             this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addDormerButton.Location = new System.Drawing.Point(650, 65);
+            this.addDormerButton.Location = new System.Drawing.Point(591, 65);
             this.addDormerButton.Name = "addDormerButton";
             this.addDormerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.addDormerButton.OnHoverBorderColor = System.Drawing.Color.White;
@@ -657,18 +658,43 @@
             // gunaLabel3
             // 
             this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.Location = new System.Drawing.Point(54, 90);
+            this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Location = new System.Drawing.Point(53, 499);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(234, 21);
+            this.gunaLabel3.Size = new System.Drawing.Size(220, 21);
             this.gunaLabel3.TabIndex = 138;
             this.gunaLabel3.Text = "Monthly Payable Amount";
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.AnimationHoverSpeed = 0.07F;
+            this.deleteButton.AnimationSpeed = 0.03F;
+            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
+            this.deleteButton.BaseColor = System.Drawing.Color.Transparent;
+            this.deleteButton.BorderColor = System.Drawing.Color.Transparent;
+            this.deleteButton.BorderSize = 1;
+            this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.deleteButton.Location = new System.Drawing.Point(818, 69);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.deleteButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.deleteButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.deleteButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.OnHoverImage")));
+            this.deleteButton.OnPressedColor = System.Drawing.Color.Black;
+            this.deleteButton.Radius = 9;
+            this.deleteButton.Size = new System.Drawing.Size(49, 36);
+            this.deleteButton.TabIndex = 139;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // RegularPayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 572);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.addDormerButton);
             this.Controls.Add(this.closeRegularPayableBut);
@@ -739,5 +765,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private Guna.UI.WinForms.GunaButton deleteButton;
     }
 }

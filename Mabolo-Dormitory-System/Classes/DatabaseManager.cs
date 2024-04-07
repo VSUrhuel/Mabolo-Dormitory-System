@@ -1021,6 +1021,27 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
         
+        public float GetSumUserPayments(String userId)
+        {
+            if(!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+            if (EstablishConnection())
+            {
+                float sum = 0;
+                String sql = "SELECT * FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    sum += (float)reader["Amount"];
+                }
+                reader.Close();
+                return sum;
+            }
+            return 0;
+        }
+        
         public bool UserPaymentExists(String userId)
         {
             Payments = GetAllPayment();
@@ -1122,6 +1143,17 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
         
+        public void DeleteRegularPayable(int id)
+        {
+            if(EstablishConnection())
+            {
+                SubtractEventFineUserPayable(GetRegularPayable(id).Amount);
+                String query = "DELETE FROM system.regular_payable WHERE RegularPayableId = @RegularPayableId";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@RegularPayableId", id);
+                command.ExecuteNonQuery(); 
+            }
+        }
         public bool RegularPayableExists(int id)
         {
             RegularPayable = GetRegularPayables();
@@ -1334,14 +1366,27 @@ namespace Mabolo_Dormitory_System.Classes
                             index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
                         float remainingBalance = 0;
                         command.Parameters.AddWithValue("@UserPayableId", index);
-                        remainingBalance = GetSumEvents() + (GetSumRegularPayable()*5);
+                        remainingBalance = GetSumEvents() + (GetSumRegularPayable()*5) - GetSumUserPayments(u.UserId);
                         command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
                         command.ExecuteNonQuery();
                     }
                 }
                 else
-                    UpdateUserLoadPayable(u.UserId, GetSumEvents() + (GetSumRegularPayable()*5));
+                    UpdateAddPayable(u.UserId);
+            }
+        }
+        
+        public void UpdateAddPayable(string userId)
+        {
+            if(EstablishConnection())
+            {
+                String query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                float balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId);
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@RemainingBalance", balance);
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                command.ExecuteNonQuery();
             }
         }
         

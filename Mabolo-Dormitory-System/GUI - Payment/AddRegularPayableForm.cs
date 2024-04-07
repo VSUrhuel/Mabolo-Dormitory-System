@@ -17,8 +17,10 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private DatabaseManager db;
         private Point lastLocation;
         private bool mouseDown;
-        public AddRegularPayableForm(PaymentsTab paymentsTab)
+        private RegularPayableForm regularPayableForm;
+        public AddRegularPayableForm(RegularPayableForm form, PaymentsTab paymentsTab)
         {
+            this.regularPayableForm = form;
             this.paymentsTab = paymentsTab;
             this.db = new DatabaseManager();
             InitializeComponent();
@@ -28,8 +30,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         {
             int index = db.GetRegularPayables()[db.GetRegularPayables().Count - 1].RegularPayableId + 1;
             db.AddRegularPayable(new RegularPayable(index, gunaTextBox1.Text, float.Parse(gunaTextBox2.Text)));
+            db.LoadUsersPayable();
             MessageBox.Show("Regular Payable added successfully!");
             paymentsTab.refreshBut_Click(sender, e);
+            regularPayableForm.SetUpEvents();
+            this.Dispose();
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)

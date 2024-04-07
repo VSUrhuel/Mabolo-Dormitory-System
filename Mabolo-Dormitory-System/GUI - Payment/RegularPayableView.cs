@@ -15,13 +15,14 @@ namespace Mabolo_Dormitory_System.GUI___Payment
     {
         private int regularPayableId;
         private DatabaseManager db;
-        private PaymentsTab paymentsTab;
+        private RegularPayableForm regularPayableForm;
         private Point lastLocation;
         private bool mouseDown;
-        public RegularPayableView(PaymentsTab paymentsTab, int regularPayableId)
+        public RegularPayableView(RegularPayableForm regularPayableForm, int regularPayableId)
         {
             this.regularPayableId = regularPayableId;
             this.db = new DatabaseManager();
+            this.regularPayableForm = regularPayableForm;
             InitializeComponent();
             gunaTextBox1.Text = db.GetRegularPayable(regularPayableId).Name;
             gunaTextBox2.Text = db.GetRegularPayable(regularPayableId).Amount.ToString("N2");
@@ -42,7 +43,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 }
                 db.UpdateRegularPayable(new RegularPayable(regularPayableId, gunaTextBox1.Text, float.Parse(gunaTextBox2.Text)));
                 MessageBox.Show("Regular Payable updated successfully!");
-                paymentsTab.refreshBut_Click(sender, e);
+                regularPayableForm.SetUpEvents();
+                db.LoadUsersPayable();
                 this.Close();
             }
             else

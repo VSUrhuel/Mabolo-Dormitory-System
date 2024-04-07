@@ -118,18 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gunaPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAASwAAACWAQMAAABelSeRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAhUL////twjCJAAAAB3RJTUUH
-        5gsSFhgG8toelAAAAB1JREFUWMPtwQENAAAAwqD3T20ONyAAAAAAADhSAxbaAAGv0ifTAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
   <data name="gunaButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEoNSURBVHhe7d0H
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEoNSURBVHhe7d0H
         mCxVnf7x5V5uIOcMEkSQtBJUjAtIkBVRQIK7IhIUdd0V14SwilkxLYvrKphQBAOooICoKCqCCmIWjIBZ
         MoKACIb/+9b58b+EOz09PR1+p+r7eZ73eebOnek59TtVp7urq875BwC5/f3vf5+nrK1sreym7K8crhyp
         vFF5l/Jh5VPKecrXlEuVnylXKTfeJ3cq9+Xv3ffnrlR+ovixvqr4sT+hfEj5X+W1yguVQ5V9lJ2ULZTV
@@ -778,6 +770,14 @@
         F8ix8lfycblSbhS/QNb4LoL77L77GHwsPiYfm4/Rx+pj5m17YILCRgC5KN4RcTvx591+K/wIeaWcKO+R
         j4rveL9ELpPPy7XyT/Ivcot4X/ofyl3iR+Ieavi/3eY/89/x3/W/8b/11/DX8tf01/b38Pfy9/T3dh/c
         F/fJfXMf2QkPSO8/p/4/ExpdBSFV7L4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="gunaPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAASwAAACWAQMAAABelSeRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAhUL////twjCJAAAAB3RJTUUH
+        5gsSFhgG8toelAAAAB1JREFUWMPtwQENAAAAwqD3T20ONyAAAAAAADhSAxbaAAGv0ifTAAAAAElFTkSu
+        QmCC
 </value>
   </data>
 </root>

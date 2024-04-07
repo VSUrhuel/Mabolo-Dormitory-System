@@ -80,5 +80,10 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             this.Dispose();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

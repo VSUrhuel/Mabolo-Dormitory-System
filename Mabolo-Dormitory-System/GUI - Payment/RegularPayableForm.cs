@@ -37,7 +37,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             SetUpEvents();
         }
 
-        private void SetUpEvents()
+        public void SetUpEvents()
         {
             // Hide all panels
             foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
@@ -74,7 +74,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
             }
             int x = int.Parse(id.ToString());
-            RegularPayableView regularPayableView = new RegularPayableView(paymentsTab, x);
+            RegularPayableView regularPayableView = new RegularPayableView(this, x);
             regularPayableView.Owner = this;
             SetFormLocation(regularPayableView);
             regularPayableView.Show();
@@ -94,20 +94,21 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void closeRegularPayableBut_Click(object sender, EventArgs e)
         {
+            paymentsTab.refreshBut_Click(sender, e);
             this.Dispose();
         }
 
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
-            int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
+            int x = Screen.PrimaryScreen.Bounds.Width - form.Width;
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
-            form.Location = new Point(x, y);
+            form.Location = new Point(x*1/75, y);
         }
 
         private void addDormerButton_Click(object sender, EventArgs e)
         {
-            AddRegularPayableForm addRegularPayableForm = new AddRegularPayableForm(paymentsTab);
+            AddRegularPayableForm addRegularPayableForm = new AddRegularPayableForm(this, paymentsTab);
             addRegularPayableForm.Owner = this;
             SetFormLocation(addRegularPayableForm);
             addRegularPayableForm.Show();
@@ -138,6 +139,15 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DeletRegularPayable deletRegularPayable = new DeletRegularPayable(this);
+            deletRegularPayable.Owner = this;
+            SetFormLocation(deletRegularPayable);
+            deletRegularPayable.Show();
+
         }
     }
 }

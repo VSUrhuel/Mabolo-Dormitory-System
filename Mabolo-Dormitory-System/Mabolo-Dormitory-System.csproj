@@ -244,6 +244,12 @@
     <Compile Include="GUI - Payment\AddRegularPayableForm.Designer.cs">
       <DependentUpon>AddRegularPayableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Payment\DeletRegularPayable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Payment\DeletRegularPayable.Designer.cs">
+      <DependentUpon>DeletRegularPayable.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Payment\PaymentsSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\AddRegularPayableForm.resx">
       <DependentUpon>AddRegularPayableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Payment\DeletRegularPayable.resx">
+      <DependentUpon>DeletRegularPayable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\PaymentsSummary.resx">
       <DependentUpon>PaymentsSummary.cs</DependentUpon>
