@@ -16,22 +16,22 @@ namespace Mabolo_Dormitory_System
         private Point lastLocation;
         private bool mouseDown;
         private DatabaseManager db;
-        private int roomNUm = 0;
+        private int roomNUm;
         private roomTab roomTab;
         public AddRoomAllocation(int n, roomTab tab)
         {
             this.roomTab = tab;
+            this.roomNUm = n;
+            this.db = new DatabaseManager();
             InitializeComponent();
-            db = new DatabaseManager();
-            roomNUm = n;
         }
 
-        private void closeViewButton_Click(object sender, EventArgs e)
+        private void closeRoomAllocationBut_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void addViewButton_Click(object sender, EventArgs e)
+        private void addRoomAllocationBut_Click(object sender, EventArgs e)
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new string[] { chooseCB.Text, userTypeCB.Text}))
             {

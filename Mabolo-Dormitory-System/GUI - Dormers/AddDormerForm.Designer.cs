@@ -62,6 +62,7 @@
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
+            this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -283,7 +284,7 @@
             this.data5.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data5.LineColor = System.Drawing.Color.Gainsboro;
-            this.data5.Location = new System.Drawing.Point(534, 273);
+            this.data5.Location = new System.Drawing.Point(534, 264);
             this.data5.Name = "data5";
             this.data5.PasswordChar = '\0';
             this.data5.Size = new System.Drawing.Size(283, 33);
@@ -293,7 +294,7 @@
             // 
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel8.Location = new System.Drawing.Point(462, 283);
+            this.gunaLabel8.Location = new System.Drawing.Point(462, 274);
             this.gunaLabel8.Name = "gunaLabel8";
             this.gunaLabel8.Size = new System.Drawing.Size(67, 23);
             this.gunaLabel8.TabIndex = 83;
@@ -306,7 +307,7 @@
             this.data6.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data6.LineColor = System.Drawing.Color.Gainsboro;
-            this.data6.Location = new System.Drawing.Point(198, 273);
+            this.data6.Location = new System.Drawing.Point(198, 265);
             this.data6.Name = "data6";
             this.data6.PasswordChar = '\0';
             this.data6.Size = new System.Drawing.Size(226, 33);
@@ -316,7 +317,7 @@
             // 
             this.gunaLabel7.AutoSize = true;
             this.gunaLabel7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel7.Location = new System.Drawing.Point(30, 283);
+            this.gunaLabel7.Location = new System.Drawing.Point(30, 275);
             this.gunaLabel7.Name = "gunaLabel7";
             this.gunaLabel7.Size = new System.Drawing.Size(162, 23);
             this.gunaLabel7.TabIndex = 81;
@@ -507,11 +508,23 @@
             this.gunaButton2.Size = new System.Drawing.Size(52, 37);
             this.gunaButton2.TabIndex = 143;
             // 
+            // gunaLabel15
+            // 
+            this.gunaLabel15.AutoSize = true;
+            this.gunaLabel15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaLabel15.Location = new System.Drawing.Point(199, 298);
+            this.gunaLabel15.Name = "gunaLabel15";
+            this.gunaLabel15.Size = new System.Drawing.Size(119, 16);
+            this.gunaLabel15.TabIndex = 146;
+            this.gunaLabel15.Text = "+63##########";
+            // 
             // AddDormerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 620);
+            this.Controls.Add(this.gunaLabel15);
             this.Controls.Add(this.gunaButton3);
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.gunaButton2);
@@ -591,5 +604,6 @@
         private Guna.UI.WinForms.GunaButton gunaButton3;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaButton gunaButton2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel15;
     }
 }

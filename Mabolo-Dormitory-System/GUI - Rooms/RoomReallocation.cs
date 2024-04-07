@@ -11,25 +11,30 @@ using System.Windows.Forms;
 
 namespace Mabolo_Dormitory_System
 {
-    public partial class EditForm : Form
+    public partial class RoomReallocation : Form
     {
         private DatabaseManager db;
         private List<User> users;
-        private int roomNum = 0;
+        private int roomNum;
         private Point lastLocation;
         private bool mouseDown;
         private roomTab roomTab;
-        public EditForm(int roomNum, roomTab tab)
+        public RoomReallocation(int roomNum, roomTab tab)
         {
             this.roomTab = tab;
+            this.db = new DatabaseManager();
+            this.users = new List<User>();
+            this.roomNum = roomNum;
             InitializeComponent();
+            
+            // Add the rooms to the combobox
             for(int i=1; i<10; i++)
             {
                 if(i!= roomNum)
                     roomChooseCB.Items.Add("Room " + i);
             }
-            db = new DatabaseManager();
-            this.roomNum = roomNum;
+
+            // Add the users to the combobox
             users = db.GetUsersInRoom(roomNum);
             chooseCB.Items.Clear();
             foreach (User user in users)
@@ -38,7 +43,7 @@ namespace Mabolo_Dormitory_System
             }
         }
 
-        private void addViewButton_Click(object sender, EventArgs e)
+        private void updateReallocButton_Click(object sender, EventArgs e)
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new string[] { roomChooseCB.Text, chooseCB.Text}))
             {
@@ -47,13 +52,15 @@ namespace Mabolo_Dormitory_System
             }
             int newRoom = Convert.ToInt32(roomChooseCB.SelectedItem.ToString().Split(' ')[1]);
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
-            db.UpdateUserRoom(roomNum, newRoom, text);
-            MessageBox.Show(text + " was moved to room " + newRoom + ".");
+            if(db.UpdateUserRoom(roomNum, newRoom, text))
+                MessageBox.Show(text + " was moved to room " + newRoom + ".");
+            else
+                MessageBox.Show("An error occured. Please try again.");
             roomTab.refreshBut_Click(sender, e);
             this.Dispose();
         }
 
-        private void closeViewButton_Click(object sender, EventArgs e)
+        private void closeReallocButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
@@ -78,11 +85,6 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
-
-        private void roomChooseCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

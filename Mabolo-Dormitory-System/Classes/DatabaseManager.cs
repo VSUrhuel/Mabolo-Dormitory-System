@@ -330,6 +330,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
                 command.ExecuteNonQuery();
+                GetUserRoom(userId).DecreaseOccupants(1);
                 return true;
             }
             return false;
@@ -430,6 +431,24 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
         
+        public int CountBigBrod(int roomId)
+        {
+            if(EstablishConnection())
+            {
+                String query = "SELECT * FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = 'Big Brod';";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+                MySqlDataReader reader = command.ExecuteReader();
+                int count = 0;
+                while (reader.Read())
+                {
+                    count++;
+                }
+                return count;
+            }
+            return -1;
+        }
+        
         public bool AddUserInRoom(int roomId, String userId)
         {
             if (roomId < 0 || roomId > 9)
@@ -472,8 +491,27 @@ namespace Mabolo_Dormitory_System.Classes
             if ((prevRoomId < 0 || prevRoomId > 9) || (newRoomId < 0 || newRoomId > 9))
                 throw new ArgumentException("Invalid Room Id");
             Rooms = GetAllRooms();
-            if (!Rooms[newRoomId - 1].CanIncreaseOccupancy(1) || !UserAllocated(userId))
+            if (!Rooms[newRoomId - 1].CanIncreaseOccupancy(1))
+            {
+                MessageBox.Show("Room is already full");
                 return false;
+            }
+            if(!UserAllocated(userId))
+            {
+                MessageBox.Show(userId + " does not have a room yet.");
+                return false;
+            }
+            if(CountBigBrod(newRoomId) == 1 && GetUser(userId).UserType == "Big Brod" && newRoomId != 4)
+            {
+                MessageBox.Show("This room already has a Big Brod assigned.");
+                return false;
+            }
+            if(newRoomId == 4 && CountBigBrod(newRoomId) > 1 && GetUser(userId).UserType == "Big Brod")
+            {
+                MessageBox.Show("Room 4 already has 2 Big Brods.");
+                return false;
+            }
+
             if (EstablishConnection())
             {
                 String query = "UPDATE system.room_allocation SET FK_RoomId_RoomAllocation = @FK_RoomId_RoomAllocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation";

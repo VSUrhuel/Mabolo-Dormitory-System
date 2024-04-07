@@ -284,11 +284,11 @@
     <Compile Include="GUI - Dormers\dormersTab.Designer.cs">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI - Rooms\EditForm.cs">
+    <Compile Include="GUI - Rooms\RoomReallocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI - Rooms\EditForm.Designer.cs">
-      <DependentUpon>EditForm.cs</DependentUpon>
+    <Compile Include="GUI - Rooms\RoomReallocation.Designer.cs">
+      <DependentUpon>RoomReallocation.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI - SignIn\OTPForm.cs">
       <SubType>Form</SubType>
@@ -377,8 +377,8 @@
     <EmbeddedResource Include="GUI - Dormers\dormersTab.resx">
       <DependentUpon>dormersTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI - Rooms\EditForm.resx">
-      <DependentUpon>EditForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI - Rooms\RoomReallocation.resx">
+      <DependentUpon>RoomReallocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Dashboard\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

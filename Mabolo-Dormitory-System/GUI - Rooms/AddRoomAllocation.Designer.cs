@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRoomAllocation));
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.chooseCB = new Guna.UI.WinForms.GunaComboBox();
-            this.addViewButton = new Guna.UI.WinForms.GunaButton();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.addRoomAllocationBut = new Guna.UI.WinForms.GunaButton();
+            this.closeRoomAllocationBut = new Guna.UI.WinForms.GunaButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.userTypeCB = new Guna.UI.WinForms.GunaComboBox();
@@ -69,53 +69,53 @@
             this.chooseCB.Size = new System.Drawing.Size(498, 33);
             this.chooseCB.TabIndex = 1;
             // 
-            // addViewButton
+            // addRoomAllocationBut
             // 
-            this.addViewButton.AnimationHoverSpeed = 0.07F;
-            this.addViewButton.AnimationSpeed = 0.03F;
-            this.addViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.addViewButton.BorderColor = System.Drawing.Color.Black;
-            this.addViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addViewButton.ForeColor = System.Drawing.Color.White;
-            this.addViewButton.Image = null;
-            this.addViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addViewButton.Location = new System.Drawing.Point(311, 212);
-            this.addViewButton.Name = "addViewButton";
-            this.addViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.addViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.addViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.addViewButton.OnHoverImage = null;
-            this.addViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.addViewButton.Radius = 10;
-            this.addViewButton.Size = new System.Drawing.Size(160, 42);
-            this.addViewButton.TabIndex = 67;
-            this.addViewButton.Text = "Add";
-            this.addViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.addViewButton.Click += new System.EventHandler(this.addViewButton_Click);
+            this.addRoomAllocationBut.AnimationHoverSpeed = 0.07F;
+            this.addRoomAllocationBut.AnimationSpeed = 0.03F;
+            this.addRoomAllocationBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.addRoomAllocationBut.BorderColor = System.Drawing.Color.Black;
+            this.addRoomAllocationBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addRoomAllocationBut.ForeColor = System.Drawing.Color.White;
+            this.addRoomAllocationBut.Image = null;
+            this.addRoomAllocationBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.addRoomAllocationBut.Location = new System.Drawing.Point(311, 212);
+            this.addRoomAllocationBut.Name = "addRoomAllocationBut";
+            this.addRoomAllocationBut.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.addRoomAllocationBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.addRoomAllocationBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.addRoomAllocationBut.OnHoverImage = null;
+            this.addRoomAllocationBut.OnPressedColor = System.Drawing.Color.Black;
+            this.addRoomAllocationBut.Radius = 10;
+            this.addRoomAllocationBut.Size = new System.Drawing.Size(160, 42);
+            this.addRoomAllocationBut.TabIndex = 67;
+            this.addRoomAllocationBut.Text = "Add";
+            this.addRoomAllocationBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.addRoomAllocationBut.Click += new System.EventHandler(this.addRoomAllocationBut_Click);
             // 
-            // closeViewButton
+            // closeRoomAllocationBut
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(484, 212);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 66;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
+            this.closeRoomAllocationBut.AnimationHoverSpeed = 0.07F;
+            this.closeRoomAllocationBut.AnimationSpeed = 0.03F;
+            this.closeRoomAllocationBut.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeRoomAllocationBut.BorderColor = System.Drawing.Color.Black;
+            this.closeRoomAllocationBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeRoomAllocationBut.ForeColor = System.Drawing.Color.White;
+            this.closeRoomAllocationBut.Image = null;
+            this.closeRoomAllocationBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeRoomAllocationBut.Location = new System.Drawing.Point(484, 212);
+            this.closeRoomAllocationBut.Name = "closeRoomAllocationBut";
+            this.closeRoomAllocationBut.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeRoomAllocationBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeRoomAllocationBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeRoomAllocationBut.OnHoverImage = null;
+            this.closeRoomAllocationBut.OnPressedColor = System.Drawing.Color.Black;
+            this.closeRoomAllocationBut.Radius = 10;
+            this.closeRoomAllocationBut.Size = new System.Drawing.Size(160, 42);
+            this.closeRoomAllocationBut.TabIndex = 66;
+            this.closeRoomAllocationBut.Text = "Close";
+            this.closeRoomAllocationBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeRoomAllocationBut.Click += new System.EventHandler(this.closeRoomAllocationBut_Click);
             // 
             // gunaPictureBox1
             // 
@@ -225,8 +225,8 @@
             this.Controls.Add(this.userTypeCB);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaPictureBox1);
-            this.Controls.Add(this.addViewButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.addRoomAllocationBut);
+            this.Controls.Add(this.closeRoomAllocationBut);
             this.Controls.Add(this.chooseCB);
             this.Controls.Add(this.gunaLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -245,8 +245,8 @@
 
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaComboBox chooseCB;
-        private Guna.UI.WinForms.GunaButton addViewButton;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton addRoomAllocationBut;
+        private Guna.UI.WinForms.GunaButton closeRoomAllocationBut;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaComboBox userTypeCB;

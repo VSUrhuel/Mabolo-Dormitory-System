@@ -223,7 +223,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
                 return;
             }
-            var EditForm = new EditForm(roomNum, this);
+            var EditForm = new RoomReallocation(roomNum, this);
             SetFormLocation(EditForm);
             EditForm.Owner = form; 
             EditForm.Show();

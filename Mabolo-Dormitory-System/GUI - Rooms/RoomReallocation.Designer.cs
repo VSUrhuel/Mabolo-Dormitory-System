@@ -1,6 +1,6 @@
 ﻿namespace Mabolo_Dormitory_System
 {
-    partial class EditForm
+    partial class RoomReallocation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomReallocation));
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.addViewButton = new Guna.UI.WinForms.GunaButton();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.updateReallocButton = new Guna.UI.WinForms.GunaButton();
+            this.closeReallocButton = new Guna.UI.WinForms.GunaButton();
             this.chooseCB = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -53,53 +53,53 @@
             this.gunaPictureBox1.TabIndex = 69;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // addViewButton
+            // updateReallocButton
             // 
-            this.addViewButton.AnimationHoverSpeed = 0.07F;
-            this.addViewButton.AnimationSpeed = 0.03F;
-            this.addViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.addViewButton.BorderColor = System.Drawing.Color.Black;
-            this.addViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addViewButton.ForeColor = System.Drawing.Color.White;
-            this.addViewButton.Image = null;
-            this.addViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addViewButton.Location = new System.Drawing.Point(297, 249);
-            this.addViewButton.Name = "addViewButton";
-            this.addViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.addViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.addViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.addViewButton.OnHoverImage = null;
-            this.addViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.addViewButton.Radius = 10;
-            this.addViewButton.Size = new System.Drawing.Size(160, 42);
-            this.addViewButton.TabIndex = 71;
-            this.addViewButton.Text = "Update";
-            this.addViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.addViewButton.Click += new System.EventHandler(this.addViewButton_Click);
+            this.updateReallocButton.AnimationHoverSpeed = 0.07F;
+            this.updateReallocButton.AnimationSpeed = 0.03F;
+            this.updateReallocButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.updateReallocButton.BorderColor = System.Drawing.Color.Black;
+            this.updateReallocButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateReallocButton.ForeColor = System.Drawing.Color.White;
+            this.updateReallocButton.Image = null;
+            this.updateReallocButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.updateReallocButton.Location = new System.Drawing.Point(297, 249);
+            this.updateReallocButton.Name = "updateReallocButton";
+            this.updateReallocButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.updateReallocButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.updateReallocButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.updateReallocButton.OnHoverImage = null;
+            this.updateReallocButton.OnPressedColor = System.Drawing.Color.Black;
+            this.updateReallocButton.Radius = 10;
+            this.updateReallocButton.Size = new System.Drawing.Size(160, 42);
+            this.updateReallocButton.TabIndex = 71;
+            this.updateReallocButton.Text = "Update";
+            this.updateReallocButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.updateReallocButton.Click += new System.EventHandler(this.updateReallocButton_Click);
             // 
-            // closeViewButton
+            // closeReallocButton
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(470, 249);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 70;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
+            this.closeReallocButton.AnimationHoverSpeed = 0.07F;
+            this.closeReallocButton.AnimationSpeed = 0.03F;
+            this.closeReallocButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeReallocButton.BorderColor = System.Drawing.Color.Black;
+            this.closeReallocButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeReallocButton.ForeColor = System.Drawing.Color.White;
+            this.closeReallocButton.Image = null;
+            this.closeReallocButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeReallocButton.Location = new System.Drawing.Point(470, 249);
+            this.closeReallocButton.Name = "closeReallocButton";
+            this.closeReallocButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeReallocButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeReallocButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeReallocButton.OnHoverImage = null;
+            this.closeReallocButton.OnPressedColor = System.Drawing.Color.Black;
+            this.closeReallocButton.Radius = 10;
+            this.closeReallocButton.Size = new System.Drawing.Size(160, 42);
+            this.closeReallocButton.TabIndex = 70;
+            this.closeReallocButton.Text = "Close";
+            this.closeReallocButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeReallocButton.Click += new System.EventHandler(this.closeReallocButton_Click);
             // 
             // chooseCB
             // 
@@ -154,7 +154,6 @@
             this.roomChooseCB.OnHoverItemForeColor = System.Drawing.Color.White;
             this.roomChooseCB.Size = new System.Drawing.Size(211, 33);
             this.roomChooseCB.TabIndex = 75;
-            this.roomChooseCB.SelectedIndexChanged += new System.EventHandler(this.roomChooseCB_SelectedIndexChanged);
             // 
             // gunaButton2
             // 
@@ -210,7 +209,7 @@
             this.gunaLabel3.TabIndex = 142;
             this.gunaLabel3.Text = "ROOM REALLOCATION";
             // 
-            // EditForm
+            // RoomReallocation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,11 +221,11 @@
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.chooseCB);
             this.Controls.Add(this.gunaLabel1);
-            this.Controls.Add(this.addViewButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.updateReallocButton);
+            this.Controls.Add(this.closeReallocButton);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditForm";
+            this.Name = "RoomReallocation";
             this.Text = "EditForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
@@ -240,8 +239,8 @@
         #endregion
 
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaButton addViewButton;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton updateReallocButton;
+        private Guna.UI.WinForms.GunaButton closeReallocButton;
         private Guna.UI.WinForms.GunaComboBox chooseCB;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;

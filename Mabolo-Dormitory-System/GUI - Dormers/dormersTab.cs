@@ -118,8 +118,8 @@ namespace Mabolo_Dormitory_System
                     DialogResult result = MessageBox.Show("Confirmation Required: Deleting " + users[i].FirstName + " " + users[i].LastName + "'s information is irreversible? Proceed?", "Confirmation", buttons);
                     if(result == DialogResult.Yes)
                     {
-                        db.DeleteUser(users[i].UserId);
                         MessageBox.Show(users[i].FirstName + " " + users[i].LastName + "'s information was Deleted");
+                        db.DeleteUser(users[i].UserId);
                         RefreshTable(users);
                     }
                     else
