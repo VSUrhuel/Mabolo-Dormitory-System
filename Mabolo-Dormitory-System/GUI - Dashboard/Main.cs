@@ -16,8 +16,7 @@ namespace Mabolo_Dormitory_System
 {
     public partial class Main : Form
     {
-        private DatabaseManager db = null;
-       
+        private DatabaseManager db;       
         public Main(String email)
         {
             this.db = new DatabaseManager();
@@ -26,18 +25,22 @@ namespace Mabolo_Dormitory_System
             username.Text = text;
             UpdateInformation();
         }
+        
         private void UpdateInformation()
         {
             List<User> users = db.GetAllUsers();
             int count = db.GetMonthlyEvent().Count;
             eventCount.Text = db.GetAllEvents().Count.ToString();
+
+            // Dormer Count Panel
             if(count == 0)
                 eventDescription.Text = "No events this month";
             else if(count == 1)
                 eventDescription.Text = "There is one event this month";
             else
                 eventDescription.Text = "There are " + count + " events this month";
-
+            
+            // Room Count Panel
             dormerCountLabel.Text = (Convert.ToInt16(users.Count - 2)).ToString();
             if (dormerCountLabel.Text == "60")
             {
@@ -49,11 +52,12 @@ namespace Mabolo_Dormitory_System
                 roomDescription.Text = "Rooms are still available";
                 dormerDescription.Text = "Dorm is not yet full";
             }
+
+            // Payment Panel
             int regularPayable = Convert.ToInt32(db.GetSumRegularPayable() * 5);
             int totalEvents = Convert.ToInt32(db.GetSumEvents());
             int userCount = db.GetAllUsersExcpetAdmin().Count;
    
-
             int totalPayableAndEvents = (regularPayable + totalEvents) * userCount;
             int remainingBalance = totalPayableAndEvents - Convert.ToInt32(db.GetSumRemainingBalance());
             int number = Convert.ToInt32(totalPayableAndEvents - remainingBalance);
@@ -70,11 +74,6 @@ namespace Mabolo_Dormitory_System
             {
                 label13.Text = (number / 1000000) + "M";
             }
-        }
-       
-        private void Main_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -100,7 +99,6 @@ namespace Mabolo_Dormitory_System
             UpdateInformation();
             mainPanel.Controls.Add(dashboardPanel1);
             mainPanel.Controls.Add(dashboardPanel2);
-           
         }
 
         private void roomButton_Click(object sender, EventArgs e)
@@ -110,7 +108,7 @@ namespace Mabolo_Dormitory_System
             mainPanel.Controls.Add(room);
         }
 
-        private void logoutBut_Click(object sender, EventArgs e)
+        private void logoutButton_Click(object sender, EventArgs e)
         {            
             SignIn signIn = new SignIn();
             signIn.Show();
@@ -130,6 +128,11 @@ namespace Mabolo_Dormitory_System
             mainPanel.Controls.Clear();
             PaymentsTab paymentsTab = new PaymentsTab(this);
             mainPanel.Controls.Add(paymentsTab);
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

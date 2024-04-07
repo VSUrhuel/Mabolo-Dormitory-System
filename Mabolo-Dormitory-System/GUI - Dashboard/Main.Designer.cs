@@ -75,20 +75,16 @@
             this.label22 = new System.Windows.Forms.Label();
             this.dashboardPanel2 = new System.Windows.Forms.Panel();
             this.gunaPictureBox6 = new Guna.UI.WinForms.GunaPictureBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.gunaPictureBox5 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox4 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.gunaButton10 = new Guna.UI.WinForms.GunaButton();
@@ -98,6 +94,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.gunaLinkLabel1 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.gunaLinkLabel2 = new Guna.UI.WinForms.GunaLinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -118,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -272,7 +269,7 @@
             this.gunaButton12.Radius = 5;
             this.gunaButton12.Size = new System.Drawing.Size(52, 50);
             this.gunaButton12.TabIndex = 10;
-            this.gunaButton12.Click += new System.EventHandler(this.logoutBut_Click);
+            this.gunaButton12.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // logoutBut
             // 
@@ -301,7 +298,7 @@
             this.logoutBut.TabIndex = 9;
             this.logoutBut.Text = "LOGOUT";
             this.logoutBut.TextOffsetX = 15;
-            this.logoutBut.Click += new System.EventHandler(this.logoutBut_Click);
+            this.logoutBut.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // panel4
             // 
@@ -626,7 +623,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(177, 5);
+            this.pictureBox4.Location = new System.Drawing.Point(183, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(103, 85);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -651,7 +648,7 @@
             this.eventCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.eventCount.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventCount.ForeColor = System.Drawing.Color.White;
-            this.eventCount.Location = new System.Drawing.Point(2, 34);
+            this.eventCount.Location = new System.Drawing.Point(8, 34);
             this.eventCount.Name = "eventCount";
             this.eventCount.Size = new System.Drawing.Size(130, 93);
             this.eventCount.TabIndex = 7;
@@ -716,7 +713,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
             this.label7.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(21, 37);
+            this.label7.Location = new System.Drawing.Point(16, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 93);
             this.label7.TabIndex = 7;
@@ -755,9 +752,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(180, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(188, 10);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(89, 71);
+            this.pictureBox2.Size = new System.Drawing.Size(73, 71);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -803,30 +800,29 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(22, 7);
+            this.label22.Location = new System.Drawing.Point(28, -3);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(171, 19);
             this.label22.TabIndex = 14;
             this.label22.Text = "About the Dormitory";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // dashboardPanel2
             // 
             this.dashboardPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dashboardPanel2.Controls.Add(this.gunaLinkLabel2);
+            this.dashboardPanel2.Controls.Add(this.gunaLinkLabel1);
             this.dashboardPanel2.Controls.Add(this.gunaPictureBox6);
-            this.dashboardPanel2.Controls.Add(this.label35);
             this.dashboardPanel2.Controls.Add(this.gunaPictureBox5);
             this.dashboardPanel2.Controls.Add(this.gunaPictureBox4);
             this.dashboardPanel2.Controls.Add(this.gunaPictureBox3);
             this.dashboardPanel2.Controls.Add(this.label34);
-            this.dashboardPanel2.Controls.Add(this.label33);
             this.dashboardPanel2.Controls.Add(this.label32);
             this.dashboardPanel2.Controls.Add(this.label31);
             this.dashboardPanel2.Controls.Add(this.label30);
             this.dashboardPanel2.Controls.Add(this.label28);
             this.dashboardPanel2.Controls.Add(this.gunaCirclePictureBox2);
             this.dashboardPanel2.Controls.Add(this.label27);
-            this.dashboardPanel2.Controls.Add(this.label26);
-            this.dashboardPanel2.Controls.Add(this.gunaPictureBox2);
             this.dashboardPanel2.Controls.Add(this.label25);
             this.dashboardPanel2.Controls.Add(this.label23);
             this.dashboardPanel2.Controls.Add(this.gunaButton10);
@@ -852,16 +848,6 @@
             this.gunaPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox6.TabIndex = 37;
             this.gunaPictureBox6.TabStop = false;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(793, 416);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(164, 20);
-            this.label35.TabIndex = 36;
-            this.label35.Text = "github.com/VSUrhuel";
             // 
             // gunaPictureBox5
             // 
@@ -905,16 +891,6 @@
             this.label34.Size = new System.Drawing.Size(157, 20);
             this.label34.TabIndex = 32;
             this.label34.Text = "John Rhuel Laurente";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(794, 378);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(168, 20);
-            this.label33.TabIndex = 31;
-            this.label33.Text = "johnrhuell@gmail.com";
             // 
             // label32
             // 
@@ -976,32 +952,11 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(24, 344);
+            this.label27.Location = new System.Drawing.Point(23, 338);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(179, 19);
             this.label27.TabIndex = 25;
             this.label27.Text = "About the Developer";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Century Gothic", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(1084, 312);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(187, 16);
-            this.label26.TabIndex = 24;
-            this.label26.Text = "Photo retreived from FreePik";
-            // 
-            // gunaPictureBox2
-            // 
-            this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox2.Image")));
-            this.gunaPictureBox2.Location = new System.Drawing.Point(1086, 13);
-            this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(572, 303);
-            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox2.TabIndex = 23;
-            this.gunaPictureBox2.TabStop = false;
             // 
             // label25
             // 
@@ -1017,7 +972,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(579, 84);
+            this.label23.Location = new System.Drawing.Point(648, 97);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(275, 20);
             this.label23.TabIndex = 14;
@@ -1037,7 +992,7 @@
             this.gunaButton10.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton10.Image")));
             this.gunaButton10.ImageOffsetX = 5;
             this.gunaButton10.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton10.Location = new System.Drawing.Point(570, 222);
+            this.gunaButton10.Location = new System.Drawing.Point(661, 229);
             this.gunaButton10.Name = "gunaButton10";
             this.gunaButton10.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gunaButton10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1064,7 +1019,7 @@
             this.gunaButton9.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton9.Image")));
             this.gunaButton9.ImageOffsetX = 5;
             this.gunaButton9.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton9.Location = new System.Drawing.Point(570, 171);
+            this.gunaButton9.Location = new System.Drawing.Point(661, 178);
             this.gunaButton9.Name = "gunaButton9";
             this.gunaButton9.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.gunaButton9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -1091,7 +1046,7 @@
             this.gunaButton8.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton8.Image")));
             this.gunaButton8.ImageOffsetX = 5;
             this.gunaButton8.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton8.Location = new System.Drawing.Point(570, 120);
+            this.gunaButton8.Location = new System.Drawing.Point(661, 127);
             this.gunaButton8.Name = "gunaButton8";
             this.gunaButton8.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gunaButton8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1109,7 +1064,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(574, 37);
+            this.label29.Location = new System.Drawing.Point(644, 43);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(388, 44);
             this.label29.TabIndex = 17;
@@ -1129,9 +1084,9 @@
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(24, 29);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(32, 22);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(524, 292);
+            this.gunaPictureBox1.Size = new System.Drawing.Size(562, 292);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 15;
             this.gunaPictureBox1.TabStop = false;
@@ -1145,6 +1100,28 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1380, 800);
             this.mainPanel.TabIndex = 16;
+            // 
+            // gunaLinkLabel1
+            // 
+            this.gunaLinkLabel1.AutoSize = true;
+            this.gunaLinkLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel1.Location = new System.Drawing.Point(798, 416);
+            this.gunaLinkLabel1.Name = "gunaLinkLabel1";
+            this.gunaLinkLabel1.Size = new System.Drawing.Size(164, 20);
+            this.gunaLinkLabel1.TabIndex = 38;
+            this.gunaLinkLabel1.TabStop = true;
+            this.gunaLinkLabel1.Text = "github.com/VSUrhuel";
+            // 
+            // gunaLinkLabel2
+            // 
+            this.gunaLinkLabel2.AutoSize = true;
+            this.gunaLinkLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel2.Location = new System.Drawing.Point(798, 378);
+            this.gunaLinkLabel2.Name = "gunaLinkLabel2";
+            this.gunaLinkLabel2.Size = new System.Drawing.Size(168, 20);
+            this.gunaLinkLabel2.TabIndex = 39;
+            this.gunaLinkLabel2.TabStop = true;
+            this.gunaLinkLabel2.Text = "johnrhuell@gmail.com";
             // 
             // Main
             // 
@@ -1161,7 +1138,6 @@
             this.Name = "Main";
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1190,7 +1166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1250,8 +1225,6 @@
         private System.Windows.Forms.Label label23;
         private Guna.UI.WinForms.GunaButton gunaButton10;
         private System.Windows.Forms.Label label25;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
-        private System.Windows.Forms.Label label26;
         private Guna.UI.WinForms.GunaButton logoutBut;
         private System.Windows.Forms.Label label27;
         private Guna.UI.WinForms.GunaButton gunaButton12;
@@ -1259,14 +1232,14 @@
         private System.Windows.Forms.Label label28;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox2;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox4;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox3;
-        private System.Windows.Forms.Label label35;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox5;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox6;
         private System.Windows.Forms.Panel mainPanel;
+        private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel1;
+        private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel2;
     }
 }
