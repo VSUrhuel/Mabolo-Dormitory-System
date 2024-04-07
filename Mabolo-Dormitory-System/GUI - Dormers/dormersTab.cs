@@ -19,12 +19,12 @@ namespace Mabolo_Dormitory_System
         private Form form;
         public dormersTab(Form form)
         {
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             this.form = form;
+            this.users = new List<User>();
             InitializeComponent();
             count.Text = "";
             over.Text = "";
-            users = new List<User>();    
             users = db.GetAllUsers();
             RefreshTable(users);
         }
@@ -44,8 +44,6 @@ namespace Mabolo_Dormitory_System
             else
                 u2 = users.GetRange(0, n);
             
-            //users -> ToList of users
-            //u2 = copied users depending sa range
             // Set up Table Style
             dormerTableView.DataSource = u2;
             dormerTableView.DefaultCellStyle.Font = new Font("Century Gothic", 12);
@@ -69,7 +67,7 @@ namespace Mabolo_Dormitory_System
             comboBoxColumn.HeaderText = "Action";
             comboBoxColumn.ValueType = typeof(String);
             dormerTableView.Columns.Add(comboBoxColumn);
-            dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dataGridView1_EditingControlShowing);
+            dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dormerTableView_EditingControlShowing);
             
            
            // Set up Column Header
@@ -79,22 +77,20 @@ namespace Mabolo_Dormitory_System
             dormerTableView.Columns["Birthday"].HeaderText = "Birthday";
             dormerTableView.Columns["Email"].HeaderText = "Email";
             dormerTableView.Columns["PhoneNumber"].HeaderText = "Phone Number";
-            dormerTableView.Columns["UserType"].HeaderText = "UserType";
-
-           
+            dormerTableView.Columns["UserType"].HeaderText = "UserType"; 
         }
 
-        private void dataGridView1_EditingControlShowing(object sender,DataGridViewEditingControlShowingEventArgs e)
+        private void dormerTableView_EditingControlShowing(object sender,DataGridViewEditingControlShowingEventArgs e)
         {
             ComboBox combo = e.Control as ComboBox;
             if (combo != null)
             {
-                combo.SelectedIndexChanged -= new EventHandler(ComboBox_SelectedIndexChanged);
-                combo.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
+                combo.SelectedIndexChanged -= new EventHandler(ComboBoxAction_SelectedIndexChanged);
+                combo.SelectedIndexChanged += new EventHandler(ComboBoxAction_SelectedIndexChanged);
             }
         }
        
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
             if (cb.SelectedItem != null)
@@ -142,7 +138,7 @@ namespace Mabolo_Dormitory_System
             form.Location = new Point(x, y);
         } 
 
-        private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns["Column1"] is DataGridViewCheckBoxColumn && e.RowIndex > -1)
@@ -158,21 +154,22 @@ namespace Mabolo_Dormitory_System
             }
         }
 
-        public void refreshBut_Click(object sender, EventArgs e)
+        public void refreshButtton_Click(object sender, EventArgs e)
         {
-            itemCB.Text = "60";
+            viewCountCB.Text = "60";
             userTypeCB.Text = "All";
             searchBar.Text = "Search...";
             users = db.GetAllUsers();
             RefreshTable(users);
         }
 
-        private void itemCB_SelectedIndexChanged(object sender, EventArgs e)
+        private void viewCountCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int n = Convert.ToInt32(itemCB.SelectedItem);
+            searchBar.Text = "Search...";
+            int n = Convert.ToInt32(viewCountCB.SelectedItem);
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
-            int index = Convert.ToInt32(itemCB.SelectedItem.ToString());
+            int index = Convert.ToInt32(viewCountCB.SelectedItem.ToString());
             if(index > users.Count)
             {
                 RefreshTable(users);
@@ -183,7 +180,8 @@ namespace Mabolo_Dormitory_System
 
         private void userTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            itemCB.Text = "60";
+            searchBar.Text = "Search...";
+            viewCountCB.Text = "60";
             String userType = userTypeCB.SelectedItem.ToString();
             if(userType == "All")
             {
@@ -217,7 +215,6 @@ namespace Mabolo_Dormitory_System
         private void searchBar_MouseClick(object sender, MouseEventArgs e)
         {
             searchBar.Text = "";
-            
         }
 
         private void searchBar_Click(object sender, EventArgs e)
@@ -225,7 +222,7 @@ namespace Mabolo_Dormitory_System
             searchBar.Text = "";
         }
 
-        private void searchBut_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
             if(searchBar.Text == "" || searchBar.Text == "Search...")
             {
@@ -260,9 +257,9 @@ namespace Mabolo_Dormitory_System
             addDormerForm.Show();
         }
        
-        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
+        private void selectAllCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (selectAllCB.Checked)
+            if (selectAllCheckBox.Checked)
             {
                 for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
                 {
@@ -280,7 +277,7 @@ namespace Mabolo_Dormitory_System
             }
         }
 
-        private void delBut_Click(object sender, EventArgs e)
+        private void deleteButtoon_Click(object sender, EventArgs e)
         {
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
             bool isChecked = false, hasChecked = false;
@@ -310,11 +307,12 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("No rows selected for deletion.");
             else
                 MessageBox.Show("Selected rows deleted successfully");
+            refreshButtton_Click(sender, e);
         }
 
-        private void gunaImageButton2_Click(object sender, EventArgs e)
+        private void moveNextPage_Click(object sender, EventArgs e)
         {
-            if(itemCB.Text == "")
+            if(viewCountCB.Text == "")
             {
                 MessageBox.Show("Please select the number of items to display");
                 return;
@@ -325,17 +323,16 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             else if (Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
-            {// Assuming db.GetAllUsersExcpetAdmin() returns a List<User>
-
+            {
                 int pageNumber = Convert.ToInt32(count.Text);
-                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                int pageSize = Convert.ToInt32(viewCountCB.SelectedItem);
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 count.Text = (pageNumber + 1).ToString();
                 RefreshTable(usersForPage);
             }
         }
 
-        private void gunaImageButton1_Click(object sender, EventArgs e)
+        private void movePrevPage_Click(object sender, EventArgs e)
         {
             if (Convert.ToInt32(count.Text) == 1)
             {
@@ -345,7 +342,7 @@ namespace Mabolo_Dormitory_System
             else if (Convert.ToInt32(count.Text) > 1)
             {
                 int pageNumber = Convert.ToInt32(count.Text) - 2;
-                int pageSize = Convert.ToInt32(itemCB.SelectedItem);
+                int pageSize = Convert.ToInt32(viewCountCB.SelectedItem);
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
                 count.Text = (pageNumber + 1).ToString();

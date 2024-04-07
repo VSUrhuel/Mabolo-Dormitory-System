@@ -282,6 +282,10 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@UserId", userId);
                 command.ExecuteNonQuery();
+                DeletUserPayable(userId);
+                DeleteUserPayment(userId);
+                DeleteUserRoomAllocation(userId);
+                DeleteUserAllEventAttendance(userId);
             }
             return false;
         }
@@ -318,6 +322,19 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
       
+        public bool DeleteUserRoomAllocation(String userId)
+        {
+            if(UserAllocated(userId) && EstablishConnection())
+            {
+                String query = "DELETE FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+        
         public bool UserAllocated(String userId)
         {
             RoomAllocations = GetAllRoomAllocations();
@@ -849,6 +866,19 @@ namespace Mabolo_Dormitory_System.Classes
             }
         }
         
+        public bool DeleteUserAllEventAttendance(String userI)
+        {
+            if(EstablishConnection())
+            {
+                String query = "DELETE FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userI);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+        
         public bool EventAttendanceExists(int eventId, string userId)
         {
             EventAttendances = GetEventAttendances();
@@ -919,6 +949,19 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
         
+        public bool DeleteUserPayment(String userId)
+        {
+            if(EstablishConnection() && UserPaymentExists(userId))
+            {
+                String query = "DELETE FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
+        }
+        
         public List<Payment> GetAllUserPayments(String userId)
         {
             if(!UserExists(userId))
@@ -939,6 +982,19 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
+        
+        public bool UserPaymentExists(String userId)
+        {
+            Payments = GetAllPayment();
+            foreach (Payment p in Payments)
+            {
+                if (p.FK_UserId_Payment == userId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }   
         
         // Regular Payables
         public bool AddRegularPayable(RegularPayable regularPayable)
@@ -1052,7 +1108,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 List<UserPayable> up = GetAllUserPayable();
-                int index = up.Count + 1;
+                int index = up[up.Count-1].UserPayableId + 1;
                 float remainingBalance = 0;
                 command.Parameters.AddWithValue("@UserPayableId", index);
                 remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
@@ -1104,7 +1160,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-        
+
         public float GetUserPayableBalance(string userId)
         {
             if (!UserExists(userId))
@@ -1144,7 +1200,7 @@ namespace Mabolo_Dormitory_System.Classes
                // MessageBox.Show("updated");
             }
         }
-        
+       
         public void AddUserPayable(String userId, float Amount)
         {
             if (EstablishConnection())
@@ -1179,7 +1235,34 @@ namespace Mabolo_Dormitory_System.Classes
             return 0;
         }
         
-        public void LoadUserPayable()
+        public void LoadUserPayable(String userId)
+        {
+            if (!UserPayableExists(userId))
+            {
+                if (EstablishConnection())
+                {
+                    string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
+
+                    MySqlCommand command = new MySqlCommand(query, Connection);
+                    List<UserPayable> up = GetAllUserPayable();
+                    int index = 1;
+                    if (up.Count == 0)
+                        index = 1;
+                    else if (up.Count > 0)
+                        index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
+                    float remainingBalance = 0;
+                    command.Parameters.AddWithValue("@UserPayableId", index);
+                    remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
+                    command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                    command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                    command.ExecuteNonQuery();
+                }
+            }
+            else
+                UpdateUserLoadPayable(userId, GetSumEvents() + (GetSumRegularPayable() * 5));
+        }
+        
+        public void LoadUsersPayable()
         {
             Users.Clear();
             Users = GetAllUsersExcpetAdmin();
@@ -1210,6 +1293,7 @@ namespace Mabolo_Dormitory_System.Classes
                     UpdateUserLoadPayable(u.UserId, GetSumEvents() + (GetSumRegularPayable()*5));
             }
         }
+        
         public void UpdateUserLoadPayable(String userId, float updatedAmount)
         {
             if(EstablishConnection())
@@ -1220,6 +1304,19 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
             }
+        }
+        
+        public bool DeletUserPayable(String userId)
+        {
+            if(EstablishConnection() && UserPayableExists(userId))
+            {
+                string query = "DELETE FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            return false;
         }
         
         public bool UserPayableExists(String userId)

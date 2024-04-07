@@ -20,11 +20,11 @@ namespace Mabolo_Dormitory_System
        
         public UpdateForm()
         {
-            db = new DatabaseManager();
-            depts = new List<Department>();
-            InitializeComponent();
-            
+            this.db = new DatabaseManager();
+            this.depts = new List<Department>();
+            InitializeComponent(); 
         }
+        
         public void SetInformation(List<User> users, int index)
         {
             if(users.Count < index)
@@ -32,6 +32,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("No User Found!");
                 this.Dispose();
             }
+
             // Set the information of the dormer
             User user = users[index];
             data1.Text = user.UserId;
@@ -65,15 +66,13 @@ namespace Mabolo_Dormitory_System
             dormerTypeCB.Text = user.UserType;
         }
 
-        private void closeViewButton_Click(object sender, EventArgs e)
+        private void closeUpdateButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void updateViewButton_Click(object sender, EventArgs e)
+        private void updateDormerButton_Click(object sender, EventArgs e)
         {
-            // Update the information of the dormer
-
             // Get the college in accordance to department
             depts = db.GetAllDepartments();
             int x = 0;
@@ -102,7 +101,6 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Invalid Phone Number!");
                 return;
             }
-            
             if(ValidationClass.ValidateDateValid(dateTimePicker1.Value) == false)
             {
                 MessageBox.Show("Birthdate Should be in the Past.!");
@@ -165,7 +163,5 @@ namespace Mabolo_Dormitory_System
         {
             mouseDown = false;
         }
-
-     
     }
 }

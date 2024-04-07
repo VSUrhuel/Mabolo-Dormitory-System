@@ -18,13 +18,8 @@ namespace Mabolo_Dormitory_System
         private DatabaseManager db;
         public ViewForm()
         {
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             InitializeComponent();
-        }
-
-        private void closeViewButton_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         public void SetInformation(List<User> users, int index)
@@ -50,7 +45,12 @@ namespace Mabolo_Dormitory_System
                 data12.Text = "N/A";
             data13.Text = (DateTime.Now.Year - user.Birthday.Year).ToString();
         }
-     
+
+        private void closeDormerInfoButton_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -71,11 +71,6 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
-
-        private void closeViewButton_Click_1(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

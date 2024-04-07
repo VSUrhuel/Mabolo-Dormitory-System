@@ -27,7 +27,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             label1.Text = u.UserId;
             label2.Text = u.FirstName;
             label3.Text = u.LastName;
-            label4.Text = db.GetUserPayable(u.UserId).RemainingBalance.ToString();
+            label4.Text = db.GetUserPayableBalance(u.UserId).ToString();    
             label5.Text = DateTime.Now.ToString("MMMM dd, yyyy");
         }
 
