@@ -17,6 +17,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private DatabaseManager db;
         private Point lastLocation;
         private bool mouseDown;
+        
         public EditEvent(Form form, int eventId)
         {
             this.eventId = eventId;
@@ -39,12 +40,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
             dateTimePicker2.ShowUpDown = true;
         }
 
-        private void closeViewButton_Click(object sender, EventArgs e)
+        private void closeEditEventBut_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
+        private void updateEditEventBut_Click(object sender, EventArgs e)
         {
             if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text }) == false)
             {

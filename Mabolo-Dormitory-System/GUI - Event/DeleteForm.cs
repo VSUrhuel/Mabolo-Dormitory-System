@@ -29,7 +29,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void deleteDeletEventButton_Click(object sender, EventArgs e)
         {
             if(comboBox1 == null)
             {
@@ -76,7 +76,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             mouseDown = false;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void cancelDeleteEventButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

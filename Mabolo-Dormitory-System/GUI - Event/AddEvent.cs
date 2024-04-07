@@ -26,12 +26,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
             dateTimePicker2.ShowUpDown = true;
         }
 
-        private void closeViewButton_Click(object sender, EventArgs e)
+        private void closeEventButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void addViewButton_Click(object sender, EventArgs e)
+        private void addEventButton_Click(object sender, EventArgs e)
         {
             // Validate the fields
             if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text }) == false)

@@ -26,15 +26,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             this.form = form;
             this.EventId = eventId;
+            this.db = new DatabaseManager();
+            this.users = new List<User>();
             InitializeComponent();
-
-            db = new DatabaseManager();
             SetUpInformation();
 
             // Attendance Record
-            this.users = new List<User>();
-            this.EventId = eventId;
-            
             users = db.GetAllUsersExcpetAdmin();
             List<EventAttendance> eventAttendances = db.GetEventAttendances(eventId);
             SetupTable();
@@ -85,49 +82,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
             data10.Text = e.EventFeeContribution.ToString() + ".00";
         }
 
-        
-
-       
-        private void closeViewButton_Click_1(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-        private void selectAllCB_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void SetFormLocation(Form form)
-        {
-            form.StartPosition = FormStartPosition.Manual;
-            int x = (Screen.PrimaryScreen.Bounds.Width - form.Width) * 1/9;
-            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
-            form.Location = new Point(x, y);
-        }
-
         private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -151,10 +105,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
             return -1;
         }
-        
 
-      
-        private void updateViewButton_Click_1(object sender, EventArgs e)
+        private void updateEventButton_Click_1(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
@@ -186,14 +138,31 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
         }
 
-        private void gunaLabel6_Click(object sender, EventArgs e)
+        private void closeEventButton_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
         }
 
-        private void data7_Click(object sender, EventArgs e)
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
 
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

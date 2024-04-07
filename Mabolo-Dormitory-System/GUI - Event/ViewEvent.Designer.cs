@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewEvent));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -48,7 +48,7 @@
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.data10 = new Guna.UI.WinForms.GunaLineTextBox();
             this.data7 = new Guna.UI.WinForms.GunaLineTextBox();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.closeEventButton = new Guna.UI.WinForms.GunaButton();
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
             this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,8 @@
             this.Attendance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
-            this.updateViewButton = new Guna.UI.WinForms.GunaButton();
+            this.updateEventButton = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +188,6 @@
             this.gunaLabel6.Size = new System.Drawing.Size(52, 21);
             this.gunaLabel6.TabIndex = 83;
             this.gunaLabel6.Text = "Time:";
-            this.gunaLabel6.Click += new System.EventHandler(this.gunaLabel6_Click);
             // 
             // gunaLabel8
             // 
@@ -250,66 +250,65 @@
             this.data7.ReadOnly = true;
             this.data7.Size = new System.Drawing.Size(92, 33);
             this.data7.TabIndex = 84;
-            this.data7.Click += new System.EventHandler(this.data7_Click);
             // 
-            // closeViewButton
+            // closeEventButton
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(756, 824);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 123;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click_1);
+            this.closeEventButton.AnimationHoverSpeed = 0.07F;
+            this.closeEventButton.AnimationSpeed = 0.03F;
+            this.closeEventButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeEventButton.BorderColor = System.Drawing.Color.Black;
+            this.closeEventButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeEventButton.ForeColor = System.Drawing.Color.White;
+            this.closeEventButton.Image = null;
+            this.closeEventButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeEventButton.Location = new System.Drawing.Point(756, 824);
+            this.closeEventButton.Name = "closeEventButton";
+            this.closeEventButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeEventButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeEventButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeEventButton.OnHoverImage = null;
+            this.closeEventButton.OnPressedColor = System.Drawing.Color.Black;
+            this.closeEventButton.Radius = 10;
+            this.closeEventButton.Size = new System.Drawing.Size(160, 42);
+            this.closeEventButton.TabIndex = 123;
+            this.closeEventButton.Text = "Close";
+            this.closeEventButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeEventButton.Click += new System.EventHandler(this.closeEventButton_Click);
             // 
             // dormerTableView
             // 
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
             this.FirstName,
             this.LastName,
             this.Attendance});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle6;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(41, 259);
@@ -393,40 +392,63 @@
             this.selectAllCB.Text = "Select All";
             this.selectAllCB.CheckedChanged += new System.EventHandler(this.selectAllCB_CheckedChanged_1);
             // 
-            // updateViewButton
+            // updateEventButton
             // 
-            this.updateViewButton.AnimationHoverSpeed = 0.07F;
-            this.updateViewButton.AnimationSpeed = 0.03F;
-            this.updateViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.updateViewButton.BorderColor = System.Drawing.Color.Black;
-            this.updateViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateViewButton.ForeColor = System.Drawing.Color.White;
-            this.updateViewButton.Image = null;
-            this.updateViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.updateViewButton.Location = new System.Drawing.Point(576, 824);
-            this.updateViewButton.Name = "updateViewButton";
-            this.updateViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.updateViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.updateViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.updateViewButton.OnHoverImage = null;
-            this.updateViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.updateViewButton.Radius = 10;
-            this.updateViewButton.Size = new System.Drawing.Size(160, 42);
-            this.updateViewButton.TabIndex = 128;
-            this.updateViewButton.Text = "Update";
-            this.updateViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.updateViewButton.Click += new System.EventHandler(this.updateViewButton_Click_1);
+            this.updateEventButton.AnimationHoverSpeed = 0.07F;
+            this.updateEventButton.AnimationSpeed = 0.03F;
+            this.updateEventButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.updateEventButton.BorderColor = System.Drawing.Color.Black;
+            this.updateEventButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateEventButton.ForeColor = System.Drawing.Color.White;
+            this.updateEventButton.Image = null;
+            this.updateEventButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.updateEventButton.Location = new System.Drawing.Point(576, 824);
+            this.updateEventButton.Name = "updateEventButton";
+            this.updateEventButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.updateEventButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.updateEventButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.updateEventButton.OnHoverImage = null;
+            this.updateEventButton.OnPressedColor = System.Drawing.Color.Black;
+            this.updateEventButton.Radius = 10;
+            this.updateEventButton.Size = new System.Drawing.Size(160, 42);
+            this.updateEventButton.TabIndex = 128;
+            this.updateEventButton.Text = "Update";
+            this.updateEventButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.updateEventButton.Click += new System.EventHandler(this.updateEventButton_Click_1);
+            // 
+            // gunaButton3
+            // 
+            this.gunaButton3.AnimationHoverSpeed = 0.07F;
+            this.gunaButton3.AnimationSpeed = 0.03F;
+            this.gunaButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.BorderColor = System.Drawing.Color.White;
+            this.gunaButton3.BorderSize = 2;
+            this.gunaButton3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton3.ForeColor = System.Drawing.Color.White;
+            this.gunaButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton3.Image")));
+            this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton3.Location = new System.Drawing.Point(303, 24);
+            this.gunaButton3.Name = "gunaButton3";
+            this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton3.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton3.OnHoverImage")));
+            this.gunaButton3.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.Radius = 9;
+            this.gunaButton3.Size = new System.Drawing.Size(52, 37);
+            this.gunaButton3.TabIndex = 146;
             // 
             // ViewEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 1102);
-            this.Controls.Add(this.updateViewButton);
+            this.Controls.Add(this.gunaButton3);
+            this.Controls.Add(this.updateEventButton);
             this.Controls.Add(this.selectAllCB);
             this.Controls.Add(this.gunaLabel7);
             this.Controls.Add(this.dormerTableView);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.closeEventButton);
             this.Controls.Add(this.data10);
             this.Controls.Add(this.gunaLabel10);
             this.Controls.Add(this.data9);
@@ -474,7 +496,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI.WinForms.GunaLineTextBox data10;
         private Guna.UI.WinForms.GunaLineTextBox data7;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton closeEventButton;
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
@@ -482,6 +504,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Attendance;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private Guna.UI.WinForms.GunaCheckBox selectAllCB;
-        private Guna.UI.WinForms.GunaButton updateViewButton;
+        private Guna.UI.WinForms.GunaButton updateEventButton;
+        private Guna.UI.WinForms.GunaButton gunaButton3;
     }
 }

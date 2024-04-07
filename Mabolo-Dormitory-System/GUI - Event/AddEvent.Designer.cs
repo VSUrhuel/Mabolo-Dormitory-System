@@ -46,10 +46,11 @@
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.addViewButton = new Guna.UI.WinForms.GunaButton();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.addButton = new Guna.UI.WinForms.GunaButton();
+            this.closeEventButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,53 +240,53 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 29);
             this.comboBox1.TabIndex = 116;
             // 
-            // addViewButton
+            // addButton
             // 
-            this.addViewButton.AnimationHoverSpeed = 0.07F;
-            this.addViewButton.AnimationSpeed = 0.03F;
-            this.addViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.addViewButton.BorderColor = System.Drawing.Color.Black;
-            this.addViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addViewButton.ForeColor = System.Drawing.Color.White;
-            this.addViewButton.Image = null;
-            this.addViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addViewButton.Location = new System.Drawing.Point(309, 487);
-            this.addViewButton.Name = "addViewButton";
-            this.addViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.addViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.addViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.addViewButton.OnHoverImage = null;
-            this.addViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.addViewButton.Radius = 10;
-            this.addViewButton.Size = new System.Drawing.Size(160, 42);
-            this.addViewButton.TabIndex = 118;
-            this.addViewButton.Text = "Add";
-            this.addViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.addViewButton.Click += new System.EventHandler(this.addViewButton_Click);
+            this.addButton.AnimationHoverSpeed = 0.07F;
+            this.addButton.AnimationSpeed = 0.03F;
+            this.addButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.addButton.BorderColor = System.Drawing.Color.Black;
+            this.addButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.ForeColor = System.Drawing.Color.White;
+            this.addButton.Image = null;
+            this.addButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.addButton.Location = new System.Drawing.Point(309, 487);
+            this.addButton.Name = "addButton";
+            this.addButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.addButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.addButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.addButton.OnHoverImage = null;
+            this.addButton.OnPressedColor = System.Drawing.Color.Black;
+            this.addButton.Radius = 10;
+            this.addButton.Size = new System.Drawing.Size(160, 42);
+            this.addButton.TabIndex = 118;
+            this.addButton.Text = "Add";
+            this.addButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.addButton.Click += new System.EventHandler(this.addEventButton_Click);
             // 
-            // closeViewButton
+            // closeEventButton
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(482, 487);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 117;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
+            this.closeEventButton.AnimationHoverSpeed = 0.07F;
+            this.closeEventButton.AnimationSpeed = 0.03F;
+            this.closeEventButton.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeEventButton.BorderColor = System.Drawing.Color.Black;
+            this.closeEventButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeEventButton.ForeColor = System.Drawing.Color.White;
+            this.closeEventButton.Image = null;
+            this.closeEventButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeEventButton.Location = new System.Drawing.Point(482, 487);
+            this.closeEventButton.Name = "closeEventButton";
+            this.closeEventButton.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeEventButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeEventButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeEventButton.OnHoverImage = null;
+            this.closeEventButton.OnPressedColor = System.Drawing.Color.Black;
+            this.closeEventButton.Radius = 10;
+            this.closeEventButton.Size = new System.Drawing.Size(160, 42);
+            this.closeEventButton.TabIndex = 117;
+            this.closeEventButton.Text = "Close";
+            this.closeEventButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeEventButton.Click += new System.EventHandler(this.closeEventButton_Click);
             // 
             // gunaLabel6
             // 
@@ -305,15 +306,38 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(174, 30);
             this.dateTimePicker2.TabIndex = 120;
             // 
+            // gunaButton2
+            // 
+            this.gunaButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaButton2.AnimationSpeed = 0.03F;
+            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.BorderColor = System.Drawing.Color.White;
+            this.gunaButton2.BorderSize = 2;
+            this.gunaButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
+            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton2.Location = new System.Drawing.Point(204, 15);
+            this.gunaButton2.Name = "gunaButton2";
+            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton2.OnHoverImage")));
+            this.gunaButton2.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.Radius = 9;
+            this.gunaButton2.Size = new System.Drawing.Size(52, 37);
+            this.gunaButton2.TabIndex = 144;
+            // 
             // AddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 541);
+            this.Controls.Add(this.gunaButton2);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.gunaLabel6);
-            this.Controls.Add(this.addViewButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.closeEventButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.data10);
@@ -361,9 +385,10 @@
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private Guna.UI.WinForms.GunaButton addViewButton;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton addButton;
+        private Guna.UI.WinForms.GunaButton closeEventButton;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private Guna.UI.WinForms.GunaButton gunaButton2;
     }
 }

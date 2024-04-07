@@ -91,7 +91,7 @@
             this.deleteButton.TabIndex = 67;
             this.deleteButton.Text = "Delete";
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.deleteDeletEventButton_Click);
             // 
             // cancelButton
             // 
@@ -115,7 +115,7 @@
             this.cancelButton.TabIndex = 66;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.cancelDeleteEventButton_Click);
             // 
             // gunaLabel1
             // 

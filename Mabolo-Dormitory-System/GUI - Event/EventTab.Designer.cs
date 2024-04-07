@@ -31,60 +31,77 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventTab));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunaElipsePanel9 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
             this.label25 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton7 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.gunaElipsePanel10 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
             this.label26 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton8 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gunaElipsePanel11 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton3 = new Guna.UI.WinForms.GunaImageButton();
             this.label27 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton9 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.gunaElipsePanel12 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton4 = new Guna.UI.WinForms.GunaImageButton();
             this.label28 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton10 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton5 = new Guna.UI.WinForms.GunaImageButton();
             this.label4 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton2 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton6 = new Guna.UI.WinForms.GunaImageButton();
             this.label7 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton3 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton7 = new Guna.UI.WinForms.GunaImageButton();
             this.label10 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton4 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton8 = new Guna.UI.WinForms.GunaImageButton();
             this.label13 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton5 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.gunaElipsePanel6 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton9 = new Guna.UI.WinForms.GunaImageButton();
             this.label24 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton6 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.gunaElipsePanel7 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton10 = new Guna.UI.WinForms.GunaImageButton();
             this.label31 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton11 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.gunaElipsePanel8 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton11 = new Guna.UI.WinForms.GunaImageButton();
             this.label34 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton12 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton12 = new Guna.UI.WinForms.GunaImageButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.addEvent = new Guna.UI.WinForms.GunaButton();
             this.delBut = new Guna.UI.WinForms.GunaButton();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
@@ -108,25 +125,32 @@
             this.gunaElipsePanel18 = new Guna.UI.WinForms.GunaElipsePanel();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton3 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton4 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton5 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton6 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton7 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton8 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton9 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton10 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton11 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton12 = new Guna.UI.WinForms.GunaImageButton();
             this.searchBut = new Guna.UI.WinForms.GunaButton();
             this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
+            this.gunaElipsePanel19 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton13 = new Guna.UI.WinForms.GunaImageButton();
+            this.label49 = new System.Windows.Forms.Label();
+            this.gunaAdvenceButton13 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.gunaElipsePanel20 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton14 = new Guna.UI.WinForms.GunaImageButton();
+            this.label52 = new System.Windows.Forms.Label();
+            this.gunaAdvenceButton14 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.gunaElipsePanel21 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton15 = new Guna.UI.WinForms.GunaImageButton();
+            this.label55 = new System.Windows.Forms.Label();
+            this.gunaAdvenceButton15 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.gunaElipsePanel22 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaImageButton16 = new Guna.UI.WinForms.GunaImageButton();
+            this.label58 = new System.Windows.Forms.Label();
+            this.gunaAdvenceButton16 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.gunaElipsePanel9.SuspendLayout();
             this.gunaElipsePanel10.SuspendLayout();
@@ -139,6 +163,7 @@
             this.gunaElipsePanel6.SuspendLayout();
             this.gunaElipsePanel7.SuspendLayout();
             this.gunaElipsePanel8.SuspendLayout();
+            this.gunaElipsePanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.gunaElipsePanel13.SuspendLayout();
             this.gunaElipsePanel14.SuspendLayout();
@@ -146,7 +171,10 @@
             this.gunaElipsePanel16.SuspendLayout();
             this.gunaElipsePanel17.SuspendLayout();
             this.gunaElipsePanel18.SuspendLayout();
-            this.gunaElipsePanel1.SuspendLayout();
+            this.gunaElipsePanel19.SuspendLayout();
+            this.gunaElipsePanel20.SuspendLayout();
+            this.gunaElipsePanel21.SuspendLayout();
+            this.gunaElipsePanel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -164,6 +192,10 @@
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel7);
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel8);
             this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel1);
+            this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel19);
+            this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel20);
+            this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel21);
+            this.flowLayoutPanel1.Controls.Add(this.gunaElipsePanel22);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(64, 205);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1195, 391);
@@ -186,6 +218,17 @@
             this.gunaElipsePanel9.Radius = 30;
             this.gunaElipsePanel9.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel9.TabIndex = 24;
+            // 
+            // gunaImageButton1
+            // 
+            this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
+            this.gunaImageButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton1.Location = new System.Drawing.Point(487, 8);
+            this.gunaImageButton1.Name = "gunaImageButton1";
+            this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
+            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton1.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton1.TabIndex = 136;
             // 
             // label25
             // 
@@ -272,6 +315,17 @@
             this.gunaElipsePanel10.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel10.TabIndex = 27;
             // 
+            // gunaImageButton2
+            // 
+            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
+            this.gunaImageButton2.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton2.Location = new System.Drawing.Point(492, 8);
+            this.gunaImageButton2.Name = "gunaImageButton2";
+            this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
+            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton2.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton2.TabIndex = 135;
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -355,6 +409,17 @@
             this.gunaElipsePanel11.Radius = 30;
             this.gunaElipsePanel11.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel11.TabIndex = 28;
+            // 
+            // gunaImageButton3
+            // 
+            this.gunaImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton3.Image")));
+            this.gunaImageButton3.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton3.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton3.Name = "gunaImageButton3";
+            this.gunaImageButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton3.OnHoverImage")));
+            this.gunaImageButton3.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton3.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton3.TabIndex = 137;
             // 
             // label27
             // 
@@ -440,6 +505,17 @@
             this.gunaElipsePanel12.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel12.TabIndex = 25;
             // 
+            // gunaImageButton4
+            // 
+            this.gunaImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton4.Image")));
+            this.gunaImageButton4.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton4.Location = new System.Drawing.Point(492, 3);
+            this.gunaImageButton4.Name = "gunaImageButton4";
+            this.gunaImageButton4.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton4.OnHoverImage")));
+            this.gunaImageButton4.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton4.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton4.TabIndex = 138;
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -523,6 +599,17 @@
             this.gunaElipsePanel2.Radius = 30;
             this.gunaElipsePanel2.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel2.TabIndex = 31;
+            // 
+            // gunaImageButton5
+            // 
+            this.gunaImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.Image")));
+            this.gunaImageButton5.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton5.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton5.Name = "gunaImageButton5";
+            this.gunaImageButton5.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.OnHoverImage")));
+            this.gunaImageButton5.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton5.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton5.TabIndex = 138;
             // 
             // label4
             // 
@@ -608,6 +695,17 @@
             this.gunaElipsePanel3.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel3.TabIndex = 32;
             // 
+            // gunaImageButton6
+            // 
+            this.gunaImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton6.Image")));
+            this.gunaImageButton6.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton6.Location = new System.Drawing.Point(492, 3);
+            this.gunaImageButton6.Name = "gunaImageButton6";
+            this.gunaImageButton6.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton6.OnHoverImage")));
+            this.gunaImageButton6.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton6.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton6.TabIndex = 138;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -691,6 +789,17 @@
             this.gunaElipsePanel4.Radius = 30;
             this.gunaElipsePanel4.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel4.TabIndex = 30;
+            // 
+            // gunaImageButton7
+            // 
+            this.gunaImageButton7.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton7.Image")));
+            this.gunaImageButton7.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton7.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton7.Name = "gunaImageButton7";
+            this.gunaImageButton7.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton7.OnHoverImage")));
+            this.gunaImageButton7.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton7.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton7.TabIndex = 138;
             // 
             // label10
             // 
@@ -776,6 +885,17 @@
             this.gunaElipsePanel5.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel5.TabIndex = 33;
             // 
+            // gunaImageButton8
+            // 
+            this.gunaImageButton8.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton8.Image")));
+            this.gunaImageButton8.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton8.Location = new System.Drawing.Point(492, 3);
+            this.gunaImageButton8.Name = "gunaImageButton8";
+            this.gunaImageButton8.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton8.OnHoverImage")));
+            this.gunaImageButton8.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton8.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton8.TabIndex = 139;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -859,6 +979,17 @@
             this.gunaElipsePanel6.Radius = 30;
             this.gunaElipsePanel6.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel6.TabIndex = 35;
+            // 
+            // gunaImageButton9
+            // 
+            this.gunaImageButton9.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton9.Image")));
+            this.gunaImageButton9.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton9.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton9.Name = "gunaImageButton9";
+            this.gunaImageButton9.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton9.OnHoverImage")));
+            this.gunaImageButton9.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton9.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton9.TabIndex = 139;
             // 
             // label24
             // 
@@ -944,6 +1075,17 @@
             this.gunaElipsePanel7.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel7.TabIndex = 36;
             // 
+            // gunaImageButton10
+            // 
+            this.gunaImageButton10.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton10.Image")));
+            this.gunaImageButton10.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton10.Location = new System.Drawing.Point(492, 3);
+            this.gunaImageButton10.Name = "gunaImageButton10";
+            this.gunaImageButton10.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton10.OnHoverImage")));
+            this.gunaImageButton10.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton10.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton10.TabIndex = 139;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -1028,6 +1170,17 @@
             this.gunaElipsePanel8.Size = new System.Drawing.Size(580, 133);
             this.gunaElipsePanel8.TabIndex = 34;
             // 
+            // gunaImageButton11
+            // 
+            this.gunaImageButton11.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton11.Image")));
+            this.gunaImageButton11.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton11.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton11.Name = "gunaImageButton11";
+            this.gunaImageButton11.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton11.OnHoverImage")));
+            this.gunaImageButton11.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton11.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton11.TabIndex = 139;
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1093,6 +1246,101 @@
             this.label36.Size = new System.Drawing.Size(156, 22);
             this.label36.TabIndex = 6;
             this.label36.Text = "January 24, 2024";
+            // 
+            // gunaElipsePanel1
+            // 
+            this.gunaElipsePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.gunaElipsePanel1.Controls.Add(this.gunaImageButton12);
+            this.gunaElipsePanel1.Controls.Add(this.label1);
+            this.gunaElipsePanel1.Controls.Add(this.gunaAdvenceButton1);
+            this.gunaElipsePanel1.Controls.Add(this.label2);
+            this.gunaElipsePanel1.Controls.Add(this.label3);
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(589, 698);
+            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
+            this.gunaElipsePanel1.Radius = 30;
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(580, 133);
+            this.gunaElipsePanel1.TabIndex = 37;
+            // 
+            // gunaImageButton12
+            // 
+            this.gunaImageButton12.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton12.Image")));
+            this.gunaImageButton12.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton12.Location = new System.Drawing.Point(492, 4);
+            this.gunaImageButton12.Name = "gunaImageButton12";
+            this.gunaImageButton12.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton12.OnHoverImage")));
+            this.gunaImageButton12.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton12.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton12.TabIndex = 139;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(17, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 22);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Event ID: 1";
+            // 
+            // gunaAdvenceButton1
+            // 
+            this.gunaAdvenceButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceButton1.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.gunaAdvenceButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton1.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceButton1.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton1.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton1.CheckedImage = null;
+            this.gunaAdvenceButton1.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceButton1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaAdvenceButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton1.Image = null;
+            this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton1.Location = new System.Drawing.Point(0, 102);
+            this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
+            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
+            this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton1.OnHoverImage = null;
+            this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton1.Size = new System.Drawing.Size(580, 32);
+            this.gunaAdvenceButton1.TabIndex = 20;
+            this.gunaAdvenceButton1.Text = "Click for More";
+            this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(6, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(338, 44);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "General Cleaning";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(17, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 22);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "January 24, 2024";
             // 
             // addEvent
             // 
@@ -1427,222 +1675,6 @@
             this.label48.TabIndex = 6;
             this.label48.Text = "January 24, 2024";
             // 
-            // gunaImageButton2
-            // 
-            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
-            this.gunaImageButton2.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton2.Location = new System.Drawing.Point(492, 8);
-            this.gunaImageButton2.Name = "gunaImageButton2";
-            this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
-            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton2.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton2.TabIndex = 135;
-            // 
-            // gunaElipsePanel1
-            // 
-            this.gunaElipsePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.gunaElipsePanel1.Controls.Add(this.gunaImageButton12);
-            this.gunaElipsePanel1.Controls.Add(this.label1);
-            this.gunaElipsePanel1.Controls.Add(this.gunaAdvenceButton1);
-            this.gunaElipsePanel1.Controls.Add(this.label2);
-            this.gunaElipsePanel1.Controls.Add(this.label3);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(589, 698);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Radius = 30;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(580, 133);
-            this.gunaElipsePanel1.TabIndex = 37;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 22);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Event ID: 1";
-            // 
-            // gunaAdvenceButton1
-            // 
-            this.gunaAdvenceButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceButton1.AnimationSpeed = 0.03F;
-            this.gunaAdvenceButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.gunaAdvenceButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceButton1.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.CheckedImage = null;
-            this.gunaAdvenceButton1.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceButton1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaAdvenceButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.Image = null;
-            this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(0, 102);
-            this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
-            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
-            this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.OnHoverImage = null;
-            this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.Size = new System.Drawing.Size(580, 32);
-            this.gunaAdvenceButton1.TabIndex = 20;
-            this.gunaAdvenceButton1.Text = "Click for More";
-            this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(6, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(338, 44);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "General Cleaning";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 22);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "January 24, 2024";
-            // 
-            // gunaImageButton1
-            // 
-            this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
-            this.gunaImageButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton1.Location = new System.Drawing.Point(487, 8);
-            this.gunaImageButton1.Name = "gunaImageButton1";
-            this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
-            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton1.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton1.TabIndex = 136;
-            // 
-            // gunaImageButton3
-            // 
-            this.gunaImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton3.Image")));
-            this.gunaImageButton3.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton3.Location = new System.Drawing.Point(487, 3);
-            this.gunaImageButton3.Name = "gunaImageButton3";
-            this.gunaImageButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton3.OnHoverImage")));
-            this.gunaImageButton3.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton3.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton3.TabIndex = 137;
-            // 
-            // gunaImageButton4
-            // 
-            this.gunaImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton4.Image")));
-            this.gunaImageButton4.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton4.Location = new System.Drawing.Point(492, 3);
-            this.gunaImageButton4.Name = "gunaImageButton4";
-            this.gunaImageButton4.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton4.OnHoverImage")));
-            this.gunaImageButton4.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton4.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton4.TabIndex = 138;
-            // 
-            // gunaImageButton5
-            // 
-            this.gunaImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.Image")));
-            this.gunaImageButton5.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton5.Location = new System.Drawing.Point(487, 3);
-            this.gunaImageButton5.Name = "gunaImageButton5";
-            this.gunaImageButton5.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton5.OnHoverImage")));
-            this.gunaImageButton5.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton5.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton5.TabIndex = 138;
-            // 
-            // gunaImageButton6
-            // 
-            this.gunaImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton6.Image")));
-            this.gunaImageButton6.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton6.Location = new System.Drawing.Point(492, 3);
-            this.gunaImageButton6.Name = "gunaImageButton6";
-            this.gunaImageButton6.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton6.OnHoverImage")));
-            this.gunaImageButton6.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton6.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton6.TabIndex = 138;
-            // 
-            // gunaImageButton7
-            // 
-            this.gunaImageButton7.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton7.Image")));
-            this.gunaImageButton7.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton7.Location = new System.Drawing.Point(487, 3);
-            this.gunaImageButton7.Name = "gunaImageButton7";
-            this.gunaImageButton7.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton7.OnHoverImage")));
-            this.gunaImageButton7.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton7.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton7.TabIndex = 138;
-            // 
-            // gunaImageButton8
-            // 
-            this.gunaImageButton8.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton8.Image")));
-            this.gunaImageButton8.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton8.Location = new System.Drawing.Point(492, 3);
-            this.gunaImageButton8.Name = "gunaImageButton8";
-            this.gunaImageButton8.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton8.OnHoverImage")));
-            this.gunaImageButton8.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton8.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton8.TabIndex = 139;
-            // 
-            // gunaImageButton9
-            // 
-            this.gunaImageButton9.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton9.Image")));
-            this.gunaImageButton9.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton9.Location = new System.Drawing.Point(487, 3);
-            this.gunaImageButton9.Name = "gunaImageButton9";
-            this.gunaImageButton9.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton9.OnHoverImage")));
-            this.gunaImageButton9.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton9.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton9.TabIndex = 139;
-            // 
-            // gunaImageButton10
-            // 
-            this.gunaImageButton10.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton10.Image")));
-            this.gunaImageButton10.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton10.Location = new System.Drawing.Point(492, 3);
-            this.gunaImageButton10.Name = "gunaImageButton10";
-            this.gunaImageButton10.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton10.OnHoverImage")));
-            this.gunaImageButton10.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton10.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton10.TabIndex = 139;
-            // 
-            // gunaImageButton11
-            // 
-            this.gunaImageButton11.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton11.Image")));
-            this.gunaImageButton11.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton11.Location = new System.Drawing.Point(487, 3);
-            this.gunaImageButton11.Name = "gunaImageButton11";
-            this.gunaImageButton11.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton11.OnHoverImage")));
-            this.gunaImageButton11.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton11.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton11.TabIndex = 139;
-            // 
-            // gunaImageButton12
-            // 
-            this.gunaImageButton12.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton12.Image")));
-            this.gunaImageButton12.ImageSize = new System.Drawing.Size(50, 50);
-            this.gunaImageButton12.Location = new System.Drawing.Point(492, 4);
-            this.gunaImageButton12.Name = "gunaImageButton12";
-            this.gunaImageButton12.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton12.OnHoverImage")));
-            this.gunaImageButton12.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton12.Size = new System.Drawing.Size(73, 58);
-            this.gunaImageButton12.TabIndex = 139;
-            // 
             // searchBut
             // 
             this.searchBut.AnimationHoverSpeed = 0.07F;
@@ -1682,6 +1714,386 @@
             this.searchBar.TextOffsetX = 10;
             this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
             // 
+            // gunaElipsePanel19
+            // 
+            this.gunaElipsePanel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaElipsePanel19.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gunaElipsePanel19.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.gunaElipsePanel19.Controls.Add(this.gunaImageButton13);
+            this.gunaElipsePanel19.Controls.Add(this.label49);
+            this.gunaElipsePanel19.Controls.Add(this.gunaAdvenceButton13);
+            this.gunaElipsePanel19.Controls.Add(this.label50);
+            this.gunaElipsePanel19.Controls.Add(this.label51);
+            this.gunaElipsePanel19.Location = new System.Drawing.Point(3, 837);
+            this.gunaElipsePanel19.Name = "gunaElipsePanel19";
+            this.gunaElipsePanel19.Radius = 30;
+            this.gunaElipsePanel19.Size = new System.Drawing.Size(580, 133);
+            this.gunaElipsePanel19.TabIndex = 39;
+            // 
+            // gunaImageButton13
+            // 
+            this.gunaImageButton13.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton13.Image")));
+            this.gunaImageButton13.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton13.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton13.Name = "gunaImageButton13";
+            this.gunaImageButton13.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton13.OnHoverImage")));
+            this.gunaImageButton13.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton13.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton13.TabIndex = 139;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.label49.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.White;
+            this.label49.Location = new System.Drawing.Point(17, 81);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(100, 22);
+            this.label49.TabIndex = 22;
+            this.label49.Text = "Event ID: 2";
+            // 
+            // gunaAdvenceButton13
+            // 
+            this.gunaAdvenceButton13.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceButton13.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton13.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceButton13.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.gunaAdvenceButton13.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton13.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceButton13.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton13.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton13.CheckedImage = null;
+            this.gunaAdvenceButton13.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceButton13.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaAdvenceButton13.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton13.Image = null;
+            this.gunaAdvenceButton13.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaAdvenceButton13.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton13.Location = new System.Drawing.Point(0, 102);
+            this.gunaAdvenceButton13.Name = "gunaAdvenceButton13";
+            this.gunaAdvenceButton13.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(41)))));
+            this.gunaAdvenceButton13.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton13.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton13.OnHoverImage = null;
+            this.gunaAdvenceButton13.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton13.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton13.Size = new System.Drawing.Size(580, 32);
+            this.gunaAdvenceButton13.TabIndex = 20;
+            this.gunaAdvenceButton13.Text = "Click for More";
+            this.gunaAdvenceButton13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.label50.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.Color.White;
+            this.label50.Location = new System.Drawing.Point(6, 37);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(338, 44);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "General Cleaning";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.label51.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.White;
+            this.label51.Location = new System.Drawing.Point(17, 15);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(156, 22);
+            this.label51.TabIndex = 6;
+            this.label51.Text = "January 24, 2024";
+            // 
+            // gunaElipsePanel20
+            // 
+            this.gunaElipsePanel20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaElipsePanel20.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gunaElipsePanel20.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.gunaElipsePanel20.Controls.Add(this.gunaImageButton14);
+            this.gunaElipsePanel20.Controls.Add(this.label52);
+            this.gunaElipsePanel20.Controls.Add(this.gunaAdvenceButton14);
+            this.gunaElipsePanel20.Controls.Add(this.label53);
+            this.gunaElipsePanel20.Controls.Add(this.label54);
+            this.gunaElipsePanel20.Location = new System.Drawing.Point(589, 837);
+            this.gunaElipsePanel20.Name = "gunaElipsePanel20";
+            this.gunaElipsePanel20.Radius = 30;
+            this.gunaElipsePanel20.Size = new System.Drawing.Size(580, 133);
+            this.gunaElipsePanel20.TabIndex = 40;
+            // 
+            // gunaImageButton14
+            // 
+            this.gunaImageButton14.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton14.Image")));
+            this.gunaImageButton14.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton14.Location = new System.Drawing.Point(492, 3);
+            this.gunaImageButton14.Name = "gunaImageButton14";
+            this.gunaImageButton14.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton14.OnHoverImage")));
+            this.gunaImageButton14.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton14.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton14.TabIndex = 139;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.label52.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(17, 81);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(100, 22);
+            this.label52.TabIndex = 23;
+            this.label52.Text = "Event ID: 3";
+            // 
+            // gunaAdvenceButton14
+            // 
+            this.gunaAdvenceButton14.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceButton14.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton14.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceButton14.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.gunaAdvenceButton14.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton14.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceButton14.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton14.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton14.CheckedImage = null;
+            this.gunaAdvenceButton14.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceButton14.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaAdvenceButton14.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton14.Image = null;
+            this.gunaAdvenceButton14.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaAdvenceButton14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton14.Location = new System.Drawing.Point(0, 102);
+            this.gunaAdvenceButton14.Name = "gunaAdvenceButton14";
+            this.gunaAdvenceButton14.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(173)))), ((int)(((byte)(6)))));
+            this.gunaAdvenceButton14.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton14.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton14.OnHoverImage = null;
+            this.gunaAdvenceButton14.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton14.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton14.Size = new System.Drawing.Size(580, 32);
+            this.gunaAdvenceButton14.TabIndex = 20;
+            this.gunaAdvenceButton14.Text = "Click for More";
+            this.gunaAdvenceButton14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.label53.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(6, 37);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(338, 44);
+            this.label53.TabIndex = 7;
+            this.label53.Text = "General Cleaning";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.label54.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(17, 15);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(156, 22);
+            this.label54.TabIndex = 6;
+            this.label54.Text = "January 24, 2024";
+            // 
+            // gunaElipsePanel21
+            // 
+            this.gunaElipsePanel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaElipsePanel21.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gunaElipsePanel21.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.gunaElipsePanel21.Controls.Add(this.gunaImageButton15);
+            this.gunaElipsePanel21.Controls.Add(this.label55);
+            this.gunaElipsePanel21.Controls.Add(this.gunaAdvenceButton15);
+            this.gunaElipsePanel21.Controls.Add(this.label56);
+            this.gunaElipsePanel21.Controls.Add(this.label57);
+            this.gunaElipsePanel21.Location = new System.Drawing.Point(3, 976);
+            this.gunaElipsePanel21.Name = "gunaElipsePanel21";
+            this.gunaElipsePanel21.Radius = 30;
+            this.gunaElipsePanel21.Size = new System.Drawing.Size(580, 133);
+            this.gunaElipsePanel21.TabIndex = 38;
+            // 
+            // gunaImageButton15
+            // 
+            this.gunaImageButton15.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton15.Image")));
+            this.gunaImageButton15.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton15.Location = new System.Drawing.Point(487, 3);
+            this.gunaImageButton15.Name = "gunaImageButton15";
+            this.gunaImageButton15.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton15.OnHoverImage")));
+            this.gunaImageButton15.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton15.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton15.TabIndex = 139;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.label55.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.White;
+            this.label55.Location = new System.Drawing.Point(17, 81);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(100, 22);
+            this.label55.TabIndex = 24;
+            this.label55.Text = "Event ID: 4";
+            // 
+            // gunaAdvenceButton15
+            // 
+            this.gunaAdvenceButton15.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceButton15.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton15.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceButton15.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.gunaAdvenceButton15.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton15.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceButton15.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton15.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton15.CheckedImage = null;
+            this.gunaAdvenceButton15.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceButton15.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaAdvenceButton15.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton15.Image = null;
+            this.gunaAdvenceButton15.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaAdvenceButton15.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton15.Location = new System.Drawing.Point(0, 102);
+            this.gunaAdvenceButton15.Name = "gunaAdvenceButton15";
+            this.gunaAdvenceButton15.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(48)))), ((int)(((byte)(62)))));
+            this.gunaAdvenceButton15.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton15.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton15.OnHoverImage = null;
+            this.gunaAdvenceButton15.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton15.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton15.Size = new System.Drawing.Size(580, 32);
+            this.gunaAdvenceButton15.TabIndex = 20;
+            this.gunaAdvenceButton15.Text = "Click for More";
+            this.gunaAdvenceButton15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.label56.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.White;
+            this.label56.Location = new System.Drawing.Point(6, 37);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(338, 44);
+            this.label56.TabIndex = 7;
+            this.label56.Text = "General Cleaning";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.label57.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.White;
+            this.label57.Location = new System.Drawing.Point(17, 15);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(156, 22);
+            this.label57.TabIndex = 6;
+            this.label57.Text = "January 24, 2024";
+            // 
+            // gunaElipsePanel22
+            // 
+            this.gunaElipsePanel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaElipsePanel22.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gunaElipsePanel22.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.gunaElipsePanel22.Controls.Add(this.gunaImageButton16);
+            this.gunaElipsePanel22.Controls.Add(this.label58);
+            this.gunaElipsePanel22.Controls.Add(this.gunaAdvenceButton16);
+            this.gunaElipsePanel22.Controls.Add(this.label59);
+            this.gunaElipsePanel22.Controls.Add(this.label60);
+            this.gunaElipsePanel22.Location = new System.Drawing.Point(589, 976);
+            this.gunaElipsePanel22.Name = "gunaElipsePanel22";
+            this.gunaElipsePanel22.Radius = 30;
+            this.gunaElipsePanel22.Size = new System.Drawing.Size(580, 133);
+            this.gunaElipsePanel22.TabIndex = 41;
+            // 
+            // gunaImageButton16
+            // 
+            this.gunaImageButton16.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton16.Image")));
+            this.gunaImageButton16.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaImageButton16.Location = new System.Drawing.Point(492, 4);
+            this.gunaImageButton16.Name = "gunaImageButton16";
+            this.gunaImageButton16.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton16.OnHoverImage")));
+            this.gunaImageButton16.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.gunaImageButton16.Size = new System.Drawing.Size(73, 58);
+            this.gunaImageButton16.TabIndex = 139;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label58.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.White;
+            this.label58.Location = new System.Drawing.Point(17, 81);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(100, 22);
+            this.label58.TabIndex = 21;
+            this.label58.Text = "Event ID: 1";
+            // 
+            // gunaAdvenceButton16
+            // 
+            this.gunaAdvenceButton16.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceButton16.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton16.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceButton16.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.gunaAdvenceButton16.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton16.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceButton16.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton16.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton16.CheckedImage = null;
+            this.gunaAdvenceButton16.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceButton16.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaAdvenceButton16.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton16.Image = null;
+            this.gunaAdvenceButton16.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaAdvenceButton16.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton16.Location = new System.Drawing.Point(0, 102);
+            this.gunaAdvenceButton16.Name = "gunaAdvenceButton16";
+            this.gunaAdvenceButton16.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
+            this.gunaAdvenceButton16.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton16.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceButton16.OnHoverImage = null;
+            this.gunaAdvenceButton16.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceButton16.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceButton16.Size = new System.Drawing.Size(580, 32);
+            this.gunaAdvenceButton16.TabIndex = 20;
+            this.gunaAdvenceButton16.Text = "Click for More";
+            this.gunaAdvenceButton16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label59.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.White;
+            this.label59.Location = new System.Drawing.Point(6, 37);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(338, 44);
+            this.label59.TabIndex = 7;
+            this.label59.Text = "General Cleaning";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label60.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.White;
+            this.label60.Location = new System.Drawing.Point(17, 15);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(156, 22);
+            this.label60.TabIndex = 6;
+            this.label60.Text = "January 24, 2024";
+            // 
             // EventTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1719,6 +2131,8 @@
             this.gunaElipsePanel7.PerformLayout();
             this.gunaElipsePanel8.ResumeLayout(false);
             this.gunaElipsePanel8.PerformLayout();
+            this.gunaElipsePanel1.ResumeLayout(false);
+            this.gunaElipsePanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.gunaElipsePanel13.ResumeLayout(false);
             this.gunaElipsePanel13.PerformLayout();
@@ -1732,8 +2146,14 @@
             this.gunaElipsePanel17.PerformLayout();
             this.gunaElipsePanel18.ResumeLayout(false);
             this.gunaElipsePanel18.PerformLayout();
-            this.gunaElipsePanel1.ResumeLayout(false);
-            this.gunaElipsePanel1.PerformLayout();
+            this.gunaElipsePanel19.ResumeLayout(false);
+            this.gunaElipsePanel19.PerformLayout();
+            this.gunaElipsePanel20.ResumeLayout(false);
+            this.gunaElipsePanel20.PerformLayout();
+            this.gunaElipsePanel21.ResumeLayout(false);
+            this.gunaElipsePanel21.PerformLayout();
+            this.gunaElipsePanel22.ResumeLayout(false);
+            this.gunaElipsePanel22.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1838,5 +2258,29 @@
         private Guna.UI.WinForms.GunaImageButton gunaImageButton12;
         private Guna.UI.WinForms.GunaButton searchBut;
         private Guna.UI.WinForms.GunaLineTextBox searchBar;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel19;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton13;
+        private System.Windows.Forms.Label label49;
+        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton13;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel20;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton14;
+        private System.Windows.Forms.Label label52;
+        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton14;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel21;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton15;
+        private System.Windows.Forms.Label label55;
+        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton15;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel22;
+        private Guna.UI.WinForms.GunaImageButton gunaImageButton16;
+        private System.Windows.Forms.Label label58;
+        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton16;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
     }
 }

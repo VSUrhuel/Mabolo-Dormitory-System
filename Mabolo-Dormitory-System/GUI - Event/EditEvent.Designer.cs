@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditEvent));
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.updateButton = new Guna.UI.WinForms.GunaButton();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.updateEditEventBut = new Guna.UI.WinForms.GunaButton();
+            this.closeEditEventBut = new Guna.UI.WinForms.GunaButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.data10 = new Guna.UI.WinForms.GunaLineTextBox();
@@ -50,6 +50,7 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,56 +72,56 @@
             this.gunaLabel6.TabIndex = 140;
             this.gunaLabel6.Text = "Time:";
             // 
-            // updateButton
+            // updateEditEventBut
             // 
-            this.updateButton.AnimationHoverSpeed = 0.07F;
-            this.updateButton.AnimationSpeed = 0.03F;
-            this.updateButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.updateButton.BorderColor = System.Drawing.Color.Black;
-            this.updateButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.ForeColor = System.Drawing.Color.White;
-            this.updateButton.Image = null;
-            this.updateButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.updateButton.Location = new System.Drawing.Point(302, 486);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.updateButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.updateButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.updateButton.OnHoverImage = null;
-            this.updateButton.OnPressedColor = System.Drawing.Color.Black;
-            this.updateButton.Radius = 10;
-            this.updateButton.Size = new System.Drawing.Size(160, 42);
-            this.updateButton.TabIndex = 139;
-            this.updateButton.Text = "Update";
-            this.updateButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            this.updateButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
-            this.updateButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
-            this.updateButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
+            this.updateEditEventBut.AnimationHoverSpeed = 0.07F;
+            this.updateEditEventBut.AnimationSpeed = 0.03F;
+            this.updateEditEventBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.updateEditEventBut.BorderColor = System.Drawing.Color.Black;
+            this.updateEditEventBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateEditEventBut.ForeColor = System.Drawing.Color.White;
+            this.updateEditEventBut.Image = null;
+            this.updateEditEventBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.updateEditEventBut.Location = new System.Drawing.Point(302, 486);
+            this.updateEditEventBut.Name = "updateEditEventBut";
+            this.updateEditEventBut.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.updateEditEventBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.updateEditEventBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.updateEditEventBut.OnHoverImage = null;
+            this.updateEditEventBut.OnPressedColor = System.Drawing.Color.Black;
+            this.updateEditEventBut.Radius = 10;
+            this.updateEditEventBut.Size = new System.Drawing.Size(160, 42);
+            this.updateEditEventBut.TabIndex = 139;
+            this.updateEditEventBut.Text = "Update";
+            this.updateEditEventBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.updateEditEventBut.Click += new System.EventHandler(this.updateEditEventBut_Click);
+            this.updateEditEventBut.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.updateEditEventBut.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.updateEditEventBut.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             // 
-            // closeViewButton
+            // closeEditEventBut
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(475, 486);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 138;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
+            this.closeEditEventBut.AnimationHoverSpeed = 0.07F;
+            this.closeEditEventBut.AnimationSpeed = 0.03F;
+            this.closeEditEventBut.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeEditEventBut.BorderColor = System.Drawing.Color.Black;
+            this.closeEditEventBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeEditEventBut.ForeColor = System.Drawing.Color.White;
+            this.closeEditEventBut.Image = null;
+            this.closeEditEventBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeEditEventBut.Location = new System.Drawing.Point(475, 486);
+            this.closeEditEventBut.Name = "closeEditEventBut";
+            this.closeEditEventBut.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeEditEventBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeEditEventBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeEditEventBut.OnHoverImage = null;
+            this.closeEditEventBut.OnPressedColor = System.Drawing.Color.Black;
+            this.closeEditEventBut.Radius = 10;
+            this.closeEditEventBut.Size = new System.Drawing.Size(160, 42);
+            this.closeEditEventBut.TabIndex = 138;
+            this.closeEditEventBut.Text = "Close";
+            this.closeEditEventBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeEditEventBut.Click += new System.EventHandler(this.closeEditEventBut_Click);
             // 
             // comboBox1
             // 
@@ -308,15 +309,38 @@
             this.gunaPictureBox1.TabIndex = 121;
             this.gunaPictureBox1.TabStop = false;
             // 
+            // gunaButton3
+            // 
+            this.gunaButton3.AnimationHoverSpeed = 0.07F;
+            this.gunaButton3.AnimationSpeed = 0.03F;
+            this.gunaButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.BorderColor = System.Drawing.Color.White;
+            this.gunaButton3.BorderSize = 2;
+            this.gunaButton3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton3.ForeColor = System.Drawing.Color.White;
+            this.gunaButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton3.Image")));
+            this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton3.Location = new System.Drawing.Point(209, 16);
+            this.gunaButton3.Name = "gunaButton3";
+            this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton3.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton3.OnHoverImage")));
+            this.gunaButton3.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton3.Radius = 9;
+            this.gunaButton3.Size = new System.Drawing.Size(52, 37);
+            this.gunaButton3.TabIndex = 147;
+            // 
             // EditEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 541);
+            this.Controls.Add(this.gunaButton3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.gunaLabel6);
-            this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.updateEditEventBut);
+            this.Controls.Add(this.closeEditEventBut);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.data10);
@@ -350,8 +374,8 @@
 
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private Guna.UI.WinForms.GunaButton updateButton;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton updateEditEventBut;
+        private Guna.UI.WinForms.GunaButton closeEditEventBut;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private Guna.UI.WinForms.GunaLineTextBox data10;
@@ -369,5 +393,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Guna.UI.WinForms.GunaButton gunaButton3;
     }
 }
