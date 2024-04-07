@@ -66,6 +66,7 @@
             this.gunaLabel2.Size = new System.Drawing.Size(220, 27);
             this.gunaLabel2.TabIndex = 101;
             this.gunaLabel2.Text = "Received Amount:";
+            this.gunaLabel2.Click += new System.EventHandler(this.gunaLabel2_Click);
             // 
             // gunaLabel1
             // 
@@ -189,6 +190,7 @@
             this.gunaButton1.Radius = 9;
             this.gunaButton1.Size = new System.Drawing.Size(58, 37);
             this.gunaButton1.TabIndex = 138;
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // gunaButton2
             // 

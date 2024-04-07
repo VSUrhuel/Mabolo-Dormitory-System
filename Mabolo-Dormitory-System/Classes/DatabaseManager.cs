@@ -1088,13 +1088,26 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
         
+        public void UpdateRegularPayable(RegularPayable regularPayable)
+        {
+            if(EstablishConnection())
+            {
+                String query = "UPDATE system.regular_payable SET Name = @Name, Amount = @Amount WHERE RegularPayableId = @RegularPayableId";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@RegularPayableId", regularPayable.RegularPayableId);
+                command.Parameters.AddWithValue("@Name", regularPayable.Name);
+                command.Parameters.AddWithValue("@Amount", regularPayable.Amount);
+                command.ExecuteNonQuery();
+            }
+        }
+      
         public RegularPayable GetRegularPayable(int id)
         {
             if(!RegularPayableExists(id))
                 throw new ArgumentException("Regular Payable does not exist");
             if (EstablishConnection())
             {
-                String sql = "SELECT * FROM system.regular_payables WHERE RegularPayableId = @RegularPayablesId";
+                String sql = "SELECT * FROM system.regular_payable WHERE RegularPayableId = @RegularPayablesId";
                 MySqlCommand command = new MySqlCommand(sql, Connection);
                 command.Parameters.AddWithValue("@RegularPayablesId", id);
                 MySqlDataReader reader = command.ExecuteReader();

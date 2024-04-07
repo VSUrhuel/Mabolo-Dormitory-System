@@ -16,9 +16,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
     {
         private DatabaseManager db;
         private List<RegularPayable> regularPayables;
+        private PaymentsTab paymentsTab;
+        private bool mouseDown;
+        private Point lastLocation;
 
-        public RegularPayableForm()
+        public RegularPayableForm(PaymentsTab paymentsTab)
         {
+            this.paymentsTab = paymentsTab;
             this.db = new DatabaseManager();
             this.regularPayables = new List<RegularPayable>();
             InitializeComponent();
@@ -30,7 +34,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     button.Click += new EventHandler(eventBut_Click);
                 }
             }
-
             SetUpEvents();
         }
 
@@ -50,8 +53,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 if (i < regularPayables.Count)
                 {
                     panel.Visible = true;
-                    panel.Controls.OfType<Label>().ToList()[0].Text = "₱ " + regularPayables[i].Amount.ToString("N2");
-                    panel.Controls.OfType<Label>().ToList()[1].Text = "₱ " + regularPayables[i].Name.ToString("N2");
+                    panel.Controls.OfType<Label>().ToList()[0].Text = "ID: " + regularPayables[i].RegularPayableId.ToString();
+                    panel.Controls.OfType<Label>().ToList()[2].Text = regularPayables[i].Name.ToString();
+                    panel.Controls.OfType<Label>().ToList()[1].Text = "₱ " + regularPayables[i].Amount.ToString("N2"); 
                     i++;
                 }
                 else if (i >= regularPayables.Count)
@@ -70,12 +74,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
             }
             int x = int.Parse(id.ToString());
+            RegularPayableView regularPayableView = new RegularPayableView(paymentsTab, x);
+            regularPayableView.Owner = this;
+            SetFormLocation(regularPayableView);
+            regularPayableView.Show();
 
-            // Open the view event form
-            ViewEvent viewEvent = new ViewEvent(form, x);
-            viewEvent.Owner = form;
-            SetFormLocation(viewEvent);
-            viewEvent.Show();
         }
 
 
@@ -87,6 +90,54 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void closeRegularPayableBut_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void SetFormLocation(Form form)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
+            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
+            form.Location = new Point(x, y);
+        }
+
+        private void addDormerButton_Click(object sender, EventArgs e)
+        {
+            AddRegularPayableForm addRegularPayableForm = new AddRegularPayableForm(paymentsTab);
+            addRegularPayableForm.Owner = this;
+            SetFormLocation(addRegularPayableForm);
+            addRegularPayableForm.Show();
+        }
+
+        private void gunaAdvenceButton7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

@@ -88,5 +88,15 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         {
             mouseDown = false;
         }
+
+        private void gunaLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

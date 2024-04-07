@@ -56,7 +56,7 @@
             this.gunaAdvenceButton5 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.closeViewButton = new Guna.UI.WinForms.GunaButton();
+            this.closeRegularPayableBut = new Guna.UI.WinForms.GunaButton();
             this.addDormerButton = new Guna.UI.WinForms.GunaButton();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.gunaElipsePanel9.SuspendLayout();
@@ -142,7 +143,7 @@
             this.gunaAdvenceButton7.Image = null;
             this.gunaAdvenceButton7.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton7.Location = new System.Drawing.Point(-110, 110);
+            this.gunaAdvenceButton7.Location = new System.Drawing.Point(-97, 110);
             this.gunaAdvenceButton7.Name = "gunaAdvenceButton7";
             this.gunaAdvenceButton7.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
             this.gunaAdvenceButton7.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -154,6 +155,7 @@
             this.gunaAdvenceButton7.TabIndex = 20;
             this.gunaAdvenceButton7.Text = "Click to Edit";
             this.gunaAdvenceButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaAdvenceButton7.Click += new System.EventHandler(this.gunaAdvenceButton7_Click);
             // 
             // label16
             // 
@@ -161,7 +163,7 @@
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
             this.label16.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(71, 50);
+            this.label16.Location = new System.Drawing.Point(94, 56);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(196, 51);
             this.label16.TabIndex = 7;
@@ -213,9 +215,9 @@
             this.gunaAdvenceButton1.Image = null;
             this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(-103, 111);
+            this.gunaAdvenceButton1.Location = new System.Drawing.Point(-90, 111);
             this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
-            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
+            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(173)))), ((int)(((byte)(6)))));
             this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaAdvenceButton1.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaAdvenceButton1.OnHoverImage = null;
@@ -230,11 +232,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(52, 53);
+            this.label1.Location = new System.Drawing.Point(94, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 44);
+            this.label1.Size = new System.Drawing.Size(196, 51);
             this.label1.TabIndex = 7;
             this.label1.Text = "P 300.00";
             // 
@@ -284,9 +286,9 @@
             this.gunaAdvenceButton3.Image = null;
             this.gunaAdvenceButton3.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton3.Location = new System.Drawing.Point(-103, 111);
+            this.gunaAdvenceButton3.Location = new System.Drawing.Point(-90, 111);
             this.gunaAdvenceButton3.Name = "gunaAdvenceButton3";
-            this.gunaAdvenceButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
+            this.gunaAdvenceButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
             this.gunaAdvenceButton3.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaAdvenceButton3.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaAdvenceButton3.OnHoverImage = null;
@@ -301,11 +303,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(52, 53);
+            this.label5.Location = new System.Drawing.Point(94, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 44);
+            this.label5.Size = new System.Drawing.Size(196, 51);
             this.label5.TabIndex = 7;
             this.label5.Text = "P 300.00";
             // 
@@ -355,9 +357,9 @@
             this.gunaAdvenceButton2.Image = null;
             this.gunaAdvenceButton2.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaAdvenceButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton2.Location = new System.Drawing.Point(-103, 111);
+            this.gunaAdvenceButton2.Location = new System.Drawing.Point(-90, 111);
             this.gunaAdvenceButton2.Name = "gunaAdvenceButton2";
-            this.gunaAdvenceButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(113)))), ((int)(((byte)(154)))));
+            this.gunaAdvenceButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(48)))), ((int)(((byte)(62)))));
             this.gunaAdvenceButton2.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaAdvenceButton2.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaAdvenceButton2.OnHoverImage = null;
@@ -372,11 +374,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(52, 53);
+            this.label3.Location = new System.Drawing.Point(94, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 44);
+            this.label3.Size = new System.Drawing.Size(196, 51);
             this.label3.TabIndex = 7;
             this.label3.Text = "P 300.00";
             // 
@@ -443,11 +445,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(52, 53);
+            this.label7.Location = new System.Drawing.Point(94, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 44);
+            this.label7.Size = new System.Drawing.Size(196, 51);
             this.label7.TabIndex = 7;
             this.label7.Text = "P 300.00";
             // 
@@ -514,11 +516,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(52, 53);
+            this.label9.Location = new System.Drawing.Point(94, 53);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(165, 44);
+            this.label9.Size = new System.Drawing.Size(196, 51);
             this.label9.TabIndex = 7;
             this.label9.Text = "P 300.00";
             // 
@@ -534,28 +536,29 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "January 24, 2024";
             // 
-            // closeViewButton
+            // closeRegularPayableBut
             // 
-            this.closeViewButton.AnimationHoverSpeed = 0.07F;
-            this.closeViewButton.AnimationSpeed = 0.03F;
-            this.closeViewButton.BaseColor = System.Drawing.Color.IndianRed;
-            this.closeViewButton.BorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeViewButton.ForeColor = System.Drawing.Color.White;
-            this.closeViewButton.Image = null;
-            this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(708, 507);
-            this.closeViewButton.Name = "closeViewButton";
-            this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.closeViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.closeViewButton.OnHoverImage = null;
-            this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(160, 42);
-            this.closeViewButton.TabIndex = 119;
-            this.closeViewButton.Text = "Close";
-            this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeRegularPayableBut.AnimationHoverSpeed = 0.07F;
+            this.closeRegularPayableBut.AnimationSpeed = 0.03F;
+            this.closeRegularPayableBut.BaseColor = System.Drawing.Color.IndianRed;
+            this.closeRegularPayableBut.BorderColor = System.Drawing.Color.Black;
+            this.closeRegularPayableBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeRegularPayableBut.ForeColor = System.Drawing.Color.White;
+            this.closeRegularPayableBut.Image = null;
+            this.closeRegularPayableBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.closeRegularPayableBut.Location = new System.Drawing.Point(708, 507);
+            this.closeRegularPayableBut.Name = "closeRegularPayableBut";
+            this.closeRegularPayableBut.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.closeRegularPayableBut.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.closeRegularPayableBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.closeRegularPayableBut.OnHoverImage = null;
+            this.closeRegularPayableBut.OnPressedColor = System.Drawing.Color.Black;
+            this.closeRegularPayableBut.Radius = 10;
+            this.closeRegularPayableBut.Size = new System.Drawing.Size(160, 42);
+            this.closeRegularPayableBut.TabIndex = 119;
+            this.closeRegularPayableBut.Text = "Close";
+            this.closeRegularPayableBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.closeRegularPayableBut.Click += new System.EventHandler(this.closeRegularPayableBut_Click);
             // 
             // addDormerButton
             // 
@@ -568,7 +571,7 @@
             this.addDormerButton.ForeColor = System.Drawing.Color.White;
             this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
             this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addDormerButton.Location = new System.Drawing.Point(709, 73);
+            this.addDormerButton.Location = new System.Drawing.Point(650, 65);
             this.addDormerButton.Name = "addDormerButton";
             this.addDormerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.addDormerButton.OnHoverBorderColor = System.Drawing.Color.White;
@@ -576,9 +579,10 @@
             this.addDormerButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addDormerButton.OnHoverImage")));
             this.addDormerButton.OnPressedColor = System.Drawing.Color.Black;
             this.addDormerButton.Radius = 9;
-            this.addDormerButton.Size = new System.Drawing.Size(161, 36);
+            this.addDormerButton.Size = new System.Drawing.Size(220, 44);
             this.addDormerButton.TabIndex = 137;
             this.addDormerButton.Text = "Add Payable";
+            this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
             // 
             // label15
             // 
@@ -586,7 +590,7 @@
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
             this.label15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(336, 21);
+            this.label15.Location = new System.Drawing.Point(318, 21);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 22);
             this.label15.TabIndex = 21;
@@ -599,7 +603,7 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.label18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(333, 21);
+            this.label18.Location = new System.Drawing.Point(315, 21);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(48, 22);
             this.label18.TabIndex = 22;
@@ -611,7 +615,7 @@
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
             this.label19.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(336, 21);
+            this.label19.Location = new System.Drawing.Point(318, 21);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 22);
             this.label19.TabIndex = 22;
@@ -622,7 +626,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(333, 21);
+            this.label20.Location = new System.Drawing.Point(315, 21);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(48, 22);
             this.label20.TabIndex = 23;
@@ -633,7 +637,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(336, 22);
+            this.label21.Location = new System.Drawing.Point(318, 22);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(48, 22);
             this.label21.TabIndex = 24;
@@ -644,19 +648,30 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(333, 22);
+            this.label22.Location = new System.Drawing.Point(315, 22);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(48, 22);
             this.label22.TabIndex = 25;
             this.label22.Text = "ID: 1";
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Location = new System.Drawing.Point(54, 90);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(234, 21);
+            this.gunaLabel3.TabIndex = 138;
+            this.gunaLabel3.Text = "Monthly Payable Amount";
             // 
             // RegularPayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 572);
+            this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.addDormerButton);
-            this.Controls.Add(this.closeViewButton);
+            this.Controls.Add(this.closeRegularPayableBut);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaPictureBox1);
@@ -664,6 +679,9 @@
             this.Name = "RegularPayableForm";
             this.Text = "RegukarPayable";
             this.Load += new System.EventHandler(this.RegularPayable_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.gunaElipsePanel9.ResumeLayout(false);
@@ -712,7 +730,7 @@
         private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private Guna.UI.WinForms.GunaButton closeViewButton;
+        private Guna.UI.WinForms.GunaButton closeRegularPayableBut;
         private Guna.UI.WinForms.GunaButton addDormerButton;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
@@ -720,5 +738,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
     }
 }

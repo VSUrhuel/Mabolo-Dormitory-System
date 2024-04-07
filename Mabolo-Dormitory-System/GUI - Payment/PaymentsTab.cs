@@ -327,5 +327,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             paymentsSummary.Owner = form;
             paymentsSummary.Show();
         }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            RegularPayableForm regularPayable = new RegularPayableForm(this);
+            SetFormLocation(regularPayable);
+            regularPayable.Owner = form;
+            regularPayable.Show();
+        }
     }
 }

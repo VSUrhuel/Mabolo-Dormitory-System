@@ -238,6 +238,12 @@
     <Compile Include="GUI - Event\ViewEvent.Designer.cs">
       <DependentUpon>ViewEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Payment\AddRegularPayableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Payment\AddRegularPayableForm.Designer.cs">
+      <DependentUpon>AddRegularPayableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Payment\PaymentsSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,12 @@
     </Compile>
     <Compile Include="GUI - Payment\RegularPayableForm.Designer.cs">
       <DependentUpon>RegularPayableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI - Payment\RegularPayableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Payment\RegularPayableView.Designer.cs">
+      <DependentUpon>RegularPayableView.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI - Payment\ViewPayment.cs">
       <SubType>Form</SubType>
@@ -365,6 +377,9 @@
     <EmbeddedResource Include="GUI - Event\ViewEvent.resx">
       <DependentUpon>ViewEvent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Payment\AddRegularPayableForm.resx">
+      <DependentUpon>AddRegularPayableForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\PaymentsSummary.resx">
       <DependentUpon>PaymentsSummary.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\RegularPayableForm.resx">
       <DependentUpon>RegularPayableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Payment\RegularPayableView.resx">
+      <DependentUpon>RegularPayableView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Payment\ViewPayment.resx">
       <DependentUpon>ViewPayment.cs</DependentUpon>
