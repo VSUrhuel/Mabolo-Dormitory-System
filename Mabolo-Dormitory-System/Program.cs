@@ -20,7 +20,7 @@ namespace Mabolo_Dormitory_System
             //db.RecordAttendance("20-05-00022", 1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main("johnrhuell@gmail.com"));
+            Application.Run(new SignIn());
         }
     }
 }
