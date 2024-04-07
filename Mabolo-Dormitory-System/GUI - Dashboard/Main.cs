@@ -134,5 +134,10 @@ namespace Mabolo_Dormitory_System
         {
 
         }
+
+        private void dashboardPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

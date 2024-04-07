@@ -96,6 +96,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.gunaLinkLabel1 = new Guna.UI.WinForms.GunaLinkLabel();
             this.gunaLinkLabel2 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -118,6 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -810,6 +812,7 @@
             // dashboardPanel2
             // 
             this.dashboardPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dashboardPanel2.Controls.Add(this.gunaTransfarantPictureBox1);
             this.dashboardPanel2.Controls.Add(this.gunaLinkLabel2);
             this.dashboardPanel2.Controls.Add(this.gunaLinkLabel1);
             this.dashboardPanel2.Controls.Add(this.gunaPictureBox6);
@@ -837,6 +840,7 @@
             this.dashboardPanel2.Name = "dashboardPanel2";
             this.dashboardPanel2.Size = new System.Drawing.Size(1380, 513);
             this.dashboardPanel2.TabIndex = 15;
+            this.dashboardPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.dashboardPanel2_Paint);
             // 
             // gunaPictureBox6
             // 
@@ -972,7 +976,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(648, 97);
+            this.label23.Location = new System.Drawing.Point(665, 97);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(275, 20);
             this.label23.TabIndex = 14;
@@ -992,7 +996,7 @@
             this.gunaButton10.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton10.Image")));
             this.gunaButton10.ImageOffsetX = 5;
             this.gunaButton10.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton10.Location = new System.Drawing.Point(661, 229);
+            this.gunaButton10.Location = new System.Drawing.Point(688, 229);
             this.gunaButton10.Name = "gunaButton10";
             this.gunaButton10.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gunaButton10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1019,7 +1023,7 @@
             this.gunaButton9.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton9.Image")));
             this.gunaButton9.ImageOffsetX = 5;
             this.gunaButton9.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton9.Location = new System.Drawing.Point(661, 178);
+            this.gunaButton9.Location = new System.Drawing.Point(688, 178);
             this.gunaButton9.Name = "gunaButton9";
             this.gunaButton9.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.gunaButton9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -1046,7 +1050,7 @@
             this.gunaButton8.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton8.Image")));
             this.gunaButton8.ImageOffsetX = 5;
             this.gunaButton8.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton8.Location = new System.Drawing.Point(661, 127);
+            this.gunaButton8.Location = new System.Drawing.Point(688, 127);
             this.gunaButton8.Name = "gunaButton8";
             this.gunaButton8.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gunaButton8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1064,7 +1068,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(644, 43);
+            this.label29.Location = new System.Drawing.Point(661, 43);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(388, 44);
             this.label29.TabIndex = 17;
@@ -1076,9 +1080,9 @@
             this.label24.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(556, 477);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(137, 20);
+            this.label24.Size = new System.Drawing.Size(153, 20);
             this.label24.TabIndex = 16;
-            this.label24.Text = "Copyright      2024";
+            this.label24.Text = "Copyright          2024";
             // 
             // gunaPictureBox1
             // 
@@ -1122,6 +1126,18 @@
             this.gunaLinkLabel2.TabIndex = 39;
             this.gunaLinkLabel2.TabStop = true;
             this.gunaLinkLabel2.Text = "johnrhuell@gmail.com";
+            // 
+            // gunaTransfarantPictureBox1
+            // 
+            this.gunaTransfarantPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTransfarantPictureBox1.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox1.Image")));
+            this.gunaTransfarantPictureBox1.Location = new System.Drawing.Point(614, 479);
+            this.gunaTransfarantPictureBox1.Name = "gunaTransfarantPictureBox1";
+            this.gunaTransfarantPictureBox1.Size = new System.Drawing.Size(35, 14);
+            this.gunaTransfarantPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaTransfarantPictureBox1.TabIndex = 14;
+            this.gunaTransfarantPictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -1168,6 +1184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1241,5 +1258,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel1;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel2;
+        private Guna.UI.WinForms.GunaTransfarantPictureBox gunaTransfarantPictureBox1;
     }
 }
