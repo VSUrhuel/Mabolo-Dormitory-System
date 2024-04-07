@@ -20,7 +20,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private List<Event> events;
         private List<User> users;
         private List<Payment> payments;
-        private List<RegularPayable> regularPayables;
+        private List<Classes.RegularPayable> regularPayables;
         private DatabaseManager db;
         public PaymentsTab(Form form)
         {
@@ -29,7 +29,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             users = new List<User>();
             events = new List<Event>();
             payments = new List<Payment>();
-            regularPayables = new List<RegularPayable>();
+            regularPayables = new List<Classes.RegularPayable>();
             db = new DatabaseManager();
             InitializeComponent();
             count.Text = "";
