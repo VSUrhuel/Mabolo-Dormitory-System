@@ -26,7 +26,6 @@ namespace Mabolo_Dormitory_System
             this.db = new DatabaseManager();
             String text = db.GetUserNameOfAdmin(email);
             InitializeComponent();
-           
             username.Text = text;
             db.LoadUsersPayable();
             UpdateInformation();    
