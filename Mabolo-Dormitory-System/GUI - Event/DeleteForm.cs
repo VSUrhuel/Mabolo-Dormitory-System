@@ -31,7 +31,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void deleteDeletEventButton_Click(object sender, EventArgs e)
         {
-            if(comboBox1 == null)
+            if(comboBox1.Text == null || comboBox1.Text == "")
             {
                 MessageBox.Show("Please select an event to delete.");
                 return;

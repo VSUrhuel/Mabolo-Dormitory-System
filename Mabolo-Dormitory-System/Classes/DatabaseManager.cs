@@ -180,6 +180,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.ExecuteNonQuery();
             }
         }
+       
         public bool AccountExist(String email, String password)
         {
             if (EstablishConnection())
@@ -334,6 +335,16 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
        
+        public bool UserHasDormer(List<User> users)
+        {
+            foreach (User user in users)
+            {
+                if (user.UserType == "Regular Dormer" || user.UserType == "Big Brod" || user.UserType == "Student Assistant")
+                    return true;
+            }
+            return false;
+        }
+
         public bool DeleteUser(String userId)
         {
             Users = GetAllUsers();
@@ -781,11 +792,11 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentException("Event does not exist");
             if (EstablishConnection())
             {
+                SubtractEventFineUserPayable(GetEvent(eventId).AttendanceFineAmount);
                 String query = "DELETE FROM system.event WHERE EventId = @EventId";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@EventId", eventId);
-                command.ExecuteNonQuery();
-                SubtractEventFineUserPayable(GetEvent(eventId).AttendanceFineAmount);
+                command.ExecuteNonQuery(); 
             }
             return false;
         }
@@ -1220,6 +1231,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.ExecuteNonQuery(); 
             }
         }
+        
         public bool RegularPayableExists(int id)
         {
             RegularPayable = GetRegularPayables();

@@ -28,7 +28,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            int index = db.GetRegularPayables()[db.GetRegularPayables().Count - 1].RegularPayableId + 1;
+            int index;
+            if(db.GetRegularPayables().Count == 0)
+                index = 1;
+            else
+                index = db.GetRegularPayables()[db.GetRegularPayables().Count - 1].RegularPayableId + 1;
             db.AddRegularPayable(new RegularPayable(index, gunaTextBox1.Text, float.Parse(gunaTextBox2.Text)));
             db.LoadUsersPayable();
             MessageBox.Show("Regular Payable added successfully!");

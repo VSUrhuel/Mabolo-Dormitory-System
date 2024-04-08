@@ -138,6 +138,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         public void refreshBut_Click(object sender, EventArgs e)
         {
+            searchBar.Text = "Search...";
             SetUpEvents();
         }
 
@@ -160,7 +161,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             if (searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid User ID to search");
+                MessageBox.Show("Please enter a valid Event name to search");
                 searchBar.Text = "";
                 return;
             }

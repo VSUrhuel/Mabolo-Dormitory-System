@@ -30,7 +30,7 @@ namespace Mabolo_Dormitory_System
             dormerStatusCB.Items.Add("active");
             dormerStatusCB.Items.Add("inactive");
 
-            dormerTypeCB.Items.Add("Regular dormer");
+            dormerTypeCB.Items.Add("Regular Dormer");
             dormerTypeCB.Items.Add("Big Brod");
             dormerTypeCB.Items.Add("Student Assistant");
             dormerTypeCB.Items.Add("Dormitory Adviser");

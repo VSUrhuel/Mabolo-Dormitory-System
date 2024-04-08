@@ -259,6 +259,11 @@ namespace Mabolo_Dormitory_System
        
         private void selectAllCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            if(dormerTableView.Rows.Count == 0)
+            {
+                MessageBox.Show("No rows to select");
+                return;
+            }
             if (selectAllCheckBox.Checked)
             {
                 for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)
@@ -281,21 +286,29 @@ namespace Mabolo_Dormitory_System
         {
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
             bool isChecked = false, hasChecked = false;
+            int i = 0;
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
                 if (row.Cells["Column1"].Value != null && Convert.ToBoolean(row.Cells["Column1"].Value))
                 {
                     hasChecked = true;
-                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Deleting selected rows is irreversible. Proceed?", "Delete", messageBoxButtons);
-                    if (dialogResult == DialogResult.Yes)
+                    if(i == 0)
                     {
-                        isChecked = true;
-                        db.DeleteUser(row.Cells["UserId"].Value.ToString());
+                        DialogResult dialogResult = MessageBox.Show("Confirmation required: Deleting selected rows are irreversible. Proceed?", "Delete", messageBoxButtons);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            isChecked = true;
+                            db.DeleteUser(row.Cells["UserId"].Value.ToString());
+                        }
+                        else
+                        {
+                            return;
+                        }
+                        i++;
                     }
                     else
-                    {
-                        return;
-                    }
+                        db.DeleteUser(row.Cells["UserId"].Value.ToString());
+                    
                 }
             }
             if(!hasChecked)

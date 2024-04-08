@@ -27,7 +27,10 @@ namespace Mabolo_Dormitory_System
             String text = db.GetUserNameOfAdmin(email);
             InitializeComponent();
             username.Text = text;
+            db.LoadUsersPayable();
             UpdateInformation();
+            
+
         }
         
         public void UpdateInformation()
@@ -112,6 +115,10 @@ namespace Mabolo_Dormitory_System
 
         private void roomButton_Click(object sender, EventArgs e)
         {
+            if (!verifyUsers())
+            {
+                return;
+            }
             mainPanel.Controls.Clear();
             roomTab room = new roomTab(this);
             mainPanel.Controls.Add(room);
@@ -127,6 +134,10 @@ namespace Mabolo_Dormitory_System
 
         private void eventButton_Click(object sender, EventArgs e)
         {
+            if(!verifyUsers())
+            {
+                return;
+            }
             mainPanel.Controls.Clear();
             EventTab eventTab = new EventTab(this);
             mainPanel.Controls.Add(eventTab);
@@ -134,19 +145,13 @@ namespace Mabolo_Dormitory_System
 
         private void paymentButton_Click(object sender, EventArgs e)
         {
+            if (!verifyUsers())
+            {
+                return;
+            }
             mainPanel.Controls.Clear();
             PaymentsTab paymentsTab = new PaymentsTab(this);
             mainPanel.Controls.Add(paymentsTab);
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -154,6 +159,17 @@ namespace Mabolo_Dormitory_System
             mainPanel.Controls.Clear();
             SettingsTab settingsTab = new SettingsTab(this, email);
             mainPanel.Controls.Add(settingsTab);
+        }
+
+        private bool verifyUsers()
+        {
+            List<User> u = db.GetAllUsers();
+            if (u.Count == 0 || !db.UserHasDormer(u))
+            {
+                MessageBox.Show("No dormers yet. Please input dormer that is not an Adviser or Assistant Adviser.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

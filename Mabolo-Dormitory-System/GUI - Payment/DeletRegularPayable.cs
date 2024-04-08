@@ -27,11 +27,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -39,11 +34,16 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if(comboBox1.Text == null || comboBox1.Text == "")
+            {
+                MessageBox.Show("Please select a regular payable to delete.");
+                return;
+            }
             String s = comboBox1.Text.Split()[2];
             int id = Int32.Parse(s[0].ToString());
 
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this event?", "Delete Event", messageBoxButtons);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this regular payables?", "Delete Regular Payable", messageBoxButtons);
 
             if (dialogResult == DialogResult.Yes)
             {

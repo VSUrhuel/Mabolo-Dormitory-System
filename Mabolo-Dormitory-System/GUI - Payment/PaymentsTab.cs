@@ -202,13 +202,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 }
 
             }
-            /*foreach (DataGridViewRow row in dormerTableView.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells["Attendance"].Value))
-                    db.AddPayment(ID, row.Cells["Attendance"].Value.ToString(), Convert.ToDouble(row.Cells["Amount"].Value);
-                else
-                   db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Absent");
-            }*/
             MessageBox.Show("Attendance Updated!");
         }
 
@@ -219,6 +212,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         public void refreshBut_Click(object sender, EventArgs e)
         {
+            searchBar.Text = "Search...";
+            statusCB.Text = "All";
+            itemCB.Text = "60";
             users.Clear();
             users = db.GetAllUsersExcpetAdmin();
             SetupTable(users);

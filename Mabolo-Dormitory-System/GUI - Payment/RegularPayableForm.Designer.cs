@@ -33,37 +33,37 @@
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunaElipsePanel9 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label15 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton7 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label18 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label19 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton3 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label20 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton2 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label21 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton4 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label22 = new System.Windows.Forms.Label();
             this.gunaAdvenceButton5 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.closeRegularPayableBut = new Guna.UI.WinForms.GunaButton();
             this.addDormerButton = new Guna.UI.WinForms.GunaButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.deleteButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -127,6 +127,19 @@
             this.gunaElipsePanel9.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel9.TabIndex = 25;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(318, 21);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 22);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "ID: 1";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
             // gunaAdvenceButton7
             // 
             this.gunaAdvenceButton7.AnimationHoverSpeed = 0.07F;
@@ -166,7 +179,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(94, 56);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(196, 51);
+            this.label16.Size = new System.Drawing.Size(190, 49);
             this.label16.TabIndex = 7;
             this.label16.Text = "P 300.00";
             // 
@@ -198,6 +211,18 @@
             this.gunaElipsePanel1.Radius = 30;
             this.gunaElipsePanel1.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel1.TabIndex = 26;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(315, 21);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 22);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "ID: 1";
             // 
             // gunaAdvenceButton1
             // 
@@ -237,7 +262,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(94, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 51);
+            this.label1.Size = new System.Drawing.Size(190, 49);
             this.label1.TabIndex = 7;
             this.label1.Text = "P 300.00";
             // 
@@ -269,6 +294,18 @@
             this.gunaElipsePanel3.Radius = 30;
             this.gunaElipsePanel3.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel3.TabIndex = 27;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(318, 21);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 22);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "ID: 1";
             // 
             // gunaAdvenceButton3
             // 
@@ -308,7 +345,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(94, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 51);
+            this.label5.Size = new System.Drawing.Size(190, 49);
             this.label5.TabIndex = 7;
             this.label5.Text = "P 300.00";
             // 
@@ -340,6 +377,17 @@
             this.gunaElipsePanel2.Radius = 30;
             this.gunaElipsePanel2.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel2.TabIndex = 26;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(315, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(48, 22);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "ID: 1";
             // 
             // gunaAdvenceButton2
             // 
@@ -379,7 +427,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(94, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(196, 51);
+            this.label3.Size = new System.Drawing.Size(190, 49);
             this.label3.TabIndex = 7;
             this.label3.Text = "P 300.00";
             // 
@@ -411,6 +459,17 @@
             this.gunaElipsePanel4.Radius = 30;
             this.gunaElipsePanel4.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel4.TabIndex = 28;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(318, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 22);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "ID: 1";
             // 
             // gunaAdvenceButton4
             // 
@@ -450,7 +509,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(94, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(196, 51);
+            this.label7.Size = new System.Drawing.Size(190, 49);
             this.label7.TabIndex = 7;
             this.label7.Text = "P 300.00";
             // 
@@ -482,6 +541,17 @@
             this.gunaElipsePanel5.Radius = 30;
             this.gunaElipsePanel5.Size = new System.Drawing.Size(396, 143);
             this.gunaElipsePanel5.TabIndex = 29;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(315, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(48, 22);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "ID: 1";
             // 
             // gunaAdvenceButton5
             // 
@@ -521,7 +591,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(94, 53);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(196, 51);
+            this.label9.Size = new System.Drawing.Size(190, 49);
             this.label9.TabIndex = 7;
             this.label9.Text = "P 300.00";
             // 
@@ -584,76 +654,6 @@
             this.addDormerButton.TabIndex = 137;
             this.addDormerButton.Text = "Add Payable";
             this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(318, 21);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 22);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "ID: 1";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(315, 21);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 22);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "ID: 1";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(318, 21);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 22);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "ID: 1";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(315, 21);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(48, 22);
-            this.label20.TabIndex = 23;
-            this.label20.Text = "ID: 1";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(318, 22);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 22);
-            this.label21.TabIndex = 24;
-            this.label21.Text = "ID: 1";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(315, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(48, 22);
-            this.label22.TabIndex = 25;
-            this.label22.Text = "ID: 1";
             // 
             // gunaLabel3
             // 

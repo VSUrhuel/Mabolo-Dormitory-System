@@ -53,7 +53,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 MessageBox.Show("Please input all fields");
                 return;
             }
-            int index = db.GetAllPayment().Count + 1;  
+            int index;
+            if(db.GetAllPayment().Count == 0)
+            {
+                index = 1;
+            }
+            else
+                index = db.GetAllPayment()[db.GetAllPayment().Count - 1].PaymentId + 1;  
             db.AddPayment(new Payment(index, DateTime.Now, float.Parse(amountText.Text), remarksText.Text, label1.Text));
             MessageBox.Show("Payment Addded");
             form.refreshBut_Click(sender, e);

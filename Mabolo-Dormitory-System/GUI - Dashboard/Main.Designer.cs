@@ -822,7 +822,7 @@
             this.label22.Size = new System.Drawing.Size(171, 19);
             this.label22.TabIndex = 14;
             this.label22.Text = "About the Dormitory";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
+            
             // 
             // dashboardPanel2
             // 
@@ -855,7 +855,7 @@
             this.dashboardPanel2.Name = "dashboardPanel2";
             this.dashboardPanel2.Size = new System.Drawing.Size(1380, 513);
             this.dashboardPanel2.TabIndex = 15;
-            this.dashboardPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.dashboardPanel2_Paint);
+            
             // 
             // gunaTransfarantPictureBox1
             // 
