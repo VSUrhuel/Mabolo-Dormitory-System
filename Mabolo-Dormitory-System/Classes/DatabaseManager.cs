@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -40,23 +41,27 @@ namespace Mabolo_Dormitory_System.Classes
             RoomAllocations = new List<RoomAllocation>();
             UserPayables = new List<UserPayable>();
         }
-        
+
         public bool EstablishConnection()
         {
-            string con = "server=127.0.0.1;port=3306;uid=root;pwd=Laurente1234.";
-            Connection = new MySqlConnection(con);
-            try
+            if (Connection?.State != ConnectionState.Open)
             {
-                Connection.Open();
-                return true;
+                string con = "server=127.0.0.1;port=3306;uid=root;pwd=Laurente1234.";
+                Connection = new MySqlConnection(con);
+                try
+                {
+                    Connection.Open();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error opening connection: " + e.Message);
+                    return false;
+                }
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return false;
-            }
+            return true;
         }
-        
+
         // Sign In Account
         public bool CheckAdminEmailExists(String email)
         {
@@ -71,6 +76,7 @@ namespace Mabolo_Dormitory_System.Classes
                     return true;
                 }
                 reader.Close();
+                Connection.Close();
                 return false;
             }
             return false;
@@ -85,6 +91,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", password);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -103,6 +110,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                 }
+                Connection.Close();
                 return Users;
             }
             return null;
@@ -123,6 +131,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                 }
                 reader.Close();
+                Connection.Close();
                 return name;
             }
             return "";
@@ -142,28 +151,12 @@ namespace Mabolo_Dormitory_System.Classes
                     account = new Account((string)reader["Email"], (string)reader["UserName"], (string)reader["Password"], (DateTime)reader["Birthday"], (string)reader["FirstName"], (string)reader["LastName"], (byte[])reader["ImageData"]);
                 }
                 reader.Close();
+                Connection.Close();
                 return account;
             }
             return null;
         }
-        
-        public void AddAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
-        {
-            if (EstablishConnection())
-            {
-                String query = "INSERT INTO system.account(Email, UserName, Password, Birthday, FirstName, LastName, ImageData) VALUES (@Email, @UserName, @Password, @Birthday, @FirstName, @LastName, @ImageData)";
-                MySqlCommand command = new MySqlCommand(query, Connection);
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@UserName", userName);
-                command.Parameters.AddWithValue("@Password", password);
-                command.Parameters.AddWithValue("@Birthday", birthday);
-                command.Parameters.AddWithValue("@FirstName", firstName);
-                command.Parameters.AddWithValue("@LastName", lastName);
-                command.Parameters.AddWithValue("@ImageData", imageDate);
-                command.ExecuteNonQuery();
-            }
-        }  
-        
+      
         public void UpdateAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
         {
             if (EstablishConnection())
@@ -178,6 +171,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@LastName", lastName);
                 command.Parameters.AddWithValue("@ImageData", imageDate);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
        
@@ -195,6 +189,7 @@ namespace Mabolo_Dormitory_System.Classes
                     return true;
                 }
                 reader.Close();
+                Connection.Close();
                 return false;
             }
             return false;
@@ -209,8 +204,10 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@ImageData", image);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
+        
         // Users
         public List<User> GetAllUsersExcpetAdmin()
         {
@@ -224,6 +221,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                 }
+                Connection.Close();
                 return Users;
             }
             return null;
@@ -244,6 +242,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                 }
                 reader.Close();
+                Connection.Close();
                 return Users;
             }
             return null;
@@ -279,6 +278,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 command.ExecuteNonQuery();
                 AddUserPayable(user.UserId);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -309,6 +309,7 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@" + property.Name, value);
                 }
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -330,6 +331,7 @@ namespace Mabolo_Dormitory_System.Classes
                     user = new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]);
                 }
                 reader.Close();
+                Connection.Close();
                 return user;
             }
             return null;
@@ -360,6 +362,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@UserId", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
             return false;
         }
@@ -391,6 +394,7 @@ namespace Mabolo_Dormitory_System.Classes
                     RoomAllocations.Add(new RoomAllocation((int)reader["RoomAllocationId"], (DateTime)reader["StartDate"], (DateTime)reader["EndDate"], (int)reader["FK_RoomId_RoomAllocation"], (string)reader["FK_UserId_RoomAllocation"], true));
                 }
                 reader.Close();
+                Connection.Close();
                 return RoomAllocations;
             }
             return null;
@@ -408,6 +412,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -438,7 +443,8 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     room = new Room((int)reader["RoomId"], (int)reader["LevelNumber"], (int)reader["MaximumCapacity"], (int)reader["CurrNumOfOccupants"]);
                 }
-                reader.Close();
+                reader.Close(); 
+                Connection.Close();
                 return room;
             }
             return null;
@@ -456,6 +462,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     Rooms.Add(new Room((int)reader["RoomId"], (int)reader["LevelNumber"], (int)reader["MaximumCapacity"], (int)reader["CurrNumOfOccupants"]));
                 }
+                Connection.Close();
                 return Rooms;
             }
             return null;
@@ -474,6 +481,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                 }
+                Connection.Close();
                 return Users;
             }
             return null;
@@ -488,6 +496,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@RoomId", roomId);
                 command.Parameters.AddWithValue("@n", n);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
       
@@ -501,8 +510,10 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
+                    Connection.Close();
                     return true;
                 }
+                Connection.Close();
                 return false;
             }
             return false;
@@ -521,6 +532,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     count++;
                 }
+                Connection.Close();
                 return count;
             }
             return -1;
@@ -557,7 +569,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                 command.ExecuteNonQuery();
                 UpdateRoomSize(roomId, Rooms[roomId - 1].CurrNumOfOccupants);
-
+                Connection.Close();
                 return true;
             }
             return false;
@@ -599,6 +611,7 @@ namespace Mabolo_Dormitory_System.Classes
                 Rooms[prevRoomId - 1].DecreaseOccupants(1);
                 UpdateRoomSize(prevRoomId, Rooms[prevRoomId - 1].CurrNumOfOccupants);
                 UpdateRoomSize(newRoomId, Rooms[newRoomId - 1].CurrNumOfOccupants);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -618,6 +631,7 @@ namespace Mabolo_Dormitory_System.Classes
                     Departments.Add(new Department((int)reader["DepartmentId"], (string)reader["DepartmentName"], (string)reader["CollegeName"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return Departments;
             }
             return null;
@@ -639,6 +653,7 @@ namespace Mabolo_Dormitory_System.Classes
                     d = new Department((int)reader["DepartmentId"], (string)reader["DepartmentName"], (string)reader["CollegeName"]);
                 }
                 reader.Close();
+                Connection.Close();
                 return d;
             }
             return null;
@@ -661,7 +676,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                 }
                 reader.Close();
-
+                Connection.Close();
                 return r;
             }
             return null;
@@ -681,6 +696,7 @@ namespace Mabolo_Dormitory_System.Classes
                     id = (int)reader["MAX(EventId)"];
                 }
                 reader.Close();
+                Connection.Close();
                 return id;
             }
             return -1;
@@ -702,6 +718,7 @@ namespace Mabolo_Dormitory_System.Classes
                         Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true));
                     }
                     reader.Close();
+                    Connection.Close();
                     return Events;
                 }
                 return null;
@@ -743,6 +760,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.ExecuteNonQuery();
                 MessageBox.Show("Added Sucessfully");
                 AdddEventFineUserPayable(e.AttendanceFineAmount);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -780,6 +798,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     AdddEventFineUserPayable(e.AttendanceFineAmount - fines);
                 }
+                Connection.Close();
                 return true;
             }
             return false;
@@ -796,7 +815,8 @@ namespace Mabolo_Dormitory_System.Classes
                 String query = "DELETE FROM system.event WHERE EventId = @EventId";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@EventId", eventId);
-                command.ExecuteNonQuery(); 
+                command.ExecuteNonQuery();
+                Connection.Close();
             }
             return false;
         }
@@ -818,6 +838,7 @@ namespace Mabolo_Dormitory_System.Classes
                         Events.Add(new Event(reader.GetInt32("EventId"), reader.GetString("EventName"), reader.GetDateTime("EventDate"), reader.GetDateTime("EventTime"), reader.GetString("Location"), reader.GetString("Description"), reader.GetBoolean("HasPayables"), reader.GetFloat("AttendanceFineAmount"), reader.GetFloat("EventFeeContribution"), true)); 
                     }
                 }
+                Connection.Close();
                 return Events;
             }
             return null;
@@ -839,6 +860,7 @@ namespace Mabolo_Dormitory_System.Classes
                     e = new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true);
                 }
                 reader.Close();
+                Connection.Close();
                 return e;
             }
             return null;
@@ -871,6 +893,7 @@ namespace Mabolo_Dormitory_System.Classes
                     EventAttendances.Add(new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return EventAttendances;
             }
             return null;
@@ -899,7 +922,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.ExecuteNonQuery();
                 if(status == "Present")
                     UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
-                
+                Connection.Close();
                 return true;
             }
             return false;
@@ -922,6 +945,7 @@ namespace Mabolo_Dormitory_System.Classes
                     ea = new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]);
                 }
                 reader.Close();
+                Connection.Close();
                 return ea;
             }
             return null;
@@ -944,6 +968,7 @@ namespace Mabolo_Dormitory_System.Classes
                     UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
                 if(status == "Absent" && origStatus == "Present")
                     AddUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -965,6 +990,7 @@ namespace Mabolo_Dormitory_System.Classes
                     EventAttendances.Add(new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return EventAttendances;
             }
             return null;
@@ -978,6 +1004,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@RemainingBalance", eventFines);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
         
@@ -989,6 +1016,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userI);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1021,6 +1049,7 @@ namespace Mabolo_Dormitory_System.Classes
                     Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["Remarks"], (string)reader["FK_UserId_Payment"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return Payments;
             }
             return null;
@@ -1059,6 +1088,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 command.ExecuteNonQuery();
                 UpdateUserPayable(p.FK_UserId_Payment, p.Amount);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1072,6 +1102,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1093,6 +1124,7 @@ namespace Mabolo_Dormitory_System.Classes
                     Payments.Add(new Payment((int)reader["PaymentId"], (DateTime)reader["PaymentDate"], (float)reader["Amount"], (string)reader["Remarks"], (string)reader["FK_UserId_Payment"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return Payments;
             }
             return null;
@@ -1113,7 +1145,7 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     sum += (float)reader["Amount"];
                 }
-                reader.Close();
+                reader.Close();    
                 return sum;
             }
             return 0;
@@ -1163,6 +1195,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 command.ExecuteNonQuery();
                 AdddEventFineUserPayable(regularPayable.Amount);
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1181,6 +1214,7 @@ namespace Mabolo_Dormitory_System.Classes
                     RegularPayable.Add(new RegularPayable((int)reader["RegularPayableId"], (string)reader["Name"], (float)reader["Amount"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return RegularPayable;
             }
             return null;
@@ -1196,6 +1230,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@Name", regularPayable.Name);
                 command.Parameters.AddWithValue("@Amount", regularPayable.Amount);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
       
@@ -1215,6 +1250,7 @@ namespace Mabolo_Dormitory_System.Classes
                     rp = new RegularPayable((int)reader["RegularPayableId"], (string)reader["Name"], (float)reader["Amount"]);
                 }
                 reader.Close();
+                Connection.Close();
                 return rp;
             }
             return null;
@@ -1228,7 +1264,8 @@ namespace Mabolo_Dormitory_System.Classes
                 String query = "DELETE FROM system.regular_payable WHERE RegularPayableId = @RegularPayableId";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@RegularPayableId", id);
-                command.ExecuteNonQuery(); 
+                command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
         
@@ -1276,6 +1313,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1294,6 +1332,7 @@ namespace Mabolo_Dormitory_System.Classes
                     UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return UserPayables;
             }
             return null;
@@ -1358,7 +1397,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
-               // MessageBox.Show("updated");
+                Connection.Close();
             }
         }
        
@@ -1373,6 +1412,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
        
@@ -1440,11 +1480,11 @@ namespace Mabolo_Dormitory_System.Classes
                         int index = 1;
                         if (up.Count == 0)
                             index = 1;
-                        else if(up.Count > 0)
+                        else if (up.Count > 0)
                             index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
                         float remainingBalance = 0;
                         command.Parameters.AddWithValue("@UserPayableId", index);
-                        remainingBalance = GetSumEvents() + (GetSumRegularPayable()*5) - GetSumUserPayments(u.UserId);
+                        remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(u.UserId);
                         command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
                         command.ExecuteNonQuery();
@@ -1453,6 +1493,7 @@ namespace Mabolo_Dormitory_System.Classes
                 else
                     UpdateAddPayable(u.UserId);
             }
+            Connection.Close();
         }
         
         public void UpdateAddPayable(string userId)
@@ -1477,6 +1518,7 @@ namespace Mabolo_Dormitory_System.Classes
                 command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
         }
         
@@ -1488,6 +1530,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                 command.ExecuteNonQuery();
+                Connection.Close();
                 return true;
             }
             return false;
@@ -1525,7 +1568,6 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     sum = reader.GetFloat("TotalEventFees");  // Access by alias
                 }
-
                 reader.Close();
                 return sum;
             }
@@ -1559,6 +1601,7 @@ namespace Mabolo_Dormitory_System.Classes
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@RemainingBalance", fines);
                 command.ExecuteNonQuery();
+                Connection.Close();
             }
             
         }
@@ -1578,6 +1621,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 
                 reader.Close();
+                Connection.Close();
                 return u;
             }
             return null;
@@ -1592,12 +1636,13 @@ namespace Mabolo_Dormitory_System.Classes
                 string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user  WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
                 MySqlCommand cmd = new MySqlCommand(sql, Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                //List<User> u2 =
+                
                 while (reader.Read())
                 {
                     u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
                 }
                 reader.Close();
+                Connection.Close();
                 return u;
             }
             return null;

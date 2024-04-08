@@ -85,6 +85,7 @@ namespace Mabolo_Dormitory_System
                 main = new Main(email);
                 main.Show();
                 this.Hide();
+               
             }
             else
             {

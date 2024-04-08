@@ -234,11 +234,13 @@ namespace Mabolo_Dormitory_System
             if(roomChooseCB.Text == "")
             {
                 MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
+               
                 return;
             }
             if(roomUserView.Rows.Count == 0)
             {
                 MessageBox.Show("No users in room.");
+                
                 return;
             }
             if (selectAllCB.Checked)
