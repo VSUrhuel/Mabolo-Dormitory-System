@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,17 +18,31 @@ namespace Mabolo_Dormitory_System
         private Point lastLocation;
         private bool mouseDown;
         private Form form;
+        
         public OTPForm(String otp, String email, Form form)
         {
             this.form = form;
-            otpCode = otp;
+            this.otpCode = otp;
             this.email = email;
             InitializeComponent();
         }
 
         private void verifyViewButton_Click(object sender, EventArgs e)
         {
-            if (otpCodeTB.Text == otpCode)
+            String otp = "";
+            foreach(Control c in this.Controls)
+            {
+                if(c is GunaLineTextBox)
+                {
+                    GunaLineTextBox tb = (GunaLineTextBox)c;
+                    otp += tb.Text;
+                }
+            }
+            
+            char[] rev = otp.ToCharArray();
+            Array.Reverse(rev);
+            otp = new string(rev);
+            if (otp == otpCode)
             {
                 MessageBox.Show("Verification is Succesfull.");
                 ResetPassword resetPassword = new ResetPassword(email);
@@ -74,6 +89,5 @@ namespace Mabolo_Dormitory_System
         {
             mouseDown = false;
         }
-
     }
 }

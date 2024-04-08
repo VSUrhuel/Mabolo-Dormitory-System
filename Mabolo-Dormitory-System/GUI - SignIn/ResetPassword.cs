@@ -20,11 +20,11 @@ namespace Mabolo_Dormitory_System
         public ResetPassword(String email)
         {
             this.email = email;
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             InitializeComponent();
         }
 
-        private void verifyViewButton_Click(object sender, EventArgs e)
+        private void updatePassButton_Click(object sender, EventArgs e)
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new String[] { passwordText.Text, confirmPassword.Text }))
             {
@@ -104,7 +104,7 @@ namespace Mabolo_Dormitory_System
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                verifyViewButton_Click(sender, e);
+                updatePassButton_Click(sender, e);
             }
             if(ValidationClass.ValidatePassword(passwordText.Text))
             {

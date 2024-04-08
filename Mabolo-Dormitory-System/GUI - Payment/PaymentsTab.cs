@@ -233,11 +233,19 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 users = db.GetPendingUsers();
             }
-            else
+            else if(statusCB.Text == "Paid")
             {
                 users = db.GetPaidUsers();
             }
+            else
+            {
+                users = db.GetAllUsersExcpetAdmin();
+            }
             int n = Convert.ToInt32(itemCB.SelectedItem);
+            if(users.Count == 0)
+            {
+                return;
+            }
             count.Text = 1.ToString();
             over.Text = (Math.Ceiling((double)(users.Count / ((double)n))).ToString());
             
@@ -293,7 +301,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
                 int pageNumber = Convert.ToInt32(count.Text);  
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
-                if (statusCB.Text == "")
+                if (statusCB.Text == "" || statusCB.Text == "All")
                     users = db.GetAllUsersExcpetAdmin();
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 count.Text = (pageNumber+1).ToString(); 
@@ -319,8 +327,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 int pageNumber = Convert.ToInt32(count.Text)-2;
                 int pageSize = Convert.ToInt32(itemCB.SelectedItem);
-                if (statusCB.Text == "")
+                if (statusCB.Text == "" || statusCB.Text == "All")
                     users = db.GetAllUsersExcpetAdmin();
+
                 List<User> usersForPage = users.Skip(pageNumber * pageSize).Take(pageSize).ToList();
                 
                 count.Text = (pageNumber+1).ToString();

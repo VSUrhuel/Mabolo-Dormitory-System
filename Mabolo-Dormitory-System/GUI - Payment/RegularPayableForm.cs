@@ -103,7 +103,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             form.StartPosition = FormStartPosition.Manual;
             int x = Screen.PrimaryScreen.Bounds.Width - form.Width;
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
-            form.Location = new Point(x*1/75, y);
+            form.Location = new Point(x*1/7, y);
         }
 
         private void addDormerButton_Click(object sender, EventArgs e)
@@ -147,7 +147,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             deletRegularPayable.Owner = this;
             SetFormLocation(deletRegularPayable);
             deletRegularPayable.Show();
-
         }
     }
 }

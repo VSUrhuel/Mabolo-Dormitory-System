@@ -18,14 +18,14 @@ namespace Mabolo_Dormitory_System
 {
     public partial class SignIn : Form
     {
-        Main main;
-        DatabaseManager db;
+        private Main main;
+        private DatabaseManager db;
         public SignIn()
         {
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             InitializeComponent();
-            hideViewBut.Visible = true;
-            viewBut.Visible = false;
+            hideViewBut.Visible = false;
+            viewBut.Visible = true;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -36,11 +36,6 @@ namespace Mabolo_Dormitory_System
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void gunaPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void emailTextBox_MouseClick(object sender, MouseEventArgs e)
@@ -56,12 +51,13 @@ namespace Mabolo_Dormitory_System
         {
             emailReview.Text = "";
             passwordTextBox.Text = "";
+            passwordTextBox.UseSystemPasswordChar = true;
             passwordTextBox.ForeColor = Color.Black;
             passwordTextBox.LineColor = Color.FromArgb(46, 204, 113);
             passwordTextBox.FocusedLineColor = Color.ForestGreen;
         }
 
-        private void updateViewButton_Click(object sender, EventArgs e)
+        private void logInButton_Click(object sender, EventArgs e)
         {
             emailReview.Text = "";
             String email = emailTextBox.Text;
@@ -82,6 +78,8 @@ namespace Mabolo_Dormitory_System
                 emailTextBox.LineColor = Color.Red;
                 return;
             }
+
+            // Check if account exists
             if(db.AccountExist(email, pass))
             {
                 main = new Main(email);
@@ -137,6 +135,7 @@ namespace Mabolo_Dormitory_System
                 emailTextBox.LineColor = Color.Red;
             }
         }
+        
         private void SendOTPCode(String email)
         {
             
@@ -193,6 +192,7 @@ namespace Mabolo_Dormitory_System
                
             }
         }
+        
         private string GenerateOTP(int length)
         {
             Random random = new Random();
@@ -204,6 +204,7 @@ namespace Mabolo_Dormitory_System
             }
             return otp.ToString();
         }
+        
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
@@ -212,5 +213,9 @@ namespace Mabolo_Dormitory_System
             form.Location = new Point(x, y);
         }
 
+        private void passwordTextBox_Click(object sender, EventArgs e)
+        {
+            passwordTextBox.UseSystemPasswordChar = true;
+        }
     }
 }

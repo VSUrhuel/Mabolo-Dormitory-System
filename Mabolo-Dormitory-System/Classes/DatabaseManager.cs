@@ -278,14 +278,14 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentException("User does not exist");
             if (EstablishConnection())
             {
+                DeleteUserRoomAllocation(userId);
+                DeletUserPayable(userId);
+                DeleteUserPayment(userId);
+                DeleteUserAllEventAttendance(userId);
                 String query = "DELETE FROM system.user WHERE UserId = @UserId";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@UserId", userId);
                 command.ExecuteNonQuery();
-                DeletUserPayable(userId);
-                DeleteUserPayment(userId);
-                DeleteUserRoomAllocation(userId);
-                DeleteUserAllEventAttendance(userId);
             }
             return false;
         }
@@ -324,13 +324,16 @@ namespace Mabolo_Dormitory_System.Classes
       
         public bool DeleteUserRoomAllocation(String userId)
         {
-            if(UserAllocated(userId) && EstablishConnection())
+            if (UserAllocated(userId) && EstablishConnection())
             {
+                Room r = GetUserRoom(userId);
+                r.DecreaseOccupants(1);
+                MessageBox.Show(r.CurrNumOfOccupants.ToString());
+                UpdateRoomSize(r.RoomId, r.CurrNumOfOccupants);
                 String query = "DELETE FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation";
                 MySqlCommand command = new MySqlCommand(query, Connection);
                 command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
                 command.ExecuteNonQuery();
-                GetUserRoom(userId).DecreaseOccupants(1);
                 return true;
             }
             return false;

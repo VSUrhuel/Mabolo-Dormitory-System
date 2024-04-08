@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPassword));
             this.closeViewButton = new Guna.UI.WinForms.GunaButton();
-            this.verifyViewButton = new Guna.UI.WinForms.GunaButton();
+            this.updatePassButton = new Guna.UI.WinForms.GunaButton();
             this.passwordText = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.confirmPassword = new Guna.UI.WinForms.GunaLineTextBox();
@@ -39,6 +39,8 @@
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.confirmPassText = new Guna.UI.WinForms.GunaLabel();
             this.passReview2 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,29 +68,29 @@
             this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.closeViewButton.Click += new System.EventHandler(this.closeViewButton_Click);
             // 
-            // verifyViewButton
+            // updatePassButton
             // 
-            this.verifyViewButton.AnimationHoverSpeed = 0.07F;
-            this.verifyViewButton.AnimationSpeed = 0.03F;
-            this.verifyViewButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.verifyViewButton.BorderColor = System.Drawing.Color.Black;
-            this.verifyViewButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyViewButton.ForeColor = System.Drawing.Color.White;
-            this.verifyViewButton.Image = null;
-            this.verifyViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.verifyViewButton.Location = new System.Drawing.Point(306, 243);
-            this.verifyViewButton.Name = "verifyViewButton";
-            this.verifyViewButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.verifyViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.verifyViewButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.verifyViewButton.OnHoverImage = null;
-            this.verifyViewButton.OnPressedColor = System.Drawing.Color.Black;
-            this.verifyViewButton.Radius = 10;
-            this.verifyViewButton.Size = new System.Drawing.Size(103, 33);
-            this.verifyViewButton.TabIndex = 81;
-            this.verifyViewButton.Text = "Verify";
-            this.verifyViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.verifyViewButton.Click += new System.EventHandler(this.verifyViewButton_Click);
+            this.updatePassButton.AnimationHoverSpeed = 0.07F;
+            this.updatePassButton.AnimationSpeed = 0.03F;
+            this.updatePassButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.updatePassButton.BorderColor = System.Drawing.Color.Black;
+            this.updatePassButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatePassButton.ForeColor = System.Drawing.Color.White;
+            this.updatePassButton.Image = null;
+            this.updatePassButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.updatePassButton.Location = new System.Drawing.Point(297, 243);
+            this.updatePassButton.Name = "updatePassButton";
+            this.updatePassButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.updatePassButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.updatePassButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.updatePassButton.OnHoverImage = null;
+            this.updatePassButton.OnPressedColor = System.Drawing.Color.Black;
+            this.updatePassButton.Radius = 10;
+            this.updatePassButton.Size = new System.Drawing.Size(103, 33);
+            this.updatePassButton.TabIndex = 81;
+            this.updatePassButton.Text = "Update";
+            this.updatePassButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.updatePassButton.Click += new System.EventHandler(this.updatePassButton_Click);
             // 
             // passwordText
             // 
@@ -109,7 +111,7 @@
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(30, 31);
+            this.gunaLabel2.Location = new System.Drawing.Point(98, 29);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(215, 23);
             this.gunaLabel2.TabIndex = 79;
@@ -122,7 +124,7 @@
             this.confirmPassword.FocusedLineColor = System.Drawing.Color.ForestGreen;
             this.confirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPassword.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.confirmPassword.Location = new System.Drawing.Point(139, 174);
+            this.confirmPassword.Location = new System.Drawing.Point(139, 177);
             this.confirmPassword.Name = "confirmPassword";
             this.confirmPassword.PasswordChar = '\0';
             this.confirmPassword.Size = new System.Drawing.Size(379, 35);
@@ -133,7 +135,7 @@
             // 
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(30, 138);
+            this.gunaLabel1.Location = new System.Drawing.Point(98, 136);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(241, 23);
             this.gunaLabel1.TabIndex = 83;
@@ -180,11 +182,57 @@
             this.passReview2.Size = new System.Drawing.Size(0, 17);
             this.passReview2.TabIndex = 89;
             // 
+            // gunaButton2
+            // 
+            this.gunaButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaButton2.AnimationSpeed = 0.03F;
+            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.BorderColor = System.Drawing.Color.White;
+            this.gunaButton2.BorderSize = 2;
+            this.gunaButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
+            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton2.Location = new System.Drawing.Point(31, 22);
+            this.gunaButton2.Name = "gunaButton2";
+            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton2.OnHoverImage")));
+            this.gunaButton2.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton2.Radius = 9;
+            this.gunaButton2.Size = new System.Drawing.Size(58, 37);
+            this.gunaButton2.TabIndex = 141;
+            // 
+            // gunaButton1
+            // 
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.White;
+            this.gunaButton1.BorderSize = 2;
+            this.gunaButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
+            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton1.Location = new System.Drawing.Point(31, 127);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.Black;
+            this.gunaButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton1.OnHoverImage")));
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.gunaButton1.Radius = 9;
+            this.gunaButton1.Size = new System.Drawing.Size(58, 37);
+            this.gunaButton1.TabIndex = 142;
+            // 
             // ResetPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 288);
+            this.Controls.Add(this.gunaButton1);
+            this.Controls.Add(this.gunaButton2);
             this.Controls.Add(this.passReview2);
             this.Controls.Add(this.confirmPassText);
             this.Controls.Add(this.gunaPictureBox1);
@@ -192,7 +240,7 @@
             this.Controls.Add(this.confirmPassword);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.closeViewButton);
-            this.Controls.Add(this.verifyViewButton);
+            this.Controls.Add(this.updatePassButton);
             this.Controls.Add(this.passwordText);
             this.Controls.Add(this.gunaLabel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -211,7 +259,7 @@
         #endregion
 
         private Guna.UI.WinForms.GunaButton closeViewButton;
-        private Guna.UI.WinForms.GunaButton verifyViewButton;
+        private Guna.UI.WinForms.GunaButton updatePassButton;
         private Guna.UI.WinForms.GunaLineTextBox passwordText;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLineTextBox confirmPassword;
@@ -220,5 +268,7 @@
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaLabel confirmPassText;
         private Guna.UI.WinForms.GunaLabel passReview2;
+        private Guna.UI.WinForms.GunaButton gunaButton2;
+        private Guna.UI.WinForms.GunaButton gunaButton1;
     }
 }

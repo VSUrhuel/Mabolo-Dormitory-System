@@ -268,10 +268,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.emailReview);
-            this.panel2.Controls.Add(this.forgotPass);
             this.panel2.Controls.Add(this.viewBut);
             this.panel2.Controls.Add(this.hideViewBut);
+            this.panel2.Controls.Add(this.emailReview);
+            this.panel2.Controls.Add(this.forgotPass);
             this.panel2.Controls.Add(this.logInButton);
             this.panel2.Controls.Add(this.gunaTransfarantPictureBox2);
             this.panel2.Controls.Add(this.passwordTextBox);
@@ -331,7 +331,7 @@
             this.viewBut.Image = ((System.Drawing.Image)(resources.GetObject("viewBut.Image")));
             this.viewBut.ImageSize = new System.Drawing.Size(20, 20);
             this.viewBut.LineColor = System.Drawing.Color.Transparent;
-            this.viewBut.Location = new System.Drawing.Point(412, 115);
+            this.viewBut.Location = new System.Drawing.Point(401, 113);
             this.viewBut.Name = "viewBut";
             this.viewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.viewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -359,7 +359,7 @@
             this.hideViewBut.Image = ((System.Drawing.Image)(resources.GetObject("hideViewBut.Image")));
             this.hideViewBut.ImageSize = new System.Drawing.Size(20, 20);
             this.hideViewBut.LineColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.Location = new System.Drawing.Point(412, 115);
+            this.hideViewBut.Location = new System.Drawing.Point(401, 113);
             this.hideViewBut.Name = "hideViewBut";
             this.hideViewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.hideViewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -393,7 +393,7 @@
             this.logInButton.TabIndex = 66;
             this.logInButton.Text = "LOG IN";
             this.logInButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.logInButton.Click += new System.EventHandler(this.updateViewButton_Click);
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // gunaTransfarantPictureBox2
             // 
