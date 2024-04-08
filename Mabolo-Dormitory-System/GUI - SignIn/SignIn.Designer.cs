@@ -39,13 +39,15 @@
             this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.emailTextBox = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
-            this.passwordTextBox = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaTransfarantPictureBox2 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
-            this.logInButton = new Guna.UI.WinForms.GunaButton();
-            this.forgotPass = new Guna.UI.WinForms.GunaButton();
+            this.viewBut = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.hideViewBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.emailReview = new Guna.UI.WinForms.GunaLabel();
+            this.forgotPass = new Guna.UI.WinForms.GunaButton();
+            this.logInButton = new Guna.UI.WinForms.GunaButton();
+            this.gunaTransfarantPictureBox2 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
+            this.passwordTextBox = new Guna.UI.WinForms.GunaLineTextBox();
+            this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
+            this.emailTextBox = new Guna.UI.WinForms.GunaLineTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gunaCircleButton6 = new Guna.UI.WinForms.GunaCircleButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,13 +56,11 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaCircleButton4 = new Guna.UI.WinForms.GunaCircleButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.hideViewBut = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.viewBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -247,87 +247,70 @@
             this.panel2.Size = new System.Drawing.Size(623, 332);
             this.panel2.TabIndex = 8;
             // 
-            // emailTextBox
+            // viewBut
             // 
-            this.emailTextBox.BackColor = System.Drawing.Color.White;
-            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.emailTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
-            this.emailTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.ForeColor = System.Drawing.Color.Silver;
-            this.emailTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.emailTextBox.Location = new System.Drawing.Point(45, 34);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.PasswordChar = '\0';
-            this.emailTextBox.Size = new System.Drawing.Size(408, 44);
-            this.emailTextBox.TabIndex = 1;
-            this.emailTextBox.Text = "Email";
-            this.emailTextBox.TextOffsetX = 40;
-            this.emailTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.emailTextBox_MouseClick);
+            this.viewBut.AnimationHoverSpeed = 0.07F;
+            this.viewBut.AnimationSpeed = 0.03F;
+            this.viewBut.BaseColor = System.Drawing.Color.Transparent;
+            this.viewBut.BorderColor = System.Drawing.Color.Black;
+            this.viewBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.viewBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.viewBut.CheckedForeColor = System.Drawing.Color.White;
+            this.viewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("viewBut.CheckedImage")));
+            this.viewBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.viewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.viewBut.ForeColor = System.Drawing.Color.White;
+            this.viewBut.Image = ((System.Drawing.Image)(resources.GetObject("viewBut.Image")));
+            this.viewBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.viewBut.LineColor = System.Drawing.Color.Transparent;
+            this.viewBut.Location = new System.Drawing.Point(401, 113);
+            this.viewBut.Name = "viewBut";
+            this.viewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.viewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.viewBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.viewBut.OnHoverImage = null;
+            this.viewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.viewBut.OnPressedColor = System.Drawing.Color.Black;
+            this.viewBut.Size = new System.Drawing.Size(41, 42);
+            this.viewBut.TabIndex = 68;
+            this.viewBut.Click += new System.EventHandler(this.viewBut_Click);
             // 
-            // gunaTransfarantPictureBox1
+            // hideViewBut
             // 
-            this.gunaTransfarantPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTransfarantPictureBox1.BaseColor = System.Drawing.Color.Black;
-            this.gunaTransfarantPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox1.Image")));
-            this.gunaTransfarantPictureBox1.Location = new System.Drawing.Point(52, 35);
-            this.gunaTransfarantPictureBox1.Name = "gunaTransfarantPictureBox1";
-            this.gunaTransfarantPictureBox1.Size = new System.Drawing.Size(28, 26);
-            this.gunaTransfarantPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaTransfarantPictureBox1.TabIndex = 3;
-            this.gunaTransfarantPictureBox1.TabStop = false;
+            this.hideViewBut.AnimationHoverSpeed = 0.07F;
+            this.hideViewBut.AnimationSpeed = 0.03F;
+            this.hideViewBut.BaseColor = System.Drawing.Color.Transparent;
+            this.hideViewBut.BorderColor = System.Drawing.Color.Black;
+            this.hideViewBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.hideViewBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.hideViewBut.CheckedForeColor = System.Drawing.Color.White;
+            this.hideViewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("hideViewBut.CheckedImage")));
+            this.hideViewBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.hideViewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hideViewBut.ForeColor = System.Drawing.Color.White;
+            this.hideViewBut.Image = ((System.Drawing.Image)(resources.GetObject("hideViewBut.Image")));
+            this.hideViewBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.hideViewBut.LineColor = System.Drawing.Color.Transparent;
+            this.hideViewBut.Location = new System.Drawing.Point(401, 113);
+            this.hideViewBut.Name = "hideViewBut";
+            this.hideViewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.hideViewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.hideViewBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.hideViewBut.OnHoverImage = null;
+            this.hideViewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.hideViewBut.OnPressedColor = System.Drawing.Color.Black;
+            this.hideViewBut.Size = new System.Drawing.Size(41, 42);
+            this.hideViewBut.TabIndex = 67;
+            this.hideViewBut.Click += new System.EventHandler(this.hideViewBut_Click);
             // 
-            // passwordTextBox
+            // emailReview
             // 
-            this.passwordTextBox.BackColor = System.Drawing.Color.White;
-            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.passwordTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
-            this.passwordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.ForeColor = System.Drawing.Color.Silver;
-            this.passwordTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.passwordTextBox.Location = new System.Drawing.Point(45, 116);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '\0';
-            this.passwordTextBox.Size = new System.Drawing.Size(408, 44);
-            this.passwordTextBox.TabIndex = 2;
-            this.passwordTextBox.Text = "Password";
-            this.passwordTextBox.TextOffsetX = 40;
-            this.passwordTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordTextBox_MouseClick);
-            // 
-            // gunaTransfarantPictureBox2
-            // 
-            this.gunaTransfarantPictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTransfarantPictureBox2.BaseColor = System.Drawing.Color.Black;
-            this.gunaTransfarantPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox2.Image")));
-            this.gunaTransfarantPictureBox2.Location = new System.Drawing.Point(52, 115);
-            this.gunaTransfarantPictureBox2.Name = "gunaTransfarantPictureBox2";
-            this.gunaTransfarantPictureBox2.Size = new System.Drawing.Size(28, 26);
-            this.gunaTransfarantPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaTransfarantPictureBox2.TabIndex = 4;
-            this.gunaTransfarantPictureBox2.TabStop = false;
-            // 
-            // logInButton
-            // 
-            this.logInButton.AnimationHoverSpeed = 0.07F;
-            this.logInButton.AnimationSpeed = 0.03F;
-            this.logInButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
-            this.logInButton.BorderColor = System.Drawing.Color.Black;
-            this.logInButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logInButton.ForeColor = System.Drawing.Color.White;
-            this.logInButton.Image = null;
-            this.logInButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.logInButton.Location = new System.Drawing.Point(293, 227);
-            this.logInButton.Name = "logInButton";
-            this.logInButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
-            this.logInButton.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.logInButton.OnHoverForeColor = System.Drawing.Color.White;
-            this.logInButton.OnHoverImage = null;
-            this.logInButton.OnPressedColor = System.Drawing.Color.Black;
-            this.logInButton.Radius = 10;
-            this.logInButton.Size = new System.Drawing.Size(160, 42);
-            this.logInButton.TabIndex = 66;
-            this.logInButton.Text = "LOG IN";
-            this.logInButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
+            this.emailReview.AutoSize = true;
+            this.emailReview.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailReview.Location = new System.Drawing.Point(48, 81);
+            this.emailReview.Name = "emailReview";
+            this.emailReview.Size = new System.Drawing.Size(0, 20);
+            this.emailReview.TabIndex = 70;
             // 
             // forgotPass
             // 
@@ -353,14 +336,87 @@
             this.forgotPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.forgotPass.Click += new System.EventHandler(this.forgotPass_Click);
             // 
-            // emailReview
+            // logInButton
             // 
-            this.emailReview.AutoSize = true;
-            this.emailReview.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailReview.Location = new System.Drawing.Point(48, 81);
-            this.emailReview.Name = "emailReview";
-            this.emailReview.Size = new System.Drawing.Size(0, 20);
-            this.emailReview.TabIndex = 70;
+            this.logInButton.AnimationHoverSpeed = 0.07F;
+            this.logInButton.AnimationSpeed = 0.03F;
+            this.logInButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(150)))), ((int)(((byte)(62)))));
+            this.logInButton.BorderColor = System.Drawing.Color.Black;
+            this.logInButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logInButton.ForeColor = System.Drawing.Color.White;
+            this.logInButton.Image = null;
+            this.logInButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.logInButton.Location = new System.Drawing.Point(293, 227);
+            this.logInButton.Name = "logInButton";
+            this.logInButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
+            this.logInButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.logInButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.logInButton.OnHoverImage = null;
+            this.logInButton.OnPressedColor = System.Drawing.Color.Black;
+            this.logInButton.Radius = 10;
+            this.logInButton.Size = new System.Drawing.Size(160, 42);
+            this.logInButton.TabIndex = 66;
+            this.logInButton.Text = "LOG IN";
+            this.logInButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
+            // 
+            // gunaTransfarantPictureBox2
+            // 
+            this.gunaTransfarantPictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTransfarantPictureBox2.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox2.Image")));
+            this.gunaTransfarantPictureBox2.Location = new System.Drawing.Point(52, 115);
+            this.gunaTransfarantPictureBox2.Name = "gunaTransfarantPictureBox2";
+            this.gunaTransfarantPictureBox2.Size = new System.Drawing.Size(28, 26);
+            this.gunaTransfarantPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaTransfarantPictureBox2.TabIndex = 4;
+            this.gunaTransfarantPictureBox2.TabStop = false;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.BackColor = System.Drawing.Color.White;
+            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.passwordTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
+            this.passwordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.passwordTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.passwordTextBox.Location = new System.Drawing.Point(45, 116);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '\0';
+            this.passwordTextBox.Size = new System.Drawing.Size(408, 44);
+            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.Text = "Password";
+            this.passwordTextBox.TextOffsetX = 40;
+            this.passwordTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordTextBox_MouseClick);
+            // 
+            // gunaTransfarantPictureBox1
+            // 
+            this.gunaTransfarantPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTransfarantPictureBox1.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox1.Image")));
+            this.gunaTransfarantPictureBox1.Location = new System.Drawing.Point(52, 35);
+            this.gunaTransfarantPictureBox1.Name = "gunaTransfarantPictureBox1";
+            this.gunaTransfarantPictureBox1.Size = new System.Drawing.Size(28, 26);
+            this.gunaTransfarantPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaTransfarantPictureBox1.TabIndex = 3;
+            this.gunaTransfarantPictureBox1.TabStop = false;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.BackColor = System.Drawing.Color.White;
+            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.emailTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
+            this.emailTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.emailTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.emailTextBox.Location = new System.Drawing.Point(45, 34);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.PasswordChar = '\0';
+            this.emailTextBox.Size = new System.Drawing.Size(408, 44);
+            this.emailTextBox.TabIndex = 1;
+            this.emailTextBox.Text = "Email";
+            this.emailTextBox.TextOffsetX = 40;
+            this.emailTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.emailTextBox_MouseClick);
             // 
             // pictureBox1
             // 
@@ -485,62 +541,6 @@
             this.panel1.Size = new System.Drawing.Size(689, 801);
             this.panel1.TabIndex = 15;
             // 
-            // hideViewBut
-            // 
-            this.hideViewBut.AnimationHoverSpeed = 0.07F;
-            this.hideViewBut.AnimationSpeed = 0.03F;
-            this.hideViewBut.BaseColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.BorderColor = System.Drawing.Color.Black;
-            this.hideViewBut.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.hideViewBut.CheckedBorderColor = System.Drawing.Color.Black;
-            this.hideViewBut.CheckedForeColor = System.Drawing.Color.White;
-            this.hideViewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("hideViewBut.CheckedImage")));
-            this.hideViewBut.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.hideViewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hideViewBut.ForeColor = System.Drawing.Color.White;
-            this.hideViewBut.Image = ((System.Drawing.Image)(resources.GetObject("hideViewBut.Image")));
-            this.hideViewBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.hideViewBut.LineColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.Location = new System.Drawing.Point(401, 113);
-            this.hideViewBut.Name = "hideViewBut";
-            this.hideViewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.hideViewBut.OnHoverImage = null;
-            this.hideViewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.hideViewBut.OnPressedColor = System.Drawing.Color.Black;
-            this.hideViewBut.Size = new System.Drawing.Size(41, 42);
-            this.hideViewBut.TabIndex = 67;
-            this.hideViewBut.Click += new System.EventHandler(this.hideViewBut_Click);
-            // 
-            // viewBut
-            // 
-            this.viewBut.AnimationHoverSpeed = 0.07F;
-            this.viewBut.AnimationSpeed = 0.03F;
-            this.viewBut.BaseColor = System.Drawing.Color.Transparent;
-            this.viewBut.BorderColor = System.Drawing.Color.Black;
-            this.viewBut.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.viewBut.CheckedBorderColor = System.Drawing.Color.Black;
-            this.viewBut.CheckedForeColor = System.Drawing.Color.White;
-            this.viewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("viewBut.CheckedImage")));
-            this.viewBut.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.viewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.viewBut.ForeColor = System.Drawing.Color.White;
-            this.viewBut.Image = ((System.Drawing.Image)(resources.GetObject("viewBut.Image")));
-            this.viewBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.viewBut.LineColor = System.Drawing.Color.Transparent;
-            this.viewBut.Location = new System.Drawing.Point(401, 113);
-            this.viewBut.Name = "viewBut";
-            this.viewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.viewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.viewBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.viewBut.OnHoverImage = null;
-            this.viewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.viewBut.OnPressedColor = System.Drawing.Color.Black;
-            this.viewBut.Size = new System.Drawing.Size(41, 42);
-            this.viewBut.TabIndex = 68;
-            this.viewBut.Click += new System.EventHandler(this.viewBut_Click);
-            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -554,17 +554,18 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gunaPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "SignIn";
-            this.Text = "Form1";
+            this.Text = "Mabolo Dormitory SignIn";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.gunaPanel2.ResumeLayout(false);
             this.gunaPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

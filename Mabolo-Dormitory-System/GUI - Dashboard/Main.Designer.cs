@@ -41,6 +41,7 @@
             this.gunaButton12 = new Guna.UI.WinForms.GunaButton();
             this.logoutBut = new Guna.UI.WinForms.GunaButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureUser = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -97,11 +98,11 @@
             this.label24 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.pictureUser = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.dashboardPanel1.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -120,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -343,6 +343,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(180, 146);
             this.panel4.TabIndex = 8;
+            // 
+            // pictureUser
+            // 
+            this.pictureUser.BaseColor = System.Drawing.Color.White;
+            this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
+            this.pictureUser.Location = new System.Drawing.Point(42, 15);
+            this.pictureUser.Name = "pictureUser";
+            this.pictureUser.Size = new System.Drawing.Size(94, 78);
+            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureUser.TabIndex = 15;
+            this.pictureUser.TabStop = false;
+            this.pictureUser.UseTransfarantBackground = false;
             // 
             // label21
             // 
@@ -822,7 +834,6 @@
             this.label22.Size = new System.Drawing.Size(171, 19);
             this.label22.TabIndex = 14;
             this.label22.Text = "About the Dormitory";
-            
             // 
             // dashboardPanel2
             // 
@@ -855,7 +866,6 @@
             this.dashboardPanel2.Name = "dashboardPanel2";
             this.dashboardPanel2.Size = new System.Drawing.Size(1380, 513);
             this.dashboardPanel2.TabIndex = 15;
-            
             // 
             // gunaTransfarantPictureBox1
             // 
@@ -1154,18 +1164,6 @@
             this.mainPanel.Size = new System.Drawing.Size(1380, 800);
             this.mainPanel.TabIndex = 16;
             // 
-            // pictureUser
-            // 
-            this.pictureUser.BaseColor = System.Drawing.Color.White;
-            this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
-            this.pictureUser.Location = new System.Drawing.Point(42, 15);
-            this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(94, 78);
-            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureUser.TabIndex = 15;
-            this.pictureUser.TabStop = false;
-            this.pictureUser.UseTransfarantBackground = false;
-            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1177,9 +1175,10 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(13, 6);
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "Mabolo Dormitory System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1187,6 +1186,7 @@
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.dashboardPanel1.ResumeLayout(false);
             this.dashboardPanel1.PerformLayout();
             this.gunaElipsePanel4.ResumeLayout(false);
@@ -1211,7 +1211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
 
         }
