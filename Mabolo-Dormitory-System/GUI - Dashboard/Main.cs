@@ -11,14 +11,18 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Mabolo_Dormitory_System.GUI___Event;
 using Mabolo_Dormitory_System.GUI___Payment;
+using Mabolo_Dormitory_System.GUI___Settings;
+using System.IO;
 
 namespace Mabolo_Dormitory_System
 {
     public partial class Main : Form
     {
-        private DatabaseManager db;       
+        private DatabaseManager db;
+        private String email;
         public Main(String email)
         {
+            this.email = email;
             this.db = new DatabaseManager();
             String text = db.GetUserNameOfAdmin(email);
             InitializeComponent();
@@ -26,11 +30,16 @@ namespace Mabolo_Dormitory_System
             UpdateInformation();
         }
         
-        private void UpdateInformation()
+        public void UpdateInformation()
         {
             List<User> users = db.GetAllUsers();
             int count = db.GetMonthlyEvent().Count;
             eventCount.Text = db.GetAllEvents().Count.ToString();
+
+            // Update Picature
+            pictureUser.Image = null;
+            byte[] imageData = db.GetAccount(email).ImageData;
+            pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
 
             // Dormer Count Panel
             if(count == 0)
@@ -138,6 +147,13 @@ namespace Mabolo_Dormitory_System
         private void dashboardPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            SettingsTab settingsTab = new SettingsTab(this, email);
+            mainPanel.Controls.Add(settingsTab);
         }
     }
 }

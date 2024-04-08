@@ -128,6 +128,58 @@ namespace Mabolo_Dormitory_System.Classes
             return "";
         }
 
+        public Account GetAccount(String email)
+        {
+            if(EstablishConnection())
+            {
+                String sql = "SELECT * FROM system.account WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(sql, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                MySqlDataReader reader = command.ExecuteReader();
+                Account account = null;
+                while (reader.Read())
+                {
+                    account = new Account((string)reader["Email"], (string)reader["UserName"], (string)reader["Password"], (DateTime)reader["Birthday"], (string)reader["FirstName"], (string)reader["LastName"], (byte[])reader["ImageData"]);
+                }
+                reader.Close();
+                return account;
+            }
+            return null;
+        }
+        
+        public void AddAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
+        {
+            if (EstablishConnection())
+            {
+                String query = "INSERT INTO system.account(Email, UserName, Password, Birthday, FirstName, LastName, ImageData) VALUES (@Email, @UserName, @Password, @Birthday, @FirstName, @LastName, @ImageData)";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Birthday", birthday);
+                command.Parameters.AddWithValue("@FirstName", firstName);
+                command.Parameters.AddWithValue("@LastName", lastName);
+                command.Parameters.AddWithValue("@ImageData", imageDate);
+                command.ExecuteNonQuery();
+            }
+        }  
+        
+        public void UpdateAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
+        {
+            if (EstablishConnection())
+            {
+                String query = "UPDATE system.account SET UserName = @UserName, Password = @Password, Birthday = @Birthday, FirstName = @FirstName, LastName = @LastName, ImageData = @ImageData WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Birthday", birthday);
+                command.Parameters.AddWithValue("@FirstName", firstName);
+                command.Parameters.AddWithValue("@LastName", lastName);
+                command.Parameters.AddWithValue("@ImageData", imageDate);
+                command.ExecuteNonQuery();
+            }
+        }
         public bool AccountExist(String email, String password)
         {
             if (EstablishConnection())
@@ -147,6 +199,17 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
 
+        public void AddPicture(String email, byte[] image)
+        {
+            if (EstablishConnection())
+            {
+                String query = "UPDATE system.account SET ImageData = @ImageData WHERE Email = @Email";
+                MySqlCommand command = new MySqlCommand(query, Connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@ImageData", image);
+                command.ExecuteNonQuery();
+            }
+        }
         // Users
         public List<User> GetAllUsersExcpetAdmin()
         {

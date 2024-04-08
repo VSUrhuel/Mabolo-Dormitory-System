@@ -1,0 +1,154 @@
+﻿using Mabolo_Dormitory_System.Classes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Mabolo_Dormitory_System.GUI___Settings
+{
+    public partial class SettingsTab : UserControl
+    {
+        private Main main;
+        private DatabaseManager db;
+        private String email;
+        private Account account;
+
+        public SettingsTab(Main main, String email)
+        {
+            this.email = email;
+            this.db = new DatabaseManager();
+            this.main = main;
+            this.account = db.GetAccount(email);
+            InitializeComponent();
+            gunaLineTextBox1.Text = account.FirstName;
+            gunaLineTextBox2.Text = account.LastName;
+            gunaLineTextBox3.Text = account.UserName;
+            label6.Text = account.UserName;
+            hideViewBut.Visible = false;
+            viewBut.Visible = true;
+            gunaAdvenceButton1.Visible = true;
+            gunaAdvenceButton2.Visible = false;
+            byte[] imageData = db.GetAccount(email).ImageData;
+            pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
+            
+
+        }
+
+        private void changePicButton_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog()
+            {
+                InitialDirectory = "C:\\Users\\LENOVO\\Pictures",
+                Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.png;*.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif",
+                RestoreDirectory = true
+            };
+
+            //User didn't select a file so return a default value  
+            if (dlg.ShowDialog() != DialogResult.OK)
+            {
+                MessageBox.Show("No files selected");
+                return;
+            }
+            else
+            {
+                string filePath = dlg.FileName;
+                // Read the image file into a byte array
+                byte[] imageData;
+                using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    imageData = new byte[fs.Length];
+                    fs.Read(imageData, 0, imageData.Length);
+                }
+                if (imageData.Length > (5 * 1024 * 1024))
+                {
+                    MessageBox.Show("Image size is too large");
+                    return;
+                }
+                // Load the image from byte array into pictureUser
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    pictureUser.Image = Image.FromStream(ms);
+                }
+                main.UpdateInformation();
+                db.AddPicture(email, imageData);
+            }
+        }
+
+        private void updateInfoBut_Click(object sender, EventArgs e)
+        {
+            if (account == null)
+            {
+                MessageBox.Show("Account not found");
+                return;
+            }
+            db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, account.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData);
+            MessageBox.Show("Information updated");
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            if(gunaLineTextBox5.Text == "" && gunaLineTextBox6.Text == "" && gunaLineTextBox4.Text == "")
+            {
+                MessageBox.Show("Please fill up the fields");
+                return;
+            }
+            if(gunaLineTextBox4.Text != account.Password)
+            {
+                MessageBox.Show("Incorrect previous password");
+                return;
+            }
+            if(ValidationClass.ValidatePassword(gunaLineTextBox5.Text) == false)
+            {
+                MessageBox.Show("Invalid new password. Password Should include an uppercase, symbol, numbers, and at least 8 letters.");
+                return;
+            }
+            if(gunaLineTextBox5.Text != gunaLineTextBox6.Text)
+            {
+                MessageBox.Show("Passwords do not match");
+                return;
+            }
+            db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, account.Birthday, account.FirstName, account.LastName, account.ImageData);
+            MessageBox.Show("Password updated");
+
+        }
+
+        private void viewBut_Click(object sender, EventArgs e)
+        {
+            gunaLineTextBox5.PasswordChar = '\0';
+            gunaLineTextBox5.UseSystemPasswordChar = false;
+            viewBut.Visible = false;
+            hideViewBut.Visible = true;
+        }
+
+        private void hideViewBut_Click(object sender, EventArgs e)
+        {
+            gunaLineTextBox5.UseSystemPasswordChar = true;
+            hideViewBut.Visible = false;
+            viewBut.Visible = true;
+        }
+
+        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        {
+            gunaLineTextBox6.PasswordChar = '\0';
+            gunaLineTextBox6.UseSystemPasswordChar = false;
+            
+
+            gunaAdvenceButton2.Visible = true;
+            gunaAdvenceButton1.Visible = false;
+        }
+
+        private void gunaAdvenceButton2_Click(object sender, EventArgs e)
+        {
+            gunaLineTextBox6.UseSystemPasswordChar = true;
+            gunaAdvenceButton2.Visible = false;
+            gunaAdvenceButton1.Visible = true;
+        }
+    }
+}

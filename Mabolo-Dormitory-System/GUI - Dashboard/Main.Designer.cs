@@ -37,12 +37,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.settingsButton = new Guna.UI.WinForms.GunaButton();
             this.gunaButton12 = new Guna.UI.WinForms.GunaButton();
             this.logoutBut = new Guna.UI.WinForms.GunaButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
-            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.paymentButton = new Guna.UI.WinForms.GunaButton();
             this.eventButton = new Guna.UI.WinForms.GunaButton();
@@ -74,6 +74,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dashboardPanel2 = new System.Windows.Forms.Panel();
+            this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
+            this.gunaLinkLabel2 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.gunaLinkLabel1 = new Guna.UI.WinForms.GunaLinkLabel();
             this.gunaPictureBox6 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox5 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox4 = new Guna.UI.WinForms.GunaPictureBox();
@@ -94,14 +97,11 @@
             this.label24 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.gunaLinkLabel1 = new Guna.UI.WinForms.GunaLinkLabel();
-            this.gunaLinkLabel2 = new Guna.UI.WinForms.GunaLinkLabel();
-            this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
+            this.pictureUser = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.dashboardPanel1.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -112,6 +112,7 @@
             this.gunaElipsePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.dashboardPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox4)).BeginInit();
@@ -119,7 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -233,6 +234,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.settingsButton);
             this.panel2.Controls.Add(this.gunaButton12);
             this.panel2.Controls.Add(this.logoutBut);
             this.panel2.Controls.Add(this.panel4);
@@ -246,6 +248,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 800);
             this.panel2.TabIndex = 1;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.AnimationHoverSpeed = 0.07F;
+            this.settingsButton.AnimationSpeed = 0.03F;
+            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.settingsButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.settingsButton.BorderColor = System.Drawing.Color.Black;
+            this.settingsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ForeColor = System.Drawing.Color.Black;
+            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.ImageOffsetX = 5;
+            this.settingsButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.settingsButton.Location = new System.Drawing.Point(1, 407);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.settingsButton.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.settingsButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.settingsButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.OnHoverImage")));
+            this.settingsButton.OnPressedColor = System.Drawing.Color.Black;
+            this.settingsButton.Radius = 9;
+            this.settingsButton.Size = new System.Drawing.Size(177, 45);
+            this.settingsButton.TabIndex = 11;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.TextOffsetX = 10;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // gunaButton12
             // 
@@ -304,9 +334,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.pictureUser);
             this.panel4.Controls.Add(this.label21);
             this.panel4.Controls.Add(this.username);
-            this.panel4.Controls.Add(this.gunaCirclePictureBox1);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -340,21 +370,6 @@
             this.username.Size = new System.Drawing.Size(93, 19);
             this.username.TabIndex = 12;
             this.username.Text = "Admin123";
-            // 
-            // gunaCirclePictureBox1
-            // 
-            this.gunaCirclePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.Image")));
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(35, 15);
-            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(94, 78);
-            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaCirclePictureBox1.TabIndex = 0;
-            this.gunaCirclePictureBox1.TabStop = false;
-            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
             // label16
             // 
@@ -391,7 +406,7 @@
             this.paymentButton.Radius = 9;
             this.paymentButton.Size = new System.Drawing.Size(177, 45);
             this.paymentButton.TabIndex = 7;
-            this.paymentButton.Text = "Payment";
+            this.paymentButton.Text = "Payments";
             this.paymentButton.TextOffsetX = 10;
             this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
             // 
@@ -842,6 +857,40 @@
             this.dashboardPanel2.TabIndex = 15;
             this.dashboardPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.dashboardPanel2_Paint);
             // 
+            // gunaTransfarantPictureBox1
+            // 
+            this.gunaTransfarantPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTransfarantPictureBox1.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox1.Image")));
+            this.gunaTransfarantPictureBox1.Location = new System.Drawing.Point(614, 479);
+            this.gunaTransfarantPictureBox1.Name = "gunaTransfarantPictureBox1";
+            this.gunaTransfarantPictureBox1.Size = new System.Drawing.Size(35, 14);
+            this.gunaTransfarantPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaTransfarantPictureBox1.TabIndex = 14;
+            this.gunaTransfarantPictureBox1.TabStop = false;
+            // 
+            // gunaLinkLabel2
+            // 
+            this.gunaLinkLabel2.AutoSize = true;
+            this.gunaLinkLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel2.Location = new System.Drawing.Point(798, 378);
+            this.gunaLinkLabel2.Name = "gunaLinkLabel2";
+            this.gunaLinkLabel2.Size = new System.Drawing.Size(168, 20);
+            this.gunaLinkLabel2.TabIndex = 39;
+            this.gunaLinkLabel2.TabStop = true;
+            this.gunaLinkLabel2.Text = "johnrhuell@gmail.com";
+            // 
+            // gunaLinkLabel1
+            // 
+            this.gunaLinkLabel1.AutoSize = true;
+            this.gunaLinkLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel1.Location = new System.Drawing.Point(798, 416);
+            this.gunaLinkLabel1.Name = "gunaLinkLabel1";
+            this.gunaLinkLabel1.Size = new System.Drawing.Size(164, 20);
+            this.gunaLinkLabel1.TabIndex = 38;
+            this.gunaLinkLabel1.TabStop = true;
+            this.gunaLinkLabel1.Text = "github.com/VSUrhuel";
+            // 
             // gunaPictureBox6
             // 
             this.gunaPictureBox6.BaseColor = System.Drawing.Color.White;
@@ -1105,39 +1154,17 @@
             this.mainPanel.Size = new System.Drawing.Size(1380, 800);
             this.mainPanel.TabIndex = 16;
             // 
-            // gunaLinkLabel1
+            // pictureUser
             // 
-            this.gunaLinkLabel1.AutoSize = true;
-            this.gunaLinkLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLinkLabel1.Location = new System.Drawing.Point(798, 416);
-            this.gunaLinkLabel1.Name = "gunaLinkLabel1";
-            this.gunaLinkLabel1.Size = new System.Drawing.Size(164, 20);
-            this.gunaLinkLabel1.TabIndex = 38;
-            this.gunaLinkLabel1.TabStop = true;
-            this.gunaLinkLabel1.Text = "github.com/VSUrhuel";
-            // 
-            // gunaLinkLabel2
-            // 
-            this.gunaLinkLabel2.AutoSize = true;
-            this.gunaLinkLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLinkLabel2.Location = new System.Drawing.Point(798, 378);
-            this.gunaLinkLabel2.Name = "gunaLinkLabel2";
-            this.gunaLinkLabel2.Size = new System.Drawing.Size(168, 20);
-            this.gunaLinkLabel2.TabIndex = 39;
-            this.gunaLinkLabel2.TabStop = true;
-            this.gunaLinkLabel2.Text = "johnrhuell@gmail.com";
-            // 
-            // gunaTransfarantPictureBox1
-            // 
-            this.gunaTransfarantPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTransfarantPictureBox1.BaseColor = System.Drawing.Color.Black;
-            this.gunaTransfarantPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox1.Image")));
-            this.gunaTransfarantPictureBox1.Location = new System.Drawing.Point(614, 479);
-            this.gunaTransfarantPictureBox1.Name = "gunaTransfarantPictureBox1";
-            this.gunaTransfarantPictureBox1.Size = new System.Drawing.Size(35, 14);
-            this.gunaTransfarantPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaTransfarantPictureBox1.TabIndex = 14;
-            this.gunaTransfarantPictureBox1.TabStop = false;
+            this.pictureUser.BaseColor = System.Drawing.Color.White;
+            this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
+            this.pictureUser.Location = new System.Drawing.Point(42, 15);
+            this.pictureUser.Name = "pictureUser";
+            this.pictureUser.Size = new System.Drawing.Size(94, 78);
+            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureUser.TabIndex = 15;
+            this.pictureUser.TabStop = false;
+            this.pictureUser.UseTransfarantBackground = false;
             // 
             // Main
             // 
@@ -1160,7 +1187,6 @@
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.dashboardPanel1.ResumeLayout(false);
             this.dashboardPanel1.PerformLayout();
             this.gunaElipsePanel4.ResumeLayout(false);
@@ -1177,6 +1203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.dashboardPanel2.ResumeLayout(false);
             this.dashboardPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox4)).EndInit();
@@ -1184,7 +1211,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1230,7 +1257,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label username;
-        private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel dashboardPanel2;
@@ -1259,5 +1285,7 @@
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel1;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel2;
         private Guna.UI.WinForms.GunaTransfarantPictureBox gunaTransfarantPictureBox1;
+        private Guna.UI.WinForms.GunaButton settingsButton;
+        private Guna.UI.WinForms.GunaCirclePictureBox pictureUser;
     }
 }

@@ -200,6 +200,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\RegularPayable.cs" />
     <Compile Include="Classes\UserPayable.cs" />
     <Compile Include="GUI - Dormers\AddDormerForm.cs">
@@ -314,6 +315,12 @@
     <Compile Include="GUI - Rooms\RoomReallocation.Designer.cs">
       <DependentUpon>RoomReallocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Settings\SettingsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI - Settings\SettingsTab.Designer.cs">
+      <DependentUpon>SettingsTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - SignIn\OTPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Dashboard\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Settings\SettingsTab.resx">
+      <DependentUpon>SettingsTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - SignIn\OTPForm.resx">
       <DependentUpon>OTPForm.cs</DependentUpon>
