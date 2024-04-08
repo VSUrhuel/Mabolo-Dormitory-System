@@ -31,10 +31,10 @@ namespace Mabolo_Dormitory_System.GUI___Settings
             gunaLineTextBox2.Text = account.LastName;
             gunaLineTextBox3.Text = account.UserName;
             label6.Text = account.UserName;
-            hideViewBut.Visible = false;
-            viewBut.Visible = true;
-            gunaAdvenceButton1.Visible = true;
-            gunaAdvenceButton2.Visible = false;
+            vieeNewPassBut.Visible = false;
+            hideNewPassBut.Visible = true;
+            hideConfirmPassBut.Visible = true;
+            viewConfirmPassBut.Visible = false;
             byte[] imageData = db.GetAccount(email).ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
             
@@ -119,36 +119,36 @@ namespace Mabolo_Dormitory_System.GUI___Settings
 
         }
 
-        private void viewBut_Click(object sender, EventArgs e)
+        private void viewNewPassBut_Click(object sender, EventArgs e)
         {
             gunaLineTextBox5.PasswordChar = '\0';
             gunaLineTextBox5.UseSystemPasswordChar = false;
-            viewBut.Visible = false;
-            hideViewBut.Visible = true;
+            hideNewPassBut.Visible = false;
+            vieeNewPassBut.Visible = true;
         }
 
-        private void hideViewBut_Click(object sender, EventArgs e)
+        private void hideNewPassBut_Click(object sender, EventArgs e)
         {
             gunaLineTextBox5.UseSystemPasswordChar = true;
-            hideViewBut.Visible = false;
-            viewBut.Visible = true;
+            vieeNewPassBut.Visible = false;
+            hideNewPassBut.Visible = true;
         }
 
-        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
+        private void viewConfirmPassBut_Click(object sender, EventArgs e)
         {
             gunaLineTextBox6.PasswordChar = '\0';
             gunaLineTextBox6.UseSystemPasswordChar = false;
             
 
-            gunaAdvenceButton2.Visible = true;
-            gunaAdvenceButton1.Visible = false;
+            viewConfirmPassBut.Visible = true;
+            hideConfirmPassBut.Visible = false;
         }
 
-        private void gunaAdvenceButton2_Click(object sender, EventArgs e)
+        private void hideConfirmPassBut_Click(object sender, EventArgs e)
         {
             gunaLineTextBox6.UseSystemPasswordChar = true;
-            gunaAdvenceButton2.Visible = false;
-            gunaAdvenceButton1.Visible = true;
+            viewConfirmPassBut.Visible = false;
+            hideConfirmPassBut.Visible = true;
         }
     }
 }

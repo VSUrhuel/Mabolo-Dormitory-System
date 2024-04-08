@@ -48,12 +48,12 @@
             this.resetButton = new Guna.UI.WinForms.GunaButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.viewBut = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.hideViewBut = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.hideNewPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.vieeNewPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLineTextBox4 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLineTextBox6 = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaAdvenceButton2 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.hideConfirmPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.viewConfirmPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -316,61 +316,61 @@
             this.label8.TabIndex = 108;
             this.label8.Text = "Confirm Password:";
             // 
-            // viewBut
+            // hideNewPassBut
             // 
-            this.viewBut.AnimationHoverSpeed = 0.07F;
-            this.viewBut.AnimationSpeed = 0.03F;
-            this.viewBut.BaseColor = System.Drawing.Color.Transparent;
-            this.viewBut.BorderColor = System.Drawing.Color.Black;
-            this.viewBut.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.viewBut.CheckedBorderColor = System.Drawing.Color.Black;
-            this.viewBut.CheckedForeColor = System.Drawing.Color.White;
-            this.viewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("viewBut.CheckedImage")));
-            this.viewBut.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.viewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.viewBut.ForeColor = System.Drawing.Color.White;
-            this.viewBut.Image = ((System.Drawing.Image)(resources.GetObject("viewBut.Image")));
-            this.viewBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.viewBut.LineColor = System.Drawing.Color.Transparent;
-            this.viewBut.Location = new System.Drawing.Point(562, 433);
-            this.viewBut.Name = "viewBut";
-            this.viewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.viewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.viewBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.viewBut.OnHoverImage = null;
-            this.viewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.viewBut.OnPressedColor = System.Drawing.Color.Black;
-            this.viewBut.Size = new System.Drawing.Size(41, 42);
-            this.viewBut.TabIndex = 111;
-            this.viewBut.Click += new System.EventHandler(this.viewBut_Click);
+            this.hideNewPassBut.AnimationHoverSpeed = 0.07F;
+            this.hideNewPassBut.AnimationSpeed = 0.03F;
+            this.hideNewPassBut.BaseColor = System.Drawing.Color.Transparent;
+            this.hideNewPassBut.BorderColor = System.Drawing.Color.Black;
+            this.hideNewPassBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.hideNewPassBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.hideNewPassBut.CheckedForeColor = System.Drawing.Color.White;
+            this.hideNewPassBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("hideNewPassBut.CheckedImage")));
+            this.hideNewPassBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.hideNewPassBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hideNewPassBut.ForeColor = System.Drawing.Color.White;
+            this.hideNewPassBut.Image = ((System.Drawing.Image)(resources.GetObject("hideNewPassBut.Image")));
+            this.hideNewPassBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.hideNewPassBut.LineColor = System.Drawing.Color.Transparent;
+            this.hideNewPassBut.Location = new System.Drawing.Point(565, 435);
+            this.hideNewPassBut.Name = "hideNewPassBut";
+            this.hideNewPassBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.hideNewPassBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.hideNewPassBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.hideNewPassBut.OnHoverImage = null;
+            this.hideNewPassBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.hideNewPassBut.OnPressedColor = System.Drawing.Color.Black;
+            this.hideNewPassBut.Size = new System.Drawing.Size(41, 42);
+            this.hideNewPassBut.TabIndex = 111;
+            this.hideNewPassBut.Click += new System.EventHandler(this.viewNewPassBut_Click);
             // 
-            // hideViewBut
+            // vieeNewPassBut
             // 
-            this.hideViewBut.AnimationHoverSpeed = 0.07F;
-            this.hideViewBut.AnimationSpeed = 0.03F;
-            this.hideViewBut.BaseColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.BorderColor = System.Drawing.Color.Black;
-            this.hideViewBut.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.hideViewBut.CheckedBorderColor = System.Drawing.Color.Black;
-            this.hideViewBut.CheckedForeColor = System.Drawing.Color.White;
-            this.hideViewBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("hideViewBut.CheckedImage")));
-            this.hideViewBut.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.hideViewBut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hideViewBut.ForeColor = System.Drawing.Color.White;
-            this.hideViewBut.Image = ((System.Drawing.Image)(resources.GetObject("hideViewBut.Image")));
-            this.hideViewBut.ImageSize = new System.Drawing.Size(20, 20);
-            this.hideViewBut.LineColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.Location = new System.Drawing.Point(565, 435);
-            this.hideViewBut.Name = "hideViewBut";
-            this.hideViewBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.hideViewBut.OnHoverForeColor = System.Drawing.Color.White;
-            this.hideViewBut.OnHoverImage = null;
-            this.hideViewBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.hideViewBut.OnPressedColor = System.Drawing.Color.Black;
-            this.hideViewBut.Size = new System.Drawing.Size(41, 42);
-            this.hideViewBut.TabIndex = 110;
-            this.hideViewBut.Click += new System.EventHandler(this.hideViewBut_Click);
+            this.vieeNewPassBut.AnimationHoverSpeed = 0.07F;
+            this.vieeNewPassBut.AnimationSpeed = 0.03F;
+            this.vieeNewPassBut.BaseColor = System.Drawing.Color.Transparent;
+            this.vieeNewPassBut.BorderColor = System.Drawing.Color.Black;
+            this.vieeNewPassBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.vieeNewPassBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.vieeNewPassBut.CheckedForeColor = System.Drawing.Color.White;
+            this.vieeNewPassBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("vieeNewPassBut.CheckedImage")));
+            this.vieeNewPassBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.vieeNewPassBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.vieeNewPassBut.ForeColor = System.Drawing.Color.White;
+            this.vieeNewPassBut.Image = ((System.Drawing.Image)(resources.GetObject("vieeNewPassBut.Image")));
+            this.vieeNewPassBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.vieeNewPassBut.LineColor = System.Drawing.Color.Transparent;
+            this.vieeNewPassBut.Location = new System.Drawing.Point(565, 435);
+            this.vieeNewPassBut.Name = "vieeNewPassBut";
+            this.vieeNewPassBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.vieeNewPassBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.vieeNewPassBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.vieeNewPassBut.OnHoverImage = null;
+            this.vieeNewPassBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.vieeNewPassBut.OnPressedColor = System.Drawing.Color.Black;
+            this.vieeNewPassBut.Size = new System.Drawing.Size(41, 42);
+            this.vieeNewPassBut.TabIndex = 110;
+            this.vieeNewPassBut.Click += new System.EventHandler(this.hideNewPassBut_Click);
             // 
             // gunaLineTextBox4
             // 
@@ -399,61 +399,61 @@
             this.gunaLineTextBox6.TabIndex = 113;
             this.gunaLineTextBox6.UseSystemPasswordChar = true;
             // 
-            // gunaAdvenceButton1
+            // hideConfirmPassBut
             // 
-            this.gunaAdvenceButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceButton1.AnimationSpeed = 0.03F;
-            this.gunaAdvenceButton1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceButton1.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceButton1.CheckedImage")));
-            this.gunaAdvenceButton1.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaAdvenceButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceButton1.Image")));
-            this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaAdvenceButton1.LineColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(561, 498);
-            this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
-            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.OnHoverImage = null;
-            this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.Size = new System.Drawing.Size(41, 42);
-            this.gunaAdvenceButton1.TabIndex = 115;
-            this.gunaAdvenceButton1.Click += new System.EventHandler(this.gunaAdvenceButton1_Click);
+            this.hideConfirmPassBut.AnimationHoverSpeed = 0.07F;
+            this.hideConfirmPassBut.AnimationSpeed = 0.03F;
+            this.hideConfirmPassBut.BaseColor = System.Drawing.Color.Transparent;
+            this.hideConfirmPassBut.BorderColor = System.Drawing.Color.Black;
+            this.hideConfirmPassBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.hideConfirmPassBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.hideConfirmPassBut.CheckedForeColor = System.Drawing.Color.White;
+            this.hideConfirmPassBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("hideConfirmPassBut.CheckedImage")));
+            this.hideConfirmPassBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.hideConfirmPassBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hideConfirmPassBut.ForeColor = System.Drawing.Color.White;
+            this.hideConfirmPassBut.Image = ((System.Drawing.Image)(resources.GetObject("hideConfirmPassBut.Image")));
+            this.hideConfirmPassBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.hideConfirmPassBut.LineColor = System.Drawing.Color.Transparent;
+            this.hideConfirmPassBut.Location = new System.Drawing.Point(562, 497);
+            this.hideConfirmPassBut.Name = "hideConfirmPassBut";
+            this.hideConfirmPassBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.hideConfirmPassBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.hideConfirmPassBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.hideConfirmPassBut.OnHoverImage = null;
+            this.hideConfirmPassBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.hideConfirmPassBut.OnPressedColor = System.Drawing.Color.Black;
+            this.hideConfirmPassBut.Size = new System.Drawing.Size(41, 42);
+            this.hideConfirmPassBut.TabIndex = 115;
+            this.hideConfirmPassBut.Click += new System.EventHandler(this.viewConfirmPassBut_Click);
             // 
-            // gunaAdvenceButton2
+            // viewConfirmPassBut
             // 
-            this.gunaAdvenceButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceButton2.AnimationSpeed = 0.03F;
-            this.gunaAdvenceButton2.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceButton2.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceButton2.CheckedImage")));
-            this.gunaAdvenceButton2.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaAdvenceButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceButton2.Image")));
-            this.gunaAdvenceButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaAdvenceButton2.LineColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton2.Location = new System.Drawing.Point(562, 497);
-            this.gunaAdvenceButton2.Name = "gunaAdvenceButton2";
-            this.gunaAdvenceButton2.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton2.OnHoverImage = null;
-            this.gunaAdvenceButton2.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.Size = new System.Drawing.Size(41, 42);
-            this.gunaAdvenceButton2.TabIndex = 114;
-            this.gunaAdvenceButton2.Click += new System.EventHandler(this.gunaAdvenceButton2_Click);
+            this.viewConfirmPassBut.AnimationHoverSpeed = 0.07F;
+            this.viewConfirmPassBut.AnimationSpeed = 0.03F;
+            this.viewConfirmPassBut.BaseColor = System.Drawing.Color.Transparent;
+            this.viewConfirmPassBut.BorderColor = System.Drawing.Color.Black;
+            this.viewConfirmPassBut.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.viewConfirmPassBut.CheckedBorderColor = System.Drawing.Color.Black;
+            this.viewConfirmPassBut.CheckedForeColor = System.Drawing.Color.White;
+            this.viewConfirmPassBut.CheckedImage = ((System.Drawing.Image)(resources.GetObject("viewConfirmPassBut.CheckedImage")));
+            this.viewConfirmPassBut.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.viewConfirmPassBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.viewConfirmPassBut.ForeColor = System.Drawing.Color.White;
+            this.viewConfirmPassBut.Image = ((System.Drawing.Image)(resources.GetObject("viewConfirmPassBut.Image")));
+            this.viewConfirmPassBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.viewConfirmPassBut.LineColor = System.Drawing.Color.Transparent;
+            this.viewConfirmPassBut.Location = new System.Drawing.Point(562, 497);
+            this.viewConfirmPassBut.Name = "viewConfirmPassBut";
+            this.viewConfirmPassBut.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.viewConfirmPassBut.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.viewConfirmPassBut.OnHoverForeColor = System.Drawing.Color.White;
+            this.viewConfirmPassBut.OnHoverImage = null;
+            this.viewConfirmPassBut.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.viewConfirmPassBut.OnPressedColor = System.Drawing.Color.Black;
+            this.viewConfirmPassBut.Size = new System.Drawing.Size(41, 42);
+            this.viewConfirmPassBut.TabIndex = 114;
+            this.viewConfirmPassBut.Click += new System.EventHandler(this.hideConfirmPassBut_Click);
             // 
             // label9
             // 
@@ -471,12 +471,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.gunaAdvenceButton1);
-            this.Controls.Add(this.gunaAdvenceButton2);
+            this.Controls.Add(this.hideConfirmPassBut);
+            this.Controls.Add(this.viewConfirmPassBut);
             this.Controls.Add(this.gunaLineTextBox6);
             this.Controls.Add(this.gunaLineTextBox4);
-            this.Controls.Add(this.viewBut);
-            this.Controls.Add(this.hideViewBut);
+            this.Controls.Add(this.hideNewPassBut);
+            this.Controls.Add(this.vieeNewPassBut);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.resetButton);
@@ -526,12 +526,12 @@
         private Guna.UI.WinForms.GunaButton resetButton;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.Label label8;
-        private Guna.UI.WinForms.GunaAdvenceButton viewBut;
-        private Guna.UI.WinForms.GunaAdvenceButton hideViewBut;
+        private Guna.UI.WinForms.GunaAdvenceButton hideNewPassBut;
+        private Guna.UI.WinForms.GunaAdvenceButton vieeNewPassBut;
         private Guna.UI.WinForms.GunaLineTextBox gunaLineTextBox4;
         private Guna.UI.WinForms.GunaLineTextBox gunaLineTextBox6;
-        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton1;
-        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton2;
+        private Guna.UI.WinForms.GunaAdvenceButton hideConfirmPassBut;
+        private Guna.UI.WinForms.GunaAdvenceButton viewConfirmPassBut;
         private System.Windows.Forms.Label label9;
     }
 }
