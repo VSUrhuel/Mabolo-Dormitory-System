@@ -414,7 +414,7 @@
             this.updateEventButton.TabIndex = 128;
             this.updateEventButton.Text = "Update";
             this.updateEventButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.updateEventButton.Click += new System.EventHandler(this.updateEventButton_Click_1);
+            this.updateEventButton.Click += new System.EventHandler(this.updateEventButton_Click);
             // 
             // gunaButton3
             // 

@@ -4,20 +4,22 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
+using Xunit.Sdk;
 
 
 namespace Mabolo_Dormitory_System.Classes
 {
     public class DatabaseManager
     {
-        MySqlConnection Connection;
         public List<User> Users { get; private set; }
         public List<Department> Departments { get; private set; }
         public List<Room> Rooms { get; private set; }
@@ -41,39 +43,6 @@ namespace Mabolo_Dormitory_System.Classes
             Payments = new List<Payment>();
             RoomAllocations = new List<RoomAllocation>();
             UserPayables = new List<UserPayable>();
-        }
-
-        public bool EstablishConnection()
-        {
-           /* string con = "server=127.0.0.1;port=3306;uid=root;pwd=Laurente1234.";
-            Connection = new MySqlConnection(con);
-            try
-            {
-                Connection.Open();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error opening connection: " + e.Message);
-                return false;
-            }*/
-        
-            if (Connection?.State != ConnectionState.Open)
-            {
-                string con = "server=127.0.0.1;port=3306;uid=root;pwd=Laurente1234.";
-                Connection = new MySqlConnection(con);
-                try
-                {
-                    Connection.Open();
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Error opening connection: " + e.Message);
-                    return false;
-                }
-            }
-            return true;
         }
 
         // Sign In Account
@@ -1004,11 +973,12 @@ namespace Mabolo_Dormitory_System.Classes
         public List<Department> GetAllDepartments()
         {
             Departments.Clear();
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.department", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.department", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -1020,9 +990,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return Departments;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving departments");
+                    MessageBox.Show("There was an error while retrieving departments: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1033,12 +1007,13 @@ namespace Mabolo_Dormitory_System.Classes
             Department d = null;
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String sql = "SELECT * FROM system.department WHERE DepartmentId = (SELECT FK_DepartmentId FROM system.user WHERE UserId = @UserId)";
-                    using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@UserId", userId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -1051,9 +1026,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return d;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving user's department");
+                    MessageBox.Show("There was an error while retrieving user's department: " + ex.Message);
+                }
+                               finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1064,12 +1043,13 @@ namespace Mabolo_Dormitory_System.Classes
             Room r = null;
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String sql = "SELECT * FROM system.room WHERE RoomId = (SELECT FK_RoomId_RoomAllocation FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation)";
-                    using (var command = new MySqlCommand(sql, Connection))
+                    using (var command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
                         using (var reader = command.ExecuteReader())
@@ -1082,9 +1062,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return r;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving user's room");
+                    MessageBox.Show("There was an error while retrieving user's room: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1093,11 +1077,12 @@ namespace Mabolo_Dormitory_System.Classes
         // Events
         public int GetLastEventId()
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT MAX(EventId) FROM system.event", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT MAX(EventId) FROM system.event", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -1108,9 +1093,13 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch 
                 {
-                    MessageBox.Show("There was an error while retrieving last event id");
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return -1;
@@ -1118,39 +1107,41 @@ namespace Mabolo_Dormitory_System.Classes
         
         public List<Event> GetAllEvents()
         {
-            if (EstablishConnection())
+            Events.Clear();
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                Events.Clear();
-                if (EstablishConnection())
+                connection.Open();
+                try
                 {
-                    try
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event", connection))
                     {
-                        using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event", Connection))
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            using (MySqlDataReader reader = command.ExecuteReader())
+                            while (reader.Read())
                             {
-                                while (reader.Read())
-                                {
-                                    Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true));
-                                }
+                                Events.Add(new Event((int)reader["EventId"], (string)reader["EventName"], (DateTime)reader["EventDate"], (DateTime)reader["EventTime"], (String)reader["Location"], (String)reader["Description"], reader.GetBoolean("HasPayables"), (float)reader["AttendanceFineAmount"], (float)reader["EventFeeContribution"], true));
                             }
                         }
-                        return Events;
                     }
-                    catch
-                    {
-                        MessageBox.Show("There was an error while retrieving events");
-                    }
+                    return Events;
                 }
-                return null;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error while retrieving events: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return null;
         }
         
         public bool AddEvent(Event e)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 string query = "INSERT INTO system.event(";
                 PropertyInfo[] properties = e.GetType().GetProperties();
                 for (int i = 0; i < properties.Length; i++)
@@ -1168,7 +1159,7 @@ namespace Mabolo_Dormitory_System.Classes
                     else
                         query += "@" + properties[i].Name + ")";
                 }
-                MySqlCommand command = new MySqlCommand(query, Connection);
+                MySqlCommand command = new MySqlCommand(query, connection);
 
                 foreach (PropertyInfo property in properties)
                 {
@@ -1179,10 +1170,9 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@" + property.Name, value);
                 }
                 command.ExecuteNonQuery();
-                AdddEventFineUserPayable(e.AttendanceFineAmount);
+                RecordDefaultAttendace(e.EventId);
                 return true;
             }
-            return false;
         }
      
         public bool UpdateEvent(Event e)
@@ -1190,8 +1180,9 @@ namespace Mabolo_Dormitory_System.Classes
             Events = GetAllEvents();
             if (!EventExists(e.EventId))
                 throw new ArgumentException("Event does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     float fines = GetEvent(e.EventId).AttendanceFineAmount;
@@ -1204,7 +1195,7 @@ namespace Mabolo_Dormitory_System.Classes
                             query += ", ";
                     }
                     query += " WHERE EventId = @EventId";
-                    MySqlCommand command = new MySqlCommand(query, Connection);
+                    MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@EventId", e.EventId);
                     foreach (PropertyInfo property in properties)
                     {
@@ -1221,9 +1212,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating event");
+                    MessageBox.Show("There was an error while updating event: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -1234,32 +1229,37 @@ namespace Mabolo_Dormitory_System.Classes
             Events = GetAllEvents();
             if (!EventExists(eventId))
                 throw new ArgumentException("Event does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    SubtractEventFineUserPayable(GetEvent(eventId).AttendanceFineAmount);
+                    SubtractEventFineUserPayable(GetEvent(eventId).AttendanceFineAmount, eventId);
                     String query = "DELETE FROM system.event WHERE EventId = @EventId";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@EventId", eventId);
                         command.ExecuteNonQuery();
                         return true;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while deleting event");
+                    MessageBox.Show("There was an error while deleting event: " + ex.Message);
                 }
-                
+                finally
+                {
+                    connection.Close();
+                }
             }
             return false;
         }
 
         public List<Event> GetMonthlyEvent()
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     Events.Clear();
@@ -1267,7 +1267,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                     string sql = $"SELECT * FROM system.event WHERE MONTH(EventDate) = {currentDate.Month} AND YEAR(EventDate) = {currentDate.Year}";
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -1277,9 +1277,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return Events;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving monthly events");
+                    MessageBox.Show("There was an error while retrieving monthly events: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1289,11 +1293,12 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if (!EventExists(eventId))
                 throw new ArgumentException("Event does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event WHERE EventId = @EventId", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event WHERE EventId = @EventId", connection))
                     {
                         command.Parameters.AddWithValue("@EventId", eventId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -1305,9 +1310,13 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving event");
+                    MessageBox.Show("There was an error while retrieving event: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1330,11 +1339,12 @@ namespace Mabolo_Dormitory_System.Classes
         public List<EventAttendance> GetEventAttendances()
         {
             EventAttendances.Clear();
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -1346,14 +1356,47 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return EventAttendances;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving event attendances");
+                    MessageBox.Show("There was an error while retrieving event attendances: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
         }
 
+        public void RecordDefaultAttendace(int eventId)
+        {
+            if(!EventExists(eventId))
+                throw new ArgumentException("Event does not exist");
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    Users.Clear();
+                    Users = GetAllUsers();
+
+                    for (int i = 0; i < Users.Count; i++)
+                    {
+                        RecordAttendance(Users[i].UserId, eventId, "Absent");
+                        AddUserPayable(Users[i].UserId, GetEvent(eventId).AttendanceFineAmount);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error while recording default attendance: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+        
         public bool RecordAttendance(String userId, int eventId, String status)
         {
             if (!EventExists(eventId) || !UserExists(userId))
@@ -1364,28 +1407,37 @@ namespace Mabolo_Dormitory_System.Classes
                     return true;
                 return false;
             }
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string query = "INSERT INTO system.event_attendance(EventAttendanceId, AttendanceStatus, FK_UserId_EventAttendance, FK_EventId_EventAttendance) VALUES (@EventAttendanceId, @AttendanceStatus, @FK_UserId_EventAttendance, @FK_EventId_EventAttendance)";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         List<EventAttendance> ea = GetEventAttendances();
-                        int index = ea.ElementAt(ea.Count() - 1).EventAttendanceId + 1;
+                        int index = 1;
+                        if(ea.Count > 0)
+                            index = ea.ElementAt(ea.Count() - 1).EventAttendanceId + 1;
                         command.Parameters.AddWithValue("@EventAttendanceId", index);
                         command.Parameters.AddWithValue("@AttendanceStatus", status);
                         command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
                         command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                         command.ExecuteNonQuery();
+
                         if (status == "Present")
                             UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                       
                     }
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while recording attendance");
+                    MessageBox.Show("There was an error while recording attendance: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -1395,11 +1447,12 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if (!EventExists(eventId) || !UserExists(userId))
                 return null;
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance AND FK_UserId_EventAttendance = @FK_UserId_EventAttendance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance AND FK_UserId_EventAttendance = @FK_UserId_EventAttendance", connection))
                     {
                         command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                         command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
@@ -1412,9 +1465,13 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving user's event attendance");
+                    MessageBox.Show("There was an error while retrieving user's event attendance: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1425,27 +1482,31 @@ namespace Mabolo_Dormitory_System.Classes
             String origStatus = GetUserEventAttendance(eventId, userId).AttendanceStatus;
             if (!EventExists(eventId) || !UserExists(userId) || !EventAttendanceExists(eventId, userId))
                 return false;
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance AND FK_EventId_EventAttendance = @FK_EventId_EventAttendance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE system.event_attendance SET AttendanceStatus = @AttendanceStatus WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance AND FK_EventId_EventAttendance = @FK_EventId_EventAttendance", connection))
                     {
+                        command.Parameters.AddWithValue("@AttendanceStatus", status);
                         command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
                         command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                EventAttendances.Add(new EventAttendance((int)reader["EventAttendanceId"], (string)reader["AttendanceStatus"], (string)reader["FK_UserId_EventAttendance"], (int)reader["FK_EventId_EventAttendance"]));
-                            }
-                        }
+                        command.ExecuteNonQuery();
                     }
+                    if(origStatus == "Absent" && status == "Present")
+                            UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                    else if(origStatus == "Present" && status == "Absent")
+                            AddUserPayable(userId, GetEvent(eventId).AttendanceFineAmount); 
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating event attendance");
+                    MessageBox.Show("There was an error while updating event attendance: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -1455,11 +1516,12 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if(!EventExists(eventId))
                 throw new ArgumentException("Event does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.event_attendance WHERE FK_EventId_EventAttendance = @FK_EventId_EventAttendance", connection))
                     {
                         command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -1473,9 +1535,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return EventAttendances;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving event attendances");
+                    MessageBox.Show("There was an error while retrieving event attendances: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1483,39 +1549,49 @@ namespace Mabolo_Dormitory_System.Classes
        
         public void AdddEventFineUserPayable(float eventFines)
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("UPDATE system.user_payable SET RemainingBalance = RemainingBalance - @RemainingBalance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE system.user_payable AS up INNER JOIN system.event_attendance AS ea ON up.FK_UserId_UserPayable = ea.FK_UserId_EventAttendance SET up.RemainingBalance = up.RemainingBalance + @RemainingBalance WHERE ea.AttendanceStatus = 'Absent';", connection))
                     {
                         command.Parameters.AddWithValue("@RemainingBalance", eventFines);
                         command.ExecuteNonQuery();
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while adding event fine to user payable");
+                    MessageBox.Show("An error occurred while adding event fine to user payable: " + ex.Message);
                 } 
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
         
         public bool DeleteUserAllEventAttendance(String userI)
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("DELETE FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance", Connection))
+                    using (MySqlCommand command = new MySqlCommand("DELETE FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance", connection))
                     {
                         command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userI);
                         command.ExecuteNonQuery();
                     }
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while deleting user's event attendance");
+                    MessageBox.Show("An error occurred while deleting user's event attendance: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -1537,11 +1613,12 @@ namespace Mabolo_Dormitory_System.Classes
         // Payments
         public List<Payment> GetAllPayment()
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.payment;", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.payment;", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -1552,23 +1629,28 @@ namespace Mabolo_Dormitory_System.Classes
                             }
                         }
                     }
+                    return Payments;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while retrieving Payments");
+                    MessageBox.Show("An error occurred while retrieving Payments: " + ex.Message);
                 }
-                return Payments;
+                finally
+                {
+                    connection.Close();
+                }
             }
             return null;
         }
       
         public bool AddPayment(Payment p)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("INSERT INTO system.payment(PaymentId, PaymentDate, Amount, Remarks, FK_UserId_Payment) VALUES (@PaymentId, @PaymentDate, @Amount, @Remarks, @FK_UserId_Payment)", Connection))
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO system.payment(PaymentId, PaymentDate, Amount, Remarks, FK_UserId_Payment) VALUES (@PaymentId, @PaymentDate, @Amount, @Remarks, @FK_UserId_Payment)", connection))
                     {
                         command.Parameters.AddWithValue("@PaymentId", p.PaymentId);
                         command.Parameters.AddWithValue("@PaymentDate", p.PaymentDate);
@@ -1578,26 +1660,45 @@ namespace Mabolo_Dormitory_System.Classes
                         command.ExecuteNonQuery();
                         UpdateUserPayable(p.FK_UserId_Payment, p.Amount);
                     }
+                    return true;
                 }
-                catch
-                {                     
-                    MessageBox.Show("An error occurred while adding payment");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while adding payment: " + ex.Message);
                 }
-                return true;
+                finally
+                {
+                    connection.Close();
+                }
+                
             }
             return false;
         }
         
         public bool DeleteUserPayment(String userId)
         {
-            if(EstablishConnection() && UserPaymentExists(userId))
+            if(!UserPaymentExists(userId))
+                throw new ArgumentException("User does not have any payment");
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                using (MySqlCommand command = new MySqlCommand("DELETE FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment", Connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
-                    command.ExecuteNonQuery();
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand("DELETE FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment", connection))
+                    {
+                        command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
                 }
-                return true;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while deleting user's payment: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return false;
         }
@@ -1606,13 +1707,14 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if(!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     Payments.Clear();
                     String sql = "SELECT * FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
-                    using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -1625,9 +1727,13 @@ namespace Mabolo_Dormitory_System.Classes
                         return Payments;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while retrieving Payments");
+                    MessageBox.Show("An error occurred while retrieving user's payments: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -1638,26 +1744,37 @@ namespace Mabolo_Dormitory_System.Classes
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
 
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                float sum = 0;
-                string sql = "SELECT * FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
-
-                using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                connection.Open();
+                try
                 {
-                    command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+                    float sum = 0;
+                    string sql = "SELECT * FROM system.payment WHERE FK_UserId_Payment = @FK_UserId_Payment";
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@FK_UserId_Payment", userId);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            sum += (float)reader["Amount"];
+                            while (reader.Read())
+                            {
+                                sum += (float)reader["Amount"];
+                            }
                         }
                     }
+                    return sum;
                 }
-                return sum;
+                catch  
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            return 0;
         }
 
         public bool UserPaymentExists(String userId)
@@ -1676,65 +1793,47 @@ namespace Mabolo_Dormitory_System.Classes
         // Regular Payables
         public bool AddRegularPayable(RegularPayable regularPayable)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                string query = "INSERT INTO system.regular_payable(RegularPayableId, Name, Amount) VALUES (@RegularPayableId, @Name, @Amount)";
-
-                using (MySqlCommand command = new MySqlCommand(query, Connection))
+                connection.Open();
+                try
                 {
-                    command.Parameters.AddWithValue("@RegularPayableId", regularPayable.RegularPayableId);
-                    command.Parameters.AddWithValue("@Name", regularPayable.Name);
-                    command.Parameters.AddWithValue("@Amount", regularPayable.Amount);
+                    string query = "INSERT INTO system.regular_payable(RegularPayableId, Name, Amount) VALUES (@RegularPayableId, @Name, @Amount)";
 
-                    command.ExecuteNonQuery();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@RegularPayableId", regularPayable.RegularPayableId);
+                        command.Parameters.AddWithValue("@Name", regularPayable.Name);
+                        command.Parameters.AddWithValue("@Amount", regularPayable.Amount);
+
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
                 }
-                return true;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while adding RegularPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return false;
-            /*if(EstablishConnection())
-            {
-                string query = "INSERT INTO system.regular_payable(";
-                PropertyInfo[] properties = regularPayable.GetType().GetProperties();
-                for (int i = 0; i < properties.Length; i++)
-                {
-                    if (i < properties.Length - 1)
-                        query += properties[i].Name + ", ";
-                    else
-                        query += properties[i].Name + ") ";
-                }
-                query += "VALUES (";
-                for (int i = 0; i < properties.Length; i++)
-                {
-                    if (i < properties.Length - 1)
-                        query += "@" + properties[i].Name + ", ";
-                    else
-                        query += "@" + properties[i].Name + ")";
-                }
-                MySqlCommand command = new MySqlCommand(query, Connection);
-
-                foreach (PropertyInfo property in properties)
-                {
-                    object value = property.GetValue(regularPayable);
-                    command.Parameters.AddWithValue("@" + property.Name, value);
-                }
-                command.ExecuteNonQuery();
-                AdddEventFineUserPayable(regularPayable.Amount);
-                
-                return true;
-            }
-            return false;*/
+           
         }
         
         public List<RegularPayable> GetRegularPayables()
         {
             RegularPayable.Clear();
 
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string sql = "SELECT * FROM system.regular_payable;";
-                    using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -1751,16 +1850,21 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     MessageBox.Show("An error occurred while retrieving RegularPayable: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return null;
         }
 
         public void UpdateRegularPayable(RegularPayable regularPayable)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 string query = "UPDATE system.regular_payable SET Name = @Name, Amount = @Amount WHERE RegularPayableId = @RegularPayableId";
-                using (MySqlCommand command = new MySqlCommand(query, Connection))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@RegularPayableId", regularPayable.RegularPayableId);
                     command.Parameters.AddWithValue("@Name", regularPayable.Name);
@@ -1768,6 +1872,7 @@ namespace Mabolo_Dormitory_System.Classes
 
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
             }
         }
       
@@ -1776,12 +1881,13 @@ namespace Mabolo_Dormitory_System.Classes
             if (!RegularPayableExists(id))
                 throw new ArgumentException("Regular Payable does not exist");
 
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string sql = "SELECT * FROM system.regular_payable WHERE RegularPayableId = @RegularPayablesId";
-                    using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@RegularPayablesId", id);
 
@@ -1801,6 +1907,10 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     MessageBox.Show("An error occurred while retrieving RegularPayable: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return null;
 
@@ -1808,14 +1918,15 @@ namespace Mabolo_Dormitory_System.Classes
 
         public void DeleteRegularPayable(int id)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     SubtractEventFineUserPayable(GetRegularPayable(id).Amount);
                     string query = "DELETE FROM system.regular_payable WHERE RegularPayableId = @RegularPayableId";
 
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RegularPayableId", id);
                         command.ExecuteNonQuery();
@@ -1824,6 +1935,10 @@ namespace Mabolo_Dormitory_System.Classes
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred while deleting RegularPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
@@ -1844,77 +1959,69 @@ namespace Mabolo_Dormitory_System.Classes
         // User Payable
         public bool AddUserPayable(String userId)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
-
-                using (MySqlCommand command = new MySqlCommand(query, Connection))
+                connection.Open();
+                try
                 {
-                    List<UserPayable> up = GetAllUserPayable();
-                    int index = up[up.Count - 1].UserPayableId + 1;
-                    float remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
+                    string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
 
-                    command.Parameters.AddWithValue("@UserPayableId", index);
-                    command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
-                    command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        List<UserPayable> up = GetAllUserPayable();
+                        int index = up[up.Count - 1].UserPayableId + 1;
+                        float remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
 
-                    command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@UserPayableId", index);
+                        command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    return true;
                 }
-
-                return true;
+                catch
+                (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while adding UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-
             return false;
-
-            /*if (EstablishConnection())
-            {
-                string query = "INSERT INTO system.user_payable(";
-                PropertyInfo[] properties = typeof(UserPayable).GetProperties();
-                for (int i = 0; i < properties.Length; i++)
-                {
-                    if (i < properties.Length - 1)
-                        query += properties[i].Name + ", ";
-                    else
-                        query += properties[i].Name + ") ";
-                }
-                query += "VALUES (";
-                for (int i = 0; i < properties.Length; i++)
-                {
-                    if (i < properties.Length - 1)
-                        query += "@" + properties[i].Name + ", ";
-                    else
-                        query += "@" + properties[i].Name + ")";
-                }
-                MySqlCommand command = new MySqlCommand(query, Connection);
-                List<UserPayable> up = GetAllUserPayable();
-                int index = up[up.Count-1].UserPayableId + 1;
-                float remainingBalance = 0;
-                command.Parameters.AddWithValue("@UserPayableId", index);
-                remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
-                command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
-                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
-                command.ExecuteNonQuery();
-                
-                return true;
-            }
-            return false;*/
         }
         
         public List<UserPayable> GetAllUserPayable()
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                UserPayables.Clear();
-                string sql = "SELECT * FROM system.user_payable;";
-                MySqlCommand cmd = new MySqlCommand(sql, Connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                connection.Open();
+                try
                 {
-                    UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
+                    UserPayables.Clear();
+                    string sql = "SELECT * FROM system.user_payable;";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
+                    }
+                    reader.Close();
+
+                    return UserPayables;
                 }
-                reader.Close();
-                
-                return UserPayables;
+                catch
+                (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return null;
         }
@@ -1923,23 +2030,23 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
-
-            if (!EstablishConnection())
-                return null;
-
-            string sql = "SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
-            using (MySqlCommand command = new MySqlCommand(sql, Connection))
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
-                using (MySqlDataReader reader = command.ExecuteReader())
+                connection.Open();
+                string sql = "SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
-                    if (reader.Read())
+                    command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        int userPayableId = (int)reader["UserPayableId"];
-                        float remainingBalance = (float)reader["RemainingBalance"];
-                        string fkUserIdUserPayable = (string)reader["FK_UserId_UserPayable"];
+                        if (reader.Read())
+                        {
+                            int userPayableId = (int)reader["UserPayableId"];
+                            float remainingBalance = (float)reader["RemainingBalance"];
+                            string fkUserIdUserPayable = (string)reader["FK_UserId_UserPayable"];
 
-                        return new UserPayable(userPayableId, remainingBalance, fkUserIdUserPayable);
+                            return new UserPayable(userPayableId, remainingBalance, fkUserIdUserPayable);
+                        }
                     }
                 }
             }
@@ -1951,127 +2058,208 @@ namespace Mabolo_Dormitory_System.Classes
             if (!UserExists(userId))
                 throw new ArgumentException("User does not exist");
 
-            if (!EstablishConnection())
-                return 0;
-
-            string sql = "SELECT RemainingBalance FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
-            using (MySqlCommand command = new MySqlCommand(sql, Connection))
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                connection.Open();
                 try
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    string sql = "SELECT RemainingBalance FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                        try
                         {
-                            return reader.GetFloat("RemainingBalance");
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    return reader.GetFloat("RemainingBalance");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred while retrieving UserPayable balance: " + ex.Message);
                         }
                     }
+                    return 0;
                 }
-                catch (Exception ex)
+                finally
                 {
-                    MessageBox.Show("An error occurred while retrieving UserPayable balance: " + ex.Message);
+                    connection.Close();
                 }
             }
-            return 0;
-
         }
 
         public void UpdateUserPayable(String userId, float Amount)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     float updatedAmount = 0;
                     string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    updatedAmount = GetUserPayable(userId).RemainingBalance - Amount;
+                    updatedAmount = GetUserPayableBalance(userId) - Amount;
                     if (updatedAmount < 0)
                         updatedAmount = 0;
 
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
                     }
                 }
+                catch (NullException)
+                {
+                    return;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred while updating UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
        
         public void AddUserPayable(String userId, float Amount)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     float updatedAmount = 0;
                     string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    updatedAmount = GetUserPayable(userId).RemainingBalance + Amount;
+                    updatedAmount = GetUserPayableBalance(userId) + Amount;
+                    float max = GetSumEvents() + GetSumRegularPayable() * 5;
+                    if (updatedAmount > max)
+                        updatedAmount = max;
 
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("An error occurred while adding UserPayable: " + ex.Message);
+                    return;
+                }   
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
        
         public float GetSumRemainingBalance()
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                float sum = 0;
-                string query = "SELECT SUM(RemainingBalance) AS SumAmount FROM system.user_payable;";
-
-                using (MySqlCommand command = new MySqlCommand(query, Connection))
+                connection.Open();
+                try
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    float sum = 0;
+                    string query = "SELECT SUM(RemainingBalance) AS SumAmount FROM system.user_payable;";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        if (reader.Read())
-                            sum = reader.GetFloat("SumAmount"); 
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                                sum = reader.GetFloat("SumAmount");
+                        }
                     }
+                    return sum;
                 }
-                return sum;
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            return 0;
         }
         
         public void LoadUserPayable(String userId)
         {
             if (!UserPayableExists(userId))
             {
-                if (EstablishConnection())
+                using (MySqlConnection connection = new MySqlConnection(con))
                 {
-                    string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
+                    connection.Open();
+                    try
+                    {
+                        string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
 
-                    MySqlCommand command = new MySqlCommand(query, Connection);
-                    List<UserPayable> up = GetAllUserPayable();
-                    int index = 1;
-                    if (up.Count == 0)
-                        index = 1;
-                    else if (up.Count > 0)
-                        index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
-                    float remainingBalance = 0;
-                    command.Parameters.AddWithValue("@UserPayableId", index);
-                    remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
-                    command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
-                    command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
-                    command.ExecuteNonQuery();
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        List<UserPayable> up = GetAllUserPayable();
+                        int index = 1;
+                        if (up.Count == 0)
+                            index = 1;
+                        else if (up.Count > 0)
+                            index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
+                        float remainingBalance = 0;
+                        command.Parameters.AddWithValue("@UserPayableId", index);
+                        remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
+                        command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                        command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        return;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
             else
                 UpdateUserLoadPayable(userId, GetSumEvents() + (GetSumRegularPayable() * 5));
+        }
+        
+        public float GetSumPresentAttendances(String userId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float sum = 0;
+                    string query = "SELECT SUM(AttendanceFineAmount) AS TotalEventFees FROM system.event WHERE EventId IN (SELECT FK_EventId_EventAttendance FROM system.event_attendance WHERE FK_UserId_EventAttendance = @FK_UserId_EventAttendance AND AttendanceStatus = 'Present');";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@FK_UserId_EventAttendance", userId);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                sum = reader.GetFloat("TotalEventFees");
+                            }
+                        }
+                    }
+                    return sum;
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
         
         public void LoadUsersPayable()
@@ -2082,13 +2270,14 @@ namespace Mabolo_Dormitory_System.Classes
             {
                 if (!UserPayableExists(u.UserId))
                 {
-                    if (EstablishConnection())
+                    using (MySqlConnection connection = new MySqlConnection(con))
                     {
+                        connection.Open();
                         try
                         {
                             string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
 
-                            using (MySqlCommand command = new MySqlCommand(query, Connection))
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
                             {
                                 List<UserPayable> up = GetAllUserPayable();
                                 int index = 1;
@@ -2096,15 +2285,28 @@ namespace Mabolo_Dormitory_System.Classes
                                     index = up[GetAllUserPayable().Count - 1].UserPayableId + 1;
                                 float remainingBalance = 0;
                                 command.Parameters.AddWithValue("@UserPayableId", index);
-                                remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(u.UserId);
+                              
+                                remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(u.UserId) - GetSumPresentAttendances(u.UserId);
+                                if(remainingBalance < 0)
+                                {
+                                    remainingBalance = 0;
+                                }
                                 command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
                                 command.ExecuteNonQuery();
                             }
                         }
+                        catch (NullException)
+                        {
+                            return;
+                        }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("An error occurred while loading UserPayable: " + ex.Message);
+                            MessageBox.Show("An error while loading UserPayable: " + ex.Message);
+                        }
+                        finally
+                        {
+                            connection.Close();
                         }
                     }
                 }
@@ -2118,56 +2320,77 @@ namespace Mabolo_Dormitory_System.Classes
         
         public void UpdateAddPayable(string userId)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    float balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId);
+                    float balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId); 
 
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RemainingBalance", balance);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
                     }
                 }
+                catch (NullException)
+                {
+                    return;
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while updating the UserPayable: " + ex.Message);
+                    MessageBox.Show("An error occurred while updating UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
         
         public void UpdateUserLoadPayable(String userId, float updatedAmount)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
                     }
                 }
+                catch (NullException)
+                {
+                    return;
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while updating the UserPayable: " + ex.Message);
+                    MessageBox.Show("An error occurred updating the UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
         
         public bool DeletUserPayable(String userId)
         {
-            if (EstablishConnection() && UserPayableExists(userId))
+            if (!UserPayableExists(userId))
+                return false;
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     string query = "DELETE FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    MySqlCommand command = new MySqlCommand(query, Connection);
+                    MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                     command.ExecuteNonQuery();
                     return true;
@@ -2176,23 +2399,39 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     MessageBox.Show("An error occurred while deleting the UserPayable: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return false;
         }
         
         public bool UserPayableExists(String userId)
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                UserPayables = GetAllUserPayable();
-                foreach (UserPayable up in UserPayables)
+                connection.Open();
+                try
                 {
-                    if (up.FK_UserId_UserPayable == userId)
+                    UserPayables = GetAllUserPayable();
+                    foreach (UserPayable up in UserPayables)
                     {
-                        return true;
+                        if (up.FK_UserId_UserPayable == userId)
+                        {
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
+                catch (Exception ex)
+                {
+                     MessageBox.Show("An error occurred while checking if UserPayable exists: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
             return false;
         }
@@ -2200,63 +2439,86 @@ namespace Mabolo_Dormitory_System.Classes
         // Operations
         public float GetSumEvents()
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                float sum = 0;
-                string sql = "SELECT SUM(AttendanceFineAmount) AS TotalEventFees FROM system.event;";
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                connection.Open();
+                try
                 {
-                    try
+                    float sum = 0;
+                    string sql = "SELECT SUM(AttendanceFineAmount) AS TotalEventFees FROM system.event;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        try
+                        {
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    sum = reader.GetFloat("TotalEventFees");
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                    return sum;
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+        
+        public float GetSumRegularPayable()
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float sum = 0;
+                    string sql = "SELECT SUM(Amount) FROM system.regular_payable;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                sum = reader.GetFloat("TotalEventFees");
+                                sum = reader.GetFloat(0);
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred while reading data: " + ex.Message);
-                    }
+                    return sum;
                 }
-                return sum;
-            }
-            return 0;
-        }
-        
-        public float GetSumRegularPayable()
-        {
-            if (EstablishConnection())
-            {
-                float sum = 0;
-                string sql = "SELECT SUM(Amount) FROM system.regular_payable;";
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                catch
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            sum = reader.GetFloat(0);
-                        }
-                    }
+                    return 0;
                 }
-                return sum;
+                finally
+                {
+                    connection.Close();
+                }
             }
-            return 0;
         }
 
         public void SubtractEventFineUserPayable(float fines)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    string query = "UPDATE system.user_payable SET RemainingBalance = RemainingBalance - @RemainingBalance";
-                    MySqlCommand command = new MySqlCommand(query, Connection);
+                    string query = "UPDATE system.user_payable AS up INNER JOIN system.event_attendance AS ea ON up.FK_UserId_UserPayable = ea.FK_UserId_EventAttendance SET up.RemainingBalance = up.RemainingBalance - @RemainingBalance WHERE ea.AttendanceStatus = 'Absent'; ";
+                    MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@RemainingBalance", fines);
                     command.ExecuteNonQuery();
                 }
@@ -2264,53 +2526,103 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void SubtractEventFineUserPayable(float fines, int eventId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    string query = "UPDATE system.user_payable AS up INNER JOIN system.event_attendance AS ea ON up.FK_UserId_UserPayable = ea.FK_UserId_EventAttendance SET up.RemainingBalance = up.RemainingBalance - @RemainingBalance WHERE ea.AttendanceStatus = 'Absent' AND ea.FK_EventId_EventAttendance = @eventId; ";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@RemainingBalance", fines);
+                    command.Parameters.AddWithValue("@eventId", eventId);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
 
         public List<User> GetPaidUsers()
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                Users.Clear();
-                List<User> u = new List<User>();
-                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance = 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user  WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                connection.Open();
+                try
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    Users.Clear();
+                    List<User> u = new List<User>();
+                    string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance = 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user  WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        while (reader.Read())
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                            while (reader.Read())
+                            {
+                                u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                            }
                         }
                     }
+                    return u;
                 }
-                return u;
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            return null;
         }
         
         public List<User> GetPendingUsers()
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
-                Users.Clear();
-                List<User> u = new List<User>();
-                string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, Connection))
+                connection.Open();
+                try
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    Users.Clear();
+                    List<User> u = new List<User>();
+                    string sql = "SELECT * FROM system.user_payable WHERE RemainingBalance > 0 AND FK_UserId_UserPayable NOT IN (SELECT UserId FROM system.user WHERE UserType IN ('Dormitory Adviser', 'Assistant Dormitory Adviser'));";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        while (reader.Read())
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                            while (reader.Read())
+                            {
+                                u.Add(GetUser((string)reader["FK_UserId_UserPayable"]));
+                            }
                         }
-                    } 
-                } 
-                return u;
+                    }
+                    return u;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            return null;
         }
     }
 }

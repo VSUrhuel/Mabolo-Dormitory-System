@@ -1,6 +1,6 @@
 ﻿namespace Mabolo_Dormitory_System.GUI___Event
 {
-    partial class DeleteForm
+    partial class deleteEventButton
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(deleteEventButton));
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -58,7 +58,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(405, 31);
             this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+           
             // 
             // gunaLabel2
             // 
@@ -92,7 +92,7 @@
             this.deleteButton.TabIndex = 67;
             this.deleteButton.Text = "Delete";
             this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.deleteButton.Click += new System.EventHandler(this.deleteDeletEventButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.deleteEventButton_Click);
             // 
             // cancelButton
             // 
@@ -150,7 +150,7 @@
             this.gunaButton1.Size = new System.Drawing.Size(52, 37);
             this.gunaButton1.TabIndex = 139;
             // 
-            // DeleteForm
+            // deleteEventButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DeleteForm";
+            this.Name = "deleteEventButton";
             this.Text = "DeleteForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);

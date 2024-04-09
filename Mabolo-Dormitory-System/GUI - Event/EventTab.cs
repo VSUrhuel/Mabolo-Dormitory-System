@@ -36,7 +36,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             {
                 foreach (GunaImageButton button in panel.Controls.OfType<GunaImageButton>())
                 {
-                    button.Click += new EventHandler(gunaImageButton1_Click_1);
+                    button.Click += new EventHandler(editButton_Click);
                 }
             }
             
@@ -130,7 +130,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void delBut_Click(object sender, EventArgs e)
         {
-            DeleteForm deleteForm = new DeleteForm(this);
+            if(events.Count == 0)
+            {
+                MessageBox.Show("There are no events to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            deleteEventButton deleteForm = new deleteEventButton(this);
             deleteForm.Owner = form;
             SetFormLocation(deleteForm);
             deleteForm.Show();
@@ -142,16 +147,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
             SetUpEvents();
         }
 
-        private void gunaImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaAdvenceButton7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchBar_Click(object sender, EventArgs e)
         {
             searchBar.Text = "";
@@ -161,7 +156,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             if (searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid Event name to search");
+                MessageBox.Show("Please enter a valid Event name to search", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 searchBar.Text = "";
                 return;
             }
@@ -178,7 +173,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
             if (events.Count == 0)
             {
-                MessageBox.Show("No event with the Name '" + eventName + "'  was found");
+                MessageBox.Show("No event with the Name '" + eventName + "'  was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 SetUpEvents();
             }
             else
@@ -209,7 +204,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             
         }
 
-        private void gunaImageButton1_Click_1(object sender, EventArgs e)
+        private void editButton_Click(object sender, EventArgs e)
         {
             GunaImageButton button = (GunaImageButton)sender;
             GunaElipsePanel panel = (GunaElipsePanel)button.Parent;

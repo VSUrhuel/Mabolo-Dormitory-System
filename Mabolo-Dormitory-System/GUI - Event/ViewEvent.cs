@@ -106,7 +106,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             return -1;
         }
 
-        private void updateEventButton_Click_1(object sender, EventArgs e)
+        private void updateEventButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dormerTableView.Rows)
             {
@@ -115,7 +115,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 else
                     db.RecordAttendance(row.Cells["UserId"].Value.ToString(), EventId, "Absent");
             }
-            MessageBox.Show("Attendance Updated!");
+            MessageBox.Show("Attendance Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
         }
 
         private void selectAllCB_CheckedChanged_1(object sender, EventArgs e)

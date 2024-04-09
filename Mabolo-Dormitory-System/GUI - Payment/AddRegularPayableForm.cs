@@ -28,6 +28,25 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if(gunaTextBox1.Text == "" || gunaTextBox2.Text == "")
+            {
+                MessageBox.Show("Please input all fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                float.Parse(gunaTextBox2.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a valid number for the amount field.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if(float.Parse(gunaTextBox2.Text) < 0)
+            {
+                MessageBox.Show("Please enter a valid number for the amount field.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int index;
             if(db.GetRegularPayables().Count == 0)
                 index = 1;
@@ -35,7 +54,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 index = db.GetRegularPayables()[db.GetRegularPayables().Count - 1].RegularPayableId + 1;
             db.AddRegularPayable(new RegularPayable(index, gunaTextBox1.Text, float.Parse(gunaTextBox2.Text)));
             db.LoadUsersPayable();
-            MessageBox.Show("Regular Payable added successfully!");
+            MessageBox.Show("Regular Payable added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             paymentsTab.refreshBut_Click(sender, e);
             regularPayableForm.SetUpEvents();
             this.Dispose();

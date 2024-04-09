@@ -38,18 +38,23 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Invalid amount!");
+                    MessageBox.Show("Invalid amount!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if(float.Parse(gunaTextBox2.Text) < 0)
+                {
+                    MessageBox.Show("Invalid amount!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 db.UpdateRegularPayable(new RegularPayable(regularPayableId, gunaTextBox1.Text, float.Parse(gunaTextBox2.Text)));
-                MessageBox.Show("Regular Payable updated successfully!");
+                MessageBox.Show("Regular Payable updated successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 regularPayableForm.SetUpEvents();
                 db.LoadUsersPayable();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Please fill up all fields!");
+                MessageBox.Show("Please fill up all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }

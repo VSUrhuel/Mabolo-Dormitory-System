@@ -53,6 +53,21 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 MessageBox.Show("Please input all fields");
                 return;
             }
+            try
+            {
+                float.Parse(amountText.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a valid number for the amount fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if(float.Parse(amountText.Text) < 0)
+            {
+                MessageBox.Show("Please enter a valid number for the amount fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             int index;
             if(db.GetAllPayment().Count == 0)
             {

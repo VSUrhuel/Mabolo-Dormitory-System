@@ -12,13 +12,14 @@ using System.Windows.Forms;
 
 namespace Mabolo_Dormitory_System.GUI___Event
 {
-    public partial class DeleteForm : Form
+    public partial class deleteEventButton : Form
     {
         private DatabaseManager db;
         private Point lastLocation;
         private bool mouseDown;
         private EventTab evenTab;
-        public DeleteForm(EventTab eventTab)
+        
+        public deleteEventButton(EventTab eventTab)
         {
             this.evenTab = eventTab;
             this.db = new DatabaseManager();
@@ -29,27 +30,27 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
         }
 
-        private void deleteDeletEventButton_Click(object sender, EventArgs e)
+        private void deleteEventButton_Click(object sender, EventArgs e)
         {
             if(comboBox1.Text == null || comboBox1.Text == "")
             {
-                MessageBox.Show("Please select an event to delete.");
+                MessageBox.Show("Please select an event to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this event?", "Delete Event", messageBoxButtons);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this event?", "Delete Event", messageBoxButtons, MessageBoxIcon.Question);
             String eventId = comboBox1.Text.Split(':')[0];
             int id = Int32.Parse(eventId.Split()[1]);
             if(dialogResult == DialogResult.Yes)
             {
                 db.DeleteEvent(id);
-                MessageBox.Show("Event deleted successfully!");
+                MessageBox.Show("Event deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 evenTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Event deletion cancelled.");
+                MessageBox.Show("Event deletion cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -79,11 +80,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
         private void cancelDeleteEventButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

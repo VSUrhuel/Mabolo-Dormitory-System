@@ -36,7 +36,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             // Validate the fields
             if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data2.Text, data3.Text, data4.Text, data9.Text, data10.Text }) == false)
             {
-                MessageBox.Show("Please fill up all fields!");
+                MessageBox.Show("Please fill up all fields!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -47,13 +47,19 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
             catch (Exception)
             {
-                MessageBox.Show("Please enter a valid number for the amount fields.");
+                MessageBox.Show("Please enter a valid number for the amount fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if(dateTimePicker1.Value.Date < DateTime.Now.Date.AddMinutes(5))
             { 
-                MessageBox.Show("You cannot enter a date from the past.");
+                MessageBox.Show("You cannot enter a date from the past.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (float.Parse(data9.Text) < 0 || float.Parse(data10.Text) < 0)
+            {
+                MessageBox.Show("Please enter a valid number for the amount fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -65,12 +71,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
             Event x = new Event(index, data2.Text, date, time, data3.Text, data4.Text, hasPayables, float.Parse(data9.Text.ToString()), float.Parse(data10.Text));
             if(db.AddEvent(x))
             {
-                MessageBox.Show("Event added successfully!");
+                MessageBox.Show("Event added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EventTab.refreshBut_Click(sender, e);
                 this.Dispose();
             }
             else
-                MessageBox.Show("An error occured while adding the event. Please try again.");
+                MessageBox.Show("An error occured while adding the event. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)

@@ -36,7 +36,7 @@ namespace Mabolo_Dormitory_System
             List<User> users = db.GetAllUsers();
             int count = db.GetMonthlyEvent().Count;
             eventCount.Text = db.GetAllEvents().Count.ToString();
-
+            
             // Update Picature
             pictureUser.Image = null;
             byte[] imageData = db.GetAccount(email).ImageData;
