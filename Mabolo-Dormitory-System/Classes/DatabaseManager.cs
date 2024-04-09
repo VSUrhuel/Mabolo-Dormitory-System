@@ -625,11 +625,12 @@ namespace Mabolo_Dormitory_System.Classes
         public List<RoomAllocation> GetAllRoomAllocations()
         {
             RoomAllocations.Clear();
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room_allocation", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room_allocation", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -641,33 +642,47 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return RoomAllocations;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving room allocations");
+                    MessageBox.Show("There was an error while retrieving room allocations: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }            
             }
             return null;
         }
       
         public bool DeleteUserRoomAllocation(String userId)
         {
-            if (UserAllocated(userId) && EstablishConnection())
+            if(!UserAllocated(userId))
             {
+                MessageBox.Show(userId + " does not have a room yet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
                 try
                 {
                     Room r = GetUserRoom(userId);
                     r.DecreaseOccupants(1);
                     UpdateRoomSize(r.RoomId, r.CurrNumOfOccupants);
-                    using (MySqlCommand command = new MySqlCommand("DELETE FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation", Connection))
+                    using (MySqlCommand command = new MySqlCommand("DELETE FROM system.room_allocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation", connection))
                     {
                         command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
                         command.ExecuteNonQuery();
                     }
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while deleting user's room allocation");
+                    MessageBox.Show("There was an error while deleting user's room allocation: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -687,11 +702,12 @@ namespace Mabolo_Dormitory_System.Classes
         // Rooms
         public Room GetRoom(int roomId)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room WHERE RoomId = @RoomId", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room WHERE RoomId = @RoomId", connection))
                     {
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -705,10 +721,14 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving room");
+                    MessageBox.Show("There was an error while retrieving room: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }            
             }
             return null;
         }
@@ -716,11 +736,12 @@ namespace Mabolo_Dormitory_System.Classes
         public List<Room> GetAllRooms()
         {
             Rooms.Clear();
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room", Connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.room", connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -732,9 +753,13 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return Rooms;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving rooms");
+                    MessageBox.Show("There was an error while retrieving rooms: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return null;
@@ -742,13 +767,14 @@ namespace Mabolo_Dormitory_System.Classes
         
         public List<User> GetUsersInRoom(int roomId)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     Users.Clear();
                     String sql = "SELECT* FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId;";
-                    using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -761,43 +787,53 @@ namespace Mabolo_Dormitory_System.Classes
                     }
                     return Users;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving users in room");
+                    MessageBox.Show("There was an error while retrieving users in room: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                }             
             }
             return null;
         }
         
         public void UpdateRoomSize(int roomId, int n)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String query = "UPDATE system.room SET CurrNumOfOccupants = @n WHERE RoomId = @RoomId";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         command.Parameters.AddWithValue("@n", n);
                         command.ExecuteNonQuery();
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating room size");
+                    MessageBox.Show("There was an error while updating room size: " + ex.Message);
                 }
+                finally
+                {
+                    connection.Close();
+                } 
             }
         }
       
         public bool RoomHasBigBrod(int roomId)
         {
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String sql = "SELECT * FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = 'Big Brod';";
-                    using (MySqlCommand command = new MySqlCommand(sql, Connection))
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -809,9 +845,13 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while checking if room has Big Brod");
+                    MessageBox.Show("There was an error while checking if room has Big Brod: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -819,12 +859,13 @@ namespace Mabolo_Dormitory_System.Classes
         
         public int CountBigBrod(int roomId)
         {
-            if(EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String query = "SELECT * FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = 'Big Brod';";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -838,9 +879,13 @@ namespace Mabolo_Dormitory_System.Classes
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while counting Big Brods");
+                    MessageBox.Show("There was an error while counting Big Brods: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return -1;
@@ -854,24 +899,28 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentException("User does not exist");
             if (UserAllocated(userId))
             {
-                MessageBox.Show(userId + " already had a room.\nClick the edit button if you want to change its room.");
+                MessageBox.Show(userId + " already had a room.\nClick the edit button if you want to change its room.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             Rooms = GetAllRooms();
             if (!Rooms[roomId - 1].CanIncreaseOccupancy(1) || UserAllocated(userId))
             {
-                MessageBox.Show("Room is full.");
+                MessageBox.Show("Room is already full.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (EstablishConnection())
+
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 { 
                     string query = "INSERT INTO system.room_allocation(RoomAllocationId, StartDate, EndDate, FK_RoomId_RoomAllocation, FK_UserId_RoomAllocation) VALUES (@RoomAllocationId, @StartDate, @EndDate, @FK_RoomId_RoomAllocation, @FK_UserId_RoomAllocation)";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         List<RoomAllocation> ra = GetAllRoomAllocations();
-                        int index = ra[ra.Count - 1].RoomAllocationId + 1;
+                        int index = 1;
+                        if (ra.Count != 0)
+                            index = ra[ra.Count - 1].RoomAllocationId + 1;
                         command.Parameters.AddWithValue("@RoomAllocationId", index);
                         command.Parameters.AddWithValue("@StartDate", DateTime.Now);
                         command.Parameters.AddWithValue("@EndDate", DateTime.Now.AddMonths(1));
@@ -883,9 +932,13 @@ namespace Mabolo_Dormitory_System.Classes
                         return true;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while adding user in room");
+                    MessageBox.Show("There was an error while adding user in room: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return false;
@@ -898,31 +951,32 @@ namespace Mabolo_Dormitory_System.Classes
             Rooms = GetAllRooms();
             if (!Rooms[newRoomId - 1].CanIncreaseOccupancy(1))
             {
-                MessageBox.Show("Room is already full");
+                MessageBox.Show("Room is already full", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if(!UserAllocated(userId))
             {
-                MessageBox.Show(userId + " does not have a room yet.");
+                MessageBox.Show(userId + " does not have a room yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(CountBigBrod(newRoomId) == 1 && GetUser(userId).UserType == "Big Brod" && newRoomId != 4)
             {
-                MessageBox.Show("This room already has a Big Brod assigned.");
+                MessageBox.Show("This room already has a Big Brod assigned.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if(newRoomId == 4 && CountBigBrod(newRoomId) > 1 && GetUser(userId).UserType == "Big Brod")
             {
-                MessageBox.Show("Room 4 already has 2 Big Brods.");
+                MessageBox.Show("Room 4 already has 2 Big Brods.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
-            if (EstablishConnection())
+            using (MySqlConnection connection = new MySqlConnection(con))
             {
+                connection.Open();
                 try
                 {
                     String query = "UPDATE system.room_allocation SET FK_RoomId_RoomAllocation = @FK_RoomId_RoomAllocation WHERE FK_UserId_RoomAllocation = @FK_UserId_RoomAllocation";
-                    using (MySqlCommand command = new MySqlCommand(query, Connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@FK_RoomId_RoomAllocation", newRoomId);
                         command.Parameters.AddWithValue("@FK_UserId_RoomAllocation", userId);
@@ -934,9 +988,13 @@ namespace Mabolo_Dormitory_System.Classes
                         return true;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating user's room");
+                    MessageBox.Show("There was an error while updating user's room: " + ex.Message);
+                }
+                               finally
+                {
+                    connection.Close();
                 }
             }
             return false;

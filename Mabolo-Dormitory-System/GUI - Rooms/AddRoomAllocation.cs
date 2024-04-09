@@ -35,17 +35,17 @@ namespace Mabolo_Dormitory_System
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new string[] { chooseCB.Text, userTypeCB.Text}))
             {
-                MessageBox.Show("Please fill up all fields.");
+                MessageBox.Show("Please fill up all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
             if(db.GetUser(text).UserType == "Big Brod" && db.RoomHasBigBrod(roomNUm))
             {
-                MessageBox.Show("This room already has a Big Brod assigned.");
+                MessageBox.Show("This room already has a Big Brod assigned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(db.AddUserInRoom(roomNUm, text))
-                MessageBox.Show(text + " was added in room " + roomNUm + ".");
+                MessageBox.Show(text + " was added in room " + roomNUm + ".", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
             roomTab.refreshBut_Click(sender, e);
             this.Dispose();
         }
@@ -56,7 +56,7 @@ namespace Mabolo_Dormitory_System
             List<User> users = db.GetUsersTypeWithoutRoom(text);
             if(users == null)
             {
-                MessageBox.Show("All users of this type are already assigned a room.");
+                MessageBox.Show("All users of this type has already an assigned a room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             chooseCB.Items.Clear();

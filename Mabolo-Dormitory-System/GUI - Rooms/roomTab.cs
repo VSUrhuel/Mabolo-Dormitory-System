@@ -34,6 +34,7 @@ namespace Mabolo_Dormitory_System
             SetUpTable(roomUserView, users);
 
         }
+        
         private void SetUpTable(GunaDataGridView view, List<User> users)
         {
             // Reset Table
@@ -72,7 +73,7 @@ namespace Mabolo_Dormitory_System
             comboBoxColumn.HeaderText = "Action";
             comboBoxColumn.ValueType = typeof(String);
             view.Columns.Add(comboBoxColumn);
-            view.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dataGridView1_EditingControlShowing);
+            view.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(roomUserView_EditingControlShowing);
             
             // Add Data to Table
             foreach (DataGridViewColumn column in view.Columns)
@@ -86,7 +87,7 @@ namespace Mabolo_Dormitory_System
             }
         }
 
-        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void roomUserView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             ComboBox combo = e.Control as ComboBox;
             if (combo != null)
@@ -146,16 +147,16 @@ namespace Mabolo_Dormitory_System
           
         }
 
-        private void add1_Click(object sender, EventArgs e)
+        private void addRoomAlloc_Click(object sender, EventArgs e)
         {
             if(roomNum == 0)
             {
-                MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
+                MessageBox.Show("No room selected.\nPlease choose one before proceeding.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if(!db.GetRoom(roomNum).CanIncreaseOccupancy(1))
             { 
-                MessageBox.Show("Maximum room capacity reached.\nPlease try another room.");
+                MessageBox.Show("Maximum room capacity reached.\nPlease try another room.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
  
@@ -180,7 +181,7 @@ namespace Mabolo_Dormitory_System
                 if (row.Cells["Column1"].Value != null && Convert.ToBoolean(row.Cells["Column1"].Value))
                 {
                     hasChecked = true;
-                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Remove user from room?", "Delete", messageBoxButtons);
+                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Remove user from room?", "Delete", messageBoxButtons, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         isChecked = true;
@@ -193,13 +194,13 @@ namespace Mabolo_Dormitory_System
             }
             if (!hasChecked)
             {
-                MessageBox.Show("No rows selected for deletion.");
+                MessageBox.Show("No rows selected for deletion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!isChecked)
-                MessageBox.Show("Deletion cancelled.");
+                MessageBox.Show("Deletion cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Selected row(s) deleted successfully");
+                MessageBox.Show("Selected row(s) deleted successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 
@@ -220,7 +221,12 @@ namespace Mabolo_Dormitory_System
         {
             if(roomNum == 0)
             {
-                MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
+                MessageBox.Show("No room selected.\nPlease choose one before proceeding.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if(db.GetUsersInRoom(roomNum).Count == 0)
+            {
+                MessageBox.Show("No users in room. Cannot proceed.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             var EditForm = new RoomReallocation(roomNum, this);
@@ -233,13 +239,13 @@ namespace Mabolo_Dormitory_System
         {
             if(roomChooseCB.Text == "")
             {
-                MessageBox.Show("No room selected.\nPlease choose one before proceeding.");
+                MessageBox.Show("No room selected.\nPlease choose one before proceeding.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                
                 return;
             }
             if(roomUserView.Rows.Count == 0)
             {
-                MessageBox.Show("No users in room.");
+                MessageBox.Show("No users in room.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 return;
             }

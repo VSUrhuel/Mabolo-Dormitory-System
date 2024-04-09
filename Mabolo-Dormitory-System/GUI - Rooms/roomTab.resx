@@ -239,7 +239,7 @@
   <data name="editButton.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACIWSURBVHhe7d0L
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACIWSURBVHhe7d0L
         sG9XXR9wEgJBQiLFglWbUUkRUEq1+BY7zGhrOy110PDSVuoDUKqllGlxKmWQphBLhyoiD4tYsEii9UUx
         YCkUHeu0HVsFTRUDJDogYAl0SiiPPOh377su3qycm3PPOf/932ut/fnM/AaFe89Ze+813+/6///n3nsX
         AFjaJz/5yftmvirzhMwVmaszb8n8Zua6zHsyH8pMPpq5MfPOzNsy/zVzTebFmadl/mbmgZm7ly8PAKwt
@@ -388,7 +388,7 @@
         madnvixz1/JbAYCm3OUu/x+ctUnd0yIZGwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="add1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="addRoomAlloc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADmzSURBVHhe7d0H
@@ -641,7 +641,7 @@
         /h85c4P23WbDPgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="add1.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="addRoomAlloc.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEFESURBVHhe7d0H

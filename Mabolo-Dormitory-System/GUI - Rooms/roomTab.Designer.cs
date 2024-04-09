@@ -35,7 +35,7 @@
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
             this.editButton = new Guna.UI.WinForms.GunaButton();
-            this.add1 = new Guna.UI.WinForms.GunaButton();
+            this.addRoomAlloc = new Guna.UI.WinForms.GunaButton();
             this.delBut = new Guna.UI.WinForms.GunaButton();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
             this.roomUserView = new Guna.UI.WinForms.GunaDataGridView();
@@ -52,7 +52,7 @@
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.White;
             this.gunaElipsePanel1.Controls.Add(this.selectAllCB);
             this.gunaElipsePanel1.Controls.Add(this.editButton);
-            this.gunaElipsePanel1.Controls.Add(this.add1);
+            this.gunaElipsePanel1.Controls.Add(this.addRoomAlloc);
             this.gunaElipsePanel1.Controls.Add(this.delBut);
             this.gunaElipsePanel1.Controls.Add(this.refreshBut);
             this.gunaElipsePanel1.Controls.Add(this.roomUserView);
@@ -103,30 +103,30 @@
             this.editButton.Text = "Refresh";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // add1
+            // addRoomAlloc
             // 
-            this.add1.AnimationHoverSpeed = 0.07F;
-            this.add1.AnimationSpeed = 0.03F;
-            this.add1.BackColor = System.Drawing.Color.Transparent;
-            this.add1.BaseColor = System.Drawing.Color.Transparent;
-            this.add1.BorderColor = System.Drawing.Color.Transparent;
-            this.add1.BorderSize = 1;
-            this.add1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.add1.Image = ((System.Drawing.Image)(resources.GetObject("add1.Image")));
-            this.add1.ImageSize = new System.Drawing.Size(20, 20);
-            this.add1.Location = new System.Drawing.Point(1134, 43);
-            this.add1.Name = "add1";
-            this.add1.OnHoverBaseColor = System.Drawing.Color.Black;
-            this.add1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.add1.OnHoverForeColor = System.Drawing.Color.White;
-            this.add1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("add1.OnHoverImage")));
-            this.add1.OnPressedColor = System.Drawing.Color.Black;
-            this.add1.Radius = 9;
-            this.add1.Size = new System.Drawing.Size(39, 36);
-            this.add1.TabIndex = 16;
-            this.add1.Text = "Refresh";
-            this.add1.Click += new System.EventHandler(this.add1_Click);
+            this.addRoomAlloc.AnimationHoverSpeed = 0.07F;
+            this.addRoomAlloc.AnimationSpeed = 0.03F;
+            this.addRoomAlloc.BackColor = System.Drawing.Color.Transparent;
+            this.addRoomAlloc.BaseColor = System.Drawing.Color.Transparent;
+            this.addRoomAlloc.BorderColor = System.Drawing.Color.Transparent;
+            this.addRoomAlloc.BorderSize = 1;
+            this.addRoomAlloc.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addRoomAlloc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addRoomAlloc.Image = ((System.Drawing.Image)(resources.GetObject("addRoomAlloc.Image")));
+            this.addRoomAlloc.ImageSize = new System.Drawing.Size(20, 20);
+            this.addRoomAlloc.Location = new System.Drawing.Point(1134, 43);
+            this.addRoomAlloc.Name = "addRoomAlloc";
+            this.addRoomAlloc.OnHoverBaseColor = System.Drawing.Color.Black;
+            this.addRoomAlloc.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.addRoomAlloc.OnHoverForeColor = System.Drawing.Color.White;
+            this.addRoomAlloc.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addRoomAlloc.OnHoverImage")));
+            this.addRoomAlloc.OnPressedColor = System.Drawing.Color.Black;
+            this.addRoomAlloc.Radius = 9;
+            this.addRoomAlloc.Size = new System.Drawing.Size(39, 36);
+            this.addRoomAlloc.TabIndex = 16;
+            this.addRoomAlloc.Text = "Refresh";
+            this.addRoomAlloc.Click += new System.EventHandler(this.addRoomAlloc_Click);
             // 
             // delBut
             // 
@@ -301,7 +301,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaDataGridView roomUserView;
         private Guna.UI.WinForms.GunaButton refreshBut;
-        private Guna.UI.WinForms.GunaButton add1;
+        private Guna.UI.WinForms.GunaButton addRoomAlloc;
         private Guna.UI.WinForms.GunaButton delBut;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private Guna.UI.WinForms.GunaButton editButton;

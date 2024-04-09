@@ -47,15 +47,15 @@ namespace Mabolo_Dormitory_System
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new string[] { roomChooseCB.Text, chooseCB.Text}))
             {
-                MessageBox.Show("Please fill up all fields.");
+                MessageBox.Show("Please fill up all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int newRoom = Convert.ToInt32(roomChooseCB.SelectedItem.ToString().Split(' ')[1]);
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
             if(db.UpdateUserRoom(roomNum, newRoom, text))
-                MessageBox.Show(text + " was moved to room " + newRoom + ".");
+                MessageBox.Show(text + " was moved to room " + newRoom + ".", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("An error occured. Please try again.");
+                MessageBox.Show("An error occured. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             roomTab.refreshBut_Click(sender, e);
             this.Dispose();
         }
