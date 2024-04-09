@@ -114,17 +114,18 @@ namespace Mabolo_Dormitory_System
                 }
                 else if(cb.SelectedItem.ToString() == "Delete")
                 {
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show("Confirmation Required: Deleting " + users[i].FirstName + " " + users[i].LastName + "'s information is irreversible? Proceed?", "Confirmation", buttons);
-                    if(result == DialogResult.Yes)
+                    DialogResult result = MessageBox.Show("Do you want to delete " + users[i].FirstName + " " + users[i].LastName + "" +
+                        "'s Information?\nThis action is irreversible.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show(users[i].FirstName + " " + users[i].LastName + "'s information was Deleted");
+                        MessageBox.Show(users[i].FirstName + " " + users[i].LastName + "'s information was sucesfully deleted.", "Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         db.DeleteUser(users[i].UserId);
                         RefreshTable(users);
+                        refreshButtton_Click(sender, e);
                     }
                     else
                     {
-                        MessageBox.Show("Deletion was cancelled");
+                        MessageBox.Show("Deletion was cancelled", "Deletion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }   
             }
@@ -203,7 +204,7 @@ namespace Mabolo_Dormitory_System
                 }
                 if(users.Count == 0)
                 {
-                    MessageBox.Show("No " + userType + " was found");
+                    MessageBox.Show("No " + userType + " was Found", "Information", MessageBoxButtons.OK ,MessageBoxIcon.Information);
                     users = db.GetAllUsers();
                     RefreshTable(users);
                 }
@@ -226,7 +227,7 @@ namespace Mabolo_Dormitory_System
         {
             if(searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid User ID to search");
+                MessageBox.Show("Please enter a valid User ID to search", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 searchBar.Text = "";
                 return;
             }
@@ -243,7 +244,7 @@ namespace Mabolo_Dormitory_System
             }
             if(users.Count == 0)
             {
-                MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found");
+                MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 users = db.GetAllUsers();
             }
             RefreshTable(users);
@@ -261,7 +262,7 @@ namespace Mabolo_Dormitory_System
         {
             if(dormerTableView.Rows.Count == 0)
             {
-                MessageBox.Show("No rows to select");
+                MessageBox.Show("No rows to select", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (selectAllCheckBox.Checked)
@@ -284,7 +285,6 @@ namespace Mabolo_Dormitory_System
 
         private void deleteButtoon_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
             bool isChecked = false, hasChecked = false;
             int i = 0;
             foreach (DataGridViewRow row in dormerTableView.Rows)
@@ -294,7 +294,7 @@ namespace Mabolo_Dormitory_System
                     hasChecked = true;
                     if(i == 0)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Confirmation required: Deleting selected rows are irreversible. Proceed?", "Delete", messageBoxButtons);
+                        DialogResult dialogResult = MessageBox.Show("Do you want to delete the selected rows?\nThis action is irreversible.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (dialogResult == DialogResult.Yes)
                         {
                             isChecked = true;
@@ -313,13 +313,13 @@ namespace Mabolo_Dormitory_System
             }
             if(!hasChecked)
             {
-                MessageBox.Show("No rows selected for deletion.");
+                MessageBox.Show("No rows selected for deletion.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (!isChecked)
-                MessageBox.Show("No rows selected for deletion.");
+                MessageBox.Show("No rows selected for deletion.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Selected rows deleted successfully");
+                MessageBox.Show("Selected rows deleted successfully", "Sucessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             refreshButtton_Click(sender, e);
         }
 
@@ -327,12 +327,12 @@ namespace Mabolo_Dormitory_System
         {
             if(viewCountCB.Text == "")
             {
-                MessageBox.Show("Please select the number of items to display");
+                MessageBox.Show("Please select the number of items to display", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
             {
-                MessageBox.Show("You are already at the last page");
+                MessageBox.Show("You are already at the last page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
@@ -349,7 +349,7 @@ namespace Mabolo_Dormitory_System
         {
             if (Convert.ToInt32(count.Text) == 1)
             {
-                MessageBox.Show("You are already at the first page");
+                MessageBox.Show("You are already at the first page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (Convert.ToInt32(count.Text) > 1)

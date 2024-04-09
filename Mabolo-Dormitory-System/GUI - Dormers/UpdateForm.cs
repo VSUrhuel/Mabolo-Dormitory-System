@@ -44,8 +44,8 @@ namespace Mabolo_Dormitory_System
             data7.Text = user.Address;
 
             // Set the status and type of the dormer
-            dormerStatusCB.Items.Add("active");
-            dormerStatusCB.Items.Add("inactive");
+            dormerStatusCB.Items.Add("Active");
+            dormerStatusCB.Items.Add("Inactive");
             
             dormerTypeCB.Items.Add("Regular Dormer");
             dormerTypeCB.Items.Add("Big Brod");
@@ -88,22 +88,22 @@ namespace Mabolo_Dormitory_System
             // Validate the fields
             if(ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, dateTimePicker1.Value.ToString(), data5.Text, data6.Text, data7.Text }) == false)
             {
-                MessageBox.Show("Please fill up all fields!");
+                MessageBox.Show("Please fill up all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(ValidationClass.ValidateEmail(data5.Text) == false)
             {
-                MessageBox.Show("Invalid Email!");
+                MessageBox.Show("Invalid Email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(ValidationClass.ValidatePhoneNumber(data6.Text) == false)
             {
-                MessageBox.Show("Invalid Phone Number!");
+                MessageBox.Show("Invalid Phone Number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(ValidationClass.ValidateDateValid(dateTimePicker1.Value) == false)
+            if(dateTimePicker1.Value > DateTime.Now)
             {
-                MessageBox.Show("Birthdate Should be in the Past.!");
+                MessageBox.Show("Birthdate Should be in the Past!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -112,15 +112,15 @@ namespace Mabolo_Dormitory_System
             string message = "Update " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            if(MessageBox.Show(message, title, buttons) == DialogResult.Yes)
+            if(MessageBox.Show(message, title, buttons, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 db.UpdateUser(newDormer);
-                MessageBox.Show("Update Successful!");
+                MessageBox.Show("Update Successful!\nClick the refresh button, to load the updates.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Update Cancelled!");
+                MessageBox.Show("Update Cancelled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
             

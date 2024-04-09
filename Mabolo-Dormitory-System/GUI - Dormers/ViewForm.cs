@@ -46,7 +46,7 @@ namespace Mabolo_Dormitory_System
             data13.Text = (DateTime.Now.Year - user.Birthday.Year).ToString();
         }
 
-        private void closeDormerInfoButton_Click_1(object sender, EventArgs e)
+        private void closeDormerInfoButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

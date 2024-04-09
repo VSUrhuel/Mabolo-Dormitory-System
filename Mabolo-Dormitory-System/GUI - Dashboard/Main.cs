@@ -49,9 +49,13 @@ namespace Mabolo_Dormitory_System
                 eventDescription.Text = "There is one event this month";
             else
                 eventDescription.Text = "There are " + count + " events this month";
-            
+
             // Room Count Panel
-            dormerCountLabel.Text = (Convert.ToInt16(users.Count - 2)).ToString();
+            int x = (Convert.ToInt16(users.Count - countAdminUsers()));
+            if (x < 0)
+                dormerCountLabel.Text = "0";
+            else
+                dormerCountLabel.Text = x.ToString();
             if (dormerCountLabel.Text == "60")
             {
                 roomDescription.Text = "Rooms are all occupied";
@@ -86,6 +90,21 @@ namespace Mabolo_Dormitory_System
             }
         }
 
+        private int countAdminUsers()
+        {
+            int ctr = 0;
+            List<User> users = new List<User>();
+            users = db.GetAllUsers();
+            foreach(User u in users)
+            {
+                if(u.UserType == "Dormitory Adviser" || u.UserType == "Assistant Dormitory Adviser")
+                {
+                    ctr++;
+                }
+            }
+            return ctr;
+        }
+        
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -162,12 +181,23 @@ namespace Mabolo_Dormitory_System
         private bool verifyUsers()
         {
             List<User> u = db.GetAllUsers();
-            if (u.Count == 0 || !db.UserHasDormer(u))
+            if (u.Count == 0 || !UserHasDormer(u))
             {
                 MessageBox.Show("No dormers yet. Please input dormer that is not an Adviser or Assistant Adviser.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
+        }
+
+        private bool UserHasDormer(List<User> u)
+        {
+            List<User> uses = u;
+            foreach(User user in uses)
+            {
+                if(user.UserType == "Regular Dormer" || user.UserType == "Big Brod" || user.UserType == "Student Assistant")
+                    return true;
+            }
+            return false;
         }
     }
 }

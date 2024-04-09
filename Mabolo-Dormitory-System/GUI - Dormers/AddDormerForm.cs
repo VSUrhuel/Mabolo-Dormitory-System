@@ -27,8 +27,8 @@ namespace Mabolo_Dormitory_System
             InitializeComponent();
 
             // Add the items to the comboboxes
-            dormerStatusCB.Items.Add("active");
-            dormerStatusCB.Items.Add("inactive");
+            dormerStatusCB.Items.Add("Active");
+            dormerStatusCB.Items.Add("Inactive");
 
             dormerTypeCB.Items.Add("Regular Dormer");
             dormerTypeCB.Items.Add("Big Brod");
@@ -60,27 +60,27 @@ namespace Mabolo_Dormitory_System
             // Validate the fields
             if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, data6.Text, data7.Text }) == false)
             {
-                MessageBox.Show("Please fill up all fields!");
+                MessageBox.Show("Please fill up all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (ValidationClass.ValidateEmail(data5.Text) == false)
             {
-                MessageBox.Show("Invalid Email!");
+                MessageBox.Show("Invalid Email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (ValidationClass.ValidatePhoneNumber(data6.Text) == false)
             {
-                MessageBox.Show("Invalid Phone Number!");
+                MessageBox.Show("Invalid Phone Number!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (ValidationClass.ValidateDateValid(dateTimePicker1.Value) == false)
+            if (dateTimePicker1.Value > DateTime.Now)
             {
-                MessageBox.Show("Birthdate Should be in the Past.!");
+                MessageBox.Show("Birthdate Should be in the Past.!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(db.UserExists(data1.Text))
             {
-                MessageBox.Show("User ID already exist!");
+                MessageBox.Show("User ID already exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Add the dormer
@@ -90,16 +90,16 @@ namespace Mabolo_Dormitory_System
             string title = "Confirmation";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
 
-            if (MessageBox.Show(message, title, buttons) == DialogResult.Yes)
+            if (MessageBox.Show(message, title, buttons, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 db.AddUser(newDormer);
-                MessageBox.Show("Sucesfully Added");
+                MessageBox.Show("Sucesfully Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dormersTab.refreshButtton_Click(sender, e);
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Cancelled!");
+                MessageBox.Show("Cancelled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dormersTab.refreshButtton_Click(sender, e);
                 this.Dispose();
             }

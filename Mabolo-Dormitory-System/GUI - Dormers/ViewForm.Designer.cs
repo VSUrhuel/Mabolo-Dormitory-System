@@ -453,7 +453,7 @@
             this.closeDormerInfoButton.TabIndex = 119;
             this.closeDormerInfoButton.Text = "Close";
             this.closeDormerInfoButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.closeDormerInfoButton.Click += new System.EventHandler(this.closeDormerInfoButton_Click_1);
+            this.closeDormerInfoButton.Click += new System.EventHandler(this.closeDormerInfoButton_Click);
             // 
             // gunaButton2
             // 
