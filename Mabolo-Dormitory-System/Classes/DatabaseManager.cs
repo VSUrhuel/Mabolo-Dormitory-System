@@ -1776,7 +1776,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
             }
         }
-
+       
         public bool UserPaymentExists(String userId)
         {
             Payments = GetAllPayment();
@@ -2261,6 +2261,28 @@ namespace Mabolo_Dormitory_System.Classes
                 }
             }
         }
+
+        public float GetAllSumPresentAttendances()
+        {
+            try
+            {
+                float sum = 0;
+                EventAttendances.Clear();
+                EventAttendances = GetEventAttendances();
+                foreach(EventAttendance ea in EventAttendances)
+                {
+                    if (ea.AttendanceStatus == "Present")
+                    {
+                        sum += GetEvent(ea.FK_EventId_EventAttendance).AttendanceFineAmount;
+                    }
+                }
+                return sum;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
         
         public void LoadUsersPayable()
         {
@@ -2326,8 +2348,17 @@ namespace Mabolo_Dormitory_System.Classes
                 try
                 {
                     string query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    float balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId); 
-
+                    float balance = 0;
+                    if(GetUserPayableBalance(userId) == 0)
+                    {
+                        balance = GetRegularPayables()[GetRegularPayables().Count-1].Amount * 5;
+                    }
+                    else
+                    {
+                        balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId);
+                    }
+                    if (balance < 0)
+                        balance = 0;
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RemainingBalance", balance);

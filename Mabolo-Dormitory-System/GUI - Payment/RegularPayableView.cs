@@ -30,7 +30,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            if(gunaTextBox1 != null && gunaTextBox2 != null) 
+            if(gunaTextBox1.Text != "" && gunaTextBox2.Text != "") 
             {
                 try
                 {

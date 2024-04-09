@@ -253,6 +253,7 @@
             this.gunaAdvenceButton1.TabIndex = 20;
             this.gunaAdvenceButton1.Text = "Click to Edit";
             this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaAdvenceButton1.Click += new System.EventHandler(this.gunaAdvenceButton1_Click);
             // 
             // label1
             // 

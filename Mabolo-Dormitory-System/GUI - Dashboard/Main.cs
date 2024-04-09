@@ -73,7 +73,7 @@ namespace Mabolo_Dormitory_System
             int userCount = db.GetAllUsersExcpetAdmin().Count;
    
             int totalPayableAndEvents = (regularPayable + totalEvents) * userCount;
-            int remainingBalance = totalPayableAndEvents - Convert.ToInt32(db.GetSumRemainingBalance());
+            int remainingBalance = totalPayableAndEvents - Convert.ToInt32(db.GetSumRemainingBalance()) - Convert.ToInt32(db.GetAllSumPresentAttendances());
             int number = Convert.ToInt32(totalPayableAndEvents - remainingBalance);
 
             if (number < 1000)

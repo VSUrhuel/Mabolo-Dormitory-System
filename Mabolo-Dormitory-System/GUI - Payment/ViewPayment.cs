@@ -27,7 +27,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             label2.Text = u.FirstName;
             label3.Text = u.LastName;
             label4.Text = "₱ " + db.GetUserPayableBalance(u.UserId).ToString("N2");
-            label6.Text = "₱ " + (((Convert.ToDouble(db.GetSumEvents()) + db.GetSumRegularPayable()*5) - db.GetUserPayableBalance(u.UserId)).ToString("N2"));
+            label6.Text = "₱ " + (((Convert.ToDouble(db.GetSumEvents()) + db.GetSumRegularPayable()*5) - db.GetUserPayableBalance(u.UserId) - db.GetSumPresentAttendances(u.UserId)).ToString("N2"));
             label5.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             SetupTable();
         }

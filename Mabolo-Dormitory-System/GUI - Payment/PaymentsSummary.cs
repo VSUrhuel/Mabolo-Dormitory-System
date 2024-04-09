@@ -22,10 +22,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             this.paymentList = new List<Payment>();
             this.db = new DatabaseManager();
             InitializeComponent();
-            float total = ((db.GetSumEvents() + db.GetSumRegularPayable() * 5) *db.GetAllUsersExcpetAdmin().Count);
-            float remainingBalance = db.GetSumRemainingBalance();   
-            
-            float received = total - db.GetSumRemainingBalance();
+            float total = ((db.GetSumEvents() + db.GetSumRegularPayable() * 5) * db.GetAllUsersExcpetAdmin().Count);
+
+            float remainingBalance = db.GetSumRemainingBalance();
+           
+            float received = total - db.GetSumRemainingBalance() - db.GetAllSumPresentAttendances();
             receivedAmount.Text = "₱ " + (received.ToString("N2"));
             pendingCollectibles.Text = "₱ " + (total - received).ToString("N2");
             SetUpTable();
