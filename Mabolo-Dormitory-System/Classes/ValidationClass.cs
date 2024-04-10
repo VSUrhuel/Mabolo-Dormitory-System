@@ -35,24 +35,7 @@ namespace Mabolo_Dormitory_System.Classes
                 return true;
             return false;
         }
-        public static bool ValidateDate(DateTime date)
-        {
-            try
-            {
-                DateTime.Parse(date.ToString());
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-        public static bool ValidateDateValid(DateTime date)
-        {
-            if (date > DateTime.Now)
-                return false;
-            return true;
-        }
+        
         public static bool ValidatePhoneNumber(String phoneNumber)
         {
             try

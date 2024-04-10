@@ -51,7 +51,7 @@
             this.closeViewButton.ForeColor = System.Drawing.Color.White;
             this.closeViewButton.Image = null;
             this.closeViewButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.closeViewButton.Location = new System.Drawing.Point(415, 243);
+            this.closeViewButton.Location = new System.Drawing.Point(406, 228);
             this.closeViewButton.Name = "closeViewButton";
             this.closeViewButton.OnHoverBaseColor = System.Drawing.Color.Red;
             this.closeViewButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -59,7 +59,7 @@
             this.closeViewButton.OnHoverImage = null;
             this.closeViewButton.OnPressedColor = System.Drawing.Color.Black;
             this.closeViewButton.Radius = 10;
-            this.closeViewButton.Size = new System.Drawing.Size(103, 33);
+            this.closeViewButton.Size = new System.Drawing.Size(112, 40);
             this.closeViewButton.TabIndex = 82;
             this.closeViewButton.Text = "Close";
             this.closeViewButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -75,7 +75,7 @@
             this.updatePassButton.ForeColor = System.Drawing.Color.White;
             this.updatePassButton.Image = null;
             this.updatePassButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.updatePassButton.Location = new System.Drawing.Point(297, 243);
+            this.updatePassButton.Location = new System.Drawing.Point(274, 228);
             this.updatePassButton.Name = "updatePassButton";
             this.updatePassButton.OnHoverBaseColor = System.Drawing.Color.ForestGreen;
             this.updatePassButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -83,7 +83,7 @@
             this.updatePassButton.OnHoverImage = null;
             this.updatePassButton.OnPressedColor = System.Drawing.Color.Black;
             this.updatePassButton.Radius = 10;
-            this.updatePassButton.Size = new System.Drawing.Size(103, 33);
+            this.updatePassButton.Size = new System.Drawing.Size(119, 40);
             this.updatePassButton.TabIndex = 81;
             this.updatePassButton.Text = "Update";
             this.updatePassButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -101,7 +101,6 @@
             this.passwordText.PasswordChar = '\0';
             this.passwordText.Size = new System.Drawing.Size(379, 35);
             this.passwordText.TabIndex = 80;
-            
             this.passwordText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordText_MouseClick);
             // 
             // gunaLabel2

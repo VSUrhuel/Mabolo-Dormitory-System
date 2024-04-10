@@ -555,9 +555,9 @@
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(28, 15);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(257, 19);
+            this.label20.Size = new System.Drawing.Size(266, 19);
             this.label20.TabIndex = 13;
-            this.label20.Text = "A.Y. 2023-2024 | 1st Semester";
+            this.label20.Text = "A.Y. 2023-2024 | 2nd Semester";
             // 
             // label17
             // 

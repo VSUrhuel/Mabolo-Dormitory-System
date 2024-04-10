@@ -335,7 +335,6 @@
     <Compile Include="GUI - Rooms\roomTab.Designer.cs">
       <DependentUpon>roomTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Unit Test Classes\TestDatabaseManager.cs" />
     <Compile Include="Unit Test Classes\TestDepartment.cs" />
     <Compile Include="Unit Test Classes\TestEvent.cs" />
     <Compile Include="Unit Test Classes\TestEventAttendance.cs" />
