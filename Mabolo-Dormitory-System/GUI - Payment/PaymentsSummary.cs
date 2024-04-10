@@ -54,13 +54,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             foreach(Payment p in paymentList)
             {
                 dormerTableView.Rows.Add(p.FK_UserId_Payment, db.GetUser(p.FK_UserId_Payment).LastName,p.PaymentDate.ToString("MMMM dd, yyyy"), p.Amount, p.Remarks);
-            }
-            
-        }
-
-        private void gunaLabel4_Click(object sender, EventArgs e)
-        {
-
+            }   
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)
@@ -73,7 +67,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             mouseDown = true;
             lastLocation = e.Location;
         }
-
+         
         private void UpdateForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -88,16 +82,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
-
-        private void gunaLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

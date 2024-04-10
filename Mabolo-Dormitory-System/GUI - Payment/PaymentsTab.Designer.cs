@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentsTab));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.searchBut = new Guna.UI.WinForms.GunaButton();
             this.searchBar = new Guna.UI.WinForms.GunaLineTextBox();
@@ -50,11 +50,11 @@
             this.count = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.over = new Guna.UI.WinForms.GunaLabel();
-            this.gunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
-            this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
+            this.prevPage = new Guna.UI.WinForms.GunaImageButton();
+            this.nextPage = new Guna.UI.WinForms.GunaImageButton();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.addDormerButton = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.paymentsSummary = new Guna.UI.WinForms.GunaButton();
+            this.regularPayablesBut = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,21 +173,21 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
@@ -196,14 +196,14 @@
             this.RemainingBalance,
             this.Status,
             this.Action});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle6;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(53, 87);
@@ -236,7 +236,6 @@
             this.dormerTableView.ThemeStyle.RowsStyle.Height = 24;
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dormerTableView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dormerTableView_CellContentClick);
             // 
             // UserId
             // 
@@ -291,7 +290,6 @@
             this.gunaLabel4.Size = new System.Drawing.Size(73, 23);
             this.gunaLabel4.TabIndex = 25;
             this.gunaLabel4.Text = "Status:";
-            this.gunaLabel4.Click += new System.EventHandler(this.gunaLabel4_Click);
             // 
             // statusCB
             // 
@@ -314,7 +312,7 @@
             this.statusCB.Radius = 9;
             this.statusCB.Size = new System.Drawing.Size(167, 33);
             this.statusCB.TabIndex = 24;
-            this.statusCB.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
+            this.statusCB.SelectedIndexChanged += new System.EventHandler(this.statusCB_SelectedIndexChanged);
             // 
             // count
             // 
@@ -346,29 +344,29 @@
             this.over.TabIndex = 131;
             this.over.Text = "60";
             // 
-            // gunaImageButton1
+            // prevPage
             // 
-            this.gunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.Image")));
-            this.gunaImageButton1.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaImageButton1.Location = new System.Drawing.Point(1113, 610);
-            this.gunaImageButton1.Name = "gunaImageButton1";
-            this.gunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton1.OnHoverImage")));
-            this.gunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton1.Size = new System.Drawing.Size(25, 25);
-            this.gunaImageButton1.TabIndex = 133;
-            this.gunaImageButton1.Click += new System.EventHandler(this.gunaImageButton1_Click);
+            this.prevPage.Image = ((System.Drawing.Image)(resources.GetObject("prevPage.Image")));
+            this.prevPage.ImageSize = new System.Drawing.Size(25, 25);
+            this.prevPage.Location = new System.Drawing.Point(1113, 610);
+            this.prevPage.Name = "prevPage";
+            this.prevPage.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("prevPage.OnHoverImage")));
+            this.prevPage.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.prevPage.Size = new System.Drawing.Size(25, 25);
+            this.prevPage.TabIndex = 133;
+            this.prevPage.Click += new System.EventHandler(this.prevPage_Click);
             // 
-            // gunaImageButton2
+            // nextPage
             // 
-            this.gunaImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.Image")));
-            this.gunaImageButton2.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaImageButton2.Location = new System.Drawing.Point(1274, 610);
-            this.gunaImageButton2.Name = "gunaImageButton2";
-            this.gunaImageButton2.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaImageButton2.OnHoverImage")));
-            this.gunaImageButton2.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.gunaImageButton2.Size = new System.Drawing.Size(25, 25);
-            this.gunaImageButton2.TabIndex = 134;
-            this.gunaImageButton2.Click += new System.EventHandler(this.gunaImageButton2_Click);
+            this.nextPage.Image = ((System.Drawing.Image)(resources.GetObject("nextPage.Image")));
+            this.nextPage.ImageSize = new System.Drawing.Size(25, 25);
+            this.nextPage.Location = new System.Drawing.Point(1274, 610);
+            this.nextPage.Name = "nextPage";
+            this.nextPage.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("nextPage.OnHoverImage")));
+            this.nextPage.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.nextPage.Size = new System.Drawing.Size(25, 25);
+            this.nextPage.TabIndex = 134;
+            this.nextPage.Click += new System.EventHandler(this.nextPage_Click);
             // 
             // gunaLabel8
             // 
@@ -380,63 +378,63 @@
             this.gunaLabel8.TabIndex = 135;
             this.gunaLabel8.Text = "Page";
             // 
-            // addDormerButton
+            // paymentsSummary
             // 
-            this.addDormerButton.AnimationHoverSpeed = 0.07F;
-            this.addDormerButton.AnimationSpeed = 0.03F;
-            this.addDormerButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.addDormerButton.BorderColor = System.Drawing.Color.White;
-            this.addDormerButton.BorderSize = 2;
-            this.addDormerButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDormerButton.ForeColor = System.Drawing.Color.White;
-            this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
-            this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addDormerButton.Location = new System.Drawing.Point(1114, 4);
-            this.addDormerButton.Name = "addDormerButton";
-            this.addDormerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.addDormerButton.OnHoverBorderColor = System.Drawing.Color.White;
-            this.addDormerButton.OnHoverForeColor = System.Drawing.Color.Black;
-            this.addDormerButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addDormerButton.OnHoverImage")));
-            this.addDormerButton.OnPressedColor = System.Drawing.Color.Black;
-            this.addDormerButton.Radius = 9;
-            this.addDormerButton.Size = new System.Drawing.Size(202, 36);
-            this.addDormerButton.TabIndex = 136;
-            this.addDormerButton.Text = "Payments Summary";
-            this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
+            this.paymentsSummary.AnimationHoverSpeed = 0.07F;
+            this.paymentsSummary.AnimationSpeed = 0.03F;
+            this.paymentsSummary.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.paymentsSummary.BorderColor = System.Drawing.Color.White;
+            this.paymentsSummary.BorderSize = 2;
+            this.paymentsSummary.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentsSummary.ForeColor = System.Drawing.Color.White;
+            this.paymentsSummary.Image = ((System.Drawing.Image)(resources.GetObject("paymentsSummary.Image")));
+            this.paymentsSummary.ImageSize = new System.Drawing.Size(20, 20);
+            this.paymentsSummary.Location = new System.Drawing.Point(1114, 4);
+            this.paymentsSummary.Name = "paymentsSummary";
+            this.paymentsSummary.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.paymentsSummary.OnHoverBorderColor = System.Drawing.Color.White;
+            this.paymentsSummary.OnHoverForeColor = System.Drawing.Color.Black;
+            this.paymentsSummary.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("paymentsSummary.OnHoverImage")));
+            this.paymentsSummary.OnPressedColor = System.Drawing.Color.Black;
+            this.paymentsSummary.Radius = 9;
+            this.paymentsSummary.Size = new System.Drawing.Size(202, 36);
+            this.paymentsSummary.TabIndex = 136;
+            this.paymentsSummary.Text = "Payments Summary";
+            this.paymentsSummary.Click += new System.EventHandler(this.paymentsSummary_Click);
             // 
-            // gunaButton1
+            // regularPayablesBut
             // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
-            this.gunaButton1.BorderColor = System.Drawing.Color.White;
-            this.gunaButton1.BorderSize = 2;
-            this.gunaButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(915, 4);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton1.OnHoverImage")));
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Radius = 9;
-            this.gunaButton1.Size = new System.Drawing.Size(192, 36);
-            this.gunaButton1.TabIndex = 137;
-            this.gunaButton1.Text = "Regular Payables";
-            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
+            this.regularPayablesBut.AnimationHoverSpeed = 0.07F;
+            this.regularPayablesBut.AnimationSpeed = 0.03F;
+            this.regularPayablesBut.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
+            this.regularPayablesBut.BorderColor = System.Drawing.Color.White;
+            this.regularPayablesBut.BorderSize = 2;
+            this.regularPayablesBut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regularPayablesBut.ForeColor = System.Drawing.Color.White;
+            this.regularPayablesBut.Image = ((System.Drawing.Image)(resources.GetObject("regularPayablesBut.Image")));
+            this.regularPayablesBut.ImageSize = new System.Drawing.Size(20, 20);
+            this.regularPayablesBut.Location = new System.Drawing.Point(915, 4);
+            this.regularPayablesBut.Name = "regularPayablesBut";
+            this.regularPayablesBut.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
+            this.regularPayablesBut.OnHoverBorderColor = System.Drawing.Color.White;
+            this.regularPayablesBut.OnHoverForeColor = System.Drawing.Color.Black;
+            this.regularPayablesBut.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("regularPayablesBut.OnHoverImage")));
+            this.regularPayablesBut.OnPressedColor = System.Drawing.Color.Black;
+            this.regularPayablesBut.Radius = 9;
+            this.regularPayablesBut.Size = new System.Drawing.Size(192, 36);
+            this.regularPayablesBut.TabIndex = 137;
+            this.regularPayablesBut.Text = "Regular Payables";
+            this.regularPayablesBut.Click += new System.EventHandler(this.regularPayablesBut_Click);
             // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gunaButton1);
-            this.Controls.Add(this.addDormerButton);
+            this.Controls.Add(this.regularPayablesBut);
+            this.Controls.Add(this.paymentsSummary);
             this.Controls.Add(this.gunaLabel8);
-            this.Controls.Add(this.gunaImageButton2);
-            this.Controls.Add(this.gunaImageButton1);
+            this.Controls.Add(this.nextPage);
+            this.Controls.Add(this.prevPage);
             this.Controls.Add(this.over);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.count);
@@ -476,10 +474,10 @@
         private Guna.UI.WinForms.GunaLabel count;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel over;
-        private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
-        private Guna.UI.WinForms.GunaImageButton gunaImageButton2;
+        private Guna.UI.WinForms.GunaImageButton prevPage;
+        private Guna.UI.WinForms.GunaImageButton nextPage;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
-        private Guna.UI.WinForms.GunaButton addDormerButton;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
+        private Guna.UI.WinForms.GunaButton paymentsSummary;
+        private Guna.UI.WinForms.GunaButton regularPayablesBut;
     }
 }

@@ -2348,15 +2348,7 @@ namespace Mabolo_Dormitory_System.Classes
                 try
                 {
                     string query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    float balance = 0;
-                    if(GetUserPayableBalance(userId) == 0)
-                    {
-                        balance = GetRegularPayables()[GetRegularPayables().Count-1].Amount * 5;
-                    }
-                    else
-                    {
-                        balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId);
-                    }
+                    float balance = balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId);
                     if (balance < 0)
                         balance = 0;
                     using (MySqlCommand command = new MySqlCommand(query, connection))

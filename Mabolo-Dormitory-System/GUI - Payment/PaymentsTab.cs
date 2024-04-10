@@ -34,8 +34,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             InitializeComponent();
             count.Text = "";
             over.Text = "";
-            //db.LoadUserPayable();
-            //MessageBox.Show(regularPayablesCB.Text);
             events = db.GetAllEvents();
             users = db.GetAllUsersExcpetAdmin();
             regularPayables = db.GetRegularPayables();
@@ -56,8 +54,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             dormerTableView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.RowTemplate.Height = 40;
             dormerTableView.Columns["RemainingBalance"].DefaultCellStyle.Format = "₱ #,##0.00";
-            //Combo box
-            //MessageBox.Show(users.Count.ToString());    
+              
             dormerTableView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dormerTableView_EditingControlShowing);
             int i = 0;
             foreach (User u in users)
@@ -81,10 +78,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 row.Cells["RemainingBalance"].Value = x;
                 row.Cells["Status"].Value = status;
             }
-
-        }
-        private void RefreshTable()
-        {
 
         }
 
@@ -123,8 +116,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
         }
 
-
-        private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void statusCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchBar.Text = "Search...";   
             dormerTableView.DataSource = null;
@@ -139,7 +131,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             else
             {
                 users.Clear();
-                //MessageBox.Show(users.Count.ToString());
+                
                 if (status == "Pending")
                 {
                     users = db.GetPendingUsers();
@@ -151,11 +143,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     users = db.GetPaidUsers();
                     
                 }
-
-                
                 if (users.Count == 0)
                 {
-                    MessageBox.Show("No " + status + " status was found");
+                    MessageBox.Show("No " + status + " status was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     users.Clear();
                     SetupTable(users);
                 }
@@ -163,51 +153,13 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     SetupTable(users);
             }
         }
-
-        private void gunaLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            /*aymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
-                dormerTableView.Rows[e.RowIndex].Cells["UserId"].Value.ToString()));
-            SetFormLocation(paymentTransaction);
-            paymentTransaction.Show();*/
-            
-        }
-
+      
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
             int x = Screen.PrimaryScreen.Bounds.Width - form.Width - Convert.ToInt32(10 * 96 / 2.54);
             int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
             form.Location = new Point(x, y);
-        }
-
-        private void updateViewButton_Click(object sender, EventArgs e)
-        {
-           
-            foreach(DataGridViewRow row in dormerTableView.Rows)
-            {
-                try
-                {
-                    Convert.ToDouble(row.Cells["Amount"].Value);
-                }
-                catch
-                {
-                    MessageBox.Show("Please enter valid amount.");
-                    return;
-                }
-
-            }
-            MessageBox.Show("Attendance Updated!");
-        }
-
-        private void regularPayablesCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
 
         public void refreshBut_Click(object sender, EventArgs e)
@@ -257,7 +209,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         {
             if (searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid User ID to search");
+                MessageBox.Show("Please enter a valid User ID to search", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 searchBar.Text = "";
                 return;
             }
@@ -274,22 +226,22 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
             if (users.Count == 0)
             {
-                MessageBox.Show("No user with the ID: '" + userId + "' with status: '" + statusCB.Text + "' was found");
+                MessageBox.Show("No user with the ID: '" + userId + "' with status: '" + statusCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 users = db.GetAllUsersExcpetAdmin();
             }
             SetupTable(users);
         }
 
-        private void gunaImageButton2_Click(object sender, EventArgs e)
+        private void nextPage_Click(object sender, EventArgs e)
         {
             if (count.Text == "")
             {
-                MessageBox.Show("Please select the number of items to display");
+                MessageBox.Show("Please select the number of items to display", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
             {
-                MessageBox.Show("You are already at the last page");
+                MessageBox.Show("You are already at the last page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if(Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
@@ -306,17 +258,17 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         }
 
-        private void gunaImageButton1_Click(object sender, EventArgs e)
+        private void prevPage_Click(object sender, EventArgs e)
         {
             if(count.Text == "")
             {
-                MessageBox.Show("Please select the number of items to display");
+                MessageBox.Show("Please select the number of items to display", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
             if(Convert.ToInt32(count.Text) == 1)
             {
-                MessageBox.Show("You are already at the first page");
+                MessageBox.Show("You are already at the first page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if(Convert.ToInt32(count.Text) > 1 )
@@ -333,7 +285,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
         }
 
-        private void addDormerButton_Click(object sender, EventArgs e)
+        private void paymentsSummary_Click(object sender, EventArgs e)
         {
             PaymentsSummary paymentsSummary = new PaymentsSummary();
             SetFormLocation(paymentsSummary);
@@ -341,7 +293,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             paymentsSummary.Show();
         }
 
-        private void gunaButton1_Click(object sender, EventArgs e)
+        private void regularPayablesBut_Click(object sender, EventArgs e)
         {
             RegularPayableForm regularPayable = new RegularPayableForm(this);
             SetFormLocation(regularPayable);

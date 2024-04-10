@@ -49,16 +49,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             }
         }
 
-        private void gunaLabel9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void closeViewButton_Click(object sender, EventArgs e)
         {
             this.Dispose();

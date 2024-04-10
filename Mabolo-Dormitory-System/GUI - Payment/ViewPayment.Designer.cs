@@ -86,7 +86,6 @@
             this.label5.Size = new System.Drawing.Size(32, 23);
             this.label5.TabIndex = 110;
             this.label5.Text = "22";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // gunaLabel9
             // 
@@ -97,7 +96,6 @@
             this.gunaLabel9.Size = new System.Drawing.Size(64, 23);
             this.gunaLabel9.TabIndex = 109;
             this.gunaLabel9.Text = "Date:";
-            this.gunaLabel9.Click += new System.EventHandler(this.gunaLabel9_Click);
             // 
             // label4
             // 

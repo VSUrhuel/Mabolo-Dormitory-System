@@ -20,8 +20,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         public PaymentTransaction(User u, PaymentsTab form)
         {
             this.form = form;
-            
-            db = new DatabaseManager();
+            this.db = new DatabaseManager();
             InitializeComponent();
             
             label1.Text = u.UserId;
@@ -29,16 +28,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             label3.Text = u.LastName;
             label4.Text = db.GetUserPayableBalance(u.UserId).ToString();    
             label5.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-        }
-
-        private void gunaLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void closeViewButton_Click(object sender, EventArgs e)
@@ -50,7 +39,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         {
             if(amountText.Text == "" || remarksText.Text == "")
             {
-                MessageBox.Show("Please input all fields");
+                MessageBox.Show("Please input all fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             try
@@ -76,7 +65,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             else
                 index = db.GetAllPayment()[db.GetAllPayment().Count - 1].PaymentId + 1;  
             db.AddPayment(new Payment(index, DateTime.Now, float.Parse(amountText.Text), remarksText.Text, label1.Text));
-            MessageBox.Show("Payment Addded");
+            MessageBox.Show("Payment Addded", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             form.refreshBut_Click(sender, e);
         }
 

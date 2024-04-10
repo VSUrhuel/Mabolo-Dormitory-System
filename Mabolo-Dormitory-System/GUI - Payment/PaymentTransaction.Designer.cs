@@ -80,7 +80,7 @@
             this.gunaLabel3.Size = new System.Drawing.Size(120, 23);
             this.gunaLabel3.TabIndex = 80;
             this.gunaLabel3.Text = "Last Name:";
-            this.gunaLabel3.Click += new System.EventHandler(this.gunaLabel3_Click);
+           
             // 
             // gunaLabel4
             // 
@@ -187,7 +187,7 @@
             this.label3.Size = new System.Drawing.Size(32, 23);
             this.label3.TabIndex = 90;
             this.label3.Text = "22";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label4
             // 

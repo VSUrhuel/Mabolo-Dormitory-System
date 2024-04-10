@@ -65,19 +65,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void eventBut_Click(object sender, EventArgs e)
         {
             // Get the event id
-            GunaAdvenceButton button = (GunaAdvenceButton)sender;
-            GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
-            char id = 'a';
-            foreach (GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
-            {
-                if (panel1 == panel)
-                    id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
-            }
-            int x = int.Parse(id.ToString());
-            RegularPayableView regularPayableView = new RegularPayableView(this, x);
-            regularPayableView.Owner = this;
-            SetFormLocation(regularPayableView);
-            regularPayableView.Show();
+            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         
 
         }
 
@@ -108,10 +97,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void addDormerButton_Click(object sender, EventArgs e)
         {
-            AddRegularPayableForm addRegularPayableForm = new AddRegularPayableForm(this, paymentsTab);
-            addRegularPayableForm.Owner = this;
-            SetFormLocation(addRegularPayableForm);
-            addRegularPayableForm.Show();
+            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
         }
 
         private void gunaAdvenceButton7_Click(object sender, EventArgs e)
@@ -143,10 +130,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DeletRegularPayable deletRegularPayable = new DeletRegularPayable(this);
-            deletRegularPayable.Owner = this;
-            SetFormLocation(deletRegularPayable);
-            deletRegularPayable.Show();
+            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        
         }
 
         private void gunaAdvenceButton1_Click(object sender, EventArgs e)
