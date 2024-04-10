@@ -62,9 +62,9 @@ namespace Mabolo_Dormitory_System
             emailReview.Text = "";
             String email = emailTextBox.Text;
             String pass = passwordTextBox.Text;
-            if(!ValidationClass.ValidateFieldsNotEmpty(new String[] { email, pass }) || (email.Equals("Email") && pass.Equals("Password")))
+            if (!ValidationClass.ValidateFieldsNotEmpty(new String[] { email, pass }) || (email.Equals("Email") && pass.Equals("Password")))
             {
-                MessageBox.Show("Please fill up all fields");
+                MessageBox.Show("Please fill up all fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 emailTextBox.FocusedLineColor = Color.Red;
                 passwordTextBox.FocusedLineColor = Color.Red;
                 emailTextBox.LineColor = Color.Red;
@@ -80,19 +80,19 @@ namespace Mabolo_Dormitory_System
             }
 
             // Check if account exists
-            if(db.AccountExist(email, pass))
+            if (db.AccountExist(email, pass))
             {
                 main = new Main(email);
                 main.Show();
                 this.Hide();
-               
+
             }
             else
             {
-                MessageBox.Show("Invalid Email or Password");
+                MessageBox.Show("Invalid Email or Password", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 emailTextBox.FocusedLineColor = Color.Red;
                 passwordTextBox.FocusedLineColor = Color.Red;
-                emailTextBox.LineColor = Color.Red; 
+                emailTextBox.LineColor = Color.Red;
                 passwordTextBox.LineColor = Color.Red;
             }
         }
@@ -113,9 +113,9 @@ namespace Mabolo_Dormitory_System
 
         private void forgotPass_Click(object sender, EventArgs e)
         {
-            if(emailTextBox.Text == "Email")
+            if (emailTextBox.Text == "Email")
             {
-                MessageBox.Show("Please input your email first");
+                MessageBox.Show("Please input your email first", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (!ValidationClass.ValidateEmail(emailTextBox.Text))
@@ -128,7 +128,7 @@ namespace Mabolo_Dormitory_System
             {
                 SendOTPCode(emailTextBox.Text);
                 emailReview.ForeColor = Color.Green;
-                emailTextBox.LineColor = Color.FromArgb(46, 204, 113);   
+                emailTextBox.LineColor = Color.FromArgb(46, 204, 113);
             }
             else
             {
@@ -136,10 +136,10 @@ namespace Mabolo_Dormitory_System
                 emailTextBox.LineColor = Color.Red;
             }
         }
-        
+
         private void SendOTPCode(String email)
         {
-            
+
             String OTPCode = GenerateOTP(6);
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("22-1-00109@vsu.edu.ph");
@@ -185,15 +185,15 @@ namespace Mabolo_Dormitory_System
                 SetFormLocation(oTPForm);
                 oTPForm.Owner = this;
                 oTPForm.Show();
-                MessageBox.Show("OTP code sent successfully to " + email);  
+                MessageBox.Show("OTP code sent successfully to " + email, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error sending email: " + ex.Message);
-               
+                MessageBox.Show("Error sending email: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
-        
+
         private string GenerateOTP(int length)
         {
             Random random = new Random();
@@ -201,11 +201,11 @@ namespace Mabolo_Dormitory_System
 
             for (int i = 0; i < length; i++)
             {
-                otp.Append(random.Next(0, 10)); 
+                otp.Append(random.Next(0, 10));
             }
             return otp.ToString();
         }
-        
+
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
@@ -214,9 +214,5 @@ namespace Mabolo_Dormitory_System
             form.Location = new Point(x, y);
         }
 
-        private void passwordTextBox_Click(object sender, EventArgs e)
-        {
-            passwordTextBox.UseSystemPasswordChar = true;
-        }
     }
 }

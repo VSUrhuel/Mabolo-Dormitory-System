@@ -28,7 +28,7 @@ namespace Mabolo_Dormitory_System
         {
             if(!ValidationClass.ValidateFieldsNotEmpty(new String[] { passwordText.Text, confirmPassword.Text }))
             {
-                passReview.Text = "Please fill up all fields.";
+                MessageBox.Show("Please fill up all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 passwordText.LineColor = Color.Red;
                 confirmPassword.LineColor = Color.Red;
                 return;
@@ -36,28 +36,24 @@ namespace Mabolo_Dormitory_System
             else if (!ValidationClass.ValidatePassword(passwordText.Text))
             {
                 
-                passReview.Text = "Must contain an uppercase, number, special character";
-                passReview2.Text = " and at least 8 characters long.";
+                MessageBox.Show("Must contain an uppercase, number, special character and at least 8 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 passwordText.LineColor = Color.Red;
                 return;
             }
             else if(passwordText.Text != confirmPassword.Text)
             {
-                confirmPassText.Text = "Password does not match.";
+                MessageBox.Show("Password does not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 confirmPassword.LineColor = Color.Red;
                 return;
             }
             else
             {
-                passReview.Text = "";
-                passReview2.Text = "";
-                confirmPassText.Text = "";
                 passwordText.LineColor = Color.FromArgb(46, 204, 113);
                 confirmPassword.LineColor = Color.FromArgb(46, 204, 113);
                 if (db.AdminPassReset(email, passwordText.Text))
-                    MessageBox.Show("Password has been reset.");
+                    MessageBox.Show("Password has been reset.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Password reset failed.");
+                    MessageBox.Show("Password reset failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -69,14 +65,11 @@ namespace Mabolo_Dormitory_System
         private void passwordText_MouseClick(object sender, MouseEventArgs e)
         {
             passwordText.LineColor = Color.FromArgb(46, 204, 113);
-            passReview.Text = "";
-            passReview2.Text = "";
         }
 
         private void confirmPassword_MouseClick(object sender, MouseEventArgs e)
         {
             confirmPassword.LineColor = Color.FromArgb(46, 204, 113);
-            confirmPassText.Text = "";
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
@@ -98,19 +91,6 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
-
-        private void passwordText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                updatePassButton_Click(sender, e);
-            }
-            if(ValidationClass.ValidatePassword(passwordText.Text))
-            {
-                passReview.Text = "Password is strong.";
-                passReview2.Text = "";
-            }
         }
     }
 }

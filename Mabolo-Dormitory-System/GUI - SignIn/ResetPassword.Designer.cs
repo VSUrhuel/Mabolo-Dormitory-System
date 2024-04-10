@@ -35,10 +35,7 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.confirmPassword = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.passReview = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.confirmPassText = new Guna.UI.WinForms.GunaLabel();
-            this.passReview2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -104,7 +101,7 @@
             this.passwordText.PasswordChar = '\0';
             this.passwordText.Size = new System.Drawing.Size(379, 35);
             this.passwordText.TabIndex = 80;
-            this.passwordText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordText_KeyPress);
+            
             this.passwordText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordText_MouseClick);
             // 
             // gunaLabel2
@@ -141,16 +138,6 @@
             this.gunaLabel1.TabIndex = 83;
             this.gunaLabel1.Text = "Confirm New Password:";
             // 
-            // passReview
-            // 
-            this.passReview.AutoSize = true;
-            this.passReview.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passReview.ForeColor = System.Drawing.Color.DimGray;
-            this.passReview.Location = new System.Drawing.Point(136, 105);
-            this.passReview.Name = "passReview";
-            this.passReview.Size = new System.Drawing.Size(0, 17);
-            this.passReview.TabIndex = 85;
-            // 
             // gunaPictureBox1
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
@@ -161,26 +148,6 @@
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox1.TabIndex = 87;
             this.gunaPictureBox1.TabStop = false;
-            // 
-            // confirmPassText
-            // 
-            this.confirmPassText.AutoSize = true;
-            this.confirmPassText.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPassText.ForeColor = System.Drawing.Color.DimGray;
-            this.confirmPassText.Location = new System.Drawing.Point(136, 217);
-            this.confirmPassText.Name = "confirmPassText";
-            this.confirmPassText.Size = new System.Drawing.Size(0, 17);
-            this.confirmPassText.TabIndex = 88;
-            // 
-            // passReview2
-            // 
-            this.passReview2.AutoSize = true;
-            this.passReview2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passReview2.ForeColor = System.Drawing.Color.DimGray;
-            this.passReview2.Location = new System.Drawing.Point(131, 123);
-            this.passReview2.Name = "passReview2";
-            this.passReview2.Size = new System.Drawing.Size(0, 17);
-            this.passReview2.TabIndex = 89;
             // 
             // gunaButton2
             // 
@@ -233,10 +200,7 @@
             this.ClientSize = new System.Drawing.Size(564, 288);
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.gunaButton2);
-            this.Controls.Add(this.passReview2);
-            this.Controls.Add(this.confirmPassText);
             this.Controls.Add(this.gunaPictureBox1);
-            this.Controls.Add(this.passReview);
             this.Controls.Add(this.confirmPassword);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.closeViewButton);
@@ -264,10 +228,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLineTextBox confirmPassword;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaLabel passReview;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaLabel confirmPassText;
-        private Guna.UI.WinForms.GunaLabel passReview2;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaButton gunaButton1;
     }

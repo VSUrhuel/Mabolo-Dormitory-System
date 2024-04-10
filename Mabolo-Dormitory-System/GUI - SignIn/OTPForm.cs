@@ -44,7 +44,7 @@ namespace Mabolo_Dormitory_System
             otp = new string(rev);
             if (otp == otpCode)
             {
-                MessageBox.Show("Verification is Succesfull.");
+                MessageBox.Show("Verification is Succesfull.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetPassword resetPassword = new ResetPassword(email);
                 SetFormLocation(resetPassword);
                 resetPassword.Owner = form;
@@ -53,7 +53,7 @@ namespace Mabolo_Dormitory_System
             }
             else
             {
-                MessageBox.Show("OTP Code is incorrect");
+                MessageBox.Show("OTP Code is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -61,6 +61,7 @@ namespace Mabolo_Dormitory_System
         {
             this.Dispose();
         }
+        
         private void SetFormLocation(Form form)
         {
             form.StartPosition = FormStartPosition.Manual;

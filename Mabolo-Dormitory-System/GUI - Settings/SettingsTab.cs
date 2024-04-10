@@ -37,8 +37,6 @@ namespace Mabolo_Dormitory_System.GUI___Settings
             viewConfirmPassBut.Visible = false;
             byte[] imageData = db.GetAccount(email).ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
-            
-
         }
 
         private void changePicButton_Click(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace Mabolo_Dormitory_System.GUI___Settings
             //User didn't select a file so return a default value  
             if (dlg.ShowDialog() != DialogResult.OK)
             {
-                MessageBox.Show("No files selected");
+                MessageBox.Show("No files selected", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -65,19 +63,22 @@ namespace Mabolo_Dormitory_System.GUI___Settings
                 {
                     imageData = new byte[fs.Length];
                     fs.Read(imageData, 0, imageData.Length);
+                    fs.Close();
                 }
                 if (imageData.Length > (5 * 1024 * 1024))
                 {
-                    MessageBox.Show("Image size is too large");
+                    MessageBox.Show("Image size is too large.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                if (!db.UpdateAccount(email, account.UserName, account.Password, account.Birthday, account.FirstName, account.LastName, imageData))
+                    return;
                 // Load the image from byte array into pictureUser
                 using (MemoryStream ms = new MemoryStream(imageData))
                 {
                     pictureUser.Image = Image.FromStream(ms);
                 }
-                main.UpdateInformation();
-                db.AddPicture(email, imageData);
+               
+                main.UpdateInformation(); 
             }
         }
 
@@ -85,37 +86,48 @@ namespace Mabolo_Dormitory_System.GUI___Settings
         {
             if (account == null)
             {
-                MessageBox.Show("Account not found");
+                MessageBox.Show("Account not found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, account.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData);
-            MessageBox.Show("Information updated");
+
+            if(gunaLineTextBox1.Text == "" || gunaLineTextBox2.Text == "" || gunaLineTextBox3.Text == "")
+            {
+                MessageBox.Show("Please fill up the fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if(db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, account.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData))
+                MessageBox.Show("Information updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Information not updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
             if(gunaLineTextBox5.Text == "" && gunaLineTextBox6.Text == "" && gunaLineTextBox4.Text == "")
             {
-                MessageBox.Show("Please fill up the fields");
+                MessageBox.Show("Please fill up the fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if(gunaLineTextBox4.Text != account.Password)
             {
-                MessageBox.Show("Incorrect previous password");
+                MessageBox.Show("Incorrect previous password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if(ValidationClass.ValidatePassword(gunaLineTextBox5.Text) == false)
             {
-                MessageBox.Show("Invalid new password. Password Should include an uppercase, symbol, numbers, and at least 8 letters.");
+                MessageBox.Show("Invalid new password. Password Should include an uppercase, symbol, numbers, and at least 8 letters.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if(gunaLineTextBox5.Text != gunaLineTextBox6.Text)
             {
-                MessageBox.Show("Passwords do not match");
+                MessageBox.Show("Passwords do not match", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, account.Birthday, account.FirstName, account.LastName, account.ImageData);
-            MessageBox.Show("Password updated");
+            if(db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, account.Birthday, account.FirstName, account.LastName, account.ImageData))
+                MessageBox.Show("Password updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Password not updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 

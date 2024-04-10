@@ -223,14 +223,15 @@ namespace Mabolo_Dormitory_System.Classes
             return null;
         }
       
-        public void UpdateAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
+        public bool UpdateAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
         {
-            using (MySqlConnection connection = new MySqlConnection(con))
+            MySqlConnection connection = new MySqlConnection(con);
+            using (MySqlConnection cnn = new MySqlConnection(con))
             {
-                connection.Open();
+                cnn.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE Email = @Email", connection))
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE Email = @Email", cnn))
                     {
                         command.Parameters.AddWithValue("@Email", email);
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -241,6 +242,7 @@ namespace Mabolo_Dormitory_System.Classes
                                 {
                                     String query = "UPDATE system.account SET UserName = @UserName, Password = @Password, Birthday = @Birthday, FirstName = @FirstName, LastName = @LastName, ImageData = @ImageData WHERE Email = @Email";
                                     MySqlCommand command2 = new MySqlCommand(query, connection);
+                                    connection.Open();
                                     command2.Parameters.AddWithValue("@Email", email);
                                     command2.Parameters.AddWithValue("@UserName", userName);
                                     command2.Parameters.AddWithValue("@Password", password);
@@ -249,6 +251,7 @@ namespace Mabolo_Dormitory_System.Classes
                                     command2.Parameters.AddWithValue("@LastName", lastName);
                                     command2.Parameters.AddWithValue("@ImageData", imageDate);
                                     command2.ExecuteNonQuery();
+                                    return true;
                                 }
                                 else
                                 {
@@ -257,20 +260,24 @@ namespace Mabolo_Dormitory_System.Classes
                                     command2.Parameters.AddWithValue("@Email", email);
                                     command2.Parameters.AddWithValue("@ImageData", imageDate);
                                     command2.ExecuteNonQuery();
+                                    return true;
                                 }
                             }
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating account");
+                    MessageBox.Show("There was an error while updating account: " + ex.Message);
+                    return false;
                 }
                 finally
                 {
+                    cnn.Close();
                     connection.Close();
                 }
             }
+            return false;
         }
        
         public bool AccountExist(String email, String password)
@@ -305,51 +312,6 @@ namespace Mabolo_Dormitory_System.Classes
             return false;
         }
 
-        public void AddPicture(String email, byte[] image)
-        {
-            using (MySqlConnection connection = new MySqlConnection(con))
-            {
-                connection.Open();
-                try
-                {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE Email = @Email", connection))
-                    {
-                        command.Parameters.AddWithValue("@Email", email);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                if (reader["ImageData"] != DBNull.Value)
-                                {
-                                    String query = "UPDATE system.account SET ImageData = @ImageData WHERE Email = @Email";
-                                    MySqlCommand command2 = new MySqlCommand(query, connection);
-                                    command2.Parameters.AddWithValue("@Email", email);
-                                    command2.Parameters.AddWithValue("@ImageData", image);
-                                    command2.ExecuteNonQuery();
-                                }
-                                else
-                                {
-                                    String query = "INSERT INTO system.account(ImageData) VALUES (@ImageData) WHERE Email = @Email";
-                                    MySqlCommand command2 = new MySqlCommand(query, connection);
-                                    command2.Parameters.AddWithValue("@Email", email);
-                                    command2.Parameters.AddWithValue("@ImageData", image);
-                                    command2.ExecuteNonQuery();
-                                }
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("There was an error while adding picture");
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                
-            }
-        }
         
         // Users
         public List<User> GetAllUsersExcpetAdmin()
