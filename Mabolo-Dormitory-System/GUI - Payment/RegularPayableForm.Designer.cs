@@ -63,7 +63,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.closeRegularPayableBut = new Guna.UI.WinForms.GunaButton();
-            this.addDormerButton = new Guna.UI.WinForms.GunaButton();
+            this.addRegularPayable = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.deleteButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -138,7 +138,6 @@
             this.label15.Size = new System.Drawing.Size(48, 22);
             this.label15.TabIndex = 21;
             this.label15.Text = "ID: 1";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // gunaAdvenceButton7
             // 
@@ -169,7 +168,6 @@
             this.gunaAdvenceButton7.TabIndex = 20;
             this.gunaAdvenceButton7.Text = "Click to Edit";
             this.gunaAdvenceButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaAdvenceButton7.Click += new System.EventHandler(this.gunaAdvenceButton7_Click);
             // 
             // label16
             // 
@@ -253,7 +251,6 @@
             this.gunaAdvenceButton1.TabIndex = 20;
             this.gunaAdvenceButton1.Text = "Click to Edit";
             this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaAdvenceButton1.Click += new System.EventHandler(this.gunaAdvenceButton1_Click);
             // 
             // label1
             // 
@@ -632,29 +629,29 @@
             this.closeRegularPayableBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.closeRegularPayableBut.Click += new System.EventHandler(this.closeRegularPayableBut_Click);
             // 
-            // addDormerButton
+            // addRegularPayable
             // 
-            this.addDormerButton.AnimationHoverSpeed = 0.07F;
-            this.addDormerButton.AnimationSpeed = 0.03F;
-            this.addDormerButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.addDormerButton.BorderColor = System.Drawing.Color.White;
-            this.addDormerButton.BorderSize = 2;
-            this.addDormerButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDormerButton.ForeColor = System.Drawing.Color.White;
-            this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
-            this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
-            this.addDormerButton.Location = new System.Drawing.Point(591, 65);
-            this.addDormerButton.Name = "addDormerButton";
-            this.addDormerButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.addDormerButton.OnHoverBorderColor = System.Drawing.Color.White;
-            this.addDormerButton.OnHoverForeColor = System.Drawing.Color.Black;
-            this.addDormerButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addDormerButton.OnHoverImage")));
-            this.addDormerButton.OnPressedColor = System.Drawing.Color.Black;
-            this.addDormerButton.Radius = 9;
-            this.addDormerButton.Size = new System.Drawing.Size(220, 44);
-            this.addDormerButton.TabIndex = 137;
-            this.addDormerButton.Text = "Add Payable";
-            this.addDormerButton.Click += new System.EventHandler(this.addDormerButton_Click);
+            this.addRegularPayable.AnimationHoverSpeed = 0.07F;
+            this.addRegularPayable.AnimationSpeed = 0.03F;
+            this.addRegularPayable.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.addRegularPayable.BorderColor = System.Drawing.Color.White;
+            this.addRegularPayable.BorderSize = 2;
+            this.addRegularPayable.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addRegularPayable.ForeColor = System.Drawing.Color.White;
+            this.addRegularPayable.Image = ((System.Drawing.Image)(resources.GetObject("addRegularPayable.Image")));
+            this.addRegularPayable.ImageSize = new System.Drawing.Size(20, 20);
+            this.addRegularPayable.Location = new System.Drawing.Point(591, 65);
+            this.addRegularPayable.Name = "addRegularPayable";
+            this.addRegularPayable.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.addRegularPayable.OnHoverBorderColor = System.Drawing.Color.White;
+            this.addRegularPayable.OnHoverForeColor = System.Drawing.Color.Black;
+            this.addRegularPayable.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("addRegularPayable.OnHoverImage")));
+            this.addRegularPayable.OnPressedColor = System.Drawing.Color.Black;
+            this.addRegularPayable.Radius = 9;
+            this.addRegularPayable.Size = new System.Drawing.Size(220, 44);
+            this.addRegularPayable.TabIndex = 137;
+            this.addRegularPayable.Text = "Add Payable";
+            this.addRegularPayable.Click += new System.EventHandler(this.addRegularPayable_Click);
             // 
             // gunaLabel3
             // 
@@ -697,7 +694,7 @@
             this.ClientSize = new System.Drawing.Size(915, 572);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.gunaLabel3);
-            this.Controls.Add(this.addDormerButton);
+            this.Controls.Add(this.addRegularPayable);
             this.Controls.Add(this.closeRegularPayableBut);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.gunaLabel1);
@@ -705,7 +702,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegularPayableForm";
             this.Text = "RegukarPayable";
-            this.Load += new System.EventHandler(this.RegularPayable_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
@@ -758,7 +754,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Guna.UI.WinForms.GunaButton closeRegularPayableBut;
-        private Guna.UI.WinForms.GunaButton addDormerButton;
+        private Guna.UI.WinForms.GunaButton addRegularPayable;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;

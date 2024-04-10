@@ -31,7 +31,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 foreach (GunaAdvenceButton button in panel.Controls.OfType<GunaAdvenceButton>())
                 {
-                    button.Click += new EventHandler(eventBut_Click);
+                    button.Click += new EventHandler(editPayable_Click);
                 }
             }
             SetUpEvents();
@@ -62,23 +62,10 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     break;
             }
         }
-        private void eventBut_Click(object sender, EventArgs e)
+        
+        private void editPayable_Click(object sender, EventArgs e)
         {
-            // Get the event id
-            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         
-
-        }
-
-
-        private void RegularPayable_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);      
         }
 
         private void closeRegularPayableBut_Click(object sender, EventArgs e)
@@ -87,23 +74,14 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             this.Dispose();
         }
 
-        private void SetFormLocation(Form form)
-        {
-            form.StartPosition = FormStartPosition.Manual;
-            int x = Screen.PrimaryScreen.Bounds.Width - form.Width;
-            int y = ((Screen.PrimaryScreen.Bounds.Height - form.Height) / 2);
-            form.Location = new Point(x*1/7, y);
-        }
-
-        private void addDormerButton_Click(object sender, EventArgs e)
+        private void addRegularPayable_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           
         }
 
-        private void gunaAdvenceButton7_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
@@ -128,15 +106,6 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             mouseDown = false;
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not available.\nThis can only be access every beginning of the semester.", "Feature not available", MessageBoxButtons.OK, MessageBoxIcon.Information);
         
-        }
-
-        private void gunaAdvenceButton1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

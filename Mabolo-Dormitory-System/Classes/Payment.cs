@@ -24,6 +24,7 @@ namespace Mabolo_Dormitory_System.Classes
             Remarks = remarks;
             FK_UserId_Payment = fK_UserId_Payment;
         }
+        
         private void ValidateArg(int paymentId, DateTime paymentDate, float amount, string remarks, String fK_UserId_Payment)
         {
             if (paymentId < 0)
