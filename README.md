@@ -93,3 +93,8 @@
 - A *User* can attend many *Events* through *Event Attendance* records.
 - A *User* might have many *User Payable* records, representing outstanding payments for recurring fees.
 - A *User Payable* record belongs to one *User* and one *Regular Payable* record.
+
+## Events Documentation
+![Events Documentation](Resources/events_doc.png "Events Documentation")
+This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
+
