@@ -31,6 +31,9 @@ namespace Mabolo_Dormitory_System
 
         public void RefreshTable(List<User> users, int n = 60)
         {
+            // Reset Textboxes
+            userTypeCB.Text = viewCountCB.Text = "";
+
             // Reset Table
             if (dormerTableView.Columns.Contains("Action"))
             {
@@ -213,15 +216,6 @@ namespace Mabolo_Dormitory_System
             }
         }   
 
-        private void searchBar_MouseClick(object sender, MouseEventArgs e)
-        {
-            searchBar.Text = "";
-        }
-
-        private void searchBar_Click(object sender, EventArgs e)
-        {
-            searchBar.Text = "";
-        }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -244,7 +238,10 @@ namespace Mabolo_Dormitory_System
             }
             if(users.Count == 0)
             {
-                MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if((userTypeCB.Text == "All") || (userTypeCB.Text == ""))
+                    MessageBox.Show("No user with the ID: '" + userId + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 users = db.GetAllUsers();
             }
             RefreshTable(users);
@@ -361,6 +358,18 @@ namespace Mabolo_Dormitory_System
                 count.Text = (pageNumber + 1).ToString();
                 RefreshTable(usersForPage);
             }
+        }
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "Search...")
+                searchBar.Text = "";
+        }
+
+        private void searchBar_Click(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "Search...")
+                searchBar.Text = "";
         }
     }
 }

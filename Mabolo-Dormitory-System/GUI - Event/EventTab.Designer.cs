@@ -2092,6 +2092,7 @@
             this.searchBar.Text = "Search...";
             this.searchBar.TextOffsetX = 10;
             this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
+            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
             // 
             // EventTab
             // 

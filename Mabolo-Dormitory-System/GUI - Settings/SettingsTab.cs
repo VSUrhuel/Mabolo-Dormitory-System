@@ -98,8 +98,8 @@ namespace Mabolo_Dormitory_System.GUI___Settings
 
             if (db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, account.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData))
             {
-                MessageBox.Show("Information updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 main.UpdateInformation();
+                MessageBox.Show("Information updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);       
             }
             else
                 MessageBox.Show("Information not updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

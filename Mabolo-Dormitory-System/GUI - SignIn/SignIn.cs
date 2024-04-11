@@ -13,6 +13,7 @@ using System.Net.Mail;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace Mabolo_Dormitory_System
 {
@@ -36,25 +37,6 @@ namespace Mabolo_Dormitory_System
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void emailTextBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            emailReview.Text = "";
-            emailTextBox.Text = "";
-            emailTextBox.ForeColor = Color.Black;
-            emailTextBox.FocusedLineColor = Color.ForestGreen;
-            emailTextBox.LineColor = Color.FromArgb(46, 204, 113);
-        }
-
-        private void passwordTextBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            emailReview.Text = "";
-            passwordTextBox.Text = "";
-            passwordTextBox.UseSystemPasswordChar = true;
-            passwordTextBox.ForeColor = Color.Black;
-            passwordTextBox.LineColor = Color.FromArgb(46, 204, 113);
-            passwordTextBox.FocusedLineColor = Color.ForestGreen;
         }
 
         private void logInButton_Click(object sender, EventArgs e)
@@ -121,7 +103,7 @@ namespace Mabolo_Dormitory_System
             if (!ValidationClass.ValidateEmail(emailTextBox.Text))
             {
                 emailReview.Text = "Invalid Email";
-                emailTextBox.LineColor = Color.Red;
+                emailTextBox.FocusedLineColor = Color.Red;
                 return;
             }
             if (db.CheckAdminEmailExists(emailTextBox.Text))
@@ -177,7 +159,7 @@ namespace Mabolo_Dormitory_System
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
-            MessageBox.Show("Sending email...\nThis may take a while.");
+            MessageBox.Show("Sending email...\nThis may take a while.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             try
             {
                 smtp.Send(mail);
@@ -214,5 +196,29 @@ namespace Mabolo_Dormitory_System
             form.Location = new Point(x, y);
         }
 
+        private void emailTextBox_Enter(object sender, EventArgs e)
+        {
+            if(emailTextBox.Text == "Email")
+            {
+                emailTextBox.Text = "";
+            }
+            emailReview.Text = "";
+            emailTextBox.ForeColor = Color.Black;
+            emailTextBox.FocusedLineColor = Color.ForestGreen;
+            emailTextBox.LineColor = Color.FromArgb(46, 204, 113);
+        }
+
+        private void passwordTextBox_Enter(object sender, EventArgs e)
+        {
+            if(passwordTextBox.Text == "Password")
+            {
+                passwordTextBox.Text = "";
+            }
+            emailReview.Text = "";
+            passwordTextBox.UseSystemPasswordChar = true;
+            passwordTextBox.ForeColor = Color.Black;
+            passwordTextBox.LineColor = Color.FromArgb(46, 204, 113);
+            passwordTextBox.FocusedLineColor = Color.ForestGreen;
+        }
     }
 }

@@ -319,7 +319,7 @@
             this.forgotPass.BaseColor = System.Drawing.Color.Transparent;
             this.forgotPass.BorderColor = System.Drawing.Color.Black;
             this.forgotPass.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgotPass.ForeColor = System.Drawing.Color.Silver;
+            this.forgotPass.ForeColor = System.Drawing.Color.Gray;
             this.forgotPass.Image = null;
             this.forgotPass.ImageSize = new System.Drawing.Size(20, 20);
             this.forgotPass.Location = new System.Drawing.Point(52, 184);
@@ -378,7 +378,7 @@
             this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.passwordTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
             this.passwordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
             this.passwordTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.passwordTextBox.Location = new System.Drawing.Point(45, 116);
             this.passwordTextBox.Name = "passwordTextBox";
@@ -387,7 +387,7 @@
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Text = "Password";
             this.passwordTextBox.TextOffsetX = 40;
-            this.passwordTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordTextBox_MouseClick);
+            this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
             // 
             // gunaTransfarantPictureBox1
             // 
@@ -407,7 +407,7 @@
             this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.emailTextBox.FocusedLineColor = System.Drawing.Color.ForestGreen;
             this.emailTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.emailTextBox.ForeColor = System.Drawing.Color.Gray;
             this.emailTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.emailTextBox.Location = new System.Drawing.Point(45, 34);
             this.emailTextBox.Name = "emailTextBox";
@@ -416,7 +416,7 @@
             this.emailTextBox.TabIndex = 1;
             this.emailTextBox.Text = "Email";
             this.emailTextBox.TextOffsetX = 40;
-            this.emailTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.emailTextBox_MouseClick);
+            this.emailTextBox.Enter += new System.EventHandler(this.emailTextBox_Enter);
             // 
             // pictureBox1
             // 

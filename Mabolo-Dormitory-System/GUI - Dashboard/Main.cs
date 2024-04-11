@@ -23,10 +23,8 @@ namespace Mabolo_Dormitory_System
         public Main(String email)
         {
             this.email = email;
-            this.db = new DatabaseManager();
-            String text = db.GetUserNameOfAdmin(email);
+            this.db = new DatabaseManager();           
             InitializeComponent();
-            username.Text = text;
             db.LoadUsersPayable();
             UpdateInformation();    
         }
@@ -42,8 +40,11 @@ namespace Mabolo_Dormitory_System
             byte[] imageData = db.GetAccount(email).ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
 
+            // Update Username
+            username.Text = db.GetAccount(email).UserName;
+
             // Dormer Count Panel
-            if(count == 0)
+            if (count == 0)
                 eventDescription.Text = "No events this month";
             else if(count == 1)
                 eventDescription.Text = "There is one event this month";

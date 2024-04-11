@@ -156,39 +156,6 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-        
-        public String GetUserNameOfAdmin(String email)
-        {
-            using (MySqlConnection connection = new MySqlConnection(con))
-            {
-                connection.Open();
-                try
-                {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE Email = @Email", connection))
-                    {
-                        command.Parameters.AddWithValue("@Email", email);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            String name = "";
-                            while (reader.Read())
-                            {
-                                name = (string)reader["UserName"];
-                            }
-                            return name;
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("There was an error while retrieving admin name");
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            return "";
-        }
 
         public Account GetAccount(String email)
         {

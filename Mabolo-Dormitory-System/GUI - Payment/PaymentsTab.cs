@@ -202,7 +202,8 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         private void searchBar_Click(object sender, EventArgs e)
         {
-            searchBar.Text = "";
+            if(searchBar.Text == "Search...")
+                searchBar.Text = "";
         }
 
         private void searchBut_Click(object sender, EventArgs e)
@@ -299,6 +300,12 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             SetFormLocation(regularPayable);
             regularPayable.Owner = form;
             regularPayable.Show();
+        }
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "Search...")
+                searchBar.Text = "";
         }
     }
 }

@@ -149,7 +149,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void searchBar_Click(object sender, EventArgs e)
         {
-            searchBar.Text = "";
+            if(searchBar.Text == "Search...")
+                searchBar.Text = "";
         }
 
         private void searchBut_Click(object sender, EventArgs e)
@@ -199,9 +200,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     else if (i >= events.Count)
                         break;
                 }
-
-            }
-            
+            }   
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -219,6 +218,12 @@ namespace Mabolo_Dormitory_System.GUI___Event
             editEvent.Owner = form;
             SetFormLocation(editEvent);
             editEvent.Show();
+        }
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "Search...")
+                searchBar.Text = "";
         }
     }
 }

@@ -348,7 +348,7 @@
             // 
             this.pictureUser.BaseColor = System.Drawing.Color.White;
             this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
-            this.pictureUser.Location = new System.Drawing.Point(42, 15);
+            this.pictureUser.Location = new System.Drawing.Point(35, 15);
             this.pictureUser.Name = "pictureUser";
             this.pictureUser.Size = new System.Drawing.Size(94, 78);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
