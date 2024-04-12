@@ -113,9 +113,9 @@
 - In this repository, hover to the `Resources` folder and donwload the sql file `SystemDatabase`.
 
 ### Set Up MySql
-![SQL](Resources/sql1.png "SQL")
-- Open the MySql Workbench application. Then, click the plus icon beside the application text logo.
 ![SQL](Resources/sql2.png "SQL")
+- Open the MySql Workbench application. Then, click the plus icon beside the application text logo.
+![SQL](Resources/sql1.png "SQL")
 - Type the connection name and take note of the following information, `hostname` and `username`.
 ![SQL](Resources/sql3.png "SQL")
 - Click the database you have created. Then, hover to the `server` section, then click the `Data Import`, then in the import options, choose `Import from Self-Contained file`, then choose the directory where the downloaded `SystemDatabase` is located, generally, it is directly placed on the `Download` folder. Finally, click the `Import Progress` then hover to the bottom to click the `Start Import`.
