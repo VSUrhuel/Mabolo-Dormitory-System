@@ -127,11 +127,15 @@
 - Input these three `variable name` individually, `MYSQL_PASSWORD`, `MYSQL_SERVER`, `MYSQL_USERNAME` (strictly follow the names of these variable name), then their `variable value` is the corresponding value you have inputted in setting up your database. 
 ![Information](Resources/Info.png "Information")
 - In cases where you forgot your server and username, you can view it by opening your database in workbench and clicking the `server` and hovering to `Manage Access Settings` then `Connection`, you can view there your `Hostname` which is the  `MYSQL_SERVER` value, the `username` which is the value for `MYSQL_USERNAME`.
-- The variable value for `MYSQL_PASSWORD` is your password that you haev inputted the first time you use MySql, if you want to view or change by opening your database in workbench and clicking the `server` and hovering to `User and Privileges`.
+- The variable value for `MYSQL_PASSWORD` is your password that you have inputted the first time you use MySql, if you want to view or change by opening your database in workbench and clicking the `server` and hovering to `User and Privileges`.
 
 ### Install
-- Finally, you can now run the installation process that you have downloaded in this GitHub link: `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System`.
+- Finally, you can now run the installation process that you have downloaded in this GitHub link: `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System`. **YOU CAN NOW USE THE APP**
+
+## How to open using VS?
+![VS](Resources/vs.png "VS")
+- Just hover to this `code` at the top and click the `Open with Visual Studio`. 
+- To fully use this, you need to download various NutGet extensions, which includes but not limited to `MySql`, `Xunit`, and `MySql Connector`. However, it can easily be downloaded in NutGet Packages.
+- For `GunaUI`, do **NOT** download it in NutGet package, manually download the `dll` file and add manually add it to the reference of the project. You can download the `GunaUI.dll` on this repository. 
 
 ### ENJOY USING THE APP!
-
-
