@@ -92,50 +92,85 @@
 - An *Event Attendance* record belongs to one *Event* and one *User*.
 - A *User* can attend many *Events* through *Event Attendance* records.
 - A *User* might have many *User Payable* records, representing outstanding payments for recurring fees.
-- A *User Payable* record belongs to one *User* and one *Regular Payable* record.
+- A *User Payable* record belongs to one *User*.
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
 - This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
 
-## How to Use the App?
-- To use this application, follow the following steps.
+## 🚀 How to Use the App?
 
 ### Prerequisite
 
-#### MySql Server
+#### 🛠 MySql Server
 ![MySql Server](Resources/MySql_Download.png "MySql Server")
-- You should have a **MySql community server**. If you don't have, you can download it here on their official website `https://dev.mysql.com/downloads/mysql/`. Once done downloading, follow the set up process then install.
-### Download Resources
+- You should have a **MySql community server**. If you don't have it, you can download it from the [official website](https://dev.mysql.com/downloads/mysql/). Follow the setup process and install it.
+
+#### 📥 Download Resources
 ![Release Download](Resources/Reslease_Download.png "Release Download")
-- Visit this link `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System` to download the release version of this app. Then click the `.msi`file, if prompted for warning, just disregard and continue the download.
+- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System) to download the release version of this app. Click the `.msi` file to download it.
+
 ![Database Download](Resources/Database_Download.png "Database Download")
-- In this repository, hover to the `Resources` folder and donwload the sql file `SystemDatabase`.
+- Navigate to the `Resources` folder in this repository and download the SQL file `SystemDatabase`.
 
 ### Set Up MySql
 ![SQL](Resources/sql2.png "SQL")
-- Open the MySql Workbench application. Then, click the plus icon beside the application text logo.
+- Open the MySql Workbench application. Click the plus icon next to the application's text logo.
+
 ![SQL](Resources/sql1.png "SQL")
-- Type the connection name and take note of the following information, `hostname` and `username`.
+- Enter the connection name and note the `hostname` and `username`.
+
 ![SQL](Resources/sql3.png "SQL")
-- Click the database you have created. Then, hover to the `server` section, then click the `Data Import`, then in the import options, choose `Import from Self-Contained file`, then choose the directory where the downloaded `SystemDatabase` is located, generally, it is directly placed on the `Download` folder. Finally, click the `Import Progress` then hover to the bottom to click the `Start Import`.
-- CONGRATS!! You have finished the MySql Set Up! Scroll down, for more, hahaha!
+- Click the database you created. Go to the `server` section, click `Data Import`, select `Import from Self-Contained file`, then choose the directory where the downloaded `SystemDatabase` is located. Finally, click `Start Import`.
+
+- Congratulations! You have finished setting up MySql! Scroll down for more!
 
 ### Set Up Environment Variables
 ![Environment Variables](Resources/EnvironmentVariables.png "Environment Variables")
-- In your windows search, look for the `environment variables` settings, then hover to the `system variables`, then click the `add`. 
-- Input these three `variable name` individually, `MYSQL_PASSWORD`, `MYSQL_SERVER`, `MYSQL_USERNAME` (strictly follow the names of these variable name), then their `variable value` is the corresponding value you have inputted in setting up your database. 
+- In Windows search, look for `environment variables` settings. In `system variables`, click `add`.
+
+- Add these three `variable names` individually: `MYSQL_PASSWORD`, `MYSQL_SERVER`, `MYSQL_USERNAME` (follow these names strictly), and set their values to the corresponding values you entered when setting up your database.
+
 ![Information](Resources/Info.png "Information")
-- In cases where you forgot your server and username, you can view it by opening your database in workbench and clicking the `server` and hovering to `Manage Access Settings` then `Connection`, you can view there your `Hostname` which is the  `MYSQL_SERVER` value, the `username` which is the value for `MYSQL_USERNAME`.
-- The variable value for `MYSQL_PASSWORD` is your password that you have inputted the first time you use MySql, if you want to view or change by opening your database in workbench and clicking the `server` and hovering to `User and Privileges`.
+- If you forgot your server and username, you can view them by opening your database in workbench, clicking `server`, and going to `Manage Access Settings` > `Connection`.
+
+- The variable value for `MYSQL_PASSWORD` is the password you entered when you first used MySql. You can view or change it by opening your database in workbench and navigating to `server` > `User and Privileges`.
 
 ### Install
-- Finally, you can now run the installation process that you have downloaded in this GitHub link: `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System`. **YOU CAN NOW USE THE APP**
+- Run the installation process downloaded from [this GitHub link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System). **You can now use the app!**
 
-## How to open using VS?
+## 🖥 How to Open Using Visual Studio?
 ![VS](Resources/vs.png "VS")
-- Just hover to this `code` at the top and click the `Open with Visual Studio`. 
-- To fully use this, you need to download various NutGet extensions, which includes but not limited to `MySql`, `Xunit`, and `MySql Connector`. However, it can easily be downloaded in NutGet Packages.
-- For `GunaUI`, do **NOT** download it in NutGet package, manually download the `dll` file and add manually add it to the reference of the project. You can download the `GunaUI.dll` on this repository. 
+- Click `code` at the top and select `Open with Visual Studio`.
 
-### ENJOY USING THE APP!
+- To fully utilize this, download various NutGet extensions, including but not limited to `MySql`, `Xunit`, and `MySql Connector`. These can be easily downloaded in NutGet Packages.
+
+- For `GunaUI`, **DO NOT** download it from NutGet package. Manually download the `dll` file and add it to the project's references. You can download the `GunaUI.dll` from this repository.
+
+### ENJOY USING THE APP! 🎉
+
+## Contributing
+
+Thank you for considering contributing to this project! Your contributions are greatly appreciated. Here are some ways you can contribute:
+
+1. **Report Bugs**: If you encounter any bugs or issues, please [open an issue](https://github.com/yourusername/yourproject/issues) on GitHub.
+
+2. **Suggest Features**: Have an idea for a new feature? [Open an issue](https://github.com/yourusername/yourproject/issues) and share your thoughts.
+
+3. **Submit Pull Requests**: Fork the repository, make your changes, and submit a pull request for review.
+
+4. **Provide Feedback**: Share your thoughts and suggestions in the project's [issues section](https://github.com/yourusername/yourproject/issues).
+
+5. **Spread the Word**: Help others discover this project by sharing it on social media or with your peers.
+
+Thank you for your interest and support! 🚀
+
+## Developer Credits
+
+This project is developed and maintained by:
+
+**John Rhuel Laurente**  
+*BS in Computer Science, 2nd Year*  
+Visayas State University
+
+---
