@@ -5,6 +5,43 @@
 - It offers a *systemized* and **secured** approach to data storage, enhancing the overall **efficiency** of dormitory management.
 - This system is tailored specifically for **admin users**, which may include the Dorm Adviser, Assistant Dorm Adviser, or Student Assistants.
 
+## 📚 Table of Contents
+
+- [Features of the System](#features-of-the-system)
+  - [Sign In Page](#sign-in-page)
+  - [Dashboard Page](#dashboard-page)
+  - [Dormers Page](#dormers-page)
+  - [Rooms Page](#rooms-page)
+  - [Events Page](#events-page)
+  - [Payments Page](#payments-page)
+  - [Settings Page](#settings-page)
+- [Database Model](#database-model)
+  - [Entities](#entities)
+    - [User](#user)
+    - [Department](#department)
+    - [Room](#room)
+    - [Payment](#payment)
+    - [Regular Payable](#regular-payable)
+    - [Event](#event)
+    - [Room Allocation](#room-allocation)
+    - [Event Attendance](#event-attendance)
+    - [User Payable](#user-payable)
+  - [Relationships](#relationships)
+- [Events Documentation](#events-documentation)
+- [How to Use the App?](#🚀-how-to-use-the-app)
+  - [Prerequisite](#prerequisite)
+    - [MySql Server](#mysql-server)
+    - [Download Resources](#📥-download-resources)
+  - [Set Up MySql](#set-up-mysql)
+  - [Set Up Environment Variables](#set-up-environment-variables)
+  - [Install](#install)
+- [How to Open Using Visual Studio?](#🖥-how-to-open-using-visual-studio)
+- [Contributing](#contributing)
+- [Demo](#demo)
+- [Contact Information](#contact-information)
+- [Acknowledgements](#acknowledgements)
+- [Developer Credits](#developer-credits)
+
 ## Features of the System
 
 ### Sign In Page
@@ -96,7 +133,7 @@
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
-- This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
+- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this directory: `Resources/Documentation-of-Events.pdf`.
 
 ## 🚀 How to Use the App?
 
@@ -147,7 +184,9 @@
 
 - For `GunaUI`, **DO NOT** download it from NutGet package. Manually download the `dll` file and add it to the project's references. You can download the `GunaUI.dll` from this repository.
 
-### ENJOY USING THE APP! 🎉
+## License Information
+
+This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the code as long as you include the original copyright notice and disclaimer. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributing
 
@@ -164,6 +203,24 @@ Thank you for considering contributing to this project! Your contributions are g
 5. **Spread the Word**: Help others discover this project by sharing it on social media or with your peers.
 
 Thank you for your interest and support! 🚀
+
+## Demo
+
+You can view a demo of the application by [clicking here](Resources/demo.mp4). Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+
+## Contact Information
+
+For any questions, feedback, or support inquiries, feel free to contact me at:
+
+- Email: [johnrhuell@gmail.com](mailto:johnrhuell@gmail.com)
+- GitHub: [VSUrhuel](https://github.com/VSUrhuel)
+- Facebook: [John Rhuel Laurente](https://www.facebook.com/johnrhuel.laurente)
+
+## Acknowledgements
+
+We would like to acknowledge the following individuals and projects for their contributions to this project:
+
+- [Sir Jomari Barera](https://github.com/infinityweaver) and Ma'am Jonah Maaghop for their guidance and tips to become this project sucessfull.
 
 ## Developer Credits
 
