@@ -36,6 +36,7 @@
   - [Set Up Environment Variables](#set-up-environment-variables)
   - [Install](#install)
 - [How to Open Using Visual Studio?](#🖥-how-to-open-using-visual-studio)
+- [License Information](#license-information)
 - [Contributing](#contributing)
 - [Demo](#demo)
 - [Contact Information](#contact-information)
@@ -145,7 +146,7 @@
 
 #### 📥 Download Resources
 ![Release Download](Resources/Reslease_Download.png "Release Download")
-- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System) to download the release version of this app. Click the `.msi` file to download it.
+- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases) to download the latest release version of this app. Click the `.msi` file to download it.
 
 ![Database Download](Resources/Database_Download.png "Database Download")
 - Navigate to the `Resources` folder in this repository and download the SQL file `SystemDatabase`.
@@ -218,9 +219,9 @@ For any questions, feedback, or support inquiries, feel free to contact me at:
 
 ## Acknowledgements
 
-We would like to acknowledge the following individuals and projects for their contributions to this project:
+I would like to acknowledge the following individuals for their contributions to this project:
 
-- [Sir Jomari Barera](https://github.com/infinityweaver) and Ma'am Jonah Maaghop for their guidance and tips to become this project sucessfull.
+- Sir [Jomari Barera](https://github.com/infinityweaver) and Ma'am Jonah Maaghop for their guidance and tips to become this project sucessfull.
 
 ## Developer Credits
 
