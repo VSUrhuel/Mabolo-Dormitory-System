@@ -5,6 +5,45 @@
 - It offers a *systemized* and **secured** approach to data storage, enhancing the overall **efficiency** of dormitory management.
 - This system is tailored specifically for **admin users**, which may include the Dorm Adviser, Assistant Dorm Adviser, or Student Assistants.
 
+## 📚 Table of Contents
+
+- [Features of the System](#features-of-the-system)
+  - [Sign In Page](#sign-in-page)
+  - [Dashboard Page](#dashboard-page)
+  - [Dormers Page](#dormers-page)
+  - [Rooms Page](#rooms-page)
+  - [Events Page](#events-page)
+  - [Payments Page](#payments-page)
+  - [Settings Page](#settings-page)
+- [Database Model](#database-model)
+  - [Entities](#entities)
+    - [User](#user)
+    - [Department](#department)
+    - [Room](#room)
+    - [Payment](#payment)
+    - [Regular Payable](#regular-payable)
+    - [Event](#event)
+    - [Room Allocation](#room-allocation)
+    - [Event Attendance](#event-attendance)
+    - [User Payable](#user-payable)
+  - [Relationships](#relationships)
+- [Events Documentation](#events-documentation)
+- [Class Diagram](#class-diagram)
+- [How to Use the App?](#🚀-how-to-use-the-app)
+  - [Prerequisite](#prerequisite)
+    - [MySql Server](#🛠-mysql-server)
+    - [Download Resources](#📥-download-resources)
+  - [Set Up MySql](#set-up-mysql)
+  - [Set Up Environment Variables](#set-up-environment-variables)
+  - [Install](#install)
+- [How to Open Using Visual Studio?](#🖥-how-to-open-using-visual-studio)
+- [License Information](#license-information)
+- [Contributing](#contributing)
+- [Demo](#demo)
+- [Contact Information](#contact-information)
+- [Acknowledgements](#acknowledgements)
+- [Developer Credits](#developer-credits)
+
 ## Features of the System
 
 ### Sign In Page
@@ -92,9 +131,109 @@
 - An *Event Attendance* record belongs to one *Event* and one *User*.
 - A *User* can attend many *Events* through *Event Attendance* records.
 - A *User* might have many *User Payable* records, representing outstanding payments for recurring fees.
-- A *User Payable* record belongs to one *User* and one *Regular Payable* record.
+- A *User Payable* record belongs to one *User*.
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
-This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
+- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this directory: `Resources/Documentation-of-Events.pdf`.
 
+## Class Diagram
+![Class Diagram](Resources/SystemDesign.png "Class Diagram")
+- These were the classes used on developing this app. I have create a class named `DatabaseManager` that will execute all the queries from my GUI forms, for better effeciency and easy debugging. All the classes, excpeted the `DatabaseManager` has a corresponding test classes which were used for unit testing of the classes. 
+
+## 🚀 How to Use the App?
+
+### Prerequisite
+
+#### 🛠 MySql Server
+![MySql Server](Resources/MySql_Download.png "MySql Server")
+- You should have a **MySql community server**. If you don't have it, you can download it from the [official website](https://dev.mysql.com/downloads/mysql/). Follow the setup process and install it.
+
+#### 📥 Download Resources
+![Release Download](Resources/Reslease_Download.png "Release Download")
+- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases) to download the latest release version of this app. Click the `.msi` file to download it.
+
+![Database Download](Resources/Database_Download.png "Database Download")
+- Navigate to the `Resources` folder in this repository and download the SQL file `SystemDatabase`.
+
+### Set Up MySql
+![SQL](Resources/sql2.png "SQL")
+- Open the MySql Workbench application. Click the plus icon next to the application's text logo.
+
+![SQL](Resources/sql1.png "SQL")
+- Enter the connection name and note the `hostname` and `username`.
+
+![SQL](Resources/sql3.png "SQL")
+- Click the database you created. Go to the `server` section, click `Data Import`, select `Import from Self-Contained file`, then choose the directory where the downloaded `SystemDatabase` is located. Finally, click `Start Import`.
+
+- Congratulations! You have finished setting up MySql! Scroll down for more!
+
+### Set Up Environment Variables
+![Environment Variables](Resources/EnvironmentVariables.png "Environment Variables")
+- In Windows search, look for `environment variables` settings. In `system variables`, click `add`.
+
+- Add these three `variable names` individually: `MYSQL_PASSWORD`, `MYSQL_SERVER`, `MYSQL_USERNAME` (follow these names strictly), and set their values to the corresponding values you entered when setting up your database.
+
+![Information](Resources/Info.png "Information")
+- If you forgot your server and username, you can view them by opening your database in workbench, clicking `server`, and going to `Manage Access Settings` > `Connection`.
+
+- The variable value for `MYSQL_PASSWORD` is the password you entered when you first used MySql. You can view or change it by opening your database in workbench and navigating to `server` > `User and Privileges`.
+
+### Install
+- Run the installation process downloaded from [this GitHub link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System). **You can now use the app!**
+
+## 🖥 How to Open Using Visual Studio?
+![VS](Resources/vs.png "VS")
+- Click `code` at the top and select `Open with Visual Studio`.
+
+- To fully utilize this, download various NutGet extensions, including but not limited to `MySql`, `Xunit`, and `MySql Connector`. These can be easily downloaded in NutGet Packages.
+
+- For `GunaUI`, **DO NOT** download it from NutGet package. Manually download the `dll` file and add it to the project's references. You can download the `GunaUI.dll` from this repository.
+
+## License Information
+
+This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the code as long as you include the original copyright notice and disclaimer. See the [LICENSE](LICENSE) file for more details.
+
+## Contributing
+
+Thank you for considering contributing to this project! Your contributions are greatly appreciated. Here are some ways you can contribute:
+
+1. **Report Bugs**: If you encounter any bugs or issues, please [open an issue](https://github.com/yourusername/yourproject/issues) on GitHub.
+
+2. **Suggest Features**: Have an idea for a new feature? [Open an issue](https://github.com/yourusername/yourproject/issues) and share your thoughts.
+
+3. **Submit Pull Requests**: Fork the repository, make your changes, and submit a pull request for review.
+
+4. **Provide Feedback**: Share your thoughts and suggestions in the project's [issues section](https://github.com/yourusername/yourproject/issues).
+
+5. **Spread the Word**: Help others discover this project by sharing it on social media or with your peers.
+
+Thank you for your interest and support! 🚀
+
+## Demo
+
+You can view a demo of the application by [clicking here](Resources/demo.mp4). Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+
+## Contact Information
+
+For any questions, feedback, or support inquiries, feel free to contact me at:
+
+- Email: [johnrhuell@gmail.com](mailto:johnrhuell@gmail.com)
+- GitHub: [VSUrhuel](https://github.com/VSUrhuel)
+- Facebook: [John Rhuel Laurente](https://www.facebook.com/johnrhuel.laurente)
+
+## Acknowledgements
+
+I would like to acknowledge the following individuals for their contributions to this project:
+
+- Sir [Jomari Barera](https://github.com/infinityweaver) and Ma'am Jonah Maaghop for their guidance and tips to become this project sucessfull.
+
+## Developer Credits
+
+This project is developed and maintained by:
+
+**John Rhuel Laurente**  
+*BS in Computer Science, 2nd Year*  
+Visayas State University
+
+---
