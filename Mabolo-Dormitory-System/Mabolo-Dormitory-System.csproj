@@ -30,7 +30,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\LAPTOP-QRF6N4CT\Users\LENOVO\Desktop\System\</InstallUrl>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -276,7 +276,6 @@
       <DependentUpon>AddRoomAllocation.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DatabaseManager.cs" />
-    <Compile Include="Classes\DataGridTableSetUp.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\EventAttendance.cs" />
@@ -429,7 +428,6 @@
     <EmbeddedResource Include="GUI - Dormers\ViewForm.resx">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDesign.cd" />
     <None Include="Mabolo-Dormitory-System_1_TemporaryKey.pfx" />
     <None Include="Mabolo-Dormitory-System_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -443,6 +441,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SystemDesign.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -492,4 +491,8 @@
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props'))" />
   </Target>
   <Import Project="..\packages\xunit.core.2.7.0\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.7.0\build\xunit.core.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

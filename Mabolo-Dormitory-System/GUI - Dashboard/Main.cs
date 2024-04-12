@@ -13,6 +13,7 @@ using Mabolo_Dormitory_System.GUI___Event;
 using Mabolo_Dormitory_System.GUI___Payment;
 using Mabolo_Dormitory_System.GUI___Settings;
 using System.IO;
+using System.Security.Principal;
 
 namespace Mabolo_Dormitory_System
 {
@@ -24,7 +25,7 @@ namespace Mabolo_Dormitory_System
         {
             this.email = email;
             this.db = new DatabaseManager();           
-            InitializeComponent();
+            InitializeComponent();      
             db.LoadUsersPayable();
             UpdateInformation();    
         }
@@ -39,6 +40,8 @@ namespace Mabolo_Dormitory_System
             pictureUser.Image = null;
             byte[] imageData = db.GetAccount(email).ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
+
+            
 
             // Update Username
             username.Text = db.GetAccount(email).UserName;

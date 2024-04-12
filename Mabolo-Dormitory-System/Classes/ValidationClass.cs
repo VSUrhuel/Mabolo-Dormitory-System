@@ -50,6 +50,7 @@ namespace Mabolo_Dormitory_System.Classes
                 return false;
             return true;
         }
+        
         public static bool ValidateEmail(String email)
         {
             int atIndex = email.IndexOf('@');
@@ -57,7 +58,7 @@ namespace Mabolo_Dormitory_System.Classes
                 return false; 
 
             string domain = email.Substring(atIndex + 1);
-            if (!domain.EndsWith(".com"))
+            if (!domain.EndsWith(".com") && !domain.EndsWith(".ph"))
                 return false; 
             return true;
         }

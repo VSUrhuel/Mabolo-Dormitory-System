@@ -27,8 +27,9 @@ namespace Mabolo_Dormitory_System.GUI___Settings
             this.main = main;
             this.account = db.GetAccount(email);
             InitializeComponent();
-            gunaLineTextBox1.Text = account.FirstName;
-            gunaLineTextBox2.Text = account.LastName;
+            User user = db.GetUser(account.FK_UserId_Account);
+            gunaLineTextBox1.Text = user.FirstName;
+            gunaLineTextBox2.Text = user.LastName;
             gunaLineTextBox3.Text = account.UserName;
             label6.Text = account.UserName;
             vieeNewPassBut.Visible = false;
@@ -70,7 +71,8 @@ namespace Mabolo_Dormitory_System.GUI___Settings
                     MessageBox.Show("Image size is too large.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (!db.UpdateAccount(email, account.UserName, account.Password, account.Birthday, account.FirstName, account.LastName, imageData))
+                User u = db.GetUser(account.FK_UserId_Account);
+                if (!db.UpdateAccount(email, account.UserName, account.Password, u.Birthday, u.FirstName, u.LastName, imageData))
                     return;
                 // Load the image from byte array into pictureUser
                 using (MemoryStream ms = new MemoryStream(imageData))
@@ -95,8 +97,8 @@ namespace Mabolo_Dormitory_System.GUI___Settings
                 MessageBox.Show("Please fill up the fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, account.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData))
+            User u = db.GetUser(account.FK_UserId_Account);
+            if (db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, u.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData))
             {
                 main.UpdateInformation();
                 MessageBox.Show("Information updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);       
@@ -127,10 +129,14 @@ namespace Mabolo_Dormitory_System.GUI___Settings
                 MessageBox.Show("Passwords do not match", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if(db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, account.Birthday, account.FirstName, account.LastName, account.ImageData))
+            User u = db.GetUser(account.FK_UserId_Account);
+            if(db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, u.Birthday, u.FirstName, u.LastName, account.ImageData))
                 MessageBox.Show("Password updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Password not updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Password not updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            gunaLineTextBox5.Text = "";
+            gunaLineTextBox6.Text = "";
+            gunaLineTextBox4.Text = "";
 
         }
 

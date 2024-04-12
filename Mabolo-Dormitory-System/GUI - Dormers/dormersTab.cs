@@ -162,7 +162,7 @@ namespace Mabolo_Dormitory_System
         {
             viewCountCB.Text = "60";
             userTypeCB.Text = "All";
-            searchBar.Text = "Search...";
+            searchBar.Text = "";
             users = db.GetAllUsers();
             RefreshTable(users);
         }
@@ -294,6 +294,11 @@ namespace Mabolo_Dormitory_System
                         DialogResult dialogResult = MessageBox.Show("Do you want to delete the selected rows?\nThis action is irreversible.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (dialogResult == DialogResult.Yes)
                         {
+                            if (row.Cells["UserType"].Value.ToString() == "Dormitory Adviser" || row.Cells["UserType"].Value.ToString() == "Assistant Dormitory Adviser")
+                            {
+                                MessageBox.Show("You cannot delete a Dormitory Adviser or Assistant Dormitory Adviser", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
                             isChecked = true;
                             db.DeleteUser(row.Cells["UserId"].Value.ToString());
                         }

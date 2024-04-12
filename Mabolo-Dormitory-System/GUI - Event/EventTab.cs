@@ -143,7 +143,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         public void refreshBut_Click(object sender, EventArgs e)
         {
-            searchBar.Text = "Search...";
+            searchBar.Text = "";
             SetUpEvents();
         }
 

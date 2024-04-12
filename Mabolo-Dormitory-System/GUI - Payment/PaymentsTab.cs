@@ -164,7 +164,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
 
         public void refreshBut_Click(object sender, EventArgs e)
         {
-            searchBar.Text = "Search...";
+            searchBar.Text = "";
             statusCB.Text = "All";
             itemCB.Text = "60";
             users.Clear();
