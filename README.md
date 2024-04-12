@@ -28,9 +28,10 @@
     - [User Payable](#user-payable)
   - [Relationships](#relationships)
 - [Events Documentation](#events-documentation)
+- [Class Diagram](#class-diagram)
 - [How to Use the App?](#🚀-how-to-use-the-app)
   - [Prerequisite](#prerequisite)
-    - [MySql Server](#mysql-server)
+    - [MySql Server](#🛠-mysql-server)
     - [Download Resources](#📥-download-resources)
   - [Set Up MySql](#set-up-mysql)
   - [Set Up Environment Variables](#set-up-environment-variables)
@@ -135,6 +136,10 @@
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
 - This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this directory: `Resources/Documentation-of-Events.pdf`.
+
+## Class Diagram
+![Class Diagram](Resources/SystemDesign.png "Class Diagram")
+- These were the classes used on developing this app. I have create a class named `DatabaseManager` that will execute all the queries from my GUI forms, for better effeciency and easy debugging. All the classes, excpeted the `DatabaseManager` has a corresponding test classes which were used for unit testing of the classes. 
 
 ## 🚀 How to Use the App?
 
