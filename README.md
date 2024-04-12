@@ -96,5 +96,42 @@
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
-This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
+- This the first page of the events documentation embeeded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed on this directory `Resources/Documentation-of-Events.pdf`.
+
+## How to Use the App?
+- To use this application, follow the following steps.
+
+### Prerequisite
+
+#### MySql Server
+![MySql Server](Resources/MySql_Download.png "MySql Server")
+- You should have a **MySql community server**. If you don't have, you can download it here on their official website `https://dev.mysql.com/downloads/mysql/`. Once done downloading, follow the set up process then install.
+### Download Resources
+![Release Download](Resources/Reslease_Download.png "Release Download")
+- Visit this link `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System` to download the release version of this app. Then click the `.msi`file, if prompted for warning, just disregard and continue the download.
+![Database Download](Resources/Database_Download.png "Database Download")
+- In this repository, hover to the `Resources` folder and donwload the sql file `SystemDatabase`.
+
+### Set Up MySql
+![SQL](Resources/sql1.png "SQL")
+- Open the MySql Workbench application. Then, click the plus icon beside the application text logo.
+![SQL](Resources/sql2.png "SQL")
+- Type the connection name and take note of the following information, `hostname` and `username`.
+![SQL](Resources/sql3.png "SQL")
+- Click the database you have created. Then, hover to the `server` section, then click the `Data Import`, then in the import options, choose `Import from Self-Contained file`, then choose the directory where the downloaded `SystemDatabase` is located, generally, it is directly placed on the `Download` folder. Finally, click the `Import Progress` then hover to the bottom to click the `Start Import`.
+- CONGRATS!! You have finished the MySql Set Up! Scroll down, for more, hahaha!
+
+### Set Up Environment Variables
+![Environment Variables](Resources/EnvironmentVariables.png "Environment Variables")
+- In your windows search, look for the `environment variables` settings, then hover to the `system variables`, then click the `add`. 
+- Input these three `variable name` individually, `MYSQL_PASSWORD`, `MYSQL_SERVER`, `MYSQL_USERNAME` (strictly follow the names of these variable name), then their `variable value` is the corresponding value you have inputted in setting up your database. 
+![Information](Resources/Info.png "Information")
+- In cases where you forgot your server and username, you can view it by opening your database in workbench and clicking the `server` and hovering to `Manage Access Settings` then `Connection`, you can view there your `Hostname` which is the  `MYSQL_SERVER` value, the `username` which is the value for `MYSQL_USERNAME`.
+- The variable value for `MYSQL_PASSWORD` is your password that you haev inputted the first time you use MySql, if you want to view or change by opening your database in workbench and clicking the `server` and hovering to `User and Privileges`.
+
+### Install
+- Finally, you can now run the installation process that you have downloaded in this GitHub link: `https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System`.
+
+### ENJOY USING THE APP!
+
 
