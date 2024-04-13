@@ -36,15 +36,16 @@ namespace Mabolo_Dormitory_System
             int count = db.GetMonthlyEvent().Count;
             eventCount.Text = db.GetAllEvents().Count.ToString();
             
+            Account account = db.GetAccount(email);
             // Update Picature
             pictureUser.Image = null;
-            byte[] imageData = db.GetAccount(email).ImageData;
+            byte[] imageData = account.ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
 
-            
+            label21.Text = db.GetUser(account.FK_UserId_Account).UserType;
 
             // Update Username
-            username.Text = db.GetAccount(email).UserName;
+            username.Text = account.UserName;
 
             // Dormer Count Panel
             if (count == 0)

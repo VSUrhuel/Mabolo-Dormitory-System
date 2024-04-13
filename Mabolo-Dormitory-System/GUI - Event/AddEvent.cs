@@ -52,7 +52,8 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
 
             if(dateTimePicker1.Value.Date < DateTime.Now.Date.AddMinutes(5))
-            { 
+            {
+                MessageBox.Show(dateTimePicker1.Value.ToString());
                 MessageBox.Show("You cannot enter a date from the past.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

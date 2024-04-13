@@ -100,6 +100,7 @@ namespace Mabolo_Dormitory_System.GUI___Settings
             User u = db.GetUser(account.FK_UserId_Account);
             if (db.UpdateAccount(email, gunaLineTextBox3.Text, account.Password, u.Birthday, gunaLineTextBox1.Text, gunaLineTextBox2.Text, account.ImageData))
             {
+                label6.Text = gunaLineTextBox3.Text;
                 main.UpdateInformation();
                 MessageBox.Show("Information updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);       
             }

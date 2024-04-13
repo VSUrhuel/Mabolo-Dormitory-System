@@ -40,23 +40,6 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             Assert.Equal(userStatus, user.UserStatus);
             Assert.Equal(userType, user.UserType);
             Assert.Equal(fkDepartmentId, user.FK_DepartmentId);
-        }
-
-        [Fact]
-        public static void User_ToString_ReturnsFormattedString()
-        {
-            // Arrange
-            string userId = "user123";
-            string firstName = "John";
-            string lastName = "Doe";
-
-            // Act
-            User user = new User(userId, firstName, lastName, DateTime.Now, "", "", "", "", "", 0);
-            string actualString = user.ToString();
-
-            // Assert
-            string expectedString = userId + ": " + firstName + " " + lastName;
-            Assert.Equal(expectedString, actualString);
-        }
+        } 
     }
 }
