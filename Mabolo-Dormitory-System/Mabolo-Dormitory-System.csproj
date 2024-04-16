@@ -201,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\DVGPrinter.cs" />
     <Compile Include="Classes\RegularPayable.cs" />
     <Compile Include="Classes\UserPayable.cs" />
     <Compile Include="GUI - Dormers\AddDormerForm.cs">

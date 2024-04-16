@@ -51,6 +51,7 @@
             this.over = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.count = new Guna.UI.WinForms.GunaLabel();
+            this.printButton = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -403,10 +404,35 @@
             this.count.TabIndex = 136;
             this.count.Text = "3";
             // 
+            // printButton
+            // 
+            this.printButton.AnimationHoverSpeed = 0.07F;
+            this.printButton.AnimationSpeed = 0.03F;
+            this.printButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
+            this.printButton.BorderColor = System.Drawing.Color.White;
+            this.printButton.BorderSize = 2;
+            this.printButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.ForeColor = System.Drawing.Color.White;
+            this.printButton.Image = ((System.Drawing.Image)(resources.GetObject("printButton.Image")));
+            this.printButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.printButton.Location = new System.Drawing.Point(1016, 4);
+            this.printButton.Name = "printButton";
+            this.printButton.OnHoverBaseColor = System.Drawing.Color.DarkCyan;
+            this.printButton.OnHoverBorderColor = System.Drawing.Color.White;
+            this.printButton.OnHoverForeColor = System.Drawing.Color.Black;
+            this.printButton.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("printButton.OnHoverImage")));
+            this.printButton.OnPressedColor = System.Drawing.Color.Black;
+            this.printButton.Radius = 9;
+            this.printButton.Size = new System.Drawing.Size(84, 36);
+            this.printButton.TabIndex = 142;
+            this.printButton.Text = "Print";
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
             // dormersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.moveNextPage);
             this.Controls.Add(this.movePrevPage);
@@ -453,5 +479,6 @@
         private Guna.UI.WinForms.GunaLabel over;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaLabel count;
+        private Guna.UI.WinForms.GunaButton printButton;
     }
 }

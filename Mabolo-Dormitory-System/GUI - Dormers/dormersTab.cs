@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI.WinForms;
 using Mabolo_Dormitory_System.Classes;
+using DGVPrinterHelper;
 
 namespace Mabolo_Dormitory_System
 {
@@ -375,6 +376,35 @@ namespace Mabolo_Dormitory_System
         {
             if (searchBar.Text == "Search...")
                 searchBar.Text = "";
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            DGVPrinterHelper.DGVPrinter printer = new DGVPrinterHelper.DGVPrinter();
+            printer.FooterFont = new Font("Arial", 8, FontStyle.Bold);
+            printer.TitleFont = new Font("Century Gothic", 16, FontStyle.Bold);
+            printer.SubTitleFont = new Font("Century Gothic", 10, FontStyle.Regular);
+            printer.Title = "Mabolo Dormers List\n";
+            printer.SubTitle = string.Format("Date: {0}\n", DateTime.Now.Date.ToString("MM/dd/yyyy"));
+            printer.SubTitle += string.Format("Time: {0}\n\n", DateTime.Now.ToString("HH:mm:ss"));
+            
+            printer.printDocument.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(50, 50, 50, 50);
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Mabolo Dormitory System";
+            printer.FooterSpacing = 15;
+            try
+            {
+                printer.PrintPreviewDataGridView(dormerTableView);
+                printer.PrintDataGridView(dormerTableView);
+            }
+            catch
+            {
+                MessageBox.Show("An error occured while printing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

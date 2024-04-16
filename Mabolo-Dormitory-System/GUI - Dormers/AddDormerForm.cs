@@ -83,6 +83,31 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("User ID already exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(data1.Text.Count() != 11)
+            {
+                MessageBox.Show("User ID must be 11 characters long!\nFormat: ##-##-#####", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(data2.Text.Count() < 2)
+            {
+                MessageBox.Show("First Name must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (data3.Text.Count() < 2)
+            {
+                MessageBox.Show("Last Name must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (data7.Text.Count() < 2)
+            {
+                MessageBox.Show("Address must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(data1.Text == "0000000000")
+            {
+                MessageBox.Show("User ID must not be 0000000000!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Add the dormer
             User newDormer = new User(data1.Text, data2.Text, data3.Text, dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x);
 

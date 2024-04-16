@@ -117,6 +117,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_12348E680AD84647ADE3228BBD416D43"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_14E9F463C2114D445264154686DDD61F"
         "OwnerKey" = "8:_F1D1F75A935D41778ACBBE051503AFBF"
         "MsmSig" = "8:_UNDEFINED"
@@ -467,6 +473,12 @@
         {
         "MsmKey" = "8:_4E2E748FE53513A239727EAC44C09432"
         "OwnerKey" = "8:_F1D1F75A935D41778ACBBE051503AFBF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4EC4D6F63DFB47E18365C3FB71CD6759"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2759,6 +2771,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_12348E680AD84647ADE3228BBD416D43"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\logo.ico"
+            "TargetName" = "8:logo.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5EB43A857C91470CA178893BA4D551C3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14E9F463C2114D445264154686DDD61F"
             {
             "AssemblyRegister" = "3:1"
@@ -4059,6 +4091,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4EC4D6F63DFB47E18365C3FB71CD6759"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\icon.ico"
+            "TargetName" = "8:icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5EB43A857C91470CA178893BA4D551C3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4F0A85E21CF340632429641A61CF7EFD"
@@ -7412,15 +7464,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Dormitory System Set Up"
-        "ProductCode" = "8:{2EEB5BDB-A8C8-498E-848E-60B9299CE65D}"
-        "PackageCode" = "8:{362F0094-5F44-4DA9-87DA-CDBE97B02000}"
+        "ProductCode" = "8:{FD22D127-55CC-4F7B-8189-2AB56D0DC92A}"
+        "PackageCode" = "8:{0DD8629F-701F-4D2D-963F-116BB690933E}"
         "UpgradeCode" = "8:{3DB1EB67-82CF-42CE-B4C1-0A087EA7125F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.3.0"
+        "ProductVersion" = "8:1.4.0"
         "Manufacturer" = "8:John Rhuel Laurente"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -7430,7 +7482,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Dorm System Installer"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_BFA752ED0C594A7CB4083FDA36594904"
+        "ARPPRODUCTICON" = "8:_4EC4D6F63DFB47E18365C3FB71CD6759"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -7544,7 +7596,7 @@
             "Target" = "8:_F1D1F75A935D41778ACBBE051503AFBF"
             "Folder" = "8:_BE3671EC4BC647F485BAEA22B6C7E27D"
             "WorkingFolder" = "8:_5EB43A857C91470CA178893BA4D551C3"
-            "Icon" = "8:_A2B04F94184E40E897AA1D1A38EC0A20"
+            "Icon" = "8:_4EC4D6F63DFB47E18365C3FB71CD6759"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FB0E431222144003A866F5BE5405D94F"
@@ -7558,7 +7610,7 @@
             "Target" = "8:_F1D1F75A935D41778ACBBE051503AFBF"
             "Folder" = "8:_EB241A4F56194948BF1CAE369FE2D225"
             "WorkingFolder" = "8:_5EB43A857C91470CA178893BA4D551C3"
-            "Icon" = "8:_A2B04F94184E40E897AA1D1A38EC0A20"
+            "Icon" = "8:_12348E680AD84647ADE3228BBD416D43"
             "Feature" = "8:"
             }
         }
