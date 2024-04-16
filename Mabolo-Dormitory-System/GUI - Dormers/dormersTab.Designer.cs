@@ -272,7 +272,7 @@
             this.addDormerButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.addDormerButton.BorderColor = System.Drawing.Color.White;
             this.addDormerButton.BorderSize = 2;
-            this.addDormerButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addDormerButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addDormerButton.ForeColor = System.Drawing.Color.White;
             this.addDormerButton.Image = ((System.Drawing.Image)(resources.GetObject("addDormerButton.Image")));
             this.addDormerButton.ImageSize = new System.Drawing.Size(20, 20);
@@ -411,7 +411,7 @@
             this.printButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(162)))), ((int)(((byte)(184)))));
             this.printButton.BorderColor = System.Drawing.Color.White;
             this.printButton.BorderSize = 2;
-            this.printButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printButton.ForeColor = System.Drawing.Color.White;
             this.printButton.Image = ((System.Drawing.Image)(resources.GetObject("printButton.Image")));
             this.printButton.ImageSize = new System.Drawing.Size(20, 20);
