@@ -218,9 +218,9 @@ You can view a demo of the application by [clicking here](Resources/demo.mp4). A
 
 For any questions, feedback, or support inquiries, feel free to contact me at:
 
-- Email: [johnrhuell@gmail.com](mailto:johnrhuell@gmail.com)
-- GitHub: [VSUrhuel](https://github.com/VSUrhuel)
-- Facebook: [John Rhuel Laurente](https://www.facebook.com/johnrhuel.laurente)
+- [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white)](https://www.facebook.com/johnrhuel.laurente)
+- [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/rhuelski29/)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/john-rhuel-laurente-181357248/)
 
 ## Acknowledgements
 
