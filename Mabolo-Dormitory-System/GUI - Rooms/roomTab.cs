@@ -181,11 +181,11 @@ namespace Mabolo_Dormitory_System
                 if (row.Cells["Column1"].Value != null && Convert.ToBoolean(row.Cells["Column1"].Value))
                 {
                     hasChecked = true;
-                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Remove user from room?", "Delete", messageBoxButtons, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show("Confirmation required: Remove dormer from " + roomChooseCB.SelectedItem + "?", "Delete", messageBoxButtons, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         isChecked = true;
-                        db.DeleteUser(row.Cells["UserId"].Value.ToString());
+                        db.DeleteUserRoomAllocation(row.Cells["UserId"].Value.ToString());
                         roomUserView.Rows.Remove(row);
                     }
                     else
@@ -194,13 +194,13 @@ namespace Mabolo_Dormitory_System
             }
             if (!hasChecked)
             {
-                MessageBox.Show("No rows selected for deletion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No dormer was selected for room removal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!isChecked)
                 MessageBox.Show("Deletion cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Selected row(s) deleted successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selected dormer(s) was removed from " + roomChooseCB.SelectedItem + ".", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 
@@ -226,7 +226,7 @@ namespace Mabolo_Dormitory_System
             }
             if(db.GetUsersInRoom(roomNum).Count == 0)
             {
-                MessageBox.Show("No users in room. Cannot proceed.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No dormers in this room. Cannot proceed.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             var EditForm = new RoomReallocation(roomNum, this);
@@ -245,7 +245,7 @@ namespace Mabolo_Dormitory_System
             }
             if(roomUserView.Rows.Count == 0)
             {
-                MessageBox.Show("No users in room.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No dormers in this room.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 return;
             }

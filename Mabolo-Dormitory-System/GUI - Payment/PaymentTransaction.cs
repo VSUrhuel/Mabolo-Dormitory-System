@@ -67,6 +67,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             db.AddPayment(new Payment(index, DateTime.Now, float.Parse(amountText.Text), remarksText.Text, label1.Text));
             MessageBox.Show("Payment Addded", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             form.refreshBut_Click(sender, e);
+            this.Dispose();
         }
 
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)

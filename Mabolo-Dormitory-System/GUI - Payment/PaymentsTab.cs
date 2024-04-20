@@ -31,6 +31,7 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             payments = new List<Payment>();
             regularPayables = new List<Classes.RegularPayable>();
             db = new DatabaseManager();
+            db.LoadUsersPayable();
             InitializeComponent();
             count.Text = "";
             over.Text = "";

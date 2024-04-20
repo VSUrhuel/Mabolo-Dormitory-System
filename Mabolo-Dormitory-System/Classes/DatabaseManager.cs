@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Management.Instrumentation;
 using System.Reflection;
@@ -128,7 +129,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
             }
             return false;
-        }              
+        }
 
         public Account GetAccount(String email)
         {
@@ -145,15 +146,25 @@ namespace Mabolo_Dormitory_System.Classes
                             Account account = null;
                             while (reader.Read())
                             {
-                                account = new Account((int)reader["AccountId"], (string)reader["UserName"], (string)reader["Password"], (string)reader["FK_UserId_Account"], (byte[])reader["ImageData"]);
+                                byte[] imageData = null;
+                                if (reader["ImageData"] != DBNull.Value)
+                                {
+                                    imageData = (byte[])reader["ImageData"];
+                                }
+                                else
+                                {
+                                    SetPicture(email);
+                                }
+
+                                account = new Account((int)reader["AccountId"], (string)reader["UserName"], (string)reader["Password"], (string)reader["FK_UserId_Account"], imageData);
                             }
                             return account;
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while retrieving account");
+                    MessageBox.Show("There was an error while retrieving account: " + ex.Message);
                 }
                 finally
                 {
@@ -162,10 +173,29 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-      
+
+        public void SetPicture(string email)
+        {
+            byte[] imageData = File.ReadAllBytes("C:\\Users\\LENOVO\\source\\repos\\Mabolo-Dormitory-System\\Mabolo-Dormitory-System\\Resources\\profile.png");
+
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+
+                string query = "UPDATE system.account SET ImageData = @ImageData WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @Email)";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@ImageData", imageData);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public bool UpdateAccount(String email, String userName, String password, DateTime birthday, String firstName, String lastName, byte[] imageDate)
         {
             MySqlConnection connection = new MySqlConnection(con);
+            
             using (MySqlConnection cnn = new MySqlConnection(con))
             {
                 cnn.Open();
@@ -197,6 +227,7 @@ namespace Mabolo_Dormitory_System.Classes
                                 else
                                 {
                                     String query = "INSERT INTO system.account(ImageData) VALUES (@ImageData) WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @email)";
+                                    connection.Open();
                                     MySqlCommand command2 = new MySqlCommand(query, connection);
                                     command2.Parameters.AddWithValue("@email", email);
                                     command2.Parameters.AddWithValue("@ImageData", imageDate);
@@ -209,7 +240,7 @@ namespace Mabolo_Dormitory_System.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while updating account: " + ex.Message);
+                    MessageBox.Show("There was an errwor while updating account: " + ex.Message);
                     return false;
                 }
                 finally
@@ -578,7 +609,6 @@ namespace Mabolo_Dormitory_System.Classes
         {
             if(!UserAllocated(userId))
             {
-                MessageBox.Show(userId + " does not have a room yet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             using (MySqlConnection connection = new MySqlConnection(con))
@@ -1628,8 +1658,8 @@ namespace Mabolo_Dormitory_System.Classes
         
         public bool DeleteUserPayment(String userId)
         {
-            if(!UserPaymentExists(userId))
-                throw new ArgumentException("User does not have any payment");
+            if (!UserPaymentExists(userId))
+                return false;
             using (MySqlConnection connection = new MySqlConnection(con))
             {
                 try

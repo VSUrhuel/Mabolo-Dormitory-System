@@ -24,12 +24,13 @@ namespace Mabolo_Dormitory_System
         public Main(String email)
         {
             this.email = email;
-            this.db = new DatabaseManager();           
+            this.db = new DatabaseManager();
             InitializeComponent();      
             db.LoadUsersPayable();
             UpdateInformation();    
         }
         
+       
         public void UpdateInformation()
         {
             List<User> users = db.GetAllUsers();
@@ -41,10 +42,18 @@ namespace Mabolo_Dormitory_System
             pictureUser.Image = null;
             byte[] imageData = account.ImageData;
             pictureUser.Image = Image.FromStream(new MemoryStream(imageData));
-
-            label21.Text = db.GetUser(account.FK_UserId_Account).UserType;
+            
+            User u = db.GetUser(account.FK_UserId_Account);
+            if (u.UserType == "Dormitory Adviser")
+            {
+                label21.Text = "Dorm Adviser";
+            }
+            else
+                label21.Text = "Ast. Dorm Adviser";
+                
 
             // Update Username
+            
             username.Text = account.UserName;
 
             // Dormer Count Panel

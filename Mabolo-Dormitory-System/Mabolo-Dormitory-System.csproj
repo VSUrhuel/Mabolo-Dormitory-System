@@ -455,6 +455,8 @@
     <Content Include="404720286_381428064288197_8684864246851447303_n__1_-removebg-preview %281%29.ico" />
     <Content Include="Green Modern Download App Document Poster %282 x 2 in%29.ico" />
     <Content Include="Green_Modern_Download_App_Document_Poster__2_x_2_in_-removebg-preview.ico" />
+    <None Include="Resources\defaultPic.png" />
+    <None Include="Resources\profile.png" />
     <Content Include="system-update.ico" />
   </ItemGroup>
   <ItemGroup>
