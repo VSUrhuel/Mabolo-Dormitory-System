@@ -78,8 +78,13 @@
 ![Settings Page](InterfaceDesigns/Settings.png "Settings Page")
 - The Settings page allows the admin to modify their account and password. It also supports changing profile pictures and relevant admin information.
 
+## Use Case Diagram
+![Use Case Diagram](Resources/usecase1.png "Use Case Diagram")
+![Use Case Diagram](Resources/usecase2.png "Use Case Diagram")
+- This use case diagram represent the **dormitory management system**.
+
 ## Database Model
-![ERD Model](Resources/erd_final.png "ERD Mode")
+![ERD Model](Resources/erd_final_1.png "ERD Model")
 - This ERD presents a model tailored for a **dormitory management system** which I used to offer a comprehensive view of its entities and relationships. Below is a breakdown of the entities and their attributes:
 
 ### Entities:
