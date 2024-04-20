@@ -43,10 +43,17 @@ namespace Mabolo_Dormitory_System.GUI___Event
             int id = Int32.Parse(eventId.Split()[1]);
             if(dialogResult == DialogResult.Yes)
             {
-                db.DeleteEvent(id);
-                MessageBox.Show("Event deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                evenTab.refreshBut_Click(sender, e);
-                this.Dispose();
+                if (db.DeleteEvent(id))
+                {
+                    MessageBox.Show("Event deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    evenTab.refreshBut_Click(sender, e);
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while deleting the event.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {

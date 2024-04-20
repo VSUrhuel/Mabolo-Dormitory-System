@@ -73,7 +73,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Invalid Phone Number!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dateTimePicker1.Value >= DateTime.Now)
+            if (dateTimePicker1.Value.AddHours(5) >= DateTime.Now)
             {
                 MessageBox.Show("Birthdate Should be in the Past.!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
