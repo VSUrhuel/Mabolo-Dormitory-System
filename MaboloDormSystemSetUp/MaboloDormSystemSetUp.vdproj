@@ -7463,9 +7463,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Dormitory System Set Up"
+        "ProductName" = "8:Dormitory System Installer"
         "ProductCode" = "8:{27630A12-9291-4D80-860C-4752F5C041E5}"
-        "PackageCode" = "8:{FD71BFE1-B986-4B4A-BEFE-95E0BBA0EF86}"
+        "PackageCode" = "8:{D03EB403-7883-4311-98C7-5003B4030F06}"
         "UpgradeCode" = "8:{3DB1EB67-82CF-42CE-B4C1-0A087EA7125F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

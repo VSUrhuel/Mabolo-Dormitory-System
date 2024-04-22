@@ -75,7 +75,7 @@ namespace Mabolo_Dormitory_System
             }
             if (dateTimePicker1.Value.AddHours(5) >= DateTime.Now)
             {
-                MessageBox.Show("Birthdate Should be in the Past.!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Birthdate Should be in the Past!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(db.UserExists(data1.Text))
