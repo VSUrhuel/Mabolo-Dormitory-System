@@ -39,9 +39,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     button.Click += new EventHandler(editButton_Click);
                 }
             }
-            
-
-
             // Load information from the database
             SetUpEvents();  
         }
@@ -157,7 +154,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             if (searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid Event name to search", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a valid Event name to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 searchBar.Text = "";
                 return;
             }
@@ -174,7 +171,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             }
             if (events.Count == 0)
             {
-                MessageBox.Show("No event with the Name '" + eventName + "'  was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No event with the Name '" + eventName + "'  was found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 SetUpEvents();
             }
             else
@@ -186,7 +183,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 int i = 0;
                 foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
                 {
-
                     if (i < events.Count)
                     {
                         string formattedString = events[i].EventDate.ToString("MMMM dd, yyyy");
@@ -195,7 +191,6 @@ namespace Mabolo_Dormitory_System.GUI___Event
                         panel.Controls.OfType<Label>().ToList()[1].Text = events[i].EventName.ToString();
                         panel.Controls.OfType<Label>().ToList()[2].Text = formattedString;
                         i++;
-                        
                     }
                     else if (i >= events.Count)
                         break;

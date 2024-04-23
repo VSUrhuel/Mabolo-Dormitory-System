@@ -28,8 +28,7 @@ namespace Mabolo_Dormitory_System
             InitializeComponent();      
             db.LoadUsersPayable();
             UpdateInformation();    
-        }
-        
+        }     
        
         public void UpdateInformation()
         {
@@ -166,9 +165,7 @@ namespace Mabolo_Dormitory_System
         private void eventButton_Click(object sender, EventArgs e)
         {
             if(!verifyUsers())
-            {
                 return;
-            }
             mainPanel.Controls.Clear();
             EventTab eventTab = new EventTab(this);
             mainPanel.Controls.Add(eventTab);
@@ -177,10 +174,8 @@ namespace Mabolo_Dormitory_System
         private void paymentButton_Click(object sender, EventArgs e)
         {
             if (!verifyUsers())
-            {
                 return;
-            }
-            mainPanel.Controls.Clear();
+             mainPanel.Controls.Clear();
             PaymentsTab paymentsTab = new PaymentsTab(this);
             mainPanel.Controls.Add(paymentsTab);
         }
@@ -205,8 +200,8 @@ namespace Mabolo_Dormitory_System
 
         private bool UserHasDormer(List<User> u)
         {
-            List<User> uses = u;
-            foreach(User user in uses)
+            List<User> users = u;
+            foreach(User user in users)
             {
                 if(user.UserType == "Regular Dormer" || user.UserType == "Big Brod" || user.UserType == "Student Assistant")
                     return true;

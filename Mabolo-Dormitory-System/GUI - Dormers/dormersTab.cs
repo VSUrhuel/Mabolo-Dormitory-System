@@ -26,7 +26,7 @@ namespace Mabolo_Dormitory_System
             InitializeComponent();
             count.Text = "";
             over.Text = "";
-            users = db.GetAllUsers();
+            this.users = db.GetAllUsers();
             RefreshTable(users);
         }
 
@@ -164,7 +164,7 @@ namespace Mabolo_Dormitory_System
             viewCountCB.Text = "60";
             userTypeCB.Text = "All";
             searchBar.Text = "";
-            users = db.GetAllUsers();
+            this.users = db.GetAllUsers();
             RefreshTable(users);
         }
 
@@ -208,7 +208,7 @@ namespace Mabolo_Dormitory_System
                 }
                 if(users.Count == 0)
                 {
-                    MessageBox.Show("No " + userType + " was Found", "Information", MessageBoxButtons.OK ,MessageBoxIcon.Information);
+                    MessageBox.Show("No " + userType + " was Found!", "Information", MessageBoxButtons.OK ,MessageBoxIcon.Information);
                     users = db.GetAllUsers();
                     RefreshTable(users);
                 }
@@ -217,12 +217,11 @@ namespace Mabolo_Dormitory_System
             }
         }   
 
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             if(searchBar.Text == "" || searchBar.Text == "Search...")
             {
-                MessageBox.Show("Please enter a valid User ID to search", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a valid User ID to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 searchBar.Text = "";
                 return;
             }
@@ -233,16 +232,14 @@ namespace Mabolo_Dormitory_System
             foreach(User u in u2)
             {
                 if(u.UserId.Contains(userId))
-                {
                     users.Add(u);
-                }
             }
             if(users.Count == 0)
             {
                 if((userTypeCB.Text == "All") || (userTypeCB.Text == ""))
-                    MessageBox.Show("No user with the ID: '" + userId + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No user with the ID: '" + userId + "' was found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No user with the ID: '" + userId + "' with user type: '" + userTypeCB.Text + "' was found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 users = db.GetAllUsers();
             }
             RefreshTable(users);
@@ -260,7 +257,7 @@ namespace Mabolo_Dormitory_System
         {
             if(dormerTableView.Rows.Count == 0)
             {
-                MessageBox.Show("No rows to select", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No rows to select.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (selectAllCheckBox.Checked)
@@ -304,14 +301,11 @@ namespace Mabolo_Dormitory_System
                             db.DeleteUser(row.Cells["UserId"].Value.ToString());
                         }
                         else
-                        {
                             return;
-                        }
                         i++;
                     }
                     else
-                        db.DeleteUser(row.Cells["UserId"].Value.ToString());
-                    
+                        db.DeleteUser(row.Cells["UserId"].Value.ToString());                   
                 }
             }
             if(!hasChecked)
@@ -322,7 +316,7 @@ namespace Mabolo_Dormitory_System
             if (!isChecked)
                 MessageBox.Show("No rows selected for deletion.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Selected rows deleted successfully", "Sucessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selected rows deleted successfully.", "Sucessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             refreshButtton_Click(sender, e);
         }
 
@@ -330,12 +324,12 @@ namespace Mabolo_Dormitory_System
         {
             if(viewCountCB.Text == "")
             {
-                MessageBox.Show("Please select the number of items to display", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select the number of items to display.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (Convert.ToInt32(count.Text) == Convert.ToInt32(over.Text))
             {
-                MessageBox.Show("You are already at the last page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You are already at the last page.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (Convert.ToInt32(count.Text) < Convert.ToInt32(over.Text))
@@ -352,7 +346,7 @@ namespace Mabolo_Dormitory_System
         {
             if (Convert.ToInt32(count.Text) == 1)
             {
-                MessageBox.Show("You are already at the first page", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You are already at the first page.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (Convert.ToInt32(count.Text) > 1)
@@ -402,9 +396,8 @@ namespace Mabolo_Dormitory_System
             }
             catch
             {
-                MessageBox.Show("An error occured while printing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occured while printing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
     }
 }

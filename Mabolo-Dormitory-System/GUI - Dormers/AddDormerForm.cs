@@ -90,17 +90,17 @@ namespace Mabolo_Dormitory_System
             }
             if(data2.Text.Count() < 2)
             {
-                MessageBox.Show("First Name must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("First Name must be atleast two characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (data3.Text.Count() < 2)
             {
-                MessageBox.Show("Last Name must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Last Name must be atleast two characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (data7.Text.Count() < 2)
             {
-                MessageBox.Show("Address must be atleast 2 characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Address must be atleast two characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(data1.Text == "0000000000")
