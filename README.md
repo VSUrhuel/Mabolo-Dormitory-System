@@ -217,7 +217,10 @@ Thank you for your interest and support! 🚀
 
 ## Demo
 
-You can view a demo of the application by [clicking here](Resources/demo.mp4). Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+
+https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/cd5246cb-fec2-463d-8106-1e34f6c0089d
+
+Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
 
 ## Contact Information
 
