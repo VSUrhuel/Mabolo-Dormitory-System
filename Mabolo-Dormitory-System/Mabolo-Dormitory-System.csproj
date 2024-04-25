@@ -339,6 +339,7 @@
     <Compile Include="Unit Test Classes\TestDepartment.cs" />
     <Compile Include="Unit Test Classes\TestEvent.cs" />
     <Compile Include="Unit Test Classes\TestEventAttendance.cs" />
+    <Compile Include="Unit Test Classes\TestPayment.cs" />
     <Compile Include="Unit Test Classes\TestRoom.cs" />
     <Compile Include="Unit Test Classes\TestRoomAllocation.cs" />
     <Compile Include="Unit Test Classes\TestUser.cs" />
