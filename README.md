@@ -47,35 +47,35 @@
 ## Features of the System
 
 ### Sign In Page
-![Sign In Page](InterfaceDesigns/SignIn.png "Sign In Page")
+![Log In](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/dccced38-34b9-4769-82ff-2aabcb53cdf8)
 - This page manages the *login feature* of the system. It serves as the initial interface upon opening the application.
 
 ### Dashboard Page
-![Dashboard Page](InterfaceDesigns/Dashboard.png "Dashboard Page")
+![Dashboard](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/78d9eb58-c61c-4e54-b59b-c7c182b792af)
 - The Dashboard provides an overview of the current dormitory status, displaying a summary of significant information necessary for efficient management, including *dorm user count*, *room count*, *payment collectibles*, and events.
 - Additionally, this page showcases dormitory and developer information.
 
 ### Dormers Page
-![Dormers Page](InterfaceDesigns/Dormers.png "Dormers Page")
+![Dormers](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/68576424-e14a-4821-bacb-5e9b851a4eb8)
 - The Dormers page presents the current list of dormitory occupants, offering filtering options by user type, search functionality, and pagination for display management.
 - Admin users can also utilize this page to add new dormers to the system.
 
 ### Rooms Page
-![Rooms Page](InterfaceDesigns/Rooms.png "Rooms Page")
+![Rooms](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/951c5aba-5199-4c99-972c-a72fbb9c93c6)
 - This page displays the different users per room. The admin can allocate dormers to a room or move a dormer to a new room.
 
 ### Events Page
-![Events Page](InterfaceDesigns/Events.png "Events Page")
+![Events](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/fe03c35c-99ca-4964-b3a4-de13ec205499)
 - The Events page showcases the events in the dormitory. Here, the admin can add new events, update existing ones, and delete events.
 - This page also manages attendance for every event.
 
 ### Payments Page
-![Payments Page](InterfaceDesigns/Payments.png "Payments Page")
+![Payments](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/fafd583c-655f-42e2-b570-db0a11a57786)
 - The Payments page displays the payables of every dormer, including their remaining balance. The admin can view payments and add payment transactions for each dormer.
 - Regular payables and payment summaries can be viewed on this page.
 
 ### Settings Page
-![Settings Page](InterfaceDesigns/Settings.png "Settings Page")
+![Settings](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/ac227445-a2e4-48e0-ae20-b1743b885bd5)
 - The Settings page allows the admin to modify their account and password. It also supports changing profile pictures and relevant admin information.
 
 ## Use Case Diagram
@@ -217,7 +217,10 @@ Thank you for your interest and support! 🚀
 
 ## Demo
 
-You can view a demo of the application by [clicking here](Resources/demo.mp4). Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+
+https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/cd5246cb-fec2-463d-8106-1e34f6c0089d
+
+Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
 
 ## Contact Information
 
