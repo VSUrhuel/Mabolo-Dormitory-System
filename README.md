@@ -140,7 +140,7 @@
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
-- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this directory: `Resources/Documentation-of-Events.pdf`.
+- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this [link](Resources/Documentation-of-Events.pdf).
 
 ## Class Diagram
 ![Class Diagram](Resources/SystemDesign.png "Class Diagram")
@@ -220,7 +220,7 @@ Thank you for your interest and support! 🚀
 
 https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/cd5246cb-fec2-463d-8106-1e34f6c0089d
 
-Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfaceDesigns) directory.
 
 ## Contact Information
 
