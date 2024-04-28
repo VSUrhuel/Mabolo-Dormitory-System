@@ -28,6 +28,7 @@
     - [User Payable](#user-payable)
   - [Relationships](#relationships)
 - [Events Documentation](#events-documentation)
+- [Presentation](#presentation)
 - [Class Diagram](#class-diagram)
 - [How to Use the App?](#🚀-how-to-use-the-app)
   - [Prerequisite](#prerequisite)
@@ -141,6 +142,10 @@
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
 - This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this [link](Resources/Documentation-of-Events.pdf).
+
+## Presentation
+![Presentation](Resources/Presentation.png)
+- The presentation of this project can be viewed [here](https://www.canva.com/design/DAGDEV1cwPQ/ozj6UAo-nFsA3PqZng-f_A/edit?utm_content=DAGDEV1cwPQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
 ## Class Diagram
 ![Class Diagram](Resources/SystemDesign.png "Class Diagram")
