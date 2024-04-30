@@ -151,7 +151,7 @@
             this.userTypeCB.Items.AddRange(new object[] {
             "Regular Dormer",
             "Big Brod",
-            "Student Assisstant"});
+            "Student Assistant"});
             this.userTypeCB.Location = new System.Drawing.Point(212, 77);
             this.userTypeCB.Name = "userTypeCB";
             this.userTypeCB.OnHoverItemBaseColor = System.Drawing.Color.ForestGreen;

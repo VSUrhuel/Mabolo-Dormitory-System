@@ -83,7 +83,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
-        
+
         public bool AdminPassReset(String email, String password)
         {
             using (MySqlConnection connection = new MySqlConnection(con))
@@ -91,37 +91,35 @@ namespace Mabolo_Dormitory_System.Classes
                 connection.Open();
                 try
                 {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @email)", connection))
+                    List<string> userIds = new List<string>();
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.account WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @Email)", connection))
                     {
                         command.Parameters.AddWithValue("@Email", email);
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                if (reader["ImageData"] != DBNull.Value)
-                                {
-                                    String query = "UPDATE system.account SET Password = @Password WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @email)";
-                                    MySqlCommand command2 = new MySqlCommand(query, connection);
-                                    command2.Parameters.AddWithValue("@Email", email);
-                                    command2.Parameters.AddWithValue("@Password", password);
-                                    command2.ExecuteNonQuery();
-                                }
-                                else
-                                {
-                                    String query = "INSERT INTO system.account(Password) VALUES (@Password) WHERE FK_UserId_Account = (SELECT UserId FROM system.user WHERE Email = @email)";
-                                    MySqlCommand command2 = new MySqlCommand(query, connection);
-                                    command2.Parameters.AddWithValue("@email", email);
-                                    command2.Parameters.AddWithValue("@Password", password);
-                                    command2.ExecuteNonQuery();
-                                }
+                                userIds.Add(reader["FK_UserId_Account"].ToString());
                             }
                         }
                     }
+
+                    foreach (string userId in userIds)
+                    {
+                        String query = "UPDATE system.account SET Password = @Password WHERE FK_UserId_Account = @UserId";
+                        using (MySqlCommand command2 = new MySqlCommand(query, connection))
+                        {
+                            command2.Parameters.AddWithValue("@UserId", userId);
+                            command2.Parameters.AddWithValue("@Password", password);
+                            command2.ExecuteNonQuery();
+                        }
+                    }
+
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("There was an error while resetting password");
+                    MessageBox.Show("There was an error while resetting password: " + ex.Message);
                 }
                 finally
                 {
@@ -130,6 +128,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
+
 
         public Account GetAccount(String email)
         {
