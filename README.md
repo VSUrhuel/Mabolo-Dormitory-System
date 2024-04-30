@@ -29,7 +29,7 @@
   - [Relationships](#relationships)
 - [Events Documentation](#events-documentation)
 - [Presentation](#presentation)
-- [Class Diagram](#class-diagram)
+- [System Design](#system-design)
 - [How to Use the App?](#how-to-use-the-app)
   - [Prerequisite](#prerequisite)
     - [MySql Server](#mysql-server)
@@ -146,8 +146,8 @@
 ![Presentation](Resources/Presentation.png)
 - The presentation of this project can be viewed [here](https://www.canva.com/design/DAGDEV1cwPQ/ozj6UAo-nFsA3PqZng-f_A/edit?utm_content=DAGDEV1cwPQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
-## Class Diagram
-![Class Diagram](Resources/SystemDesign.png "Class Diagram")
+## System Design
+![System Design](Resources/SystemDesign.png "System Design")
 - These were the classes used on developing this app. I have create a class named `DatabaseManager` that will execute all the queries from my GUI forms, for better effeciency and easy debugging. All the classes, excpeted the `DatabaseManager` has a corresponding test classes which were used for unit testing of the classes. 
 
 ## How to Use the App?
