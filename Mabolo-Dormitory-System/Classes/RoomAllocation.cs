@@ -15,6 +15,14 @@ namespace Mabolo_Dormitory_System.Classes
         public int FK_RoomId_RoomAllocation { get; private set; }
         public String FK_UserId_RoomAllocation { get; private set; }
 
+        public Account Account
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public RoomAllocation(int roomAllocationId, DateTime startDate, DateTime endDate, int fk_roomId_RoomAllocation, String fk_userId_RoomAllocation)
         {
             ValidateArg(roomAllocationId, startDate, endDate, fk_roomId_RoomAllocation, fk_userId_RoomAllocation);
