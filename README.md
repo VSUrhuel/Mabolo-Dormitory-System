@@ -3,7 +3,7 @@
 - This project is a requirement for two courses within my *BS in Computer Science* program.
 - The **Mabolo Dormitory Management System** is designed to streamline dormitory activities, including *room allocation*, *dormer information management*, *payments*, and other related events.
 - It offers a *systemized* and **secured** approach to data storage, enhancing the overall **efficiency** of dormitory management.
-- This system is tailored specifically for **admin users**, which may include the Dorm Adviser, Assistant Dorm Adviser, or Student Assistants.
+- This system is tailored specifically for **admin users**, which may include the Dorm Adviser, or Assistant Dorm Adviser.
 
 ## 📚 Table of Contents
 
@@ -28,15 +28,16 @@
     - [User Payable](#user-payable)
   - [Relationships](#relationships)
 - [Events Documentation](#events-documentation)
+- [Presentation](#presentation)
 - [Class Diagram](#class-diagram)
-- [How to Use the App?](#🚀-how-to-use-the-app)
+- [How to Use the App?](#how-to-use-the-app)
   - [Prerequisite](#prerequisite)
-    - [MySql Server](#🛠-mysql-server)
-    - [Download Resources](#📥-download-resources)
+    - [MySql Server](#mysql-server)
+    - [Download Resources](#download-resources)
   - [Set Up MySql](#set-up-mysql)
   - [Set Up Environment Variables](#set-up-environment-variables)
   - [Install](#install)
-- [How to Open Using Visual Studio?](#🖥-how-to-open-using-visual-studio)
+- [How to Open Using Visual Studio?](#how-to-open-using-visual-studio)
 - [License Information](#license-information)
 - [Contributing](#contributing)
 - [Demo](#demo)
@@ -130,7 +131,6 @@
 - A *User* can be assigned to a single *Department*.
 - A *Room* can have many *Room Allocation* records, representing residents assigned over time.
 - A *Room Allocation* record belongs to one *Room* and one *User*.
-- A *User* can have many *Room Allocation* records, indicating different room assignments over time.
 - A *User* can make many *Payment* records, with each *Payment* record associated with one *User*.
 - An *Event* can have many *Event Attendance* records, indicating residents who attended.
 - An *Event Attendance* record belongs to one *Event* and one *User*.
@@ -140,23 +140,27 @@
 
 ## Events Documentation
 ![Events Documentation](Resources/events_doc.png "Events Documentation")
-- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this directory: `Resources/Documentation-of-Events.pdf`.
+- This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this [link](Resources/Documentation-of-Events.pdf).
+
+## Presentation
+![Presentation](Resources/Presentation.png)
+- The presentation of this project can be viewed [here](https://www.canva.com/design/DAGDEV1cwPQ/ozj6UAo-nFsA3PqZng-f_A/edit?utm_content=DAGDEV1cwPQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
 ## Class Diagram
 ![Class Diagram](Resources/SystemDesign.png "Class Diagram")
 - These were the classes used on developing this app. I have create a class named `DatabaseManager` that will execute all the queries from my GUI forms, for better effeciency and easy debugging. All the classes, excpeted the `DatabaseManager` has a corresponding test classes which were used for unit testing of the classes. 
 
-## 🚀 How to Use the App?
+## How to Use the App?
 
 ### Prerequisite
 
-#### 🛠 MySql Server
+#### MySql Server
 ![MySql Server](Resources/MySql_Download.png "MySql Server")
 - You should have a **MySql community server**. If you don't have it, you can download it from the [official website](https://dev.mysql.com/downloads/mysql/). Follow the setup process and install it.
 
-#### 📥 Download Resources
+#### Download Resources
 ![Release Download](Resources/Reslease_Download.png "Release Download")
-- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases) to download the latest release version of this app. Click the `.msi` file to download it.
+- Visit [this link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases) to download the latest release version of this app. Click the **latest** `.msi` file to download it. 
 
 ![Database Download](Resources/Database_Download.png "Database Download")
 - Navigate to the `Resources` folder in this repository and download the SQL file `SystemDatabase`.
@@ -187,7 +191,7 @@
 ### Install
 - Run the installation process downloaded from [this GitHub link](https://github.com/VSUrhuel/Mabolo-Dormitory-System/releases/tag/System). **You can now use the app!**
 
-## 🖥 How to Open Using Visual Studio?
+## How to Open Using Visual Studio?
 ![VS](Resources/vs.png "VS")
 - Click `code` at the top and select `Open with Visual Studio`.
 
@@ -220,7 +224,7 @@ Thank you for your interest and support! 🚀
 
 https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/cd5246cb-fec2-463d-8106-1e34f6c0089d
 
-Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfacesDesigns/Dashboard.png) directory.
+Here is the demo on how the application funcions. Additionally, screenshots showcasing the user interface and functionality are available in the [Screenshots](InterfaceDesigns) directory.
 
 ## Contact Information
 
