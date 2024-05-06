@@ -389,7 +389,6 @@
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Text = "Password";
             this.passwordTextBox.TextOffsetX = 40;
-            
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
             // 
             // gunaTransfarantPictureBox1
