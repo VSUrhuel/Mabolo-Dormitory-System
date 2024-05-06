@@ -62,16 +62,6 @@ namespace Mabolo_Dormitory_System
             this.Dispose();
         }
 
-        private void passwordText_MouseClick(object sender, MouseEventArgs e)
-        {
-            passwordText.LineColor = Color.FromArgb(46, 204, 113);
-        }
-
-        private void confirmPassword_MouseClick(object sender, MouseEventArgs e)
-        {
-            confirmPassword.LineColor = Color.FromArgb(46, 204, 113);
-        }
-
         private void UpdateForm_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -91,6 +81,32 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void passwordText_TextChanged(object sender, EventArgs e)
+        {
+            if(ValidationClass.ValidatePassword(passwordText.Text))
+            {
+                passwordText.FocusedLineColor = Color.Green;
+                passwordText.LineColor = Color.FromArgb(46, 204, 113);
+            }
+            else
+            {
+                passwordText.FocusedLineColor = passwordText.LineColor = Color.Red;
+            }
+        }
+
+        private void confirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            if(passwordText.Text == confirmPassword.Text)
+            {
+                confirmPassword.FocusedLineColor = Color.Green;
+                confirmPassword.LineColor = Color.FromArgb(46, 204, 113);
+            }
+            else
+            {
+                confirmPassword.FocusedLineColor = confirmPassword.LineColor = Color.Red;
+            }
         }
     }
 }

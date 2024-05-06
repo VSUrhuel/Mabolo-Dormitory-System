@@ -43,7 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.gunaLineTextBox5 = new Guna.UI.WinForms.GunaLineTextBox();
+            this.newPass = new Guna.UI.WinForms.GunaLineTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.resetButton = new Guna.UI.WinForms.GunaButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
@@ -51,7 +51,7 @@
             this.hideNewPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.vieeNewPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLineTextBox4 = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaLineTextBox6 = new Guna.UI.WinForms.GunaLineTextBox();
+            this.confirmPass = new Guna.UI.WinForms.GunaLineTextBox();
             this.hideConfirmPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.viewConfirmPassBut = new Guna.UI.WinForms.GunaAdvenceButton();
             this.label9 = new System.Windows.Forms.Label();
@@ -246,19 +246,20 @@
             this.label4.TabIndex = 102;
             this.label4.Text = "Previous Password:";
             // 
-            // gunaLineTextBox5
+            // newPass
             // 
-            this.gunaLineTextBox5.BackColor = System.Drawing.Color.White;
-            this.gunaLineTextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaLineTextBox5.FocusedLineColor = System.Drawing.Color.SpringGreen;
-            this.gunaLineTextBox5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLineTextBox5.LineColor = System.Drawing.Color.SeaGreen;
-            this.gunaLineTextBox5.Location = new System.Drawing.Point(352, 440);
-            this.gunaLineTextBox5.Name = "gunaLineTextBox5";
-            this.gunaLineTextBox5.PasswordChar = '●';
-            this.gunaLineTextBox5.Size = new System.Drawing.Size(254, 41);
-            this.gunaLineTextBox5.TabIndex = 105;
-            this.gunaLineTextBox5.UseSystemPasswordChar = true;
+            this.newPass.BackColor = System.Drawing.Color.White;
+            this.newPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.newPass.FocusedLineColor = System.Drawing.Color.SpringGreen;
+            this.newPass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPass.LineColor = System.Drawing.Color.SeaGreen;
+            this.newPass.Location = new System.Drawing.Point(352, 440);
+            this.newPass.Name = "newPass";
+            this.newPass.PasswordChar = '●';
+            this.newPass.Size = new System.Drawing.Size(254, 41);
+            this.newPass.TabIndex = 105;
+            this.newPass.UseSystemPasswordChar = true;
+            this.newPass.TextChanged += new System.EventHandler(this.newPass_TextChanged);
             // 
             // label7
             // 
@@ -387,19 +388,20 @@
             this.gunaLineTextBox4.Size = new System.Drawing.Size(254, 41);
             this.gunaLineTextBox4.TabIndex = 112;
             // 
-            // gunaLineTextBox6
+            // confirmPass
             // 
-            this.gunaLineTextBox6.BackColor = System.Drawing.Color.White;
-            this.gunaLineTextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaLineTextBox6.FocusedLineColor = System.Drawing.Color.SpringGreen;
-            this.gunaLineTextBox6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLineTextBox6.LineColor = System.Drawing.Color.SeaGreen;
-            this.gunaLineTextBox6.Location = new System.Drawing.Point(349, 503);
-            this.gunaLineTextBox6.Name = "gunaLineTextBox6";
-            this.gunaLineTextBox6.PasswordChar = '●';
-            this.gunaLineTextBox6.Size = new System.Drawing.Size(254, 41);
-            this.gunaLineTextBox6.TabIndex = 113;
-            this.gunaLineTextBox6.UseSystemPasswordChar = true;
+            this.confirmPass.BackColor = System.Drawing.Color.White;
+            this.confirmPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.confirmPass.FocusedLineColor = System.Drawing.Color.SpringGreen;
+            this.confirmPass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPass.LineColor = System.Drawing.Color.SeaGreen;
+            this.confirmPass.Location = new System.Drawing.Point(349, 503);
+            this.confirmPass.Name = "confirmPass";
+            this.confirmPass.PasswordChar = '●';
+            this.confirmPass.Size = new System.Drawing.Size(254, 41);
+            this.confirmPass.TabIndex = 113;
+            this.confirmPass.UseSystemPasswordChar = true;
+            this.confirmPass.TextChanged += new System.EventHandler(this.confirmPass_TextChanged);
             // 
             // hideConfirmPassBut
             // 
@@ -521,14 +523,14 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.hideConfirmPassBut);
             this.Controls.Add(this.viewConfirmPassBut);
-            this.Controls.Add(this.gunaLineTextBox6);
+            this.Controls.Add(this.confirmPass);
             this.Controls.Add(this.gunaLineTextBox4);
             this.Controls.Add(this.hideNewPassBut);
             this.Controls.Add(this.vieeNewPassBut);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.gunaLineTextBox5);
+            this.Controls.Add(this.newPass);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
@@ -569,7 +571,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private Guna.UI.WinForms.GunaLineTextBox gunaLineTextBox5;
+        private Guna.UI.WinForms.GunaLineTextBox newPass;
         private System.Windows.Forms.Label label7;
         private Guna.UI.WinForms.GunaButton resetButton;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
@@ -577,7 +579,7 @@
         private Guna.UI.WinForms.GunaAdvenceButton hideNewPassBut;
         private Guna.UI.WinForms.GunaAdvenceButton vieeNewPassBut;
         private Guna.UI.WinForms.GunaLineTextBox gunaLineTextBox4;
-        private Guna.UI.WinForms.GunaLineTextBox gunaLineTextBox6;
+        private Guna.UI.WinForms.GunaLineTextBox confirmPass;
         private Guna.UI.WinForms.GunaAdvenceButton hideConfirmPassBut;
         private Guna.UI.WinForms.GunaAdvenceButton viewConfirmPassBut;
         private System.Windows.Forms.Label label9;

@@ -784,14 +784,21 @@ namespace Mabolo_Dormitory_System.Classes
                     String sql = "SELECT * FROM system.user u INNER JOIN system.room_allocation t ON u.UserId = t.FK_UserId_RoomAllocation WHERE t.FK_RoomId_RoomAllocation = @RoomId AND UserType = 'Big Brod';";
                     using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
+                        int ctr = 0;
                         command.Parameters.AddWithValue("@RoomId", roomId);
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                return true;
+                                ctr++;
                             }
                         }
+                        if(ctr == 1 && roomId != 4)
+                            return true;
+                        else if(ctr == 2 && roomId == 4)
+                            return true;
+                        else
+                            return false;
                     }
                 }
                 catch (Exception ex)

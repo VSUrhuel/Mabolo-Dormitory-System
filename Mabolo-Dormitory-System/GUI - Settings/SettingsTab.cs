@@ -110,7 +110,7 @@ namespace Mabolo_Dormitory_System.GUI___Settings
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            if(gunaLineTextBox5.Text == "" && gunaLineTextBox6.Text == "" && gunaLineTextBox4.Text == "")
+            if(newPass.Text == "" && confirmPass.Text == "" && gunaLineTextBox4.Text == "")
             {
                 MessageBox.Show("Please fill up the fields", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -120,46 +120,46 @@ namespace Mabolo_Dormitory_System.GUI___Settings
                 MessageBox.Show("Incorrect previous password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if(ValidationClass.ValidatePassword(gunaLineTextBox5.Text) == false)
+            if(ValidationClass.ValidatePassword(newPass.Text) == false)
             {
                 MessageBox.Show("Invalid new password. Password Should include an uppercase, symbol, numbers, and at least 8 letters.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if(gunaLineTextBox5.Text != gunaLineTextBox6.Text)
+            if(newPass.Text != confirmPass.Text)
             {
                 MessageBox.Show("Passwords do not match", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             User u = db.GetUser(account.FK_UserId_Account);
-            if(db.UpdateAccount(email, account.UserName, gunaLineTextBox5.Text, u.Birthday, u.FirstName, u.LastName, account.ImageData))
+            if(db.UpdateAccount(email, account.UserName, newPass.Text, u.Birthday, u.FirstName, u.LastName, account.ImageData))
                 MessageBox.Show("Password updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Password not updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            gunaLineTextBox5.Text = "";
-            gunaLineTextBox6.Text = "";
+            newPass.Text = "";
+            confirmPass.Text = "";
             gunaLineTextBox4.Text = "";
 
         }
 
         private void viewNewPassBut_Click(object sender, EventArgs e)
         {
-            gunaLineTextBox5.PasswordChar = '\0';
-            gunaLineTextBox5.UseSystemPasswordChar = false;
+            newPass.PasswordChar = '\0';
+            newPass.UseSystemPasswordChar = false;
             hideNewPassBut.Visible = false;
             vieeNewPassBut.Visible = true;
         }
 
         private void hideNewPassBut_Click(object sender, EventArgs e)
         {
-            gunaLineTextBox5.UseSystemPasswordChar = true;
+            newPass.UseSystemPasswordChar = true;
             vieeNewPassBut.Visible = false;
             hideNewPassBut.Visible = true;
         }
 
         private void viewConfirmPassBut_Click(object sender, EventArgs e)
         {
-            gunaLineTextBox6.PasswordChar = '\0';
-            gunaLineTextBox6.UseSystemPasswordChar = false;
+            confirmPass.PasswordChar = '\0';
+            confirmPass.UseSystemPasswordChar = false;
             
 
             viewConfirmPassBut.Visible = true;
@@ -168,9 +168,35 @@ namespace Mabolo_Dormitory_System.GUI___Settings
 
         private void hideConfirmPassBut_Click(object sender, EventArgs e)
         {
-            gunaLineTextBox6.UseSystemPasswordChar = true;
+            confirmPass.UseSystemPasswordChar = true;
             viewConfirmPassBut.Visible = false;
             hideConfirmPassBut.Visible = true;
+        }
+
+        private void newPass_TextChanged(object sender, EventArgs e)
+        {
+            if(ValidationClass.ValidatePassword(newPass.Text))
+            {
+                newPass.FocusedLineColor = Color.Green;
+                newPass.LineColor = Color.FromArgb(46, 204, 113);
+            }
+            else
+            {
+                newPass.FocusedLineColor = newPass.LineColor = Color.Red;
+            }
+        }
+
+        private void confirmPass_TextChanged(object sender, EventArgs e)
+        {
+            if(newPass.Text == confirmPass.Text)
+            {
+                confirmPass.FocusedLineColor = Color.Green;
+                confirmPass.LineColor = Color.FromArgb(46, 204, 113);
+            }
+            else
+            {
+                confirmPass.FocusedLineColor = confirmPass.LineColor = Color.Red;
+            }
         }
     }
 }

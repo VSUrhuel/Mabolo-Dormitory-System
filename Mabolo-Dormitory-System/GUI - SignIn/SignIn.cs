@@ -28,6 +28,7 @@ namespace Mabolo_Dormitory_System
             hideViewBut.Visible = false;
             viewBut.Visible = true;
         }
+       
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -220,5 +221,20 @@ namespace Mabolo_Dormitory_System
             passwordTextBox.LineColor = Color.FromArgb(46, 204, 113);
             passwordTextBox.FocusedLineColor = Color.ForestGreen;
         }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if(ValidationClass.ValidateEmail(emailTextBox.Text))
+            {
+                emailTextBox.LineColor = Color.FromArgb(46, 204, 113);
+                emailTextBox.FocusedLineColor = Color.ForestGreen;
+            }
+            else
+            {
+                emailTextBox.LineColor = Color.Red;
+                emailTextBox.FocusedLineColor = Color.Red;
+            }
+        }
+
     }
 }

@@ -65,13 +65,6 @@
         <Position X="-1.219" Y="0.109" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="RoomAllocations" Type="Mabolo_Dormitory_System.Classes.RoomAllocation" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.188" Y="9" />
-        <Point X="6.188" Y="4.75" />
-        <Point X="4" Y="4.75" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>QyAQBDAhMAJYAShmUjAYQcRDA4YCgAQof4AEIEkxTkA=</HashCode>
       <FileName>Classes\DatabaseManager.cs</FileName>

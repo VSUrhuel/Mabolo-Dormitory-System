@@ -101,7 +101,8 @@
             this.passwordText.PasswordChar = '\0';
             this.passwordText.Size = new System.Drawing.Size(379, 35);
             this.passwordText.TabIndex = 80;
-            this.passwordText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordText_MouseClick);
+            this.passwordText.TextChanged += new System.EventHandler(this.passwordText_TextChanged);
+           
             // 
             // gunaLabel2
             // 
@@ -125,7 +126,8 @@
             this.confirmPassword.PasswordChar = '\0';
             this.confirmPassword.Size = new System.Drawing.Size(379, 35);
             this.confirmPassword.TabIndex = 84;
-            this.confirmPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.confirmPassword_MouseClick);
+            this.confirmPassword.TextChanged += new System.EventHandler(this.confirmPassword_TextChanged);
+            
             // 
             // gunaLabel1
             // 

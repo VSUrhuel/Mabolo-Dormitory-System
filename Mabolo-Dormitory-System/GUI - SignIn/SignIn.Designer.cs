@@ -389,6 +389,7 @@
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Text = "Password";
             this.passwordTextBox.TextOffsetX = 40;
+            
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
             // 
             // gunaTransfarantPictureBox1
@@ -418,6 +419,7 @@
             this.emailTextBox.TabIndex = 1;
             this.emailTextBox.Text = "Email";
             this.emailTextBox.TextOffsetX = 40;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             this.emailTextBox.Enter += new System.EventHandler(this.emailTextBox_Enter);
             // 
             // pictureBox1
