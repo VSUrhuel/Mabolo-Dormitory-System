@@ -139,7 +139,7 @@
 - A *User Payable* record belongs to one *User*.
 
 ## Events Documentation
-![Events Documentation](Resources/events_doc.png "Events Documentation")
+![image](https://github.com/VSUrhuel/Mabolo-Dormitory-System/assets/114915612/818cec08-fdc4-4586-9b59-20e8324cf3e3)
 - This the first page of the events documentation embedded on this repository. To view the complete copy of the documentation, the PDF copy can be accessed in this [link](Resources/Documentation-of-Events.pdf).
 
 ## Presentation
