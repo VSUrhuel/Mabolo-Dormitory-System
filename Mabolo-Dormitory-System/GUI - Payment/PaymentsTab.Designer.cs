@@ -104,7 +104,7 @@
             this.searchBar.Name = "searchBar";
             this.searchBar.PasswordChar = '\0';
             this.searchBar.Size = new System.Drawing.Size(211, 35);
-            this.searchBar.TabIndex = 12;
+            this.searchBar.TabIndex = 11;
             this.searchBar.Text = "Search...";
             this.searchBar.TextOffsetX = 10;
             this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
