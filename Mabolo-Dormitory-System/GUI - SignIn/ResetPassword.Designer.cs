@@ -97,12 +97,12 @@
             this.passwordText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordText.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.passwordText.Location = new System.Drawing.Point(139, 65);
+            this.passwordText.MaxLength = 25;
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '\0';
             this.passwordText.Size = new System.Drawing.Size(379, 35);
             this.passwordText.TabIndex = 80;
             this.passwordText.TextChanged += new System.EventHandler(this.passwordText_TextChanged);
-           
             // 
             // gunaLabel2
             // 
@@ -122,12 +122,12 @@
             this.confirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPassword.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.confirmPassword.Location = new System.Drawing.Point(139, 177);
+            this.confirmPassword.MaxLength = 25;
             this.confirmPassword.Name = "confirmPassword";
             this.confirmPassword.PasswordChar = '\0';
             this.confirmPassword.Size = new System.Drawing.Size(379, 35);
             this.confirmPassword.TabIndex = 84;
             this.confirmPassword.TextChanged += new System.EventHandler(this.confirmPassword_TextChanged);
-            
             // 
             // gunaLabel1
             // 

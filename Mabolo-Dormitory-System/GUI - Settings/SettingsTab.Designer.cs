@@ -123,6 +123,7 @@
             this.gunaLineTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLineTextBox1.LineColor = System.Drawing.Color.SeaGreen;
             this.gunaLineTextBox1.Location = new System.Drawing.Point(524, 82);
+            this.gunaLineTextBox1.MaxLength = 25;
             this.gunaLineTextBox1.Name = "gunaLineTextBox1";
             this.gunaLineTextBox1.PasswordChar = '\0';
             this.gunaLineTextBox1.Size = new System.Drawing.Size(254, 35);
@@ -137,6 +138,7 @@
             this.gunaLineTextBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLineTextBox2.LineColor = System.Drawing.Color.SeaGreen;
             this.gunaLineTextBox2.Location = new System.Drawing.Point(974, 82);
+            this.gunaLineTextBox2.MaxLength = 25;
             this.gunaLineTextBox2.Name = "gunaLineTextBox2";
             this.gunaLineTextBox2.PasswordChar = '\0';
             this.gunaLineTextBox2.Size = new System.Drawing.Size(266, 35);
@@ -151,6 +153,7 @@
             this.gunaLineTextBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLineTextBox3.LineColor = System.Drawing.Color.SeaGreen;
             this.gunaLineTextBox3.Location = new System.Drawing.Point(521, 138);
+            this.gunaLineTextBox3.MaxLength = 10;
             this.gunaLineTextBox3.Name = "gunaLineTextBox3";
             this.gunaLineTextBox3.PasswordChar = '\0';
             this.gunaLineTextBox3.Size = new System.Drawing.Size(193, 35);
@@ -254,6 +257,7 @@
             this.newPass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPass.LineColor = System.Drawing.Color.SeaGreen;
             this.newPass.Location = new System.Drawing.Point(352, 440);
+            this.newPass.MaxLength = 50;
             this.newPass.Name = "newPass";
             this.newPass.PasswordChar = '●';
             this.newPass.Size = new System.Drawing.Size(254, 41);
@@ -383,6 +387,7 @@
             this.gunaLineTextBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLineTextBox4.LineColor = System.Drawing.Color.SeaGreen;
             this.gunaLineTextBox4.Location = new System.Drawing.Point(349, 376);
+            this.gunaLineTextBox4.MaxLength = 50;
             this.gunaLineTextBox4.Name = "gunaLineTextBox4";
             this.gunaLineTextBox4.PasswordChar = '\0';
             this.gunaLineTextBox4.Size = new System.Drawing.Size(254, 41);
@@ -396,6 +401,7 @@
             this.confirmPass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPass.LineColor = System.Drawing.Color.SeaGreen;
             this.confirmPass.Location = new System.Drawing.Point(349, 503);
+            this.confirmPass.MaxLength = 50;
             this.confirmPass.Name = "confirmPass";
             this.confirmPass.PasswordChar = '●';
             this.confirmPass.Size = new System.Drawing.Size(254, 41);

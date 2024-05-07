@@ -224,7 +224,7 @@
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaLabel1.Location = new System.Drawing.Point(281, 292);
+            this.gunaLabel1.Location = new System.Drawing.Point(358, 349);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(175, 21);
             this.gunaLabel1.TabIndex = 0;
@@ -244,7 +244,7 @@
             this.panel2.Controls.Add(this.passwordTextBox);
             this.panel2.Controls.Add(this.gunaTransfarantPictureBox1);
             this.panel2.Controls.Add(this.emailTextBox);
-            this.panel2.Location = new System.Drawing.Point(104, 329);
+            this.panel2.Location = new System.Drawing.Point(181, 386);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(623, 332);
             this.panel2.TabIndex = 8;
@@ -383,6 +383,7 @@
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
             this.passwordTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.passwordTextBox.Location = new System.Drawing.Point(45, 116);
+            this.passwordTextBox.MaxLength = 50;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '\0';
             this.passwordTextBox.Size = new System.Drawing.Size(408, 44);
@@ -412,6 +413,7 @@
             this.emailTextBox.ForeColor = System.Drawing.Color.Gray;
             this.emailTextBox.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.emailTextBox.Location = new System.Drawing.Point(45, 34);
+            this.emailTextBox.MaxLength = 50;
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.PasswordChar = '\0';
             this.emailTextBox.Size = new System.Drawing.Size(408, 44);
@@ -424,7 +426,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(355, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(432, 93);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -456,7 +458,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(275, 174);
+            this.label2.Location = new System.Drawing.Point(352, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 20);
             this.label2.TabIndex = 7;
@@ -488,7 +490,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(192, 155);
+            this.label1.Location = new System.Drawing.Point(269, 212);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 19);
             this.label1.TabIndex = 6;
@@ -500,7 +502,7 @@
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel2.Location = new System.Drawing.Point(223, 248);
+            this.gunaLabel2.Location = new System.Drawing.Point(300, 305);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(292, 44);
             this.gunaLabel2.TabIndex = 71;
@@ -548,7 +550,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(241, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(318, 82);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(115, 133);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -564,9 +566,9 @@
             this.Controls.Add(this.gunaCircleButton3);
             this.Controls.Add(this.gunaCircleButton2);
             this.Controls.Add(this.gunaCircleButton1);
-            this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gunaPanel2);
+            this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;

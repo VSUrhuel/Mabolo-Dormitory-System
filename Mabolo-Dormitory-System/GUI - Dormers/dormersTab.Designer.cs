@@ -235,6 +235,7 @@
             this.searchBar.LineSize = 2;
             this.searchBar.Location = new System.Drawing.Point(47, 41);
             this.searchBar.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBar.MaxLength = 12;
             this.searchBar.Name = "searchBar";
             this.searchBar.PasswordChar = '\0';
             this.searchBar.Size = new System.Drawing.Size(211, 35);

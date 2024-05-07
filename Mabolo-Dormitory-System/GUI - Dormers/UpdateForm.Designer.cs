@@ -171,6 +171,7 @@
             this.data7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data7.LineColor = System.Drawing.Color.Gainsboro;
             this.data7.Location = new System.Drawing.Point(125, 321);
+            this.data7.MaxLength = 50;
             this.data7.Name = "data7";
             this.data7.PasswordChar = '\0';
             this.data7.Size = new System.Drawing.Size(687, 33);
@@ -194,6 +195,7 @@
             this.data5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data5.LineColor = System.Drawing.Color.Gainsboro;
             this.data5.Location = new System.Drawing.Point(529, 268);
+            this.data5.MaxLength = 25;
             this.data5.Name = "data5";
             this.data5.PasswordChar = '\0';
             this.data5.Size = new System.Drawing.Size(283, 33);
@@ -217,6 +219,7 @@
             this.data6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data6.LineColor = System.Drawing.Color.Gainsboro;
             this.data6.Location = new System.Drawing.Point(193, 268);
+            this.data6.MaxLength = 25;
             this.data6.Name = "data6";
             this.data6.PasswordChar = '\0';
             this.data6.Size = new System.Drawing.Size(226, 33);
@@ -260,6 +263,7 @@
             this.data3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data3.LineColor = System.Drawing.Color.Gainsboro;
             this.data3.Location = new System.Drawing.Point(585, 76);
+            this.data3.MaxLength = 25;
             this.data3.Name = "data3";
             this.data3.PasswordChar = '\0';
             this.data3.Size = new System.Drawing.Size(226, 33);
@@ -283,6 +287,7 @@
             this.data2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data2.LineColor = System.Drawing.Color.Gainsboro;
             this.data2.Location = new System.Drawing.Point(146, 72);
+            this.data2.MaxLength = 25;
             this.data2.Name = "data2";
             this.data2.PasswordChar = '\0';
             this.data2.Size = new System.Drawing.Size(226, 33);
