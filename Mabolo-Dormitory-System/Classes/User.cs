@@ -55,6 +55,8 @@ namespace Mabolo_Dormitory_System.Classes
                 throw new ArgumentNullException();
             if (fk_departmentId < 0)
                 throw new ArgumentOutOfRangeException();
+            if(ValidationClass.ValidateEmail(email) == false)
+                throw new ArgumentException();
         }
 
         public override string ToString()

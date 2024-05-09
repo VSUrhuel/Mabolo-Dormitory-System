@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mabolo-Dormitory-System", "Mabolo-Dormitory-System\Mabolo-Dormitory-System.csproj", "{25A54940-126B-4EEE-A4F8-31E93602F131}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MaboloDormSystemSetUp", "MaboloDormSystemSetUp\MaboloDormSystemSetUp.vdproj", "{A10FF21B-BAEF-42C0-869B-9786D1015D6D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Dormitory-System-Installer", "MaboloDormSystemSetUp\MaboloDormSystemSetUp.vdproj", "{A10FF21B-BAEF-42C0-869B-9786D1015D6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
