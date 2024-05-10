@@ -42,7 +42,6 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
         [Fact]
         public void User_Constructor_ThrowsArgumentNullException_ForNullUserId()
         {
-            // Arrange (set all values except userId to valid data)
             string firstName = "John";
             string lastName = "Doe";
             DateTime birthday = new DateTime(1990, 1, 1);
@@ -53,16 +52,12 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string userType = "Regular Dormer";
             int fkDepartmentId = 1;
 
-            // Act & Assert (expect ArgumentNullException)
             Assert.Throws<ArgumentNullException>(() => new User(null, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fkDepartmentId));
         }
-
-        // Add similar test cases for null/empty FirstName, LastName, Email, PhoneNumber, Address, UserStatus, UserType
 
         [Fact]
         public void User_Constructor_ThrowsArgumentOutOfRangeException_ForNegativeFKDepartmentId()
         {
-            // Arrange (set all values except fkDepartmentId to valid data)
             string userId = "user13";
             string firstName = "John";
             string lastName = "Doe";
@@ -73,7 +68,6 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string userStatus = "Active";
             string userType = "Regular Dormer";
 
-            // Act & Assert (expect ArgumentOutOfRangeException)
             Assert.Throws<ArgumentOutOfRangeException>(() => new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, -1));
         }
 
@@ -96,7 +90,6 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
         [Fact]
         public void User_ToString_ReturnsFormattedString()
         {
-            // Arrange
             string userId = "user13";
             string firstName = "John";
             string lastName = "Doe";
@@ -110,10 +103,8 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
 
             User user = new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fkDepartmentId);
 
-            // Act
             string actualString = user.ToString();
 
-            // Assert (expected format)
             Assert.Equal($"{userId}: {firstName} {lastName}", actualString);
         }
     }

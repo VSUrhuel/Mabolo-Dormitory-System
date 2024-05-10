@@ -156,7 +156,7 @@ namespace Mabolo_Dormitory_System
             smtp.EnableSsl = true;
             NetworkCredential NetworkCred = new NetworkCredential();
             NetworkCred.UserName = "22-1-00109@vsu.edu.ph";
-            NetworkCred.Password = "laurente1234";
+            NetworkCred.Password = "";
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
