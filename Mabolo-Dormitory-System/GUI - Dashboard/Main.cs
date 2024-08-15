@@ -81,13 +81,11 @@ namespace Mabolo_Dormitory_System
             }
 
             // Payment Panel
-            int regularPayable = Convert.ToInt32(db.GetSumRegularPayable() * 5);
+            int regularPayable = Convert.ToInt32(db.GetSumTotalPayable());
             int totalEvents = Convert.ToInt32(db.GetSumEvents());
             int userCount = db.GetAllUsersExcpetAdmin().Count;
    
-            int totalPayableAndEvents = (regularPayable + totalEvents) * userCount;
-            int remainingBalance = totalPayableAndEvents - Convert.ToInt32(db.GetSumRemainingBalance()) - Convert.ToInt32(db.GetAllSumPresentAttendances());
-            int number = Convert.ToInt32(totalPayableAndEvents - remainingBalance);
+            int number = Convert.ToInt32(db.GetSumRemainingBalance());
 
             if (number < 1000)
             {

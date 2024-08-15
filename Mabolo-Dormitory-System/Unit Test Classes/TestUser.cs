@@ -24,8 +24,9 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string userStatus = "Active";
             string userType = "Employee";
             int fkDepartmentId = 1;
+            int availWifi = 1;
 
-            User user = new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fkDepartmentId);
+            User user = new User(userId, firstName, lastName, birthday, email, phoneNumber, address, availWifi, 1, 1, userStatus, userType, fkDepartmentId);
 
             Assert.Equal(userId, user.UserId);
             Assert.Equal(firstName, user.FirstName);
@@ -37,6 +38,7 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             Assert.Equal(userStatus, user.UserStatus);
             Assert.Equal(userType, user.UserType);
             Assert.Equal(fkDepartmentId, user.FK_DepartmentId);
+            Assert.Equal(availWifi, user.AvailWiFi);
         }
 
         [Fact]
@@ -51,8 +53,9 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string userStatus = "Active";
             string userType = "Regular Dormer";
             int fkDepartmentId = 1;
+            int availWiFi = 1;
 
-            Assert.Throws<ArgumentNullException>(() => new User(null, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fkDepartmentId));
+            Assert.Throws<ArgumentNullException>(() => new User(null, firstName, lastName, birthday, email, phoneNumber, address, availWiFi, 1, 1, userStatus, userType, fkDepartmentId));
         }
 
         [Fact]
@@ -67,8 +70,9 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string address = "123 Main St";
             string userStatus = "Active";
             string userType = "Regular Dormer";
+            int availWiFi = 1;
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, -1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new User(userId, firstName, lastName, birthday, email, phoneNumber, address, 1, 1, availWiFi, userStatus, userType, -1));
         }
 
         [Fact]
@@ -83,8 +87,9 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string address = "123 Main St";
             string userStatus = "Active";
             string userType = "Regular Dormer";
+            int availWiFi = 1;
 
-            Assert.Throws<ArgumentException>(() => new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, 1));
+            Assert.Throws<ArgumentException>(() => new User(userId, firstName, lastName, birthday, email, phoneNumber, address, availWiFi, 1, 1, userStatus, userType, 1));
         }
 
         [Fact]
@@ -100,8 +105,9 @@ namespace Mabolo_Dormitory_System.Unit_Test_Classes
             string userStatus = "Active";
             string userType = "Regular Dormer";
             int fkDepartmentId = 1;
+            int availWiFi = 1;
 
-            User user = new User(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fkDepartmentId);
+            User user = new User(userId, firstName, lastName, birthday, email, phoneNumber, address, availWiFi,  1, 1, userStatus, userType, fkDepartmentId);
 
             string actualString = user.ToString();
 

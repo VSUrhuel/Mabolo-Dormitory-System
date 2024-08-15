@@ -109,7 +109,18 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             // Add the dormer
-            User newDormer = new User(data1.Text, data2.Text, data3.Text, dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x);
+            int hasLaptop = 0;
+            if(laptopCheckBox.Checked)
+                hasLaptop = 1;
+            int hasPrinter = 0;
+            if(printerCheckbox.Checked)
+                hasPrinter = 1;
+            int val;
+            if (availWiFi.Checked)
+                val = 1;
+            else
+                val = 0;
+            User newDormer = new User(data1.Text, data2.Text, data3.Text, dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, val, hasLaptop, hasPrinter, dormerStatusCB.Text, dormerTypeCB.Text, (int)x) ;
 
             string message = "Add " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";
@@ -173,5 +184,9 @@ namespace Mabolo_Dormitory_System
             mouseDown = false;
         }
 
+        private void gunaLabel18_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

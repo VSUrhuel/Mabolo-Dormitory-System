@@ -16,11 +16,14 @@ namespace Mabolo_Dormitory_System.Classes
         public String Email { get; private set; }
         public String PhoneNumber { get; private set; } 
         public String Address { get; private set; }
+        public int AvailWiFi {  get; private set; }
+        public int HasLaptop { get; private set; }
+        public int HasPrinter { get; private set; } 
         public String UserStatus { get; private set; }
         public String UserType { get; private set; }
         public int FK_DepartmentId { get; private set; }
 
-        public User (String userId, String firstName, String lastName, DateTime birthday, String email, String phoneNumber, String address, String userStatus, String userType, int fk_departmentId)
+        public User (String userId, String firstName, String lastName, DateTime birthday, String email, String phoneNumber, String address, int availWiFi, int hasLaptop, int hasPrinter, String userStatus, String userType, int fk_departmentId)
         {
             ValidateArg(userId, firstName, lastName, birthday, email, phoneNumber, address, userStatus, userType, fk_departmentId);
             UserId = userId;
@@ -32,6 +35,9 @@ namespace Mabolo_Dormitory_System.Classes
             Address = address;
             UserStatus = userStatus;
             UserType = userType;
+            AvailWiFi = availWiFi;
+            HasLaptop = hasLaptop;
+            HasPrinter = hasPrinter;
             FK_DepartmentId = fk_departmentId;
         }
 

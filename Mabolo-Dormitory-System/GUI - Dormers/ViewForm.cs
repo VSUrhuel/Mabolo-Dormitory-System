@@ -33,8 +33,10 @@ namespace Mabolo_Dormitory_System
             data5.Text = user.Email;
             data6.Text = user.PhoneNumber;
             data7.Text = user.Address;
-            data8.Text = user.UserStatus.ToString();
             data9.Text = user.UserType;
+            laptopCheckBox.Checked = (user.HasLaptop) == 1 ? true : false;
+            printerCheckbox.Checked = (user.HasPrinter) == 1 ? true : false;
+            wiFiCheckBox.Checked = (user.AvailWiFi) == 1 ? true : false;
             Department department = db.GetUserDepartment(user.UserId);
             data10.Text = department.DepartmentName;
             data11.Text = department.CollegeName;
@@ -71,6 +73,11 @@ namespace Mabolo_Dormitory_System
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void wiFiCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,9 @@
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
+            this.laptopCheckBox = new System.Windows.Forms.CheckBox();
+            this.printerCheckbox = new System.Windows.Forms.CheckBox();
+            this.availWiFi = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +94,7 @@
             this.dormerTypeCB.Name = "dormerTypeCB";
             this.dormerTypeCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dormerTypeCB.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.dormerTypeCB.Size = new System.Drawing.Size(302, 33);
+            this.dormerTypeCB.Size = new System.Drawing.Size(247, 33);
             this.dormerTypeCB.TabIndex = 99;
             // 
             // dormerStatusCB
@@ -524,11 +527,47 @@
             this.gunaLabel15.TabIndex = 146;
             this.gunaLabel15.Text = "+63##########";
             // 
+            // laptopCheckBox
+            // 
+            this.laptopCheckBox.AutoSize = true;
+            this.laptopCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laptopCheckBox.Location = new System.Drawing.Point(466, 171);
+            this.laptopCheckBox.Name = "laptopCheckBox";
+            this.laptopCheckBox.Size = new System.Drawing.Size(118, 24);
+            this.laptopCheckBox.TabIndex = 149;
+            this.laptopCheckBox.Text = "Has Laptop";
+            this.laptopCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // printerCheckbox
+            // 
+            this.printerCheckbox.AutoSize = true;
+            this.printerCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printerCheckbox.Location = new System.Drawing.Point(466, 205);
+            this.printerCheckbox.Name = "printerCheckbox";
+            this.printerCheckbox.Size = new System.Drawing.Size(117, 24);
+            this.printerCheckbox.TabIndex = 150;
+            this.printerCheckbox.Text = "Has Printer";
+            this.printerCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // availWiFi
+            // 
+            this.availWiFi.AutoSize = true;
+            this.availWiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availWiFi.Location = new System.Drawing.Point(608, 171);
+            this.availWiFi.Name = "availWiFi";
+            this.availWiFi.Size = new System.Drawing.Size(106, 24);
+            this.availWiFi.TabIndex = 151;
+            this.availWiFi.Text = "Avail WiFi";
+            this.availWiFi.UseVisualStyleBackColor = true;
+            // 
             // AddDormerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 620);
+            this.Controls.Add(this.availWiFi);
+            this.Controls.Add(this.printerCheckbox);
+            this.Controls.Add(this.laptopCheckBox);
             this.Controls.Add(this.gunaLabel15);
             this.Controls.Add(this.gunaButton3);
             this.Controls.Add(this.gunaButton1);
@@ -610,5 +649,8 @@
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
+        private System.Windows.Forms.CheckBox laptopCheckBox;
+        private System.Windows.Forms.CheckBox printerCheckbox;
+        private System.Windows.Forms.CheckBox availWiFi;
     }
 }

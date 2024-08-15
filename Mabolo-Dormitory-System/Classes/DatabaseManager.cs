@@ -217,7 +217,7 @@ namespace Mabolo_Dormitory_System.Classes
                                     command2.Parameters.AddWithValue("@Password", password);
 
                                     User u = GetUser((string)reader["FK_UserId_Account"]);
-                                    UpdateUser(new User(u.UserId, firstName, lastName, birthday, u.Email, u.PhoneNumber, u.Address, u.UserStatus, u.UserType, u.FK_DepartmentId));
+                                    UpdateUser(new User(u.UserId, firstName, lastName, birthday, u.Email, u.PhoneNumber, u.Address, u.AvailWiFi, u.HasLaptop, u.HasPrinter, u.UserStatus, u.UserType, u.FK_DepartmentId));
 
                                     command2.Parameters.AddWithValue("@ImageData", imageDate);
                                     command2.ExecuteNonQuery();
@@ -299,7 +299,7 @@ namespace Mabolo_Dormitory_System.Classes
                         {
                             while (reader.Read())
                             {
-                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (int)reader["AvailWiFi"], (int)reader["HasLaptop"], (int)reader["HasPrinter"],(string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                             }
                         }
                     }
@@ -331,7 +331,7 @@ namespace Mabolo_Dormitory_System.Classes
                         {
                             while (reader.Read())
                             {
-                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (int)reader["AvailWiFi"], (int)reader["HasLaptop"], (int)reader["HasPrinter"],(string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                             }
                         }
                     }
@@ -361,7 +361,7 @@ namespace Mabolo_Dormitory_System.Classes
                 connection.Open();
                 try
                 {
-                    string query = "INSERT INTO system.user(UserId, FirstName, LastName, Birthday, Email, PhoneNumber, Address, UserStatus, UserType, FK_DepartmentId) VALUES (@UserId, @FirstName, @LastName, @Birthday, @Email, @PhoneNumber, @Address, @UserStatus, @UserType, @DepartmentId)";
+                    string query = "INSERT INTO system.user(UserId, FirstName, LastName, Birthday, Email, PhoneNumber, Address, AvailWiFi, HasLaptop, HasPrinter, UserStatus, UserType, FK_DepartmentId) VALUES (@UserId, @FirstName, @LastName, @Birthday, @Email, @PhoneNumber, @Address, @AvailWiFi,  @HasLaptop, @HasPrinter, @UserStatus, @UserType, @DepartmentId)";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -372,9 +372,13 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@Email", user.Email);
                         command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                         command.Parameters.AddWithValue("@Address", user.Address);
+                        command.Parameters.AddWithValue("@AvailWiFi", user.AvailWiFi);
+                        command.Parameters.AddWithValue("HasLaptop", user.HasLaptop);
+                        command.Parameters.AddWithValue("HasPrinter", user.HasPrinter);
                         command.Parameters.AddWithValue("@UserStatus", user.UserStatus);
                         command.Parameters.AddWithValue("@UserType", user.UserType);
                         command.Parameters.AddWithValue("@DepartmentId", user.FK_DepartmentId);
+
 
                         command.ExecuteNonQuery();
                     }
@@ -405,10 +409,13 @@ namespace Mabolo_Dormitory_System.Classes
                 return false;
             }
 
+            User u = GetUser(user.UserId);
+            int prevAvailWiFi = u.AvailWiFi;
+
             using (MySqlConnection connection = new MySqlConnection(con))
             {
                 connection.Open();
-                string query = "UPDATE system.user SET FirstName = @FirstName, LastName = @LastName, Birthday = @Birthday, Email = @Email, PhoneNumber = @PhoneNumber, Address = @Address, UserStatus = @UserStatus, UserType = @UserType, FK_DepartmentId = @DepartmentId WHERE UserId = @UserId";
+                string query = "UPDATE system.user SET FirstName = @FirstName, LastName = @LastName, Birthday = @Birthday, Email = @Email, PhoneNumber = @PhoneNumber, Address = @Address, AvailWiFi = @AvailWiFi, HasLaptop = @HasLaptop, HasPrinter = @HasPrinter,UserStatus = @UserStatus, UserType = @UserType, FK_DepartmentId = @DepartmentId WHERE UserId = @UserId";
                 try
                 {
                     using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -420,11 +427,21 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@Email", user.Email);
                         command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                         command.Parameters.AddWithValue("@Address", user.Address);
+                        command.Parameters.AddWithValue("AvailWiFi", user.AvailWiFi);
+                        command.Parameters.AddWithValue("HasLaptop", user.HasLaptop);
+                        command.Parameters.AddWithValue("HasPrinter", user.HasPrinter);
                         command.Parameters.AddWithValue("@UserStatus", user.UserStatus);
                         command.Parameters.AddWithValue("@UserType", user.UserType);
                         command.Parameters.AddWithValue("@DepartmentId", user.FK_DepartmentId);
 
                         command.ExecuteNonQuery();
+                        if (user.AvailWiFi == 1)
+                        {
+                            AddUserPayable(user.UserId, (300 * 5));
+                            return true;
+                        }
+                        else if (user.AvailWiFi == 0 && prevAvailWiFi == 1)
+                            UpdateUserPayable(user.UserId, (300 * 5)); 
                     }
 
                     return true;
@@ -457,7 +474,7 @@ namespace Mabolo_Dormitory_System.Classes
                             User user = null;
                             while (reader.Read())
                             {
-                                user = new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]);
+                                user = new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (int)reader["AvailWiFi"], (int)reader["HasLaptop"], (int)reader["HasPrinter"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]);
                             }
                             return user;
                         }
@@ -490,7 +507,7 @@ namespace Mabolo_Dormitory_System.Classes
                         {
                             while (reader.Read())
                             {
-                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (int)reader["AvailWiFi"], (int)reader["HasLaptop"], (int)reader["HasPrinter"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                             }
                         }
                     }
@@ -730,7 +747,7 @@ namespace Mabolo_Dormitory_System.Classes
                         {
                             while (reader.Read())
                             {
-                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
+                                Users.Add(new User((string)reader["UserId"], (string)reader["FirstName"], (string)reader["LastName"], (DateTime)reader["Birthday"], (string)reader["Email"], (string)reader["PhoneNumber"], (string)reader["Address"], (int)reader["AvailWiFi"], (int)reader["HasLaptop"], (int)reader["HasPrinter"], (string)reader["UserStatus"], (string)reader["UserType"], (int)reader["FK_DepartmentId"]));
                             }
                         }
                     }
@@ -1413,7 +1430,7 @@ namespace Mabolo_Dormitory_System.Classes
                         command.ExecuteNonQuery();
 
                         if (status == "Present")
-                            UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                            UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount, true);
                        
                     }
                     return true;
@@ -1629,7 +1646,39 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return null;
         }
-      
+
+        public UserPayable GetUserPayable(String UserId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM system.user_payable WHERE FK_UserId_UserPayable = @UserId", connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", UserId);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            UserPayable user = null;
+                            while (reader.Read())
+                            {
+                                user = new UserPayable((int)reader["UserPayableId"], (float)reader["TotalPayable"], (float)reader["RemainingBalance"], (String)reader["FK_UserId_UserPayable"]);
+                            }
+                            return user;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error while retrieving user: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return null;
+        }
         public bool AddPayment(Payment p)
         {
             using (MySqlConnection connection = new MySqlConnection(con))
@@ -1639,9 +1688,15 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     using (MySqlCommand command = new MySqlCommand("INSERT INTO system.payment(PaymentId, PaymentDate, Amount, Remarks, FK_UserId_Payment) VALUES (@PaymentId, @PaymentDate, @Amount, @Remarks, @FK_UserId_Payment)", connection))
                     {
+                        UserPayable u = GetUserPayable(p.FK_UserId_Payment);
+                        float amountVal = 0;
+                        if (u.RemainingBalance < p.Amount)
+                            amountVal = u.RemainingBalance;
+                        else
+                            amountVal = p.Amount;
                         command.Parameters.AddWithValue("@PaymentId", p.PaymentId);
                         command.Parameters.AddWithValue("@PaymentDate", p.PaymentDate);
-                        command.Parameters.AddWithValue("@Amount", p.Amount);
+                        command.Parameters.AddWithValue("@Amount", amountVal);
                         command.Parameters.AddWithValue("@Remarks", p.Remarks);
                         command.Parameters.AddWithValue("@FK_UserId_Payment", p.FK_UserId_Payment);
                         command.ExecuteNonQuery();
@@ -1821,15 +1876,26 @@ namespace Mabolo_Dormitory_System.Classes
                 connection.Open();
                 try
                 {
-                    string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) VALUES (@UserPayableId, @RemainingBalance, @FK_UserId_UserPayable)";
+                    string query = "INSERT INTO system.user_payable(UserPayableId, TotalPayable, RemainingBalance,  FK_UserId_UserPayable) VALUES (@UserPayableId, @TotalPayable, @RemainingBalance, @FK_UserId_UserPayable)";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         List<UserPayable> up = GetAllUserPayable();
                         int index = up[up.Count - 1].UserPayableId + 1;
-                        float remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5);
+                        float totalPayable = GetSumEvents() + (270 * 5);
+                        float remainingBalance;
+
+                        User u = GetUser(userId);
+                        if(u.AvailWiFi == 1)
+                            totalPayable += (300 * 5);
+                        if (u.HasLaptop == 1)
+                            totalPayable += (30 * 5);
+                        if (u.HasPrinter == 1)
+                            totalPayable += (30 * 5);
+                        remainingBalance = totalPayable;
 
                         command.Parameters.AddWithValue("@UserPayableId", index);
+                        command.Parameters.AddWithValue("@TotalPayable", totalPayable);
                         command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
 
@@ -1864,7 +1930,7 @@ namespace Mabolo_Dormitory_System.Classes
                     MySqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
+                        UserPayables.Add(new UserPayable((int)reader["UserPayableId"], (float)reader["TotalPayable"], (float)reader["RemainingBalance"], (string)reader["FK_UserId_UserPayable"]));
                     }
                     reader.Close();
 
@@ -1921,6 +1987,90 @@ namespace Mabolo_Dormitory_System.Classes
             }
         }
 
+        public float GetTotalPayable(string userId)
+        {
+            if (!UserExists(userId))
+                throw new ArgumentException("User does not exist");
+
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    string sql = "SELECT TotalPayable FROM system.user_payable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable LIMIT 1";
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                        try
+                        {
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    if(reader.GetFloat("TotalPayable") <= 0)
+                                    {
+                                        float pay = GetSumEvents() + (270 * 5);
+                                        if(GetUser(userId).AvailWiFi == 1)
+                                            pay += (300 * 5);
+                                        if (GetUser(userId).HasLaptop == 1)
+                                            pay += (30 * 5);
+                                        if (GetUser(userId).HasPrinter == 1)
+                                            pay += (30 * 5);
+                                        return pay;
+
+                                    }
+                                    return reader.GetFloat("TotalPayable");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred while retrieving UserPayable balance: " + ex.Message);
+                        }
+                    }
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+        public void UpdateUserPayable(String userId, float Amount, bool data)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float updatedAmount = 0;
+                    string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount, TotalPayable = @totalPayable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                    updatedAmount = GetUserPayableBalance(userId) - Amount;
+                    if (updatedAmount < 0)
+                        updatedAmount = 0;
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
+                        command.Parameters.AddWithValue("@totalPayable", GetTotalPayable(userId)-Amount);
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (NullException)
+                {
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while updating UserPayable: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
         public void UpdateUserPayable(String userId, float Amount)
         {
             using (MySqlConnection connection = new MySqlConnection(con))
@@ -1963,18 +2113,21 @@ namespace Mabolo_Dormitory_System.Classes
                 connection.Open();
                 try
                 {
-                    float updatedAmount = 0;
-                    string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                    float updatedAmount = 0, updatedTotal = 0;
+                    string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount, TotalPayable = @totalPayable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
                     updatedAmount = GetUserPayableBalance(userId) + Amount;
-                    float max = GetSumEvents() + GetSumRegularPayable() * 5;
-                    if (updatedAmount > max)
-                        updatedAmount = max;
+                    updatedTotal = GetTotalPayable(userId) + Amount;
+                    if(updatedAmount == 0)
+                        updatedAmount = Amount;
+                    
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@updatedAmount", updatedAmount);
+                        command.Parameters.AddWithValue("@totalPayable", updatedTotal);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
+                        
                     }
                 }
                 catch
@@ -2088,7 +2241,7 @@ namespace Mabolo_Dormitory_System.Classes
                         connection.Open();
                         try
                         {
-                            string query = "INSERT INTO system.user_payable(UserPayableId, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
+                            string query = "INSERT INTO system.user_payable(UserPayableId, TotalPayable, RemainingBalance, FK_UserId_UserPayable) SELECT @UserPayableId, @TotalPayable, @RemainingBalance, UserID FROM system.user WHERE UserID = @FK_UserId_UserPayable AND UserType NOT IN('Dormitory Adviser', 'Assistant Dormitory Adviser');";
 
                             using (MySqlCommand command = new MySqlCommand(query, connection))
                             {
@@ -2099,12 +2252,13 @@ namespace Mabolo_Dormitory_System.Classes
                                 float remainingBalance = 0;
                                 command.Parameters.AddWithValue("@UserPayableId", index);
                               
-                                remainingBalance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(u.UserId) - GetSumPresentAttendances(u.UserId);
+                                remainingBalance = GetTotalPayable(u.UserId);
                                 if(remainingBalance < 0)
                                 {
                                     remainingBalance = 0;
                                 }
                                 command.Parameters.AddWithValue("@RemainingBalance", remainingBalance);
+                                command.Parameters.AddWithValue("@TotalPayable", GetTotalPayable(u.UserId));
                                 command.Parameters.AddWithValue("@FK_UserId_UserPayable", u.UserId);
                                 command.ExecuteNonQuery();
                             }
@@ -2138,13 +2292,27 @@ namespace Mabolo_Dormitory_System.Classes
                 connection.Open();
                 try
                 {
-                    string query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
-                    float balance = balance = GetSumEvents() + (GetSumRegularPayable() * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId);
+                    string query = "UPDATE system.user_payable SET RemainingBalance = @RemainingBalance, TotalPayable = @TotalPayable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+                    float balance = GetSumEvents() + (270 * 5) - GetSumUserPayments(userId) - GetSumPresentAttendances(userId);
+                    float totalPayable = GetTotalPayable(userId);
+                    if (GetUser(userId).AvailWiFi == 1)
+                    {
+                        balance += (300 * 5);
+                    }
+                    if (GetUser(userId).HasLaptop == 1)
+                    {
+                        balance += (30 * 5);
+                    }
+                    if (GetUser(userId).HasPrinter == 1)
+                    {
+                        balance += (30 * 5);
+                    }
                     if (balance < 0)
                         balance = 0;
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RemainingBalance", balance);
+                        command.Parameters.AddWithValue("@TotalPayable", totalPayable);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
                     }
@@ -2270,6 +2438,72 @@ namespace Mabolo_Dormitory_System.Classes
                 {
                     float sum = 0;
                     string sql = "SELECT SUM(Amount) FROM system.regular_payable;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                sum = reader.GetFloat(0);
+                            }
+                        }
+                    }
+                    return sum;
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public float GetAllSumPayments()
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float sum = 0;
+                    string sql = "SELECT SUM(Amount) FROM system.payment;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                sum = reader.GetFloat(0);
+                            }
+                        }
+                    }
+                    return sum;
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public float GetSumTotalPayable()
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float sum = 0;
+                    string sql = "SELECT SUM(TotalPayable) FROM system.user_payable;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

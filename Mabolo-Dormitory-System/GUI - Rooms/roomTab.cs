@@ -1,5 +1,6 @@
 ﻿using Guna.UI.WinForms;
 using Mabolo_Dormitory_System.Classes;
+using Mabolo_Dormitory_System.GUI___Payment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,7 +69,7 @@ namespace Mabolo_Dormitory_System
 
             // Add ComboBox Column
             DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.Items.AddRange("Update", "View");
+            comboBoxColumn.Items.AddRange("Update", "View", "Add Payment", "View Payment");
             comboBoxColumn.Name = "Action";
             comboBoxColumn.HeaderText = "Action";
             comboBoxColumn.ValueType = typeof(String);
@@ -118,6 +119,22 @@ namespace Mabolo_Dormitory_System
                     viewForm.SetInformation(users, i);
                     viewForm.Owner = form;
                     viewForm.Show();
+                }
+                else if (cb.SelectedItem.ToString() == "Add Payment")
+                {
+                    PaymentTransaction paymentTransaction = new PaymentTransaction(db.GetUser(
+                roomUserView.Rows[i].Cells["UserId"].Value.ToString()), this);
+                    SetFormLocation(paymentTransaction);
+                    paymentTransaction.Owner = form;
+                    paymentTransaction.Show();
+                }
+                else if (cb.SelectedItem.ToString() == "View Payment")
+                {
+                    ViewPayment viewPayment = new ViewPayment(db.GetUser(
+               roomUserView.Rows[i].Cells["UserId"].Value.ToString()));
+                    SetFormLocation(viewPayment);
+                    viewPayment.Owner = form;
+                    viewPayment.Show();
                 }
             }
         }

@@ -424,7 +424,7 @@
             this.dormerTypeCB.Name = "dormerTypeCB";
             this.dormerTypeCB.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dormerTypeCB.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.dormerTypeCB.Size = new System.Drawing.Size(302, 33);
+            this.dormerTypeCB.Size = new System.Drawing.Size(269, 33);
             this.dormerTypeCB.TabIndex = 68;
             // 
             // gunaLabel4

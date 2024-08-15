@@ -66,7 +66,6 @@
             this.gunaLabel2.Size = new System.Drawing.Size(220, 27);
             this.gunaLabel2.TabIndex = 101;
             this.gunaLabel2.Text = "Received Amount:";
-           
             // 
             // gunaLabel1
             // 
@@ -110,7 +109,7 @@
             this.receivedAmount.TabIndex = 103;
             this.receivedAmount.Text = "P 40,000";
             this.receivedAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-           
+            this.receivedAmount.Click += new System.EventHandler(this.receivedAmount_Click);
             // 
             // pendingCollectibles
             // 
@@ -190,7 +189,6 @@
             this.gunaButton1.Radius = 9;
             this.gunaButton1.Size = new System.Drawing.Size(58, 37);
             this.gunaButton1.TabIndex = 138;
-            
             // 
             // gunaButton2
             // 

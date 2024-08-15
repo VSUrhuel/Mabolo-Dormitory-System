@@ -65,10 +65,10 @@ namespace Mabolo_Dormitory_System
             // Check if account exists
             if (db.AccountExist(email, pass))
             {
+
                 main = new Main(email);
                 main.Show();
                 this.Hide();
-
             }
             else
             {

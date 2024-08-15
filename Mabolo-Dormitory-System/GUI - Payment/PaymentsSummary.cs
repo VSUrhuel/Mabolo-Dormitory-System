@@ -22,12 +22,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             this.paymentList = new List<Payment>();
             this.db = new DatabaseManager();
             InitializeComponent();
-            float total = ((db.GetSumEvents() + db.GetSumRegularPayable() * 5) * db.GetAllUsersExcpetAdmin().Count);
 
-            float remainingBalance = db.GetSumRemainingBalance();
-            float received = total - db.GetSumRemainingBalance() - db.GetAllSumPresentAttendances();
-            receivedAmount.Text = "₱ " + (received.ToString("N2"));
-            pendingCollectibles.Text = "₱ " + (total - received).ToString("N2");
+            receivedAmount.Text = "₱ " + (db.GetAllSumPayments()).ToString("N2");
+            pendingCollectibles.Text = "₱ " + (db.GetSumRemainingBalance()).ToString("N2");
             SetUpTable();
         }
 
@@ -81,6 +78,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void receivedAmount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

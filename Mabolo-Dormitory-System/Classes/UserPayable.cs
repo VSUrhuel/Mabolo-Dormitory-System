@@ -9,15 +9,20 @@ namespace Mabolo_Dormitory_System.Classes
     public class UserPayable
     {
         public int UserPayableId { get; private set; }
+        public float TotalPayable { get; private set; }
         public float RemainingBalance { get; private set; }
         public String FK_UserId_UserPayable { get; private set; }
+    
         
-        public UserPayable(int userPayableId, float remainingBalance, String fK_UserId_UserPayable)
+        public UserPayable(int userPayableId, float totalPayable, float remainingBalance, String fK_UserId_UserPayable)
         {
             ValidateArg(userPayableId, remainingBalance, fK_UserId_UserPayable);
             UserPayableId = userPayableId;
-            if(remainingBalance < 0)
+            if (remainingBalance < 0 || totalPayable < 0)
+            {
                 RemainingBalance = 0;
+                TotalPayable = totalPayable;
+            }
             else
                 RemainingBalance = remainingBalance;
             FK_UserId_UserPayable = fK_UserId_UserPayable;

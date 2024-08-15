@@ -52,8 +52,6 @@
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
             this.data12 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
-            this.data8 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
             this.data9 = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -64,6 +62,9 @@
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
+            this.printerCheckbox = new System.Windows.Forms.CheckBox();
+            this.laptopCheckBox = new System.Windows.Forms.CheckBox();
+            this.wiFiCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -335,35 +336,11 @@
             this.gunaLabel15.TabIndex = 26;
             this.gunaLabel15.Text = "Room:";
             // 
-            // gunaLabel16
-            // 
-            this.gunaLabel16.AutoSize = true;
-            this.gunaLabel16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel16.Location = new System.Drawing.Point(36, 179);
-            this.gunaLabel16.Name = "gunaLabel16";
-            this.gunaLabel16.Size = new System.Drawing.Size(151, 23);
-            this.gunaLabel16.TabIndex = 28;
-            this.gunaLabel16.Text = "Dormer Status:";
-            // 
-            // data8
-            // 
-            this.data8.BackColor = System.Drawing.Color.White;
-            this.data8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.data8.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.data8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.data8.LineColor = System.Drawing.Color.Gainsboro;
-            this.data8.Location = new System.Drawing.Point(197, 169);
-            this.data8.Name = "data8";
-            this.data8.PasswordChar = '\0';
-            this.data8.ReadOnly = true;
-            this.data8.Size = new System.Drawing.Size(190, 33);
-            this.data8.TabIndex = 29;
-            // 
             // gunaLabel17
             // 
             this.gunaLabel17.AutoSize = true;
             this.gunaLabel17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel17.Location = new System.Drawing.Point(409, 179);
+            this.gunaLabel17.Location = new System.Drawing.Point(27, 187);
             this.gunaLabel17.Name = "gunaLabel17";
             this.gunaLabel17.Size = new System.Drawing.Size(139, 23);
             this.gunaLabel17.TabIndex = 30;
@@ -376,7 +353,7 @@
             this.data9.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.data9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data9.LineColor = System.Drawing.Color.Gainsboro;
-            this.data9.Location = new System.Drawing.Point(554, 170);
+            this.data9.Location = new System.Drawing.Point(172, 178);
             this.data9.Name = "data9";
             this.data9.PasswordChar = '\0';
             this.data9.ReadOnly = true;
@@ -521,20 +498,55 @@
             this.gunaButton3.Size = new System.Drawing.Size(52, 37);
             this.gunaButton3.TabIndex = 142;
             // 
+            // printerCheckbox
+            // 
+            this.printerCheckbox.AutoSize = true;
+            this.printerCheckbox.Enabled = false;
+            this.printerCheckbox.Location = new System.Drawing.Point(619, 192);
+            this.printerCheckbox.Name = "printerCheckbox";
+            this.printerCheckbox.Size = new System.Drawing.Size(95, 20);
+            this.printerCheckbox.TabIndex = 152;
+            this.printerCheckbox.Text = "Has Printer";
+            this.printerCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // laptopCheckBox
+            // 
+            this.laptopCheckBox.AutoSize = true;
+            this.laptopCheckBox.Enabled = false;
+            this.laptopCheckBox.Location = new System.Drawing.Point(503, 192);
+            this.laptopCheckBox.Name = "laptopCheckBox";
+            this.laptopCheckBox.Size = new System.Drawing.Size(99, 20);
+            this.laptopCheckBox.TabIndex = 151;
+            this.laptopCheckBox.Text = "Has Laptop";
+            this.laptopCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // wiFiCheckBox
+            // 
+            this.wiFiCheckBox.AutoSize = true;
+            this.wiFiCheckBox.Enabled = false;
+            this.wiFiCheckBox.Location = new System.Drawing.Point(730, 192);
+            this.wiFiCheckBox.Name = "wiFiCheckBox";
+            this.wiFiCheckBox.Size = new System.Drawing.Size(89, 20);
+            this.wiFiCheckBox.TabIndex = 153;
+            this.wiFiCheckBox.Text = "Avail WiFi";
+            this.wiFiCheckBox.UseVisualStyleBackColor = true;
+            this.wiFiCheckBox.CheckedChanged += new System.EventHandler(this.wiFiCheckBox_CheckedChanged);
+            // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(894, 620);
+            this.Controls.Add(this.wiFiCheckBox);
+            this.Controls.Add(this.printerCheckbox);
+            this.Controls.Add(this.laptopCheckBox);
             this.Controls.Add(this.gunaButton3);
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.gunaButton2);
             this.Controls.Add(this.closeDormerInfoButton);
             this.Controls.Add(this.data9);
             this.Controls.Add(this.gunaLabel17);
-            this.Controls.Add(this.data8);
-            this.Controls.Add(this.gunaLabel16);
             this.Controls.Add(this.data12);
             this.Controls.Add(this.gunaLabel15);
             this.Controls.Add(this.data11);
@@ -598,8 +610,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
         private Guna.UI.WinForms.GunaLineTextBox data12;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
-        private Guna.UI.WinForms.GunaLabel gunaLabel16;
-        private Guna.UI.WinForms.GunaLineTextBox data8;
         private Guna.UI.WinForms.GunaLabel gunaLabel17;
         private Guna.UI.WinForms.GunaLineTextBox data9;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
@@ -610,5 +620,8 @@
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaButton gunaButton3;
+        private System.Windows.Forms.CheckBox printerCheckbox;
+        private System.Windows.Forms.CheckBox laptopCheckBox;
+        private System.Windows.Forms.CheckBox wiFiCheckBox;
     }
 }

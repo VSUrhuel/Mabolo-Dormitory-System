@@ -123,7 +123,8 @@ namespace Mabolo_Dormitory_System
             }
 
             // Update the information
-            User newDormer = new User(data1.Text, data2.Text, data3.Text,dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, dormerStatusCB.Text, dormerTypeCB.Text, (int)x); 
+           
+            User newDormer = new User(data1.Text, data2.Text, data3.Text,dateTimePicker1.Value, data5.Text, data6.Text, data7.Text, db.GetUser(data1.Text).AvailWiFi, db.GetUser(data1.Text).HasLaptop, db.GetUser(data1.Text).HasPrinter, dormerStatusCB.Text, dormerTypeCB.Text, (int)x); 
             string message = "Update " + newDormer.FirstName + " " + newDormer.LastName + "'s Information?";
             string title = "Confirmation";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;

@@ -59,6 +59,9 @@ namespace Mabolo_Dormitory_System
             dormerTableView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dormerTableView.RowTemplate.Height = 40;
+            dormerTableView.Columns["AvailWiFi"].Visible = false;
+            dormerTableView.Columns["HasLaptop"].Visible = false;
+            dormerTableView.Columns["HasPrinter"].Visible = false;
             dormerTableView.Columns["UserStatus"].Visible = false;
             dormerTableView.Columns["Address"].Visible = false;
             dormerTableView.Columns["FK_DepartmentId"].Visible = false;
