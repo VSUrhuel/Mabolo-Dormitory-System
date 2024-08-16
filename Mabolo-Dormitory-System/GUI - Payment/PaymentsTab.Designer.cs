@@ -107,6 +107,7 @@
             this.searchBar.TabIndex = 11;
             this.searchBar.Text = "Search...";
             this.searchBar.TextOffsetX = 10;
+            this.searchBar.TextChanged += new System.EventHandler(this.searchBar_TextChanged);
             this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
             // 

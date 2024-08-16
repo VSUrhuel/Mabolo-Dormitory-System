@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Mabolo_Dormitory_System.Classes;
 using Microsoft.Extensions.Logging;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -215,20 +216,19 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 searchBar.Text = "";
                 return;
             }
-            String userId = searchBar.Text;
-            
+            String name = searchBar.Text;
+            users = db.GetAllUsersExcpetAdmin();
             List<User> u2 = users.Select(u => u).ToList();
             users.Clear();
             foreach (User u in u2)
             {
-                if (u.UserId.Contains(userId))
+                if (u.FirstName.ToLower().Contains(name.ToLower()) || u.LastName.ToLower().Contains(name.ToLower()) || u.UserId.Contains(name))
                 {
                     users.Add(u);
                 }
             }
             if (users.Count == 0)
             {
-                MessageBox.Show("No user with the ID: '" + userId + "' with status: '" + statusCB.Text + "' was found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 users = db.GetAllUsersExcpetAdmin();
             }
             SetupTable(users);
@@ -335,6 +335,29 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             {
                 MessageBox.Show("An error occured while printing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void searchBar_TextChanged(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "" || searchBar.Text == "Search...")
+            {
+                users = db.GetAllUsersExcpetAdmin();
+                List<User> u3 = users.Select(u => u).ToList();
+                SetupTable(u3);
+                return;
+            }
+            String name = searchBar.Text;
+            users = db.GetAllUsersExcpetAdmin();
+            List<User> u2 = users.Select(u => u).ToList();
+            users.Clear();
+            foreach (User u in u2)
+            {
+                if (u.FirstName.ToLower().Contains(name.ToLower()) || u.LastName.ToLower().Contains(name.ToLower()) || u.UserId.Contains(name))
+                {
+                    users.Add(u);
+                }
+            }
+            SetupTable(users);
         }
     }
 }

@@ -121,6 +121,11 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void selectAllCB_CheckedChanged_1(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("All previous record will be overrided for this event attendance!", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             if (selectAllCB.Checked)
             {
                 for (int i = dormerTableView.Rows.Count - 1; i >= 0; i--)

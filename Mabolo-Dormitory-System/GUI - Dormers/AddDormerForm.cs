@@ -58,7 +58,7 @@ namespace Mabolo_Dormitory_System
             }
             
             // Validate the fields
-            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, data6.Text, data7.Text }) == false)
+            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, dormerStatusCB.Text, dormerTypeCB.Text,data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, data6.Text, data7.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -83,9 +83,9 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("User ID already exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(data1.Text.Count() != 11)
+            if(data1.Text.Count() != 10)
             {
-                MessageBox.Show("User ID must be 11 characters long!\nFormat: ##-##-#####", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("User ID must be 11 characters long!\nFormat: ##-#-#####", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(data2.Text.Count() < 2)
@@ -103,7 +103,7 @@ namespace Mabolo_Dormitory_System
                 MessageBox.Show("Address must be atleast two characters long!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(data1.Text == "0000000000")
+            if(data1.Text == "000000000")
             {
                 MessageBox.Show("User ID must not be 0000000000!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

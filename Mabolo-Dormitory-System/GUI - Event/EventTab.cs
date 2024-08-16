@@ -40,7 +40,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
                 }
             }
             // Load information from the database
-            SetUpEvents();  
+            SetUpEvents();
         }
 
         private void SetUpEvents()
@@ -73,7 +73,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             i = 0;
             foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
-                
+
                 if (i < events.Count)
                 {
                     string formattedString = events[i].EventDate.ToString("MMMM dd, yyyy");
@@ -94,9 +94,9 @@ namespace Mabolo_Dormitory_System.GUI___Event
             GunaAdvenceButton button = (GunaAdvenceButton)sender;
             GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
             char id = 'a';
-            foreach(GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+            foreach (GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
-                if(panel1 == panel)
+                if (panel1 == panel)
                     id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
             }
             int x = int.Parse(id.ToString());
@@ -107,7 +107,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
             SetFormLocation(viewEvent);
             viewEvent.Show();
         }
-        
+
         private void SetFormLocation(Form form)
         {
             // Set the form location to the right side of the screen
@@ -127,7 +127,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void delBut_Click(object sender, EventArgs e)
         {
-            if(events.Count == 0)
+            if (events.Count == 0)
             {
                 MessageBox.Show("There are no events to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -146,7 +146,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
 
         private void searchBar_Click(object sender, EventArgs e)
         {
-            if(searchBar.Text == "Search...")
+            if (searchBar.Text == "Search...")
                 searchBar.Text = "";
         }
 
@@ -195,7 +195,7 @@ namespace Mabolo_Dormitory_System.GUI___Event
                     else if (i >= events.Count)
                         break;
                 }
-            }   
+            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -219,6 +219,45 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             if (searchBar.Text == "Search...")
                 searchBar.Text = "";
+        }
+
+        private void searchBar_TextChanged(object sender, EventArgs e)
+        {
+            String eventName = searchBar.Text;
+            events = db.GetAllEvents();
+            List<Event> u2 = events.Select(u => u).ToList();
+            events.Clear();
+            foreach (Event ex in u2)
+            {
+                if (ex.EventName.ToLower().Contains(eventName.ToLower()))
+                {
+                    events.Add(ex);
+                }
+            }
+            foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+            {
+                panel.Visible = false;
+            }
+            int i = 0;
+            foreach (GunaElipsePanel panel in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
+            {
+                if (i < events.Count)
+                {
+                    string formattedString = events[i].EventDate.ToString("MMMM dd, yyyy");
+                    panel.Visible = true;
+                    panel.Controls.OfType<Label>().ToList()[0].Text = ("Event ID: " + events[i].EventId.ToString());
+                    panel.Controls.OfType<Label>().ToList()[1].Text = events[i].EventName.ToString();
+                    panel.Controls.OfType<Label>().ToList()[2].Text = formattedString;
+                    i++;
+                }
+                else if (i >= events.Count)
+                    break;
+            }
+        }
+
+        private void EventTab_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
