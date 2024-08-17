@@ -70,7 +70,7 @@ namespace Mabolo_Dormitory_System
                
             // Add Action Column
             DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.Items.AddRange("Update", "View", "Delete");
+            comboBoxColumn.Items.AddRange("Update", "View", "Delete", "Add Fines");
             comboBoxColumn.Name = "Action";
             comboBoxColumn.HeaderText = "Action";
             comboBoxColumn.ValueType = typeof(String);

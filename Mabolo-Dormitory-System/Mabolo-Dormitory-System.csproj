@@ -210,6 +210,12 @@
     <Compile Include="GUI - Dormers\AddDormerForm.Designer.cs">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI - Dormers\AddFines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI - Dormers\AddFines.Designer.cs">
+      <DependentUpon>AddFines.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI - Event\AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     </Compile>
     <EmbeddedResource Include="GUI - Dormers\AddDormerForm.resx">
       <DependentUpon>AddDormerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI - Dormers\AddFines.resx">
+      <DependentUpon>AddFines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI - Event\AddEvent.resx">
       <DependentUpon>AddEvent.cs</DependentUpon>

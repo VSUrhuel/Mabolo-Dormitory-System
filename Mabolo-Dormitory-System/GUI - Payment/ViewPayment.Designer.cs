@@ -52,6 +52,10 @@
             this.closeViewButton = new Guna.UI.WinForms.GunaButton();
             this.label6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
+            this.finesAmount = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.dormAmount = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +85,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(580, 77);
+            this.label5.Location = new System.Drawing.Point(501, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 23);
             this.label5.TabIndex = 110;
@@ -91,7 +95,7 @@
             // 
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel9.Location = new System.Drawing.Point(510, 75);
+            this.gunaLabel9.Location = new System.Drawing.Point(431, 68);
             this.gunaLabel9.Name = "gunaLabel9";
             this.gunaLabel9.Size = new System.Drawing.Size(64, 23);
             this.gunaLabel9.TabIndex = 109;
@@ -101,7 +105,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(643, 173);
+            this.label4.Location = new System.Drawing.Point(643, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 23);
             this.label4.TabIndex = 108;
@@ -111,7 +115,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(636, 126);
+            this.label3.Location = new System.Drawing.Point(557, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 23);
             this.label3.TabIndex = 107;
@@ -121,7 +125,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(162, 125);
+            this.label2.Location = new System.Drawing.Point(162, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 23);
             this.label2.TabIndex = 106;
@@ -131,7 +135,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(130, 75);
+            this.label1.Location = new System.Drawing.Point(130, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 23);
             this.label1.TabIndex = 105;
@@ -141,7 +145,7 @@
             // 
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel8.Location = new System.Drawing.Point(430, 171);
+            this.gunaLabel8.Location = new System.Drawing.Point(430, 178);
             this.gunaLabel8.Name = "gunaLabel8";
             this.gunaLabel8.Size = new System.Drawing.Size(204, 23);
             this.gunaLabel8.TabIndex = 104;
@@ -151,7 +155,7 @@
             // 
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.Location = new System.Drawing.Point(510, 124);
+            this.gunaLabel3.Location = new System.Drawing.Point(431, 103);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(120, 23);
             this.gunaLabel3.TabIndex = 103;
@@ -161,7 +165,7 @@
             // 
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(40, 124);
+            this.gunaLabel4.Location = new System.Drawing.Point(40, 103);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(116, 23);
             this.gunaLabel4.TabIndex = 102;
@@ -171,7 +175,7 @@
             // 
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(41, 73);
+            this.gunaLabel2.Location = new System.Drawing.Point(41, 66);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(81, 23);
             this.gunaLabel2.TabIndex = 101;
@@ -213,13 +217,13 @@
             this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle9;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dormerTableView.Location = new System.Drawing.Point(44, 231);
+            this.dormerTableView.Location = new System.Drawing.Point(44, 223);
             this.dormerTableView.Name = "dormerTableView";
             this.dormerTableView.RowHeadersVisible = false;
             this.dormerTableView.RowHeadersWidth = 51;
             this.dormerTableView.RowTemplate.Height = 24;
             this.dormerTableView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dormerTableView.Size = new System.Drawing.Size(754, 562);
+            this.dormerTableView.Size = new System.Drawing.Size(754, 570);
             this.dormerTableView.TabIndex = 123;
             this.dormerTableView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Emerald;
             this.dormerTableView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
@@ -297,7 +301,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(188, 175);
+            this.label6.Location = new System.Drawing.Point(188, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 23);
             this.label6.TabIndex = 126;
@@ -307,17 +311,61 @@
             // 
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(40, 173);
+            this.gunaLabel6.Location = new System.Drawing.Point(40, 180);
             this.gunaLabel6.Name = "gunaLabel6";
             this.gunaLabel6.Size = new System.Drawing.Size(142, 23);
             this.gunaLabel6.TabIndex = 125;
             this.gunaLabel6.Text = "Paid Amount:";
+            // 
+            // finesAmount
+            // 
+            this.finesAmount.AutoSize = true;
+            this.finesAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finesAmount.Location = new System.Drawing.Point(169, 142);
+            this.finesAmount.Name = "finesAmount";
+            this.finesAmount.Size = new System.Drawing.Size(32, 23);
+            this.finesAmount.TabIndex = 128;
+            this.finesAmount.Text = "22";
+            // 
+            // gunaLabel7
+            // 
+            this.gunaLabel7.AutoSize = true;
+            this.gunaLabel7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel7.Location = new System.Drawing.Point(41, 141);
+            this.gunaLabel7.Name = "gunaLabel7";
+            this.gunaLabel7.Size = new System.Drawing.Size(123, 23);
+            this.gunaLabel7.TabIndex = 127;
+            this.gunaLabel7.Text = "Event Fines:";
+            // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel5.Location = new System.Drawing.Point(430, 142);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(146, 23);
+            this.gunaLabel5.TabIndex = 129;
+            this.gunaLabel5.Text = "Sem Payable:";
+            // 
+            // dormAmount
+            // 
+            this.dormAmount.AutoSize = true;
+            this.dormAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dormAmount.Location = new System.Drawing.Point(590, 142);
+            this.dormAmount.Name = "dormAmount";
+            this.dormAmount.Size = new System.Drawing.Size(32, 23);
+            this.dormAmount.TabIndex = 130;
+            this.dormAmount.Text = "22";
             // 
             // ViewPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 866);
+            this.Controls.Add(this.dormAmount);
+            this.Controls.Add(this.gunaLabel5);
+            this.Controls.Add(this.finesAmount);
+            this.Controls.Add(this.gunaLabel7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.closeViewButton);
@@ -337,6 +385,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewPayment";
             this.Text = "ViewPayment";
+            this.Load += new System.EventHandler(this.ViewPayment_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
@@ -369,5 +418,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private Guna.UI.WinForms.GunaLabel label6;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
+        private Guna.UI.WinForms.GunaLabel finesAmount;
+        private Guna.UI.WinForms.GunaLabel gunaLabel7;
+        private Guna.UI.WinForms.GunaLabel gunaLabel5;
+        private Guna.UI.WinForms.GunaLabel dormAmount;
     }
 }

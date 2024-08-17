@@ -93,13 +93,20 @@ namespace Mabolo_Dormitory_System.GUI___Event
             // Get the event id
             GunaAdvenceButton button = (GunaAdvenceButton)sender;
             GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
-            char id = 'a';
+            
+            int x = 0;
             foreach (GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
                 if (panel1 == panel)
-                    id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
+                {
+                    String originalText = panel.Controls.OfType<Label>().ToList()[0].ToString();
+
+                    String lastTwoChars = originalText.Substring(originalText.Length - 2).Trim();
+                    ;
+                    int.TryParse(lastTwoChars, out x);
+                }
             }
-            int x = int.Parse(id.ToString());
+           
 
             // Open the view event form
             ViewEvent viewEvent = new ViewEvent(form, x);
@@ -202,13 +209,21 @@ namespace Mabolo_Dormitory_System.GUI___Event
         {
             GunaImageButton button = (GunaImageButton)sender;
             GunaElipsePanel panel = (GunaElipsePanel)button.Parent;
-            char id = 'a';
+            
+            int x = 0;
             foreach (GunaElipsePanel panel1 in flowLayoutPanel1.Controls.OfType<GunaElipsePanel>())
             {
                 if (panel1 == panel)
-                    id = (panel.Controls.OfType<Label>().ToList()[0].Text.Last());
+                {
+                    String originalText = panel.Controls.OfType<Label>().ToList()[0].ToString();
+
+                    String lastTwoChars = originalText.Substring(originalText.Length - 2).Trim();
+;
+                    int.TryParse(lastTwoChars, out x);
+                }
+                    
             }
-            int x = int.Parse(id.ToString());
+           
             EditEvent editEvent = new EditEvent(form, x);
             editEvent.Owner = form;
             SetFormLocation(editEvent);

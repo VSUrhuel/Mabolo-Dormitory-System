@@ -26,6 +26,9 @@ namespace Mabolo_Dormitory_System.GUI___Payment
             label1.Text = u.UserId;
             label2.Text = u.FirstName;
             label3.Text = u.LastName;
+            float fines = db.GetSumEvents() - db.GetSumPresentAttendances(u.UserId);
+            finesAmount.Text = "₱ " + (fines).ToString("N2");
+            dormAmount.Text = "₱ " + (db.GetTotalPayable(u.UserId) - fines).ToString("N2");
             label4.Text = "₱ " + db.GetUserPayableBalance(u.UserId).ToString("N2");
             label6.Text = "₱ " + (db.GetSumUserPayments(u.UserId)).ToString("N2");
             label5.Text = DateTime.Now.ToString("MMMM dd, yyyy");
@@ -74,6 +77,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
         private void UpdateForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void ViewPayment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

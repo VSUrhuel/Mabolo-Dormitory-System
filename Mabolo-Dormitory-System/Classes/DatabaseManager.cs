@@ -435,13 +435,7 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@DepartmentId", user.FK_DepartmentId);
 
                         command.ExecuteNonQuery();
-                        if (user.AvailWiFi == 1)
-                        {
-                            AddUserPayable(user.UserId, (300 * 5));
-                            return true;
-                        }
-                        else if (user.AvailWiFi == 0 && prevAvailWiFi == 1)
-                            UpdateUserPayable(user.UserId, (300 * 5)); 
+                        
                     }
 
                     return true;
@@ -1242,8 +1236,14 @@ namespace Mabolo_Dormitory_System.Classes
                     String query = "DELETE FROM system.event WHERE EventId = @EventId";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        Event e = GetEvent(eventId);
                         command.Parameters.AddWithValue("@EventId", eventId);
                         command.ExecuteNonQuery();
+                        List<User> u = GetAllUsersExcpetAdmin();
+                        for(int i=0; i<u.Count; i++)
+                        {
+                            SubtractTotalPayable(e.AttendanceFineAmount, u[i].UserId);
+                        }
                         return true;
                     }
                 }
@@ -1430,7 +1430,12 @@ namespace Mabolo_Dormitory_System.Classes
                         command.ExecuteNonQuery();
 
                         if (status == "Present")
+                        {
+                            SubtractTotalPayable(GetEvent(eventId).AttendanceFineAmount, userId);
                             UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount, true);
+                        }
+
+                            
                        
                     }
                     return true;
@@ -1498,10 +1503,15 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@FK_EventId_EventAttendance", eventId);
                         command.ExecuteNonQuery();
                     }
-                    if(origStatus == "Absent" && status == "Present")
-                            UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
-                    else if(origStatus == "Present" && status == "Absent")
-                            AddUserPayable(userId, GetEvent(eventId).AttendanceFineAmount); 
+                    if (origStatus == "Absent" && status == "Present")
+                    {
+                        UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                        SubtractTotalPayable(GetEvent(eventId).AttendanceFineAmount, userId);
+                    }
+                    else if (origStatus == "Present" && status == "Absent")
+                    {
+                        AddUserPayable(userId, GetEvent(eventId).AttendanceFineAmount);
+                    }
                     return true;
                 }
                 catch (Exception ex)
@@ -2016,7 +2026,7 @@ namespace Mabolo_Dormitory_System.Classes
                                             pay += (30 * 5);
                                         if (GetUser(userId).HasPrinter == 1)
                                             pay += (30 * 5);
-                                        return pay;
+                                        return (pay - GetSumPresentAttendances(userId));
 
                                     }
                                     return reader.GetFloat("TotalPayable");
@@ -2495,6 +2505,7 @@ namespace Mabolo_Dormitory_System.Classes
             }
         }
 
+
         public float GetSumTotalPayable()
         {
             using (MySqlConnection connection = new MySqlConnection(con))
@@ -2520,6 +2531,66 @@ namespace Mabolo_Dormitory_System.Classes
                 catch
                 {
                     return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void SubtractTotalPayable(float paymentAmount, string userId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    // Improved query with parameterized subtraction
+                    string query = "UPDATE system.user_payable SET TotalPayable = TotalPayable - @PaymentAmount WHERE FK_UserId_UserPayable = @UserId";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PaymentAmount", paymentAmount);
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle specific MySql exceptions for better troubleshooting
+                    Console.WriteLine($"Error subtracting from TotalPayable: {ex.Message}");
+                    // Consider logging the error for further analysis
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void AddTotalPayable(float paymentAmount, string userId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    // Improved query with parameterized subtraction
+                    string query = "UPDATE system.user_payable SET TotalPayable = TotalPayable + @PaymentAmount WHERE FK_UserId_UserPayable = @UserId";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PaymentAmount", paymentAmount);
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle specific MySql exceptions for better troubleshooting
+                    Console.WriteLine($"Error subtracting from TotalPayable: {ex.Message}");
+                    // Consider logging the error for further analysis
                 }
                 finally
                 {

@@ -58,7 +58,7 @@ namespace Mabolo_Dormitory_System
             }
             
             // Validate the fields
-            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, dormerStatusCB.Text, dormerTypeCB.Text,data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, data6.Text, data7.Text }) == false)
+            if (ValidationClass.ValidateFieldsNotEmpty(new string[] { data1.Text, dormerStatusCB.Text, dormerTypeCB.Text,data2.Text, data3.Text, dateTimePicker1.Text, data5.Text, departmentCB.Text, data6.Text, data7.Text }) == false)
             {
                 MessageBox.Show("Please fill up all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
