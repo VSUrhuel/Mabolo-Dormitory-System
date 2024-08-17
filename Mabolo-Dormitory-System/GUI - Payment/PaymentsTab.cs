@@ -107,13 +107,21 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                     paymentTransaction.Owner = form;
                     paymentTransaction.Show();
                 }
-                else
+                else if(cb.SelectedItem.ToString() == "View Payments")
                 {
                     ViewPayment viewPayment = new ViewPayment(db.GetUser(
                 dormerTableView.Rows[i].Cells["UserId"].Value.ToString()));
                     SetFormLocation(viewPayment);
                     viewPayment.Owner = form;
                     viewPayment.Show();
+                }
+                else if(cb.SelectedItem.ToString() == "Payment Distribution")
+                {
+                    PaymentDistribution paymentDistribution = new PaymentDistribution(db.GetUser(
+                dormerTableView.Rows[i].Cells["UserId"].Value.ToString()), this);
+                    SetFormLocation(paymentDistribution);
+                    paymentDistribution.Owner = form;
+                    paymentDistribution.Show();
                 }
             }
         }
@@ -358,6 +366,11 @@ namespace Mabolo_Dormitory_System.GUI___Payment
                 }
             }
             SetupTable(users);
+        }
+
+        private void dormerTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -926,14 +926,14 @@ namespace Mabolo_Dormitory_System.Classes
                 MessageBox.Show(userId + " does not have a room yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if(CountBigBrod(newRoomId) == 1 && GetUser(userId).UserType == "Big Brod" && newRoomId != 4)
+            if(CountBigBrod(newRoomId) == 2 && GetUser(userId).UserType == "Big Brod" && newRoomId != 4)
             {
-                MessageBox.Show("This room already has a Big Brod assigned.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("This room already has 2 Big Brods assigned.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            if(newRoomId == 4 && CountBigBrod(newRoomId) > 1 && GetUser(userId).UserType == "Big Brod")
+            if(newRoomId == 4 && CountBigBrod(newRoomId) > 3 && GetUser(userId).UserType == "Big Brod")
             {
-                MessageBox.Show("Room 4 already has 2 Big Brods.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Room 4 already has 4 Big Brods.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1434,9 +1434,6 @@ namespace Mabolo_Dormitory_System.Classes
                             SubtractTotalPayable(GetEvent(eventId).AttendanceFineAmount, userId);
                             UpdateUserPayable(userId, GetEvent(eventId).AttendanceFineAmount, true);
                         }
-
-                            
-                       
                     }
                     return true;
                 }
@@ -2317,6 +2314,8 @@ namespace Mabolo_Dormitory_System.Classes
                     balance += GetUserAccFines(userId);
                     if (balance < 0)
                         balance = 0;
+                    if (totalPayable < balance)
+                        totalPayable = balance;
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@RemainingBalance", balance);

@@ -69,7 +69,7 @@ namespace Mabolo_Dormitory_System
 
             // Add ComboBox Column
             DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.Items.AddRange("Update", "View", "Add Payment", "View Payment");
+            comboBoxColumn.Items.AddRange("Update", "View", "Add Payment", "View Payment", "Payment Distribution");
             comboBoxColumn.Name = "Action";
             comboBoxColumn.HeaderText = "Action";
             comboBoxColumn.ValueType = typeof(String);
@@ -135,6 +135,14 @@ namespace Mabolo_Dormitory_System
                     SetFormLocation(viewPayment);
                     viewPayment.Owner = form;
                     viewPayment.Show();
+                }
+                else if (cb.SelectedItem.ToString() == "Payment Distribution")
+                {
+                    PaymentDistribution paymentDistribution = new PaymentDistribution(db.GetUser(
+                roomUserView.Rows[i].Cells["UserId"].Value.ToString()), this);
+                    SetFormLocation(paymentDistribution);
+                    paymentDistribution.Owner = form;
+                    paymentDistribution.Show();
                 }
             }
         }

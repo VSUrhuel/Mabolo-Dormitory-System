@@ -96,6 +96,9 @@ namespace Mabolo_Dormitory_System
 
         private void forgotPass_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Not available right now due to security concerns! Please contact the developer to reset the password. Thank you!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+            /*
             if (emailTextBox.Text == "Email")
             {
                 MessageBox.Show("Please input your email first", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,7 +120,7 @@ namespace Mabolo_Dormitory_System
             {
                 emailReview.Text = "Email not found";
                 emailTextBox.LineColor = Color.Red;
-            }
+            }*/
         }
 
         private void SendOTPCode(String email)

@@ -39,7 +39,7 @@ namespace Mabolo_Dormitory_System
                 return;
             }
             string text = chooseCB.SelectedItem.ToString().Split(':')[0];
-            if(db.GetUser(text).UserType == "Big Brod" && db.RoomHasBigBrod(roomNUm))
+            if (db.GetUser(text).UserType == "Big Brod" && ((roomNUm != 4 && db.CountBigBrod(roomNUm) > 1) || (roomNUm == 4 && db.CountBigBrod(roomNUm) > 3)))
             {
                 MessageBox.Show("This room already the maximum number of Big Brod assigned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

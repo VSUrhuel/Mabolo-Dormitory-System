@@ -39,12 +39,6 @@
             this.itemCB = new Guna.UI.WinForms.GunaComboBox();
             this.refreshBut = new Guna.UI.WinForms.GunaButton();
             this.dormerTableView = new Guna.UI.WinForms.GunaDataGridView();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemainingBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Action = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.statusCB = new Guna.UI.WinForms.GunaComboBox();
             this.count = new Guna.UI.WinForms.GunaLabel();
@@ -56,6 +50,12 @@
             this.paymentsSummary = new Guna.UI.WinForms.GunaButton();
             this.regularPayablesBut = new Guna.UI.WinForms.GunaButton();
             this.printButton = new Guna.UI.WinForms.GunaButton();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemainingBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,50 +240,7 @@
             this.dormerTableView.ThemeStyle.RowsStyle.Height = 24;
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             this.dormerTableView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // UserId
-            // 
-            this.UserId.HeaderText = "User ID";
-            this.UserId.MinimumWidth = 6;
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "LastName";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // RemainingBalance
-            // 
-            this.RemainingBalance.HeaderText = "Remaining Balance";
-            this.RemainingBalance.MinimumWidth = 6;
-            this.RemainingBalance.Name = "RemainingBalance";
-            this.RemainingBalance.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Action
-            // 
-            this.Action.HeaderText = "Action";
-            this.Action.Items.AddRange(new object[] {
-            "Add Payment",
-            "View Payments"});
-            this.Action.MinimumWidth = 6;
-            this.Action.Name = "Action";
+            this.dormerTableView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dormerTableView_CellContentClick);
             // 
             // gunaLabel4
             // 
@@ -454,6 +411,51 @@
             this.printButton.Text = "Print";
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
+            // UserId
+            // 
+            this.UserId.HeaderText = "User ID";
+            this.UserId.MinimumWidth = 6;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // RemainingBalance
+            // 
+            this.RemainingBalance.HeaderText = "Remaining Balance";
+            this.RemainingBalance.MinimumWidth = 6;
+            this.RemainingBalance.Name = "RemainingBalance";
+            this.RemainingBalance.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Action
+            // 
+            this.Action.HeaderText = "Action";
+            this.Action.Items.AddRange(new object[] {
+            "Add Payment",
+            "View Payments",
+            "Payment Distribution"});
+            this.Action.MinimumWidth = 6;
+            this.Action.Name = "Action";
+            // 
             // PaymentsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -494,12 +496,6 @@
         private Guna.UI.WinForms.GunaDataGridView dormerTableView;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaComboBox statusCB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Action;
         private Guna.UI.WinForms.GunaLabel count;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel over;
@@ -509,5 +505,11 @@
         private Guna.UI.WinForms.GunaButton paymentsSummary;
         private Guna.UI.WinForms.GunaButton regularPayablesBut;
         private Guna.UI.WinForms.GunaButton printButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RemainingBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Action;
     }
 }
