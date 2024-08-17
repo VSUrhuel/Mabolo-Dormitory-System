@@ -29,26 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(deleteEventButton));
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.deleteButton = new Guna.UI.WinForms.GunaButton();
             this.cancelButton = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(-261, -1);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 4;
-            this.gunaPictureBox1.TabStop = false;
             // 
             // comboBox1
             // 
@@ -58,7 +47,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(405, 31);
             this.comboBox1.TabIndex = 5;
-           
             // 
             // gunaLabel2
             // 
@@ -150,6 +138,17 @@
             this.gunaButton1.Size = new System.Drawing.Size(52, 37);
             this.gunaButton1.TabIndex = 139;
             // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Location = new System.Drawing.Point(-261, -1);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 4;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // deleteEventButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -163,6 +162,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "deleteEventButton";
             this.Text = "DeleteForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);

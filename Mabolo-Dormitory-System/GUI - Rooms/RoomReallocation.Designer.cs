@@ -225,6 +225,7 @@
             this.Controls.Add(this.closeReallocButton);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RoomReallocation";
             this.Text = "EditForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);

@@ -223,7 +223,6 @@
             this.gunaButton2.Radius = 9;
             this.gunaButton2.Size = new System.Drawing.Size(58, 37);
             this.gunaButton2.TabIndex = 140;
-            
             // 
             // OTPForm
             // 
@@ -242,6 +241,7 @@
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OTPForm";
             this.Text = "OTPForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);

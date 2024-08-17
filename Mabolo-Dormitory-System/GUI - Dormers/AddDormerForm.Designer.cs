@@ -57,15 +57,15 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.closeButton = new Guna.UI.WinForms.GunaButton();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.laptopCheckBox = new System.Windows.Forms.CheckBox();
             this.printerCheckbox = new System.Windows.Forms.CheckBox();
             this.availWiFi = new System.Windows.Forms.CheckBox();
+            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -431,17 +431,6 @@
             this.closeButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.closeButton.Click += new System.EventHandler(this.closeViewButton_Click);
             // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(-114, -3);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 71;
-            this.gunaPictureBox1.TabStop = false;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,6 +438,50 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(273, 30);
             this.dateTimePicker1.TabIndex = 102;
+            // 
+            // gunaLabel15
+            // 
+            this.gunaLabel15.AutoSize = true;
+            this.gunaLabel15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaLabel15.Location = new System.Drawing.Point(199, 298);
+            this.gunaLabel15.Name = "gunaLabel15";
+            this.gunaLabel15.Size = new System.Drawing.Size(119, 16);
+            this.gunaLabel15.TabIndex = 146;
+            this.gunaLabel15.Text = "+63##########";
+            // 
+            // laptopCheckBox
+            // 
+            this.laptopCheckBox.AutoSize = true;
+            this.laptopCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laptopCheckBox.Location = new System.Drawing.Point(466, 171);
+            this.laptopCheckBox.Name = "laptopCheckBox";
+            this.laptopCheckBox.Size = new System.Drawing.Size(118, 24);
+            this.laptopCheckBox.TabIndex = 149;
+            this.laptopCheckBox.Text = "Has Laptop";
+            this.laptopCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // printerCheckbox
+            // 
+            this.printerCheckbox.AutoSize = true;
+            this.printerCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printerCheckbox.Location = new System.Drawing.Point(466, 205);
+            this.printerCheckbox.Name = "printerCheckbox";
+            this.printerCheckbox.Size = new System.Drawing.Size(117, 24);
+            this.printerCheckbox.TabIndex = 150;
+            this.printerCheckbox.Text = "Has Printer";
+            this.printerCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // availWiFi
+            // 
+            this.availWiFi.AutoSize = true;
+            this.availWiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availWiFi.Location = new System.Drawing.Point(608, 171);
+            this.availWiFi.Name = "availWiFi";
+            this.availWiFi.Size = new System.Drawing.Size(106, 24);
+            this.availWiFi.TabIndex = 151;
+            this.availWiFi.Text = "Avail WiFi";
+            this.availWiFi.UseVisualStyleBackColor = true;
             // 
             // gunaButton3
             // 
@@ -516,49 +549,16 @@
             this.gunaButton2.Size = new System.Drawing.Size(52, 37);
             this.gunaButton2.TabIndex = 143;
             // 
-            // gunaLabel15
+            // gunaPictureBox1
             // 
-            this.gunaLabel15.AutoSize = true;
-            this.gunaLabel15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaLabel15.Location = new System.Drawing.Point(199, 298);
-            this.gunaLabel15.Name = "gunaLabel15";
-            this.gunaLabel15.Size = new System.Drawing.Size(119, 16);
-            this.gunaLabel15.TabIndex = 146;
-            this.gunaLabel15.Text = "+63##########";
-            // 
-            // laptopCheckBox
-            // 
-            this.laptopCheckBox.AutoSize = true;
-            this.laptopCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laptopCheckBox.Location = new System.Drawing.Point(466, 171);
-            this.laptopCheckBox.Name = "laptopCheckBox";
-            this.laptopCheckBox.Size = new System.Drawing.Size(118, 24);
-            this.laptopCheckBox.TabIndex = 149;
-            this.laptopCheckBox.Text = "Has Laptop";
-            this.laptopCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // printerCheckbox
-            // 
-            this.printerCheckbox.AutoSize = true;
-            this.printerCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printerCheckbox.Location = new System.Drawing.Point(466, 205);
-            this.printerCheckbox.Name = "printerCheckbox";
-            this.printerCheckbox.Size = new System.Drawing.Size(117, 24);
-            this.printerCheckbox.TabIndex = 150;
-            this.printerCheckbox.Text = "Has Printer";
-            this.printerCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // availWiFi
-            // 
-            this.availWiFi.AutoSize = true;
-            this.availWiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availWiFi.Location = new System.Drawing.Point(608, 171);
-            this.availWiFi.Name = "availWiFi";
-            this.availWiFi.Size = new System.Drawing.Size(106, 24);
-            this.availWiFi.TabIndex = 151;
-            this.availWiFi.Text = "Avail WiFi";
-            this.availWiFi.UseVisualStyleBackColor = true;
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Location = new System.Drawing.Point(-114, -3);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 71;
+            this.gunaPictureBox1.TabStop = false;
             // 
             // AddDormerForm
             // 
@@ -603,6 +603,7 @@
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddDormerForm";
             this.Text = "AddDormerForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);

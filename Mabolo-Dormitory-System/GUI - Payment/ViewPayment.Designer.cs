@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPayment));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.label5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
@@ -56,20 +55,10 @@
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.dormAmount = new Guna.UI.WinForms.GunaLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(-171, -2);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 75;
-            this.gunaPictureBox1.TabStop = false;
             // 
             // gunaLabel1
             // 
@@ -186,35 +175,35 @@
             this.dormerTableView.AllowUserToAddRows = false;
             this.dormerTableView.AllowUserToDeleteRows = false;
             this.dormerTableView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.dormerTableView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dormerTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dormerTableView.BackgroundColor = System.Drawing.Color.White;
             this.dormerTableView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dormerTableView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dormerTableView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dormerTableView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dormerTableView.ColumnHeadersHeight = 52;
             this.dormerTableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PaymentId,
             this.Date,
             this.Amount,
             this.Remarks});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dormerTableView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dormerTableView.EnableHeadersVisualStyles = false;
             this.dormerTableView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
             this.dormerTableView.Location = new System.Drawing.Point(44, 223);
@@ -357,6 +346,17 @@
             this.dormAmount.TabIndex = 130;
             this.dormAmount.Text = "22";
             // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Location = new System.Drawing.Point(-171, -2);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(1096, 10);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 75;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // ViewPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -383,14 +383,15 @@
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewPayment";
             this.Text = "ViewPayment";
             this.Load += new System.EventHandler(this.ViewPayment_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

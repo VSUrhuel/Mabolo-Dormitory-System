@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewEvent));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewEvent));
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.data2 = new Guna.UI.WinForms.GunaLineTextBox();
@@ -58,20 +57,10 @@
             this.selectAllCB = new Guna.UI.WinForms.GunaCheckBox();
             this.updateEventButton = new Guna.UI.WinForms.GunaButton();
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(-182, -2);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(1180, 10);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 72;
-            this.gunaPictureBox1.TabStop = false;
             // 
             // gunaLabel1
             // 
@@ -438,6 +427,17 @@
             this.gunaButton3.Size = new System.Drawing.Size(52, 37);
             this.gunaButton3.TabIndex = 146;
             // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Location = new System.Drawing.Point(-182, -2);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(1180, 10);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 72;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // ViewEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,13 +466,14 @@
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewEvent";
             this.Text = "ViewEvent";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dormerTableView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

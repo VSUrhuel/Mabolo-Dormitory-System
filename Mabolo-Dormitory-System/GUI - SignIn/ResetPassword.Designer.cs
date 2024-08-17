@@ -209,6 +209,7 @@
             this.Controls.Add(this.passwordText);
             this.Controls.Add(this.gunaLabel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "ResetPassword";
             this.Text = "ResetPassword";

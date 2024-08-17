@@ -80,7 +80,6 @@
             this.gunaLabel3.Size = new System.Drawing.Size(120, 23);
             this.gunaLabel3.TabIndex = 80;
             this.gunaLabel3.Text = "Last Name:";
-           
             // 
             // gunaLabel4
             // 
@@ -187,7 +186,6 @@
             this.label3.Size = new System.Drawing.Size(32, 23);
             this.label3.TabIndex = 90;
             this.label3.Text = "22";
-            
             // 
             // label4
             // 
@@ -303,6 +301,7 @@
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaymentTransaction";
             this.Text = "PaymentTransaction";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdateForm_MouseDown);
