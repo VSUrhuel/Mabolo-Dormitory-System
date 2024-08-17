@@ -18,12 +18,13 @@ namespace Mabolo_Dormitory_System.GUI___Dormers
         private Point lastLocation;
         private dormersTab form;
         private bool mouseDown;
+        User u;
         public AddFines(User u, dormersTab form)
         {
             this.form = form;
             this.db = new DatabaseManager();
             InitializeComponent();
-
+            this.u = u;
             label1.Text = u.UserId;
             label2.Text = u.FirstName;
             label3.Text = u.LastName;
@@ -55,6 +56,42 @@ namespace Mabolo_Dormitory_System.GUI___Dormers
             {
                 MessageBox.Show("Please enter a valid number for the amount fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+
+            int index = db.GetLastAccFinesId() + 1;
+            AccFines a = new AccFines(index, monthCB.Text, float.Parse(amountText.Text), u.UserId);
+            if(db.AddAccFines(a))
+            {
+                MessageBox.Show("Fines added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Error in adding fines!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
+
+        }
+
+        private void AddFines_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void AddFines_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void AddFines_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
             }
         }
     }

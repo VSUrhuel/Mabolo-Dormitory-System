@@ -1092,7 +1092,7 @@
             this.gunaButton9.Radius = 9;
             this.gunaButton9.Size = new System.Drawing.Size(510, 45);
             this.gunaButton9.TabIndex = 19;
-            this.gunaButton9.Text = "More than just a dorm, a Launching Pad for Vsicans";
+            this.gunaButton9.Text = "More than just a dorm, a Launching Pad for Viscans";
             this.gunaButton9.TextOffsetX = 10;
             // 
             // gunaButton8

@@ -200,6 +200,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AccFines.cs" />
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\DVGPrinter.cs" />
     <Compile Include="Classes\RegularPayable.cs" />

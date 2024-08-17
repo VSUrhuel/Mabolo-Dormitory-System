@@ -42,5 +42,6 @@ namespace Mabolo_Dormitory_System.Classes
             if (imageDate == null)
                 throw new ArgumentNullException();
         }
+
     }
 }

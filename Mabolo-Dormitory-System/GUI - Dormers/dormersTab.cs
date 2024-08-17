@@ -11,6 +11,7 @@ using Guna.UI.WinForms;
 using Mabolo_Dormitory_System.Classes;
 using DGVPrinterHelper;
 using System.Xml.Linq;
+using Mabolo_Dormitory_System.GUI___Dormers;
 
 namespace Mabolo_Dormitory_System
 {
@@ -136,6 +137,13 @@ namespace Mabolo_Dormitory_System
                         MessageBox.Show("Deletion was cancelled", "Deletion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }   
+                else if(cb.SelectedItem.ToString() == "Add Fines")
+                {
+                    AddFines addF = new AddFines(users[i], this);
+                    SetFormLocation(addF);
+                    addF.Owner = form;
+                    addF.Show();
+                }
             }
         }
         

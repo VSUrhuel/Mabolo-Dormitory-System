@@ -297,6 +297,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddFines";
             this.Text = "AddFines";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AddFines_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddFines_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AddFines_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

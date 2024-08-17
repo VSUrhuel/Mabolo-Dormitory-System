@@ -2126,10 +2126,7 @@ namespace Mabolo_Dormitory_System.Classes
                     float updatedAmount = 0, updatedTotal = 0;
                     string query = "UPDATE system.user_payable SET RemainingBalance = @updatedAmount, TotalPayable = @totalPayable WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
                     updatedAmount = GetUserPayableBalance(userId) + Amount;
-                    updatedTotal = GetTotalPayable(userId) + Amount;
-                    if(updatedAmount == 0)
-                        updatedAmount = Amount;
-                    
+                    updatedTotal = GetTotalPayable(userId) + Amount; 
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -2137,7 +2134,6 @@ namespace Mabolo_Dormitory_System.Classes
                         command.Parameters.AddWithValue("@totalPayable", updatedTotal);
                         command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
                         command.ExecuteNonQuery();
-                        
                     }
                 }
                 catch
@@ -2317,6 +2313,8 @@ namespace Mabolo_Dormitory_System.Classes
                     {
                         balance += (30 * 5);
                     }
+                    
+                    balance += GetUserAccFines(userId);
                     if (balance < 0)
                         balance = 0;
                     using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -2397,7 +2395,135 @@ namespace Mabolo_Dormitory_System.Classes
             }
             return false;
         }
-       
+        public bool AddRemainingBalance(float amount, string userId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    string query = "UPDATE system.user_payable SET RemainingBalance = RemainingBalance + @RemainingBalance WHERE FK_UserId_UserPayable = @FK_UserId_UserPayable";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@RemainingBalance", amount);
+                        command.Parameters.AddWithValue("@FK_UserId_UserPayable", userId);
+                        command.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("done");
+                    return true; // Indicate successful update
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySql exceptions for troubleshooting
+                    MessageBox.Show($"Error adding to RemainingBalance: {ex.Message}");
+                    return false; // Indicate error
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        //AccFines
+        public bool AddAccFines(AccFines accFines)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    string query = "INSERT INTO system.acc_fines(AccFinesId, Month, Amount, FK_AccFinesId_UserId) VALUES (@AccFinesId, @Month, @Amount, @FK_AccFinesId_UserId)";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AccFinesId", accFines.AccFinesId);
+                        command.Parameters.AddWithValue("@Month",accFines.Month);
+                        command.Parameters.AddWithValue("@Amount", accFines.Amount);
+                        command.Parameters.AddWithValue("@FK_AccFinesId_UserId", accFines.FK_AccFinesId_UserId);
+                        AddUserPayable(accFines.FK_AccFinesId_UserId, accFines.Amount);
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error while adding Accumulated Fines: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return false;
+        }
+
+        public float GetUserAccFines(string userId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    float sum = 0;
+                    string sql = "SELECT * FROM system.acc_fines WHERE FK_AccFinesId_UserId = @userId";
+
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@userId", userId);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                sum += (float)reader["Amount"];
+                            }
+                        }
+                    }
+                    return sum;
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public int GetLastAccFinesId()
+        {
+            using (MySqlConnection connection = new MySqlConnection(con))
+            {
+                connection.Open();
+                try
+                {
+                    using (MySqlCommand command = new MySqlCommand("SELECT MAX(AccFinesId) FROM system.acc_fines", connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                return (int)reader["MAX(AccFinesId)"];
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    return 0;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return 0;
+        }
+
         // Operations
         public float GetSumEvents()
         {
