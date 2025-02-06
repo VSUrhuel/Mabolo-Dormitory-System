@@ -19,7 +19,7 @@ namespace Mabolo_Dormitory_System
     {
         private DatabaseManager db;
         private List<User> users;
-        private Form form;
+        private Form form; 
         public dormersTab(Form form)
         {
             this.db = new DatabaseManager();

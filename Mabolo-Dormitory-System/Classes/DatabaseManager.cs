@@ -44,7 +44,7 @@ namespace Mabolo_Dormitory_System.Classes
             Users = new List<User>();
             Departments = new List<Department>();
             Rooms = new List<Room>();
-            RegularPayable = new List<RegularPayable>();
+            RegularPayable = new List<RegularPay+able>();
             EventAttendances = new List<EventAttendance>();
             Events = new List<Event>();
             Payments = new List<Payment>();
